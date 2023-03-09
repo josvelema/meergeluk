@@ -1,0 +1,398 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bkg: linear-gradient(to top, hsl(6, 63%, 69%), hsl(60, 46%, 81%));
+  --dark: hsl(6, 63%, 69%);
+  --text: #0009;
+  --accent: #e4e433;
+  --accent2: #f8c348;
+}
+
+
+  /* linear-gradient(120deg, hsla(30, 43%, 59%,0.2) ,transparent) */
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: clamp(1.1rem, 2vw + 1rem, 1.4rem);
+  line-height: 1.55;
+  background: var(--bkg);
+  color: var(--text);
+}
+
+
+
+nav {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  padding-block: 1.2rem;
+  background-color: transparent;
+  transition: background-color 800ms cubic-bezier(.62,.34,.04,.7);
+}
+
+nav.active {
+  background-color: var(--dark);
+}
+
+img {
+  max-width: 100%;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: var(--accent);
+  margin-inline: 0.5rem;
+  width: clamp(3rem, 10vw , 7.5rem);
+  display: grid;
+  place-items: center;
+}
+
+.logo-link:focus-visible,
+.nav-link:focus-visible{
+  outline: 4px solid var(--accent);
+  outline-offset: 0.2em;
+  border-radius: 0.5rem;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  transform: translate3d(0, -200%, 0);
+  position: absolute;
+  z-index: -1;
+  top: 3rem;
+  left: 0;
+  right: 0;
+  background-color: var(--dark);
+  padding: 1.5rem;
+  border-bottom: 3px solid var(--accent);
+  text-align: center;
+
+}
+
+.nav-links.activated {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.84);
+}
+
+
+.btn {
+  color: var(--text);
+  text-decoration: none;
+  padding: 0.3rem 1.5rem;
+  cursor: pointer;
+  border-radius: 0.5rem
+}
+.btn--accent {
+ background-color: var(--accent);
+  padding: 0.3rem 2rem;
+
+}
+
+.btn--menu {
+  color: var(--accent);
+  background-color: transparent;
+  border: none;
+  display: grid;
+  place-items: center;
+  padding-inline: 1rem;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.84);
+
+}
+
+li[role="none"],
+.nav-link {
+  width: 100%;
+  display: block;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn--menu[aria-expanded="true"] {
+  transform: rotate(180deg);
+}
+.btn--menu[aria-expanded="true"] + .nav-links {
+  transform: translate3d(0,0,0);
+}
+
+.nav-link[aria-current="page"] {
+  text-decoration: underline dotted var(--accent2) 0.15rem;
+  text-underline-offset: 0.35rem;
+  text-decoration-thickness: 1px;
+  border-left: 2px solid var(--accent2);
+  border-right: 2px solid var(--accent2);
+  box-shadow:  0 0 8px -2px var(--accent2);
+}
+
+
+@media (min-width: 768px) {
+  .btn--menu {
+    display: none;
+  }
+
+  .nav-links {
+    position: static;
+    transform: translate3d(0,0,0);
+    flex-direction: row;
+    border: none;
+    z-index: 0;
+    padding: 0;
+    inset: 0;
+    background-color: transparent;
+  }
+
+  li[role="none"], .nav-link {
+    width: initial;
+  }
+}
+
+
+
+main {
+  display: grid;
+  gap: clamp(4rem, 1.45454537rem + 11.636364vw, 8rem);
+  position: relative;
+  top: -10vh;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw + 1rem, 6rem);
+  font-size: bolder;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+}
+
+.h2 {
+  font-size: clamp(1.8rem, 4vw + 1rem, 3.5rem);
+  font-size: bolder;
+  line-height: 1.1;
+  color: var(--accent);
+}
+
+.h3 {
+  font-size: clamp(1.2rem, 3vw + 1rem, 2.2rem);
+  line-height: 1.1;
+  color: var(--accent);
+}
+
+.subheading {
+  color: var(--text);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+header {
+  height: 100vh;
+  height: 100dvh;
+  
+
+  /* width: 100%; */
+  display: grid;
+  place-items: center;
+  text-align: center;
+  position: relative;
+  background-image: url('../img/maninfield.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+
+}
+
+.header__img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.container {
+  margin-inline: max((100% - 90rem) / 2, 1rem);
+}
+
+.container--sm {
+  margin-inline: max((100% - 70rem) / 2, 2rem);
+}
+
+.rise {
+  opacity: 0;
+  animation: rise 0.8s ease-in-out forwards;
+}
+
+.rise.subheading {
+  animation: rise 1.2s ease-in-out forwards 0.5s;
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(2rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+ .about .image-container {
+  display: flex;
+}
+.header-container {
+  display: grid;
+  gap: 1rem;
+  position: relative;
+  /* top: -5vh; */
+  padding-block: 2em;
+}
+
+.coaching {
+  margin-top: 2em;
+  margin-bottom: 1em;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.about {
+  padding-inline: clamp(1.2rem, 3.5vw, 2.5rem);
+  padding-block: 1em;
+  background-color: #fff;
+  display: flex;
+  border-radius: 0.5rem;
+  gap: 1rem;
+}
+
+.about .text {
+  flex: 50%;
+  max-width: 50ch;
+  text-align: justify;
+  padding: 1em 1.5em 0 0;
+}
+
+.about .text h2,
+.about .text h3,
+.about .text .clover
+ {
+text-align: center;
+}
+
+.text p {
+  margin-bottom: 1em;
+}
+
+
+.about .image-container {
+  flex: 50%;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+
+}
+
+.about .image-container .image {
+  height: 100%;
+  justify-self: center;
+}
+.moons {
+  display: grid;
+  gap: 1rem;
+}
+
+#stars {
+  text-align: center;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem 3.5rem;
+}
+
+.card {
+  flex: 1 1 100%;
+  display: grid;
+  place-items: center;
+  gap: 1.5rem;
+  padding: 2.5rem 1.5rem 1.5rem;
+  border: 5px solid var(--accent);
+  border-radius: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .card {
+    flex: 1 1 28%;
+  }
+}
+
+
+
+.fade-up {
+  opacity: 0;
+  position: relative;
+  transform: translateY(5rem);
+  transition: transform 1s cubic-bezier(0.64, 0.04, 0.26, 0.87),
+    opacity 0.8s cubic-bezier(0.64, 0.04, 0.26, 0.87);
+}
+
+.fade-up.faded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card__image {
+  width: clamp(4rem, 10vw, 8rem);
+}
+
+header .svg-down {
+  bottom: 0;
+  left: 50%;
+  z-index: 5;
+  /* margin-left: -96px; */
+  /* margin-bottom: -12px; */
+  color: #fff;
+  justify-self: center;
+  align-self: flex-end;
+}
+header .arrow-down {
+  position: absolute;
+  width: 70px;
+  height: 50px;
+  bottom: 0;
+  /* left: 50%; */
+  /* transform: translate(-50%, 0); */
+  z-index: 10;
+  background: url("https://res.cloudinary.com/abdel-rahman-ali/image/upload/v1535988515/arrow-down.png") no-repeat center;
+}
+
+@media (max-width: 992px) {
+
+  .about {
+      display: block;
+      padding-top: 50px;
+  }
+
+}
