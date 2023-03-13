@@ -13,6 +13,14 @@
       href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,600;0,800;1,600;1,800&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
@@ -20,8 +28,7 @@
       <nav>
         <div class="container nav-container">
           <a href="/" class="logo-link" aria-label="Go to homepage">
-            <img src="assets/img/logo.png" alt="Logo meer geluk" class="logo">
-
+            <img src="assets/img/logo.png" alt="Logo meer geluk" class="logo" />
           </a>
 
           <div class="nav-wrapper">
@@ -86,8 +93,38 @@
 
       <div class="container header-container">
         <h1 class="h1 rise">Meer geluk</h1>
-        <h2 class="h2 rise subheading"> in je  leven, relatie of werk</h2>
+        <h2 class="h2 rise subheading">in je leven, relatie of werk</h2>
       </div>
+      <article class="hero">
+        <div class="hero-container">
+          <div class="hero-image-container">
+            <div class="profile-picture">
+              <img
+                src="assets/img/sabineProfilePhoto.jpg"
+                alt="Profile Picture"
+              />
+            </div>
+            <div class="cta-buttons">
+              <a href="tel:123456789"><i class="fas fa-phone"></i></a>
+              <a href="https://wa.me/123456789"
+                ><i class="fab fa-whatsapp"></i
+              ></a>
+              <a href="mailto:john@doe.com"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+          <div class="content">
+            <div class="text-container">
+              <h3>Coaching & begeleiding</h3>
+              <p>
+                Ik ben Sabine, relatie- en levenscoach, kunstenares, danseres en
+                gelukszoeker. Ik begeleid en inspireer mensen al jaren op hun weg naar
+                <em>MEER GELUK</em>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
       <svg
         class="svg-down"
         width="200"
@@ -105,13 +142,26 @@
           d="M80.3,61.5c0,0,22.1-2.7,43.1-5.4s41-5.4,36.6-5.4c-21.7,0-34.1-12.7-44.9-25.4S95.3,0,80.3,0c-15,0-24.1,12.7-34.9,25.4S22.3,50.8,0.6,50.8c-4.3,0-6.5,0,3.5,1.3S36.2,56.1,80.3,61.5z"
         ></path>
       </svg>
-      <div class="arrow-down"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-down-circle" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-        <circle cx="12" cy="12" r="8" />
-        <line x1="8" y1="12" x2="12" y2="16" />
-        <line x1="12" y1="8" x2="12" y2="16" />
-        <line x1="16" y1="12" x2="12" y2="16" />
-      </svg></div>
+      <div class="arrow-down">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon icon-tabler icon-tabler-arrow-down-circle"
+          width="44"
+          height="44"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <circle cx="12" cy="12" r="8" />
+          <line x1="8" y1="12" x2="12" y2="16" />
+          <line x1="12" y1="8" x2="12" y2="16" />
+          <line x1="16" y1="12" x2="12" y2="16" />
+        </svg>
+      </div>
     </header>
     <main>
       <section aria-labelledby="coaching" class="coaching container">
@@ -119,26 +169,58 @@
           <div class="text">
             <h2 class="h2">Relatie Geluk</h2>
             <h3>Koppels en singles</h3>
-            <div class="clover"><img src="assets/svg/clover.svg" alt="Clover symbol"></div>
+            <div class="clover">
+              <img src="assets/svg/clover.svg" alt="Clover symbol" />
+            </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aliquam libero et illo facilis dolores officia. Quasi, amet id beatae saepe repellat magni provident!
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita
+              aliquam libero et illo facilis dolores officia. Quasi, amet id
+              beatae saepe repellat magni provident!
             </p>
-            <button class="btn btn--accent read-more-btn" data-target="#about-tab-1" aria-expanded="false" aria-controls="about-tab-1-content">read more</button>
+            <button
+              class="btn btn--accent read-more-btn"
+              data-target="#about-tab-1"
+              aria-expanded="false"
+              aria-controls="about-tab-1-content"
+            >
+              read more
+            </button>
           </div>
           <div class="image-container">
             <div class="image image2">
-              <img src="assets/img/close-up-portrait-kissing-couple-spending-morning-together.jpg" />
+              <img
+                src="assets/img/close-up-portrait-kissing-couple-spending-morning-together.jpg"
+              />
             </div>
           </div>
-          <div class="overlay" id="about-tab-1" aria-hidden="true" aria-labelledby="about-tab-1-title">
+          <div
+            class="overlay"
+            id="about-tab-1"
+            aria-hidden="true"
+            aria-labelledby="about-tab-1-title"
+          >
             <div class="tab">
               <div class="tab-header">
                 <h3 class="tab-title" id="about-tab-1-title">Relatie Geluk</h3>
-                <button class="tab-close" aria-label="Close tab">&#10005;</button>
+                <button class="tab-close" aria-label="Close tab">
+                  &#10005;
+                </button>
               </div>
               <div class="tab-content" id="about-tab-1-content">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis tristique nisi. Duis consectetur velit sapien, sit amet interdum massa consequat non. Donec bibendum magna vel quam vehicula, non maximus orci imperdiet. Nullam euismod semper lorem non ultricies. Ut at enim non nisi venenatis lacinia. Praesent aliquam efficitur mauris quis rutrum. Donec vel urna semper, fermentum mi ut, tincidunt lectus. Vivamus quis mi ut libero lobortis auctor. Curabitur mollis neque purus, sed consequat ante varius ac. Etiam nec sem elit. Cras eu lacus at nibh tristique faucibus. Curabitur nec lacus nulla. Vestibulum consectetur cursus risus, sed volutpat odio consequat eu. Nulla laoreet efficitur dui, eget bibendum libero fringilla ac.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+                  quis tristique nisi. Duis consectetur velit sapien, sit amet
+                  interdum massa consequat non. Donec bibendum magna vel quam
+                  vehicula, non maximus orci imperdiet. Nullam euismod semper
+                  lorem non ultricies. Ut at enim non nisi venenatis lacinia.
+                  Praesent aliquam efficitur mauris quis rutrum. Donec vel urna
+                  semper, fermentum mi ut, tincidunt lectus. Vivamus quis mi ut
+                  libero lobortis auctor. Curabitur mollis neque purus, sed
+                  consequat ante varius ac. Etiam nec sem elit. Cras eu lacus at
+                  nibh tristique faucibus. Curabitur nec lacus nulla. Vestibulum
+                  consectetur cursus risus, sed volutpat odio consequat eu.
+                  Nulla laoreet efficitur dui, eget bibendum libero fringilla
+                  ac.
                 </p>
               </div>
             </div>
@@ -148,26 +230,58 @@
           <div class="text">
             <h2 class="h2">Relatie Geluk</h2>
             <h3>Koppels en singles</h3>
-            <div class="clover"><img src="assets/svg/clover.svg" alt="Clover symbol"></div>
+            <div class="clover">
+              <img src="assets/svg/clover.svg" alt="Clover symbol" />
+            </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aliquam libero et illo facilis dolores officia. Quasi, amet id beatae saepe repellat magni provident!
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita
+              aliquam libero et illo facilis dolores officia. Quasi, amet id
+              beatae saepe repellat magni provident!
             </p>
-            <button class="btn btn--accent read-more-btn" data-target="#about-tab-1" aria-expanded="false" aria-controls="about-tab-1-content">read more</button>
+            <button
+              class="btn btn--accent read-more-btn"
+              data-target="#about-tab-1"
+              aria-expanded="false"
+              aria-controls="about-tab-1-content"
+            >
+              read more
+            </button>
           </div>
           <div class="image-container">
             <div class="image image2">
-              <img src="assets/img/close-up-portrait-kissing-couple-spending-morning-together.jpg" />
+              <img
+                src="assets/img/close-up-portrait-kissing-couple-spending-morning-together.jpg"
+              />
             </div>
           </div>
-          <div class="overlay" id="about-tab-1" aria-hidden="true" aria-labelledby="about-tab-1-title">
+          <div
+            class="overlay"
+            id="about-tab-1"
+            aria-hidden="true"
+            aria-labelledby="about-tab-1-title"
+          >
             <div class="tab">
               <div class="tab-header">
                 <h3 class="tab-title" id="about-tab-1-title">Relatie Geluk</h3>
-                <button class="tab-close" aria-label="Close tab">&#10005;</button>
+                <button class="tab-close" aria-label="Close tab">
+                  &#10005;
+                </button>
               </div>
               <div class="tab-content" id="about-tab-1-content">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis tristique nisi. Duis consectetur velit sapien, sit amet interdum massa consequat non. Donec bibendum magna vel quam vehicula, non maximus orci imperdiet. Nullam euismod semper lorem non ultricies. Ut at enim non nisi venenatis lacinia. Praesent aliquam efficitur mauris quis rutrum. Donec vel urna semper, fermentum mi ut, tincidunt lectus. Vivamus quis mi ut libero lobortis auctor. Curabitur mollis neque purus, sed consequat ante varius ac. Etiam nec sem elit. Cras eu lacus at nibh tristique faucibus. Curabitur nec lacus nulla. Vestibulum consectetur cursus risus, sed volutpat odio consequat eu. Nulla laoreet efficitur dui, eget bibendum libero fringilla ac.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+                  quis tristique nisi. Duis consectetur velit sapien, sit amet
+                  interdum massa consequat non. Donec bibendum magna vel quam
+                  vehicula, non maximus orci imperdiet. Nullam euismod semper
+                  lorem non ultricies. Ut at enim non nisi venenatis lacinia.
+                  Praesent aliquam efficitur mauris quis rutrum. Donec vel urna
+                  semper, fermentum mi ut, tincidunt lectus. Vivamus quis mi ut
+                  libero lobortis auctor. Curabitur mollis neque purus, sed
+                  consequat ante varius ac. Etiam nec sem elit. Cras eu lacus at
+                  nibh tristique faucibus. Curabitur nec lacus nulla. Vestibulum
+                  consectetur cursus risus, sed volutpat odio consequat eu.
+                  Nulla laoreet efficitur dui, eget bibendum libero fringilla
+                  ac.
                 </p>
               </div>
             </div>
@@ -177,26 +291,58 @@
           <div class="text">
             <h2 class="h2">Relatie Geluk</h2>
             <h3>Koppels en singles</h3>
-            <div class="clover"><img src="assets/svg/clover.svg" alt="Clover symbol"></div>
+            <div class="clover">
+              <img src="assets/svg/clover.svg" alt="Clover symbol" />
+            </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita aliquam libero et illo facilis dolores officia. Quasi, amet id beatae saepe repellat magni provident!
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita
+              aliquam libero et illo facilis dolores officia. Quasi, amet id
+              beatae saepe repellat magni provident!
             </p>
-            <button class="btn btn--accent read-more-btn" data-target="#about-tab-1" aria-expanded="false" aria-controls="about-tab-1-content">read more</button>
+            <button
+              class="btn btn--accent read-more-btn"
+              data-target="#about-tab-1"
+              aria-expanded="false"
+              aria-controls="about-tab-1-content"
+            >
+              read more
+            </button>
           </div>
           <div class="image-container">
             <div class="image image2">
-              <img src="assets/img/close-up-portrait-kissing-couple-spending-morning-together.jpg" />
+              <img
+                src="assets/img/close-up-portrait-kissing-couple-spending-morning-together.jpg"
+              />
             </div>
           </div>
-          <div class="overlay" id="about-tab-1" aria-hidden="true" aria-labelledby="about-tab-1-title">
+          <div
+            class="overlay"
+            id="about-tab-1"
+            aria-hidden="true"
+            aria-labelledby="about-tab-1-title"
+          >
             <div class="tab">
               <div class="tab-header">
                 <h3 class="tab-title" id="about-tab-1-title">Relatie Geluk</h3>
-                <button class="tab-close" aria-label="Close tab">&#10005;</button>
+                <button class="tab-close" aria-label="Close tab">
+                  &#10005;
+                </button>
               </div>
               <div class="tab-content" id="about-tab-1-content">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis tristique nisi. Duis consectetur velit sapien, sit amet interdum massa consequat non. Donec bibendum magna vel quam vehicula, non maximus orci imperdiet. Nullam euismod semper lorem non ultricies. Ut at enim non nisi venenatis lacinia. Praesent aliquam efficitur mauris quis rutrum. Donec vel urna semper, fermentum mi ut, tincidunt lectus. Vivamus quis mi ut libero lobortis auctor. Curabitur mollis neque purus, sed consequat ante varius ac. Etiam nec sem elit. Cras eu lacus at nibh tristique faucibus. Curabitur nec lacus nulla. Vestibulum consectetur cursus risus, sed volutpat odio consequat eu. Nulla laoreet efficitur dui, eget bibendum libero fringilla ac.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+                  quis tristique nisi. Duis consectetur velit sapien, sit amet
+                  interdum massa consequat non. Donec bibendum magna vel quam
+                  vehicula, non maximus orci imperdiet. Nullam euismod semper
+                  lorem non ultricies. Ut at enim non nisi venenatis lacinia.
+                  Praesent aliquam efficitur mauris quis rutrum. Donec vel urna
+                  semper, fermentum mi ut, tincidunt lectus. Vivamus quis mi ut
+                  libero lobortis auctor. Curabitur mollis neque purus, sed
+                  consequat ante varius ac. Etiam nec sem elit. Cras eu lacus at
+                  nibh tristique faucibus. Curabitur nec lacus nulla. Vestibulum
+                  consectetur cursus risus, sed volutpat odio consequat eu.
+                  Nulla laoreet efficitur dui, eget bibendum libero fringilla
+                  ac.
                 </p>
               </div>
             </div>
@@ -305,7 +451,8 @@
             <div>
               <h3 class="h3">Ronald</h3>
               <p class="body">
-                Sabine heeft mij erg goed geholpen vertrouwen te krijgen in m'n kunnen
+                Sabine heeft mij erg goed geholpen vertrouwen te krijgen in m'n
+                kunnen
               </p>
             </div>
           </div>
@@ -396,7 +543,8 @@
             <div>
               <h3 class="h3">Karin</h3>
               <p class="body">
-                Mijn relatie is sterker en opener door al de steun en inspiratie die ik van sabine heb gekregen.
+                Mijn relatie is sterker en opener door al de steun en inspiratie
+                die ik van sabine heb gekregen.
               </p>
             </div>
           </div>
@@ -407,67 +555,71 @@
         aria-labelledby="moons"
         id="contact"
       >
-        <h3 class="h2" id="moons">Coach trajecten (individueel / relatie / loopbaan)</h3>
+        <h3 class="h2" id="moons">
+          Coach trajecten (individueel / relatie / loopbaan)
+        </h3>
         <p class="body">
-          Ik ben Sabine, relatie- en levenscoach, kunstenares, danseres en gelukszoeker.
-          Ik begeleid en inspireer mensen al jaren op hun weg naar MEER GELUK.
-
+          Ik ben Sabine, relatie- en levenscoach, kunstenares, danseres en
+          gelukszoeker. Ik begeleid en inspireer mensen al jaren op hun weg naar
+          MEER GELUK.
         </p>
         <p class="body">
-          Ik help mijn klanten voornamelijk gelukkig te worden met zichzelf en mét elkaar door 
-          snelwerkende COACHING TRAJECTEN met een praktische en positieve aanpak.
-          In de afgelopen jaren heb ik al veel mensen mogen helpen, met stress- en burn-outklachten, relatieproblemen en mensen die gewoon even niet meer wisten hoe ze gelukkig moesten zijn.
+          Ik help mijn klanten voornamelijk gelukkig te worden met zichzelf en
+          mét elkaar door snelwerkende COACHING TRAJECTEN met een praktische en
+          positieve aanpak. In de afgelopen jaren heb ik al veel mensen mogen
+          helpen, met stress- en burn-outklachten, relatieproblemen en mensen
+          die gewoon even niet meer wisten hoe ze gelukkig moesten zijn.
         </p>
         <p class="body">
-          Omdat er altijd verschillende wegen naar MEER GELUK leiden wil ik via deze weg ook andere vormen van geluksbrengers aanbieden. Kijk gerust eens rond wat jouw aanspreekt en app, bel of mail me voor meer info.
-
+          Omdat er altijd verschillende wegen naar MEER GELUK leiden wil ik via
+          deze weg ook andere vormen van geluksbrengers aanbieden. Kijk gerust
+          eens rond wat jouw aanspreekt en app, bel of mail me voor meer info.
         </p>
       </section>
     </main>
     <script>
-      const readMoreButtons = document.querySelectorAll('.read-more-btn');
-      const overlays = document.querySelectorAll('.overlay');
-      const tabs = document.querySelectorAll('.tab');
-      const closeButtons = document.querySelectorAll('.tab-close');
-      
+      const readMoreButtons = document.querySelectorAll(".read-more-btn");
+      const overlays = document.querySelectorAll(".overlay");
+      const tabs = document.querySelectorAll(".tab");
+      const closeButtons = document.querySelectorAll(".tab-close");
+
       readMoreButtons.forEach((button, index) => {
-        button.addEventListener('click', () => {
-          overlays[index].classList.add('active');
-          tabs[index].classList.add('active');
-          document.body.style.overflow = 'hidden';
+        button.addEventListener("click", () => {
+          overlays[index].classList.add("active");
+          tabs[index].classList.add("active");
+          document.body.style.overflow = "hidden";
         });
       });
-      
+
       closeButtons.forEach((button, index) => {
-        button.addEventListener('click', () => {
-          overlays[index].classList.remove('active');
-          tabs[index].classList.remove('active');
-          document.body.style.overflow = '';
+        button.addEventListener("click", () => {
+          overlays[index].classList.remove("active");
+          tabs[index].classList.remove("active");
+          document.body.style.overflow = "";
         });
       });
-      
+
       overlays.forEach((overlay) => {
-        overlay.addEventListener('click', (event) => {
+        overlay.addEventListener("click", (event) => {
           if (event.target === overlay) {
-            overlay.classList.remove('active');
-            overlay.querySelector('.tab').classList.remove('active');
-            document.body.style.overflow = '';
+            overlay.classList.remove("active");
+            overlay.querySelector(".tab").classList.remove("active");
+            document.body.style.overflow = "";
           }
         });
       });
-      
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape') {
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
           overlays.forEach((overlay, index) => {
-            if (overlay.classList.contains('active')) {
-              overlay.classList.remove('active');
-              tabs[index].classList.remove('active');
-              document.body.style.overflow = '';
+            if (overlay.classList.contains("active")) {
+              overlay.classList.remove("active");
+              tabs[index].classList.remove("active");
+              document.body.style.overflow = "";
             }
           });
         }
       });
-      
     </script>
   </body>
 </html>
