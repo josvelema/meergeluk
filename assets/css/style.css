@@ -41,7 +41,7 @@
 
   /* linear-gradient(120deg, hsla(30, 43%, 59%,0.2) ,transparent) */
 
-  
+
 body {
   font-family: "Nunito Sans", sans-serif;
   font-size: clamp(1.05rem, 5vw + 1rem, 1.3rem);
@@ -57,7 +57,7 @@ nav {
   top: 0;
   z-index: 999;
   width: 100%;
-  padding-block: 1.2rem;
+  padding-block: 0.5em;
   transition: background-color 800ms cubic-bezier(.62,.34,.04,.7);
 }
 
@@ -76,11 +76,11 @@ img {
 }
 
 .logo {
-  color: var(--accent);
-  margin-inline: 0.5rem;
-  width: clamp(4rem, 5vw + 1rem , 7rem);
-  display: grid;
-  place-items: center;
+    color: var(--accent);
+    margin-inline: 0.5rem;
+    width: clamp(4rem, 10vw + 1rem , 9rem);
+    display: grid;
+    place-items: center;
 }
 
 .clover img {
@@ -296,15 +296,15 @@ header {
   display: flex;
 }
 .header-container {
-  margin-top: 3.5em;
+  margin-top: 4.5em;
   display: grid;
-  gap: 1rem;
+  /* gap: 1rem; */
   /* position: relative; */
   /* top: -5vh; */
-  padding-top: 2em;
-  
+  padding-top: clamp(0.75em, 1vh + 1em , 3.5em);
   max-height: 600px;
 }
+
 .header-container h1,
 .header-container h2 {
   text-shadow: 1px 2px 2px var(--accent2);
@@ -322,7 +322,7 @@ header {
 }
 
 .coaching {
-  margin-top: 2em;
+  margin-top: 3em;
   margin-bottom: 1em;
   padding-block: 1.5em;
   padding-inline: 1em;
@@ -591,7 +591,7 @@ transition-delay: 0.25s;
 .text-container p {
   /* font-size: 18px; */
   padding-block: 0.5em;
-  max-width: 44ch;
+  max-width: 36ch;
   text-align: justify;
 }
 
