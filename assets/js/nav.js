@@ -48,3 +48,18 @@ document.querySelectorAll('.fade-up').forEach((item) => {
   fadeUpObserver.observe(item);
 });
 
+const readMoreButton = document.querySelector('.btn--accent');
+const overlay = document.querySelector('.overlay');
+const tab = document.querySelector('.tab');
+const closeButton = document.querySelector('.tab-close');
+
+readMoreButton.addEventListener('click', () => {
+overlay.classList.add('active');
+tab.classList.add('active');
+});
+
+closeButton.addEventListener('click', () => {
+overlay.classList.remove('active');
+tab.classList.remove('active');
+});
+
