@@ -33,7 +33,7 @@ const navObserver = new IntersectionObserver((watchEntry) => {
   !watchEntry[0].isIntersecting ? nav.classList.add('active') : nav.classList.remove('active');
 }, {threshold: 0.85});
 
-navObserver.observe(document.querySelector('header'));
+navObserver.observe(document.querySelector('.profile-picture'));
 
 const fadeUpObserver = new IntersectionObserver((elsToWatch) => {
   elsToWatch.forEach((el) => {
@@ -42,7 +42,7 @@ const fadeUpObserver = new IntersectionObserver((elsToWatch) => {
       fadeUpObserver.unobserve(el.target);
     }
   });
-}, {threshold: 0.25});
+}, {threshold: 0.10});
 
 document.querySelectorAll('.fade-up').forEach((item) => {
   fadeUpObserver.observe(item);
