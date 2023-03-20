@@ -344,6 +344,8 @@ section {
   max-width: var(--grid-max-width);
   /* padding-inline: var(--grid-gutter); */
   margin-inline: auto;
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 h1,h2,h3 {
@@ -660,7 +662,7 @@ inset: 0;
 .reviews {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(min(30ch,40ch), 1fr));
-  grid-template-rows: repeat(auto-fit,min(360px,100%));
+  /* grid-template-rows: repeat(auto-fit,min(360px,100%)); */
  gap: var(--space-m);
  margin-block: var(--space-l);
 }
@@ -743,10 +745,7 @@ button[data-read-more] {
 
 
 
-.moons {
-  display: grid;
-  gap: 1rem;
-}
+
 
 #stars {
   text-align: center;
@@ -1306,6 +1305,7 @@ padding-inline: var(--space-m);
   list-style-image: url('../svg/clover.svg');
   
   margin-block: 0.5em;
+  padding-inline: 1.5em;
 }
 
 
