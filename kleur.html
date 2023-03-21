@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <style>
+    body {
+    display: grid;
+    place-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: #fafafa;
+    }
+    ul {
+      list-style: none;
+    }
+    li {
+      padding: 1em;
+      border: 1px solid #0008;
+    }
+    .kleuren {
+     
+      display: flex;
+    } 
+
+    .kleur, .code {
+
+      width: 200px;
+      min-height: 40px;
+      padding: 2em;
+    } 
+
+    .code {
+
+    }
+
+    .kleur li:nth-child(1) {
+      background-color: #3a5a5b;
+      color: #fafafa;
+    }
+    .kleur li:nth-child(2) {
+      background-color: #527f80;
+      color: #fafafa;
+    }
+    .kleur li:nth-child(3) {
+      background-color: #9bbfbf;
+    }
+    .kleur li:nth-child(4) {
+      background-color: #d6eaea;
+    }
+    .code li:nth-child(1) {
+      background-color: #7d3836;
+      color: #fafafa;
+    }
+    .code li:nth-child(2) {
+      background-color: #b96764;
+      color: #fafafa;
+    }
+    .code li:nth-child(3) {
+      background-color: #d79f9d;
+    }
+    .code li:nth-child(4) {
+      background-color: #f3d0ce;
+    }
+  </style>
+
+  <div class="kleuren">
+    <div class="kleur">
+      <ul>
+        <li>#3a5a5b</li>
+        <li>#527f80</li>
+        <li>#9bbfbf</li>
+        <li>#d6eaea</li>
+      </ul>
+    </div>
+    <div class="code">
+      <ul>
+        <li>#74403e</li>
+        <li>#b96764</li>
+        <li>#d79f9d</li>
+        <li>#f3d0ce</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

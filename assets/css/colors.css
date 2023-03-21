@@ -58,3 +58,25 @@
 --button-text-color: #ffffff;
 --button-hover-color: var(--complimentary-color);
 }
+
+  
+  /* --green-dark: #1A3530;
+  --green-light: #4A6765;
+  --green-light-2: #56756F;
+  --beige: #ABAC9E;
+  --pink-light: #E8DAD1;
+  --pink-dark: #CFA79D;
+  --wine: #59131B; */
+  
+  --yellow: hsl(49, 96%, 58%);
+  --yellow-light: hsl(50, 73%, 76%);
+  --beige: hsl(64, 8%, 65%);
+  
+  --green-dark: hsl(169, 34%, 15%);
+  --green-light: hsl(176, 16%, 35%);
+  --green-light-2: hsl(168, 15%, 40%);
+  
+  --pink-light: hsl(23, 33%, 86%);
+  --clover: hsl(40, 44%, 80%);
+  --pink-dark: hsl(12, 34%, 71%);
+  --wine: hsl(353, 65%, 21%);
