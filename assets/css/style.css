@@ -376,8 +376,12 @@ section {
   max-width: var(--grid-max-width);
   /* padding-inline: var(--grid-gutter); */
   margin-inline: auto;
-  min-height: 60vh;
-  min-height: 60dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+section.home-hero-container {
+  min-height: unset;
 }
 
 section.full {
@@ -439,13 +443,13 @@ h3 {
 }
 
 .hero-container header {
-  min-height: 60vh;
-  min-height: 60dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
   
 
   /* width: 100%; */
   display: grid;
-  grid-template-rows: auto auto;
+  /* grid-template-rows: auto auto; */
   place-items: center;
   /* margin-top: 4em; */
 
@@ -501,6 +505,8 @@ h3 {
 }
 
 
+
+/* footer section  */
 
 footer {
   width: 100%;
@@ -566,7 +572,7 @@ place-items: center;
 }
 
 .container--sm {
-  max-width: 880px;
+  max-width: 800px;
   margin-inline: max((100% - 70rem) / 2, 2rem);
 }
 
@@ -597,7 +603,7 @@ place-items: center;
 
 
 
-/* coaching options section  */
+/* coaching options section and pages */
 
 .coaching-trajecten {
   display: flex;
@@ -606,13 +612,22 @@ place-items: center;
  
 }
 
-.coaching, .review , .overmij , .faq-container{
+.coaching, .review , .overmij , .faq-container,.geluk-page{
   border: 1px solid var(--gray-t-8);
   box-shadow: 1px 1px 6px -2px var(--gray-t),
   2px 2px 8px -1px var(--gray-t-2);
   border-radius: 6px;
   background-color: var(--white-t);
 
+}
+
+.geluk-page {
+  background-image: var(--bkg-2);
+  margin-top: -5em;
+}
+
+.geluk-page p {
+  margin-block: var(--space-m);
 }
 
 
@@ -905,10 +920,10 @@ header .arrow-down {
 .hero-relatie,
 .hero-eigen,
 .hero-werk,
-.hero-kunst { 
+.hero-creatief { 
 width: 100%;
 /* max-width: 1246px; */
-/* height: 100%; */
+height: 100%;
 display: flex;
 flex-wrap: wrap;
 justify-content: space-around;
@@ -932,14 +947,17 @@ padding: var(--space-l);
 .hero-relatie,
 .hero-eigen,
 .hero-werk,
-.hero-kunst{
+.hero-creatief{
   /* height: 60%; */
   /* width: 100%; */
-  max-height: 520px;
+  /* max-height: 520px; */
+  margin-top: 0;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 25%;
   background-attachment: fixed;
+  align-items: center;
+  justify-content: start;
 }
 
   .hero-relatie {
@@ -959,8 +977,8 @@ padding: var(--space-l);
 
     
   }
-  .hero-kunst {
-    background-image: url(../img/close-up-portrait-kissing-couple-spending-morning-together.jpg);
+  .hero-creatief {
+    background-image: url(../img/kunstDeDenker.png);
   
   }
   .hero-image-container {
@@ -976,6 +994,8 @@ padding: var(--space-l);
     -webkit-backdrop-filter: blur(3px) saturate(84%);
     box-shadow: 0 1px 4px 1px var(--gray-t-2);
 }
+
+
 
 .hero-h2 {
   padding: var(--space-s);
@@ -1013,64 +1033,6 @@ padding: var(--space-l);
 }
 
 
-.post-it {
-  display: table;
-  margin: 1em auto;  
-}
-.taped {
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
-}
-.sticky.taped:after {
-  display: block;
-  content: "";
-  position: absolute; 
-  width: 110px;
-  height: 30px;
-  top: -21px;
-  left: 30%;    
-  border: 1px solid #fff;
-  background: rgba(254, 254, 254, .6);
-  -webkit-box-shadow: 0px 0 3px rgba(0,0,0,0.1);
-  -moz-box-shadow: 0px 0 3px rgba(0,0,0,0.1);
-  box-shadow: 0px 0 3px rgba(0,0,0,0.1);  
-}
-
-.note { 
--webkit-box-shadow: #DDD 0px 1px 2px;
-  position: relative;
-  background-color: #F4F39E;
-  border-color: #DEE184;
-  text-align: center;
-  margin: 1.5em auto;
-  padding: 1.5em 1em;
-  -webkit-box-shadow: 0px 1px 3px rgba(0,0,0,0.25);
-  -moz-box-shadow: 0px 1px 3px rgba(0,0,0,0.25);
-  box-shadow: 0px 1px 3px rgba(0,0,0,0.25);
-  -webkit-transform: rotate(2deg);
-  -moz-transform: rotate(2deg);
-  -o-transform: rotate(2deg);
-  -ms-transform: rotate(2deg);
-  transform: rotate(2deg);
-  width: 250px;
-  font-family: 'The Girl Next Door', cursive; /*originally with brain flower font*/
-  font-size: 1em;
-}
-.note:after {
-  display: block;
-  content: "";
-  position: absolute; 
-  width: 110px;
-  height: 30px;
-  top: -21px;
-  left: 30%;    
-  border: 1px solid #fff;
-  background: rgba(254, 254, 254, .6);
-  -webkit-box-shadow: 0px 0 3px rgba(0,0,0,0.1);
-  -moz-box-shadow: 0px 0 3px rgba(0,0,0,0.1);
-  box-shadow: 0px 0 3px rgba(0,0,0,0.1);  
-}
 
 
 .hero-motto .underlined {
@@ -1322,7 +1284,7 @@ padding: var(--space-l);
 .hero-eigen,
 .hero-werk,
 .hero-kunst {
-  background-size: contain;
+  /* background-size: contain; */
   background-position: center top;
   /* .text-container h3 {
     font-size: 24px;
@@ -1339,6 +1301,23 @@ padding: var(--space-l);
     padding: 0.5em;
     font-size: 1.1rem;
   } 
+
+.container--sm {
+  max-width: 100%;
+  margin-inline: auto;
+  
+}
+}
+
+.article-img {
+  width: 100%;
+  max-height: 360px;
+  object-fit: cover;
+}
+
+.article-img .contain {
+  max-height: unset;
+  object-fit: contain;
 }
 
 .overmij {
@@ -1521,4 +1500,63 @@ padding-inline: var(--space-m);
 
 .cta-button:hover {
   background-color: #3E8E41;
+}
+
+.post-it {
+  display: table;
+  margin: 1em auto;  
+}
+.taped {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+.sticky.taped:after {
+  display: block;
+  content: "";
+  position: absolute; 
+  width: 110px;
+  height: 30px;
+  top: -21px;
+  left: 30%;    
+  border: 1px solid #fff;
+  background: rgba(254, 254, 254, .6);
+  -webkit-box-shadow: 0px 0 3px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 0 3px rgba(0,0,0,0.1);
+  box-shadow: 0px 0 3px rgba(0,0,0,0.1);  
+}
+
+.note { 
+-webkit-box-shadow: #DDD 0px 1px 2px;
+  position: relative;
+  background-color: #F4F39E;
+  border-color: #DEE184;
+  text-align: center;
+  margin: 1.5em auto;
+  padding: 1.5em 1em;
+  -webkit-box-shadow: 0px 1px 3px rgba(0,0,0,0.25);
+  -moz-box-shadow: 0px 1px 3px rgba(0,0,0,0.25);
+  box-shadow: 0px 1px 3px rgba(0,0,0,0.25);
+  -webkit-transform: rotate(2deg);
+  -moz-transform: rotate(2deg);
+  -o-transform: rotate(2deg);
+  -ms-transform: rotate(2deg);
+  transform: rotate(2deg);
+  width: 250px;
+  font-family: 'The Girl Next Door', cursive; /*originally with brain flower font*/
+  font-size: 1em;
+}
+.note:after {
+  display: block;
+  content: "";
+  position: absolute; 
+  width: 110px;
+  height: 30px;
+  top: -21px;
+  left: 30%;    
+  border: 1px solid #fff;
+  background: rgba(254, 254, 254, .6);
+  -webkit-box-shadow: 0px 0 3px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 0 3px rgba(0,0,0,0.1);
+  box-shadow: 0px 0 3px rgba(0,0,0,0.1);  
 }
