@@ -130,8 +130,9 @@ body {
 
   font-size: var(--step-1);
   line-height: 1.55;
-  background-color: hsla(23, 33%, 86%,95%);
-  background-image: var(--bkg);
+  background-color: hsla(23, 33%, 86%,95%); 
+
+   background-image: var(--bkg);
   color: var(--black);
 }
 /* background-image:  linear-gradient(-45deg, transparent 49%, hsla(186, 30%, 36%,0.2) 49% 51%, transparent 51%); */
@@ -367,9 +368,11 @@ li[role="none"],
 main {
   /* display: grid;
   width: 100%; */
-  gap: var(--grid-gutter);
+  /* gap: var(--grid-gutter); */
   /* position: relative;
   top: -10vh; */
+  min-height: 100dvh;
+
 }
 
 section {
@@ -378,14 +381,27 @@ section {
   margin-inline: auto;
   min-height: 100vh;
   min-height: 100dvh;
+
+}
+
+.home-container {
+  width: 100%;
+  background-image: url(../img/HeroHomeGraan.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* border: 1px solid red; */
+
 }
 
 section.home-hero-container {
-  min-height: unset;
+  /* min-height: unset; */
+
+
 }
 
 section.full {
   max-width: 100%;
+  
 }
 
 h1,h2,h3 {
@@ -920,7 +936,8 @@ header .arrow-down {
 .hero-relatie,
 .hero-eigen,
 .hero-werk,
-.hero-creatief { 
+.hero-creatief
+ { 
 width: 100%;
 /* max-width: 1246px; */
 height: 100%;
@@ -947,7 +964,8 @@ padding: var(--space-l);
 .hero-relatie,
 .hero-eigen,
 .hero-werk,
-.hero-creatief{
+.hero-creatief
+{
   /* height: 60%; */
   /* width: 100%; */
   /* max-height: 520px; */
@@ -960,9 +978,21 @@ padding: var(--space-l);
   justify-content: start;
 }
 
+.hero-home {
+  /* height: 100dvh; */
+  width: 100%;
+  /* max-width: 1246px; */
+  height: 100%;
+  
+  background-image: url(../img/zomerGras.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  /* background-position: 50% bottom; */
+}
+
   .hero-relatie {
   background-position: 50% top;
-  background-image: url(../img/couple.jpg);
     
   }
   .hero-eigen {
