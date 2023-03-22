@@ -1316,8 +1316,8 @@ padding: var(--space-l);
 }
 
 .article-img .contain {
-  max-height: unset;
-  object-fit: contain;
+  max-height: 100%;
+  /* object-fit: contain; */
 }
 
 .overmij {
