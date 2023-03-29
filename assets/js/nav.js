@@ -31,6 +31,7 @@ navBtn.addEventListener('click' , () => {
 // INTERSECTION OBSERVERS
 const navObserver = new IntersectionObserver((watchEntry) => {
   !watchEntry[0].isIntersecting ? nav.classList.add('active') : nav.classList.remove('active');
+  console.log("lksa;lf");
 }, {threshold: 0.85});
 
 navObserver.observe(document.querySelector('#changeNavColor'));
@@ -58,8 +59,8 @@ overlay.classList.add('active');
 tab.classList.add('active');
 });
 
-closeButton.addEventListener('click', () => {
-overlay.classList.remove('active');
-tab.classList.remove('active');
-});
+// closeButton.addEventListener('click', () => {
+// overlay.classList.remove('active');
+// tab.classList.remove('active');
+// });
 

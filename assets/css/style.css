@@ -15,17 +15,63 @@
   /* --pink-100:  hsl(2, 40%, 35%); */
   --text: #0e0e0e;
   
-  --pink-100:  hsl(3, 61%, 88%);
-  --pink-200:  hsl(2, 42%, 73%);
-  --pink-300:  hsl(2, 38%, 56%);
-  --pink-400:  hsl(2, 40%, 35%);
+    --pink-pastel-1: hsl(3, 21%, 88%);
+    --pink-pastel-2: hsl(3, 41%, 88%);
+    --pink-100: hsl(3, 61%, 88%);
+  --pink-100-analogue-1: hsl(9, 61%, 88%);
+  --pink-100-analogue-2: hsl(357, 58%, 88%);
+  
+  --pink-200: hsl(2, 42%, 73%);
+  --pink-200-analogue-1: hsl(6, 41%, 73%);
+  --pink-200-analogue-2: hsl(358, 40%, 73%);
+  
+  --pink-300: hsl(2, 38%, 56%);
+  --pink-300-analogue-1: hsl(6, 37%, 56%);
+  --pink-300-analogue-2: hsl(358, 35%, 56%);
+  
+  --pink-400: hsl(2, 40%, 35%);
+  --pink-400-analogue-1: hsl(6, 38%, 35%);
+  --pink-400-analogue-2: hsl(358, 36%, 35%);
+  
   --pink-900: hsl(2, 40%, 8%);
+  --pink-900-analogue-1: hsl(6, 38%, 8%);
+  --pink-900-analogue-2: hsl(358, 36%, 8%);
   
   --green-100: hsl(180, 32%, 88%);
+  --green-100-analogue-1: hsl(189, 30%, 88%);
+  --green-100-analogue-2: hsl(171, 29%, 88%);
+  
   --green-200: hsl(180, 22%, 68%);
+  --green-200-analogue-1: hsl(190, 20%, 68%);
+  --green-200-analogue-2: hsl(170, 18%, 68%);
+  
   --green-300: hsl(181, 22%, 41%);
+  --green-300-analogue-1: hsl(191, 20%, 41%);
+  --green-300-analogue-2: hsl(169, 18%, 41%);
+  
   --green-400: hsl(182, 22%, 29%);
+  --green-400-analogue-1: hsl(192, 20%, 29%);
+  --green-400-analogue-2: hsl(168, 18%, 29%);
+  
   --green-900: hsl(182, 22%, 8%);
+  --green-900-analogue-1: hsl(192, 26%, 8%);
+  --green-900-analogue-2: hsl(168, 30%, 8%);
+
+    --main-color: hsl(40, 43%, 85%);
+  
+  --pink-analogue: hsl(357, 43%, 85%);
+  --pink-complement: hsl(223, 43%, 85%);
+  
+  --green-analogue: hsl(85, 43%, 85%);
+  --green-complement: hsl(223, 43%, 85%);
+
+  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --border: 2px solid var(--pink-complement);
+  --text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+  
+  --box-shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --border-hover: 2px solid var(--pink-analogue);
+  --text-shadow-hover: 2px 2px 0 rgba(255, 255, 255, 0.5);
 
   --white: #fafafa;
   --white-100: #f0f0f0;
@@ -149,7 +195,7 @@ nav {
   z-index: 999;
   width: 100%;
   padding-block: var(--step-2);
-  background-image: transparent;
+  background-image: #000;
   background-position: 5%;
   background-size: 100% 100px;
 
@@ -275,11 +321,29 @@ height: var(--step-1);
 
 
 .btn--accent {
- background-color: var(--pink-100);
+ background-image: linear-gradient(175deg,var(--pink-100),var(--pink-pastel-2),var(--pink-pastel-1),var(--white-200) 96%);
+ background-position: bottom;
   padding: var(--step--2) 2rem;
   color: var(--green-900);
-  border: 1px solid var(--pink-400)
+  border: 1px solid var(--pink-400);
+  box-shadow: 0 0 4px var(--black-t);
+  outline-color: transparent;
+  transform: scale(0.97);
+  transition: all 350ms cubic-bezier(0.25, 0.46, 0.45, 0.84) ;
+  transition-delay: 280ms;
+}
 
+.btn--accent:hover,
+.btn--accent:focus,
+.btn--accent:focus-visible {
+  transform: scale(1);
+
+  box-shadow: inset 1px 1px 4px var(--black-t);
+  
+
+  outline: 2px solid;
+  outline-offset: 4px;
+  outline-color: var(--black-t-8);
 }
 
 .btn--menu {
@@ -547,6 +611,10 @@ h3 {
   display: grid;
   grid-template-rows: auto 1fr;
   position: relative;
+  place-items: center;
+  /* place-content: center; */
+margin-inline: auto;
+
 }
 .svg-wrapper {
   position: absolute;
@@ -718,21 +786,18 @@ place-items: center;
 /* coaching options section and pages */
 
 .coaching-trajecten {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-m);
   transform: translateY(-4em);
  
 }
 
 .coaching, .review , .overmij , .faq-container,.geluk-page{
-  border: 1px solid var(--gray-t-8);
-  box-shadow: 1px 1px 6px -2px var(--gray-t),
+  border: var(--border);
+  box-shadow: var(--box-shadow),
   2px 2px 8px -1px var(--gray-t-2);
   border-radius: 6px;
-  background-color: var(--white-t);
-
+  background-image: linear-gradient(176deg, var(--pink-100),var(--white-100) 36%,var(--white-200) 66%,var(--pink-pastel-1) 92%, var(--pink-pastel-2))
 }
+
 
 .geluk-page {
   background-image: var(--bkg-2);
@@ -744,14 +809,22 @@ place-items: center;
 }
 
 
+.coaching-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+}
+
 .coaching {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-s);
   position: relative;
+  /* width: calc(100vw - 66%); */
+  max-width: 450px;
 
-  padding: var(--space-s);
+  padding-bottom: var(--space-m);
   margin-bottom: var(--space-m);
+  margin-inline: auto;
   place-items: center;
 }
 
@@ -793,7 +866,7 @@ place-items: center;
 
 
 .coach-content {
-  padding: var(--space-m);
+  padding-inline: var(--space-m);
     text-align: justify;
 }
 
@@ -805,32 +878,91 @@ place-items: center;
 
 .coach-image {
   border-radius: 6px;
-  padding: var(--space-2xs);
+  /* padding: var(--space-2xs); */
   border: 1px solid var(--gray-t-8);
   box-shadow: 1px 1px 6px -2px var(--gray-t),
   2px 2px 8px -1px var(--gray-t-2);
     background-image: var(--bkg);
+    position: relative;
 }
 .image-wrapper {
-  border: 1px solid var(--gray-t-8);
+ 
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+    background-image: url(../img/eigengelukHero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: grid;
+    place-items: center;
+    position: relative;
+    isolation: isolate;
 
-    border-radius: 6px;
-    /* padding: var(--space-2xs); */
-    /* box-shadow: 1px 3px 7px 0px var(--black-t); */
+    z-index: 1;
 }
+
+.image-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+background-image: linear-gradient(to bottom,var(--black-t-2) , var(--white-t-2) 45%);
+}
+
 
 .image-wrapper img {
-  border-radius: 6px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+
 }
 
-@media (min-width: 768px) {
-  .coaching-trajecten .coaching {
+.image-wrapper h2 {
+  font-weight: 500;
+  font-size: var(--step-5);
+  color: var(--green-400);
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 0 var(--green-100);
+  z-index: 22;
+  /* mix-blend-mode: multiply; */
+  align-self: start;
+  padding-block: var(--space-xs);
+}
+
+.image-wrapper .clover {
+  align-self: self-start;
+  z-index: 4;
+  margin-top: -5em;
+}
+
+.image-wrapper svg.clover-svg {
+  width: var(--step-4);
+  height: var(--step-4);
+  fill:var(--pink-300);
+  text-shadow: 0 0 3px white;
+  filter: drop-shadow( 0 0 1px --green-300);
+  
+  
+}
+
+.image-wrapper .clover img {
+  
+}
+
+@media (max-width: 768px) {
+  /* .coaching-trajecten .coaching {
     grid-template-columns: 1fr 1fr;
-  }
+  } */
+
+.coaching {
+  max-width: 100%;
+}
 }
 
 .short-text {
-  margin-block: var(--space-m);
+  margin-block: var(--space-s);
   transition: transform 0.5s ease;
 }
 
