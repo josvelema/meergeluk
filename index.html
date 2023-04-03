@@ -1,117 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="theme-color" content="#050307" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Meer geluk</title>
-    <script src="assets/js/nav.js" type="module"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Libre+Franklin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+<html lang="nl">
 
-    <link rel="stylesheet" href="./assets/css/style.css?v=27" />
-  </head>
-  <body>
-    <nav>
-      <div class="container nav-container">
-        <a href="/" class="logo-link" aria-label="Go to homepage" aria-current="page">
-          home
-        </a>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="theme-color" content="#050307" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meer geluk</title>
+  <script src="assets/js/nav.js" type="module"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Libre+Franklin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    
+  <link rel="stylesheet" href="./assets/css/style.css?v=27" />
+</head>
 
-        <div class="nav-wrapper">
-          <button
-            class="btn btn--menu"
-            id="menu-btn"
-            aria-expanded="false"
-            aria-controls="menu"
-            aria-label="Open mobile navigation"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="2.25"
-              stroke="currentColor"
-              class="w-6 h-6"
-              width="32"
-              height="32"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5"
-              />
-            </svg>
-          </button>
-          <ul class="nav-links" id="menu" role="menubar">
-            <li role="none">
-              <a
-                href="/"
-                class="nav-link btn"
-                role="menuitem"
-                
-              >
-                Over mij</a
-              >
-            </li>
-            <li role="none" class="dropdown">
-              <button class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false" id="coaching-dropdown">
-                Coaching & Begeleiding&nbsp;
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="dropdown-arrow" width="18" height="18">
-                  <path fill-rule="evenodd" d="M4.293 7.293a1 1 0 011.414 0L10 11.586l4.293-4.293a1 1 0 011.414 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-              </button>
-              <ul class="dropdown-menu" id="coaching-dropdown-menu" role="menu" aria-labelledby="coaching-dropdown">
-                <li role="none">
-                  <a href="eigengeluk.html" class="dropdown-item btn" role="menuitem">Eigen Geluk</a>
-                </li>
-                <li role="none">
-                  <a href="relatiegeluk.html" class="dropdown-item btn" role="menuitem">Relatie Geluk</a>
-                </li>
-                <li role="none">
-                  <a href="werkgeluk.html" class="dropdown-item btn" role="menuitem">Werk Geluk</a>
-                </li>
-                <li role="none">
-                  <a href="creatiefgeluk.html" class="dropdown-item btn" role="menuitem">Creatief Geluk</a>
-                </li>
-              </ul>
-            </li>
-            
-            <li role="none">
-              <a href="/blog.html" class="nav-link btn" role="menuitem">
-                Blog</a
-              >
-            </li>
-            <li role="none">
-              <a
-                href="#contact"
-                class="nav-link btn btn--accent"
-                role="menuitem"
-              >
-                Contact</a
-              >
-            </li>
-          </ul>
-        </div>
+<body>
+  <nav>
+    <div class="container nav-container">
+      <a href="/" class="logo-link" aria-label="Go to homepage" aria-current="page">
+        home
+      </a>
+
+
+
+      <div class="nav-wrapper">
+        <button class="btn btn--menu" id="menu-btn" aria-expanded="false" aria-controls="menu"
+          aria-label="Open mobile navigation">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.25"
+            stroke="currentColor" class="w-6 h-6" width="32" height="32">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
+          </svg>
+        </button>
+        <ul class="nav-links" id="menu" role="menubar">
+          <li role="none">
+            <a href="/" class="nav-link btn" role="menuitem">
+              Over mij</a>
+          </li>
+          <li role="none" class="dropdown">
+            <button class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false"
+              id="coaching-dropdown">
+              Coaching & Begeleiding&nbsp;
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="dropdown-arrow"
+                width="18" height="18">
+                <path fill-rule="evenodd"
+                  d="M4.293 7.293a1 1 0 011.414 0L10 11.586l4.293-4.293a1 1 0 011.414 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414z"
+                  clip-rule="evenodd" />
+              </svg>
+            </button>
+            <ul class="dropdown-menu" id="coaching-dropdown-menu" role="menu" aria-labelledby="coaching-dropdown">
+              <li role="none">
+                <a href="eigengeluk.html" class="dropdown-item btn" role="menuitem">Eigen Geluk</a>
+              </li>
+              <li role="none">
+                <a href="relatiegeluk.html" class="dropdown-item btn" role="menuitem">Relatie Geluk</a>
+              </li>
+              <li role="none">
+                <a href="werkgeluk.html" class="dropdown-item btn" role="menuitem">Werk Geluk</a>
+              </li>
+              <li role="none">
+                <a href="creatiefgeluk.html" class="dropdown-item btn" role="menuitem">Creatief Geluk</a>
+              </li>
+            </ul>
+          </li>
+
+          <li role="none">
+            <a href="/blog.html" class="nav-link btn" role="menuitem">
+              Blog</a>
+          </li>
+          <li role="none">
+            <a href="#contact" class="nav-link btn btn--accent" role="menuitem">
+              Contact</a>
+          </li>
+        </ul>
       </div>
-    </nav>
- 
-      <main class="full">
-       <div class="home-wrapper">
+    </div>
+  </nav>
+
+  <main class="full">
+    <div class="home-wrapper">
       <section class="full hero-container hero-home">
         <header class="c-header-container ">
           <div class="hero" id="changeNavColor">
@@ -121,12 +94,7 @@
             </div>
             <div class="hero-image-container rise">
               <div class="profile-picture">
-                <img
-                  src="assets/img/sabineNoBg.png"
-                  alt="Sabine profiel foto"
-                  sizes=""
-                  srcset=""
-                />
+                <img src="assets/img/sabineNoBg.png" alt="Sabine profiel foto" />
               </div>
               <div class="profile-text">
                 <h3>Sabine Bezemer</h3>
@@ -135,12 +103,23 @@
                   Kunstzinnig therapeut
                 </p>
               </div>
+              <div class="cta-buttons">
+                <!-- <a href="/contact" class="btn btn--accent"><i class="fa-regular fa-comment-dots"></i><span>Contact</span></a> -->
+                <a href="whatsapp" " class="btn btn--accent" data-social="whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <!-- <span>WhatsApp</span> -->
+                </a>
+                <a href="tel:0623232323"" class="btn btn--accent">
+                    <i class="fa-solid fa-phone"></i>
+                    <!-- <span>telefoon</span> -->
+                </a>
             </div>
-      
+            </div>
+
           </div>
         </header>
-      
-          <!-- <div class="post-it">
+
+        <!-- <div class="post-it">
             <p class="note">
               <strong>Geluk vinden</strong> <br>
               is geen kwestie van <br>
@@ -150,224 +129,236 @@
       </section>
       <section aria-labelledby="coaching trajecten" class="full coaching-trajecten">
 
-           <div class="section-wrapper">
-             <header class="section-header">
-              <div class="svg-wrapper">
+        <div class="section-wrapper">
+          <header class="section-header">
+            <div class="svg-wrapper">
 
-                         <button class="arrow-down"  aria-controls="scroll-down" aria-label="scroll down">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon-tabler icon-tabler-arrow-down-circle"
-                  width="44"
-                  height="44"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  fill="#f0f0f0"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
+              <button class="arrow-down" aria-controls="scroll-down" aria-label="scroll down">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-down-circle"
+                  width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="#f0f0f0"
+                  stroke-linecap="round" stroke-linejoin="round">
                   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                   <circle cx="12" cy="12" r="8" />
                   <line x1="8" y1="12" x2="12" y2="16" />
                   <line x1="12" y1="8" x2="12" y2="16" />
                   <line x1="16" y1="12" x2="12" y2="16" />
                 </svg>
-                         </button>
-              </div>
-                     <!-- <img src="assets/img/meerGelukLogoKlaver.png" alt="Meer Geluk Klaver" class="klaverLogo"> -->
-                     <h2 class="sr-only">Coaching en begeleiding trajecten</h2>
-                    </header>
-                       <div class="container coaching-flex">
-              <article class="coaching">
-                
-                  <div class="image-wrapper">
-                    <h2 class="h2">Eigen Geluk</h2>
-                    <div class="clover">
-                      <svg height="16px" width="16px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-	 viewBox="0 0 512 512"  xml:space="preserve" stroke="currentColor" fill="#e2887e" class="clover-svg">
-
-<g>
-	<path class="st0" d="M384.666,268.189c-40.783,3.87-74.411-2.838-100.612-12.41c26.045-10.036,59.55-17.293,100.392-14.116
-		c81.211,6.336,138.581-45.509,123.556-100.81c-14.721-54.126-75.111-57.666-90.2-49.379c8.043-15.24,3.481-75.559-50.886-89.364
-		c-55.537-14.1-106.412,44.116-98.72,125.217c3.861,40.788-2.851,74.411-12.435,100.616
-		c-10.028-26.046-17.293-59.559-14.104-100.396c6.328-81.202-45.5-138.582-100.806-123.544
-		C86.725,18.711,83.172,79.106,91.455,94.194c-15.222-8.034-75.551-3.48-89.342,50.883C-11.991,200.63,46.238,251.48,127.322,243.8
-		c40.783-3.861,74.41,2.847,100.625,12.435c-26.046,10.02-59.564,17.293-100.406,14.108C46.343,264.016-11.04,315.845,3.985,371.137
-		c14.721,54.135,75.107,57.684,90.2,49.387c-8.031,15.224-3.468,75.56,50.886,89.364c55.55,14.108,106.412-44.116,98.724-125.217
-		c-3.865-40.788,2.856-74.402,12.431-100.616c10.028,26.045,17.306,59.567,14.116,100.404
-		c-6.344,81.195,45.501,138.574,100.794,123.545c54.135-14.717,57.679-75.112,49.383-90.2c15.236,8.042,75.564,3.481,89.368-50.882
-		C523.99,311.376,465.75,260.519,384.666,268.189z"/>
-</g>
-</svg>
-                    </div>
-                  </div>
-                 
-                
-                <div class="coach-content">
-                  
-                
-                  <p class="short-text">
-                    Is gelukkig zijn nog niet gelukt? Door allerlei klachten of gebeurtenissen kun je wel wat hulp gebruiken. 
-
-                    Ervaar hoe je snel meer geluk kunt ervaren in 8 stappen
-                  </p>
-                </div>
-                <a class="btn btn--accent" href="eigengeluk.html">Lees meer</a>
-         
-              </article>
-              <article class="coaching">
-                
-                  <div class="image-wrapper">
-                    <h2 class="h2">Relatie Geluk</h2>
-                    <div class="clover">
-                      <svg height="16px" width="16px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-	 viewBox="0 0 512 512"  xml:space="preserve" stroke="currentColor" fill="#e2887e" class="clover-svg">
-
-<g>
-	<path class="st0" d="M384.666,268.189c-40.783,3.87-74.411-2.838-100.612-12.41c26.045-10.036,59.55-17.293,100.392-14.116
-		c81.211,6.336,138.581-45.509,123.556-100.81c-14.721-54.126-75.111-57.666-90.2-49.379c8.043-15.24,3.481-75.559-50.886-89.364
-		c-55.537-14.1-106.412,44.116-98.72,125.217c3.861,40.788-2.851,74.411-12.435,100.616
-		c-10.028-26.046-17.293-59.559-14.104-100.396c6.328-81.202-45.5-138.582-100.806-123.544
-		C86.725,18.711,83.172,79.106,91.455,94.194c-15.222-8.034-75.551-3.48-89.342,50.883C-11.991,200.63,46.238,251.48,127.322,243.8
-		c40.783-3.861,74.41,2.847,100.625,12.435c-26.046,10.02-59.564,17.293-100.406,14.108C46.343,264.016-11.04,315.845,3.985,371.137
-		c14.721,54.135,75.107,57.684,90.2,49.387c-8.031,15.224-3.468,75.56,50.886,89.364c55.55,14.108,106.412-44.116,98.724-125.217
-		c-3.865-40.788,2.856-74.402,12.431-100.616c10.028,26.045,17.306,59.567,14.116,100.404
-		c-6.344,81.195,45.501,138.574,100.794,123.545c54.135-14.717,57.679-75.112,49.383-90.2c15.236,8.042,75.564,3.481,89.368-50.882
-		C523.99,311.376,465.75,260.519,384.666,268.189z"/>
-</g>
-</svg>
-                    </div>
-                  </div>
-                 
-                
-                <div class="coach-content">
-                  
-                
-                  <p class="short-text">
-                    Jullie relatie begon zo sprankelend en rooskleurig, maar voelt nu niet meer zo toekomstbestendig. Wil je werken aan het terugvinden van dat eerste gevoel? 
-
-                    Mijn (op jullie afgestemd) <strong>relatieplan</strong> geeft jullie in 8 stappen meer begrip, verbinding, passie en is ook nog eens leuk om te doen!
-                  </p>
-                </div>
-                <a class="btn btn--accent" href="relatiegeluk.html">Lees meer</a>
-         
-              </article>
-              <article class="coaching">
-                
-                  <div class="image-wrapper">
-                    <h2 class="h2">Werk Geluk</h2>
-                    <div class="clover">
-                      <svg height="16px" width="16px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-	 viewBox="0 0 512 512"  xml:space="preserve" stroke="currentColor" fill="#e2887e" class="clover-svg">
-
-<g>
-	<path class="st0" d="M384.666,268.189c-40.783,3.87-74.411-2.838-100.612-12.41c26.045-10.036,59.55-17.293,100.392-14.116
-		c81.211,6.336,138.581-45.509,123.556-100.81c-14.721-54.126-75.111-57.666-90.2-49.379c8.043-15.24,3.481-75.559-50.886-89.364
-		c-55.537-14.1-106.412,44.116-98.72,125.217c3.861,40.788-2.851,74.411-12.435,100.616
-		c-10.028-26.046-17.293-59.559-14.104-100.396c6.328-81.202-45.5-138.582-100.806-123.544
-		C86.725,18.711,83.172,79.106,91.455,94.194c-15.222-8.034-75.551-3.48-89.342,50.883C-11.991,200.63,46.238,251.48,127.322,243.8
-		c40.783-3.861,74.41,2.847,100.625,12.435c-26.046,10.02-59.564,17.293-100.406,14.108C46.343,264.016-11.04,315.845,3.985,371.137
-		c14.721,54.135,75.107,57.684,90.2,49.387c-8.031,15.224-3.468,75.56,50.886,89.364c55.55,14.108,106.412-44.116,98.724-125.217
-		c-3.865-40.788,2.856-74.402,12.431-100.616c10.028,26.045,17.306,59.567,14.116,100.404
-		c-6.344,81.195,45.501,138.574,100.794,123.545c54.135-14.717,57.679-75.112,49.383-90.2c15.236,8.042,75.564,3.481,89.368-50.882
-		C523.99,311.376,465.75,260.519,384.666,268.189z"/>
-</g>
-</svg>
-                    </div>
-                  </div>
-                 
-                
-                <div class="coach-content">
-                  
-                
-                  <p class="short-text">
-                    Ontdek waar je passie en talent samenkomen. 
-                    Je wilt je leven niet voorbij laten gaan met werk waar je niet blij van wordt. 
-                    
-                    Weten wat je wilt en wat bij je past mét een uniek stappenplan op jou afgestemd! 
-                  </p>
-                </div>
-                <a class="btn btn--accent" href="werkgeluk.html">Lees meer</a>
-         
-              </article>
-              <article class="coaching">
-                
-                  <div class="image-wrapper">
-                    <h2 class="h2">Creatief Geluk</h2>
-                    <div class="clover">
-                      <svg height="16px" width="16px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-	 viewBox="0 0 512 512"  xml:space="preserve" stroke="currentColor" fill="#e2887e" class="clover-svg">
-
-<g>
-	<path class="st0" d="M384.666,268.189c-40.783,3.87-74.411-2.838-100.612-12.41c26.045-10.036,59.55-17.293,100.392-14.116
-		c81.211,6.336,138.581-45.509,123.556-100.81c-14.721-54.126-75.111-57.666-90.2-49.379c8.043-15.24,3.481-75.559-50.886-89.364
-		c-55.537-14.1-106.412,44.116-98.72,125.217c3.861,40.788-2.851,74.411-12.435,100.616
-		c-10.028-26.046-17.293-59.559-14.104-100.396c6.328-81.202-45.5-138.582-100.806-123.544
-		C86.725,18.711,83.172,79.106,91.455,94.194c-15.222-8.034-75.551-3.48-89.342,50.883C-11.991,200.63,46.238,251.48,127.322,243.8
-		c40.783-3.861,74.41,2.847,100.625,12.435c-26.046,10.02-59.564,17.293-100.406,14.108C46.343,264.016-11.04,315.845,3.985,371.137
-		c14.721,54.135,75.107,57.684,90.2,49.387c-8.031,15.224-3.468,75.56,50.886,89.364c55.55,14.108,106.412-44.116,98.724-125.217
-		c-3.865-40.788,2.856-74.402,12.431-100.616c10.028,26.045,17.306,59.567,14.116,100.404
-		c-6.344,81.195,45.501,138.574,100.794,123.545c54.135-14.717,57.679-75.112,49.383-90.2c15.236,8.042,75.564,3.481,89.368-50.882
-		C523.99,311.376,465.75,260.519,384.666,268.189z"/>
-</g>
-</svg>
-                    </div>
-                  </div>
-                 
-                
-                <div class="coach-content">
-                  
-                
-                  <p class="short-text">
-                    On-the-spot coaching tijdens een creatieve bezigheid. 
-Krijg direct ontspanning en inzicht en verminder je stress, angst en onzekerheid.
-Ook leuk om samen te doen.
-                  </p>
-                </div>
-                <a class="btn btn--accent" href="creatiefgeluk.html">Lees meer</a>
-         
-              </article>
-  
-                       </div>
-             </section>
-                     <section class="full ervaringen" aria-labelledby="ervaringen" >
-  
-             <div class="review-container">
-              <div class="review-header">
-                <h2>Ervaringen</h2>
-                <!-- <p>We partner with some pretty amazing people! Here’s what they say about us.</p> -->
-              </div>
-              <div class="review-content">
-  <button id="play-pause-button">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <title>Play/Pause</title>
-      <circle cx="12" cy="12" r="10" fill="currentColor" stroke="#0e0e0e" stroke-width="2"/>
-      <polygon class="play" points="10 8 16 12 10 16" fill="#0e0e0e"/>
-<svg id="pause-svg" class="pause" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <rect x="9" y="8" width="2" height="8"  />
-      <rect x="13" y="8" width="2" height="8" fi />
-</svg>
-    </svg>
-    
-  </button>
-                <button class="rj-arrow" id="arrow--left">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><line x1="216" y1="128" x2="40" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><polyline points="112 56 40 128 112 200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline></svg>
-                </button>
-                <div class="reviews">
-                  
-                </div>
-                <button class="rj-arrow" id="arrow--right">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><line x1="40" y1="128" x2="216" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><polyline points="144 56 216 128 144 200" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline></svg>
-                </button>
-
-              </div>
+              </button>
             </div>
-   
-        </section>
-      
-      
-      
+            <!-- <img src="assets/img/meerGelukLogoKlaver.png" alt="Meer Geluk Klaver" class="klaverLogo"> -->
+            <h2 class="sr-only">Coaching en begeleiding trajecten</h2>
+          </header>
+          <div class="container coaching-flex">
+            <article class="coaching">
+
+              <div class="image-wrapper">
+                <h2 class="h2">Eigen Geluk</h2>
+                <div class="clover">
+                  <svg height="16px" width="16px" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"
+                    stroke="currentColor" fill="#e2887e" class="clover-svg">
+
+                    <g>
+                      <path class="st0" d="M384.666,268.189c-40.783,3.87-74.411-2.838-100.612-12.41c26.045-10.036,59.55-17.293,100.392-14.116
+		c81.211,6.336,138.581-45.509,123.556-100.81c-14.721-54.126-75.111-57.666-90.2-49.379c8.043-15.24,3.481-75.559-50.886-89.364
+		c-55.537-14.1-106.412,44.116-98.72,125.217c3.861,40.788-2.851,74.411-12.435,100.616
+		c-10.028-26.046-17.293-59.559-14.104-100.396c6.328-81.202-45.5-138.582-100.806-123.544
+		C86.725,18.711,83.172,79.106,91.455,94.194c-15.222-8.034-75.551-3.48-89.342,50.883C-11.991,200.63,46.238,251.48,127.322,243.8
+		c40.783-3.861,74.41,2.847,100.625,12.435c-26.046,10.02-59.564,17.293-100.406,14.108C46.343,264.016-11.04,315.845,3.985,371.137
+		c14.721,54.135,75.107,57.684,90.2,49.387c-8.031,15.224-3.468,75.56,50.886,89.364c55.55,14.108,106.412-44.116,98.724-125.217
+		c-3.865-40.788,2.856-74.402,12.431-100.616c10.028,26.045,17.306,59.567,14.116,100.404
+		c-6.344,81.195,45.501,138.574,100.794,123.545c54.135-14.717,57.679-75.112,49.383-90.2c15.236,8.042,75.564,3.481,89.368-50.882
+		C523.99,311.376,465.75,260.519,384.666,268.189z" />
+                    </g>
+                  </svg>
+                </div>
+              </div>
+
+
+              <div class="coach-content">
+
+
+                <p class="short-text">
+                  Is gelukkig zijn nog niet gelukt? Door allerlei klachten of gebeurtenissen kun je wel wat hulp
+                  gebruiken.
+
+                  Ervaar hoe je snel meer geluk kunt ervaren in 8 stappen
+                </p>
+              </div>
+              <a class="btn btn--accent" href="eigengeluk.html">Lees meer</a>
+
+            </article>
+            <article class="coaching">
+
+              <div class="image-wrapper">
+                <h2 class="h2">Relatie Geluk</h2>
+                <div class="clover">
+                  <svg height="16px" width="16px" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"
+                    stroke="currentColor" fill="#e2887e" class="clover-svg">
+
+                    <g>
+                      <path class="st0" d="M384.666,268.189c-40.783,3.87-74.411-2.838-100.612-12.41c26.045-10.036,59.55-17.293,100.392-14.116
+		c81.211,6.336,138.581-45.509,123.556-100.81c-14.721-54.126-75.111-57.666-90.2-49.379c8.043-15.24,3.481-75.559-50.886-89.364
+		c-55.537-14.1-106.412,44.116-98.72,125.217c3.861,40.788-2.851,74.411-12.435,100.616
+		c-10.028-26.046-17.293-59.559-14.104-100.396c6.328-81.202-45.5-138.582-100.806-123.544
+		C86.725,18.711,83.172,79.106,91.455,94.194c-15.222-8.034-75.551-3.48-89.342,50.883C-11.991,200.63,46.238,251.48,127.322,243.8
+		c40.783-3.861,74.41,2.847,100.625,12.435c-26.046,10.02-59.564,17.293-100.406,14.108C46.343,264.016-11.04,315.845,3.985,371.137
+		c14.721,54.135,75.107,57.684,90.2,49.387c-8.031,15.224-3.468,75.56,50.886,89.364c55.55,14.108,106.412-44.116,98.724-125.217
+		c-3.865-40.788,2.856-74.402,12.431-100.616c10.028,26.045,17.306,59.567,14.116,100.404
+		c-6.344,81.195,45.501,138.574,100.794,123.545c54.135-14.717,57.679-75.112,49.383-90.2c15.236,8.042,75.564,3.481,89.368-50.882
+		C523.99,311.376,465.75,260.519,384.666,268.189z" />
+                    </g>
+                  </svg>
+                </div>
+              </div>
+
+
+              <div class="coach-content">
+
+
+                <p class="short-text">
+                  Jullie relatie begon zo sprankelend en rooskleurig, maar voelt nu niet meer zo toekomstbestendig. Wil
+                  je werken aan het terugvinden van dat eerste gevoel?
+
+                  Mijn (op jullie afgestemd) <strong>relatieplan</strong> geeft jullie in 8 stappen meer begrip,
+                  verbinding, passie en is ook nog eens leuk om te doen!
+                </p>
+              </div>
+              <a class="btn btn--accent" href="relatiegeluk.html">Lees meer</a>
+
+            </article>
+            <article class="coaching">
+
+              <div class="image-wrapper">
+                <h2 class="h2">Werk Geluk</h2>
+                <div class="clover">
+                  <svg height="16px" width="16px" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"
+                    stroke="currentColor" fill="#e2887e" class="clover-svg">
+
+                    <g>
+                      <path class="st0" d="M384.666,268.189c-40.783,3.87-74.411-2.838-100.612-12.41c26.045-10.036,59.55-17.293,100.392-14.116
+		c81.211,6.336,138.581-45.509,123.556-100.81c-14.721-54.126-75.111-57.666-90.2-49.379c8.043-15.24,3.481-75.559-50.886-89.364
+		c-55.537-14.1-106.412,44.116-98.72,125.217c3.861,40.788-2.851,74.411-12.435,100.616
+		c-10.028-26.046-17.293-59.559-14.104-100.396c6.328-81.202-45.5-138.582-100.806-123.544
+		C86.725,18.711,83.172,79.106,91.455,94.194c-15.222-8.034-75.551-3.48-89.342,50.883C-11.991,200.63,46.238,251.48,127.322,243.8
+		c40.783-3.861,74.41,2.847,100.625,12.435c-26.046,10.02-59.564,17.293-100.406,14.108C46.343,264.016-11.04,315.845,3.985,371.137
+		c14.721,54.135,75.107,57.684,90.2,49.387c-8.031,15.224-3.468,75.56,50.886,89.364c55.55,14.108,106.412-44.116,98.724-125.217
+		c-3.865-40.788,2.856-74.402,12.431-100.616c10.028,26.045,17.306,59.567,14.116,100.404
+		c-6.344,81.195,45.501,138.574,100.794,123.545c54.135-14.717,57.679-75.112,49.383-90.2c15.236,8.042,75.564,3.481,89.368-50.882
+		C523.99,311.376,465.75,260.519,384.666,268.189z" />
+                    </g>
+                  </svg>
+                </div>
+              </div>
+
+
+              <div class="coach-content">
+
+
+                <p class="short-text">
+                  Ontdek waar je passie en talent samenkomen.
+                  Je wilt je leven niet voorbij laten gaan met werk waar je niet blij van wordt.
+
+                  Weten wat je wilt en wat bij je past mét een uniek stappenplan op jou afgestemd!
+                </p>
+              </div>
+              <a class="btn btn--accent" href="werkgeluk.html">Lees meer</a>
+
+            </article>
+            <article class="coaching">
+
+              <div class="image-wrapper">
+                <h2 class="h2">Creatief Geluk</h2>
+                <div class="clover">
+                  <svg height="16px" width="16px" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"
+                    stroke="currentColor" fill="#e2887e" class="clover-svg">
+
+                    <g>
+                      <path class="st0" d="M384.666,268.189c-40.783,3.87-74.411-2.838-100.612-12.41c26.045-10.036,59.55-17.293,100.392-14.116
+		c81.211,6.336,138.581-45.509,123.556-100.81c-14.721-54.126-75.111-57.666-90.2-49.379c8.043-15.24,3.481-75.559-50.886-89.364
+		c-55.537-14.1-106.412,44.116-98.72,125.217c3.861,40.788-2.851,74.411-12.435,100.616
+		c-10.028-26.046-17.293-59.559-14.104-100.396c6.328-81.202-45.5-138.582-100.806-123.544
+		C86.725,18.711,83.172,79.106,91.455,94.194c-15.222-8.034-75.551-3.48-89.342,50.883C-11.991,200.63,46.238,251.48,127.322,243.8
+		c40.783-3.861,74.41,2.847,100.625,12.435c-26.046,10.02-59.564,17.293-100.406,14.108C46.343,264.016-11.04,315.845,3.985,371.137
+		c14.721,54.135,75.107,57.684,90.2,49.387c-8.031,15.224-3.468,75.56,50.886,89.364c55.55,14.108,106.412-44.116,98.724-125.217
+		c-3.865-40.788,2.856-74.402,12.431-100.616c10.028,26.045,17.306,59.567,14.116,100.404
+		c-6.344,81.195,45.501,138.574,100.794,123.545c54.135-14.717,57.679-75.112,49.383-90.2c15.236,8.042,75.564,3.481,89.368-50.882
+		C523.99,311.376,465.75,260.519,384.666,268.189z" />
+                    </g>
+                  </svg>
+                </div>
+              </div>
+
+
+              <div class="coach-content">
+
+
+                <p class="short-text">
+                  On-the-spot coaching tijdens een creatieve bezigheid.
+                  Krijg direct ontspanning en inzicht en verminder je stress, angst en onzekerheid.
+                  Ook leuk om samen te doen.
+                </p>
+              </div>
+              <a class="btn btn--accent" href="creatiefgeluk.html">Lees meer</a>
+
+            </article>
+
+          </div>
+        </div>
+      </section>
+      <section class="full ervaringen" aria-labelledby="ervaringen">
+
+        <div class="review-container">
+          <div class="review-header">
+            <h2>Ervaringen</h2>
+            <!-- <p>We partner with some pretty amazing people! Here’s what they say about us.</p> -->
+          </div>
+          <div class="review-content">
+            <button id="play-pause-button">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <title>Play/Pause</title>
+                <circle cx="12" cy="12" r="10" fill="currentColor" stroke="#0e0e0e" stroke-width="2" />
+                <polygon class="play" points="10 8 16 12 10 16" fill="#0e0e0e" />
+                <svg id="pause-svg" class="pause" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <rect x="9" y="8" width="2" height="8" />
+                  <rect x="13" y="8" width="2" height="8" />
+                </svg>
+              </svg>
+
+            </button>
+            <button class="rj-arrow" id="arrow--left">
+              <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" viewBox="0 0 256 256">
+                <rect width="256" height="256" fill="none"></rect>
+                <line x1="216" y1="128" x2="40" y2="128" fill="none" stroke="currentColor" stroke-linecap="round"
+                  stroke-linejoin="round" stroke-width="16"></line>
+                <polyline points="112 56 40 128 112 200" fill="none" stroke="currentColor" stroke-linecap="round"
+                  stroke-linejoin="round" stroke-width="16"></polyline>
+              </svg>
+            </button>
+            <div class="reviews">
+
+            </div>
+            <button class="rj-arrow" id="arrow--right">
+              <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" viewBox="0 0 256 256">
+                <rect width="256" height="256" fill="none"></rect>
+                <line x1="40" y1="128" x2="216" y2="128" fill="none" stroke="currentColor" stroke-linecap="round"
+                  stroke-linejoin="round" stroke-width="16"></line>
+                <polyline points="144 56 216 128 144 200" fill="none" stroke="currentColor" stroke-linecap="round"
+                  stroke-linejoin="round" stroke-width="16"></polyline>
+              </svg>
+            </button>
+
+          </div>
+        </div>
+
+
+      </section>
+
+
+
       <!-- <section class="full">
         <header class="section-header">
       <img src="assets/img/meerGelukLogoKlaver.png" alt="Meer Geluk Klaver" class="klaverLogo">
@@ -404,198 +395,216 @@ Ook leuk om samen te doen.
         </article>
       </div>
       </section> -->
-        <!-- faq section -->
-        <section class="full">
-      
-          <header class="section-header">
-            <img src="assets/img/meerGelukLogoKlaver.png" alt="Meer Geluk Klaver" class="klaverLogo">
-            <h3>Contact / FAQ</h3>
-      
-           </header>
-      
-            <div class="cta-section container">
-              <h3 class="faq-heading">Een klik met elkaar en je veilig voelen!</h3>
-              <p> Ontdek of wij matchen in een gratis en vrijblijvend eerste gesprek waarin we:</p>
-              <ul class="cta-list">
-                <li>Elkaar leren kennen</li>
-                <li>Jouw hulpvraag duidelijk krijgen</li>
-                <li>Mijn werkwijze uitleggen en je met een duidelijk beeld naar huis laten gaan</li>
-              </ul>
-              <div class="cta-button-container">
-                <p>Ja, dit wil ik:</p>
-                <a href="contact.html" class="cta-button">Gratis intake-gesprek</a>
-              </div>
-              <p>Je kunt me uiteraard ook gewoon appen, bellen of mailen voor meer informatie. Ik zit regelmatig in sessies met klanten, waardoor ik niet altijd de telefoon kan beantwoorden. Laat een bericht achter en ik bel je dezelfde dag nog terug.</p>
-              <p>Vertrouwelijkheid en discretie zijn altijd gegarandeerd.</p>
-            
-            <div class="faq-section">
+      <!-- faq section -->
+      <section class="full">
+
+        <header class="section-header">
+          <!-- <img src="assets/img/meerGelukLogoKlaver.png" alt="Meer Geluk Klaver" class="klaverLogo"> -->
+          <h3>Contact / FAQ</h3>
+
+        </header>
+
+        <div class="cta-section container">
+          <h3 class="faq-heading">Een klik met elkaar en je veilig voelen!</h3>
+          <p> Ontdek of wij matchen in een gratis en vrijblijvend eerste gesprek waarin we:</p>
+          <ul class="cta-list">
+            <li>Elkaar leren kennen</li>
+            <li>Jouw hulpvraag duidelijk krijgen</li>
+            <li>Mijn werkwijze uitleggen en je met een duidelijk beeld naar huis laten gaan</li>
+          </ul>
+          <div class="cta-button-container">
+            <p>Ja, dit wil ik:</p>
+            <a href="contact.html" class="btn cta-button">Gratis intake-gesprek</a>
+          </div>
+          <p>Je kunt me uiteraard ook gewoon <a href="whatsapp">appen</a>, <a href="tel:0123434">bellen</a> of <a
+              href="mailto:info@meergeluk.com">mailen</a> voor meer informatie.
+            <br> Ik zit regelmatig in sessies met klanten, waardoor ik niet altijd de telefoon kan beantwoorden. Laat
+            een
+            bericht achter en ik bel je dezelfde dag nog terug.
+          </p>
+          <p>Vertrouwelijkheid en discretie zijn altijd gegarandeerd.</p>
+
+          <div class="faq-section">
             <h3 class="faq-heading">FAQ - (Veelgestelde vragen)</h3>
             <div class="faq-items" role="list">
               <div class="faq-item" role="listitem">
-                <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">Hoe lang duurt een sessie?<span class="arrow"></span></button>
+                <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">Hoe lang duurt een
+                  sessie?<span class="arrow"></span></button>
                 <div class="faq-answer" id="faq-answer-1" aria-hidden="true">
                   Een intakegesprek duurt gemiddeld 1,5 uur.
-          De daaropvolgende sessies zullen tussen de 2,5 en 3 uur duren.
-          Ik neem echt de tijd voor je, zodat we in korte tijd aan het grootste effect kunnen werken.
+                  De daaropvolgende sessies zullen tussen de 2,5 en 3 uur duren.
+                  Ik neem echt de tijd voor je, zodat we in korte tijd aan het grootste effect kunnen werken.
                 </div>
               </div>
               <div class="faq-item" role="listitem">
-                <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">Hoe lang duurt een traject? <span class="arrow"></span></button>
+                <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">Hoe lang duurt een
+                  traject? <span class="arrow"></span></button>
                 <div class="faq-answer" id="faq-answer-2" aria-hidden="true">
-                  Het gemiddelde traject bestaat uit 8 afspraken, waarbij de meeste mensen een prachtige transformatie hebben
-          ervaren en met een duurzaam resultaat naar huis gaan. Het kan zijn dat jij meer of minder afspraken
-          nodig hebt. Dit is geen probleem. We bespreken samen wat voor jou het beste is.
+                  Het gemiddelde traject bestaat uit 8 afspraken, waarbij de meeste mensen een prachtige transformatie
+                  hebben
+                  ervaren en met een duurzaam resultaat naar huis gaan. Het kan zijn dat jij meer of minder afspraken
+                  nodig hebt. Dit is geen probleem. We bespreken samen wat voor jou het beste is.
                 </div>
               </div>
               <div class="faq-item" role="listitem">
-                <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">Kost een traject veel tijd? <span class="arrow"></span></button>
+                <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">Kost een traject veel
+                  tijd? <span class="arrow"></span></button>
                 <div class="faq-answer" id="faq-answer-3" aria-hidden="true">
-                  Het meeste "werk" zal plaatsvinden tijdens de sessies. Je hoeft geen boekwerken thuis door te spitten, oneindig durende testen in te vullen en je zult merken dat je een coachingstraject gemakkelijk kunt
-          combineren met je agenda. We maken het passend voor jou.
+                  Het meeste "werk" zal plaatsvinden tijdens de sessies. Je hoeft geen boekwerken thuis door te spitten,
+                  oneindig durende testen in te vullen en je zult merken dat je een coachingstraject gemakkelijk kunt
+                  combineren met je agenda. We maken het passend voor jou.
                 </div>
               </div>
               <div class="faq-item" role="listitem">
-                <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">Zijn losse sessies mogelijk?<span class="arrow"></span></button>
+                <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">Zijn losse sessies
+                  mogelijk?<span class="arrow"></span></button>
                 <div class="faq-answer" id="faq-answer-4" aria-hidden="true">
                   Het is ook mogelijk om losse sessies in te plannen. Laat me weten wat je hulpvraag is, zodat we een
-          persoonlijk op maat gemaakt plan voor je kunnen ontwerpen.
+                  persoonlijk op maat gemaakt plan voor je kunnen ontwerpen.
                 </div>
               </div>
               <div class="faq-item" role="listitem">
-                <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">Hoe en wanneer kan ik een afspraak inplannen?<span class="arrow"></span></button>
+                <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">Hoe en wanneer kan ik
+                  een
+                  afspraak inplannen?<span class="arrow"></span></button>
                 <div class="faq-answer" id="faq-answer-5" aria-hidden="true">
                   Een gratis intakegesprek kun je aanvragen per mail via <a href="/contact">deze link</a>.
-          Maar je kunt ook bellen of appen om direct een afspraak in te plannen.
-          Ik ben vrij flexibel qua uren en tijden. Avonden zijn zelfs ook mogelijk.
+                  Maar je kunt ook bellen of appen om direct een afspraak in te plannen.
+                  Ik ben vrij flexibel qua uren en tijden. Avonden zijn zelfs ook mogelijk.
                 </div>
               </div>
               <div class="faq-item" role="listitem">
-                <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-6">Hoe snel en hoe vaak kunnen de sessies ingepland worden? <span class="arrow"></span></button>
+                <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-6">Hoe snel en hoe vaak
+                  kunnen de sessies ingepland worden? <span class="arrow"></span></button>
                 <div class="faq-answer" id="faq-answer-6" aria-hidden="true">
                   Afhankelijk van jouw agenda en die van mij kun je snel afspraken inplannen. Ik kan ook 's avonds
-          met je afspreken. Voor het grootste en snelste effect is het mogelijk en zelfs aan te raden om
-          meerdere afspraken in één week in te plannen. Dan zal je binnen enkele weken effect
-          merken. Maar het blijft maatwerk, wat we aanpassen naar jouw hulpvraag, wens en mogelijkheden.
+                  met je afspreken. Voor het grootste en snelste effect is het mogelijk en zelfs aan te raden om
+                  meerdere afspraken in één week in te plannen. Dan zal je binnen enkele weken effect
+                  merken. Maar het blijft maatwerk, wat we aanpassen naar jouw hulpvraag, wens en mogelijkheden.
                 </div>
               </div>
               <div class="faq-item" role="listitem">
-                <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-7">Waar vinden de sessies plaats?<span class="arrow"></span></button>
+                <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-7">Waar vinden de sessies
+                  plaats?<span class="arrow"></span></button>
                 <div class="faq-answer" id="faq-answer-7" aria-hidden="true">
-                  Ik heb 2 locaties in de Drechtsteden waar ik mijn praktijk houd: Papendrecht en Dordrecht. Beide zijn heel
-          makkelijk bereikbaar en er zijn gratis parkeermogelijkheden. Het eerste gesprek vindt plaats op één
-          van deze locaties. Daarna kunnen we ook bij jou thuis of op een andere locatie afspreken.
-          Maar we kunnen ook bij jou thuis afspreken. Na het eerste gesprek op één van de twee locaties in de
-          Drechtsteden, kunnen we de mogelijkheden bespreken om bij jou thuis af te spreken.
+                  Ik heb 2 locaties in de Drechtsteden waar ik mijn praktijk houd: Papendrecht en Dordrecht. Beide zijn
+                  heel
+                  makkelijk bereikbaar en er zijn gratis parkeermogelijkheden. Het eerste gesprek vindt plaats op één
+                  van deze locaties. Daarna kunnen we ook bij jou thuis of op een andere locatie afspreken.
+                  Maar we kunnen ook bij jou thuis afspreken. Na het eerste gesprek op één van de twee locaties in de
+                  Drechtsteden, kunnen we de mogelijkheden bespreken om bij jou thuis af te spreken.
                 </div>
               </div>
             </div>
           </div>
-      
-        </section>
-      
-        <!-- end of faq section -->
-      </main>
-    
-    <footer>
-      <div class="footer-certificat">
-        <img src="assets/img/certificaten2.png" alt="Certificaten">
-      </div>
-      <div class="footer-wrapper">
-        <div class="footer-column">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro reiciendis quibusdam aut!
         </div>
-        <div class="footer-column">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro reiciendis quibusdam aut!
-        </div>
+      </section>
+
+      <!-- end of faq section -->
+    </div>
+
+  </main>
+
+
+  <footer>
+    <div class="footer-certificat">
+      <img src="assets/img/certificaten2.png" alt="Certificaten">
+    </div>
+    <div class="footer-wrapper">
+      <div class="footer-column">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro reiciendis quibusdam aut!
       </div>
-      <p class="codette">Designed & Developped by Codette web & media - 2023</p>
+      <div class="footer-column">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro reiciendis quibusdam aut!
+      </div>
+    </div>
+    <p class="codette">Designed & Developped by Codette web & media - 2023</p>
 
-    </footer>
-    
-<script>
+  </footer>
+  <script>
 
-      
-      document.addEventListener('DOMContentLoaded', () => {
-        const readMoreButtons = document.querySelectorAll('[data-read-more]');
-        const closeButtons = document.querySelectorAll('[data-close]');
-        const dropdownToggle = document.querySelector('.dropdown-toggle');
-        const dropdownMenu = document.querySelector('.dropdown-menu');
-    
-        dropdownToggle.addEventListener('click', function() {
-          const expanded = dropdownToggle.getAttribute('aria-expanded') === 'true';
-          dropdownToggle.setAttribute('aria-expanded', !expanded);
-        });
-    
-        window.addEventListener('click', function(event) {
-          if (!event.target.closest('.dropdown')) {
-            dropdownToggle.setAttribute('aria-expanded', 'false');
-          }
-        });
-        readMoreButtons.forEach(button => {
-          button.addEventListener('click', () => {
-            const coachImage = button.closest('.review').querySelector('.review-content');
-            coachImage.classList.add('expanded');
-          });
-        });
-      
-        closeButtons.forEach(button => {
-          button.addEventListener('click', () => {
-            const coachImage = button.closest('.review').querySelector('.review-content');
-            coachImage.classList.remove('expanded');
-          });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const readMoreButtons = document.querySelectorAll('[data-read-more]');
+      const closeButtons = document.querySelectorAll('[data-close]');
+      const dropdownToggle = document.querySelector('.dropdown-toggle');
+      const dropdownMenu = document.querySelector('.dropdown-menu');
+
+      dropdownToggle.addEventListener('click', function () {
+        const expanded = dropdownToggle.getAttribute('aria-expanded') === 'true';
+        dropdownToggle.setAttribute('aria-expanded', !expanded);
+      });
+
+      window.addEventListener('click', function (event) {
+        if (!event.target.closest('.dropdown')) {
+          dropdownToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+      readMoreButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const coachImage = button.closest('.review').querySelector('.review-content');
+          coachImage.classList.add('expanded');
         });
       });
-      
-      
-      const faqItems = document.querySelectorAll('.faq-item');
 
-      // Add click event listener to each question button
-      faqItems.forEach(function(item) {
-        const button = item.querySelector('.faq-question');
-        const answer = item.querySelector('.faq-answer');
-        button.addEventListener('click', function() {
-          item.classList.toggle('active');
-          const expanded = button.getAttribute('aria-expanded') === 'true' || false;
-          button.setAttribute('aria-expanded', !expanded);
-          answer.setAttribute('aria-hidden', expanded);
-          if (item.classList.contains('active')) {
-            answer.style.height = answer.scrollHeight + 'px';
-          } else {
-            answer.style.height = 0;
-          }
+      closeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const coachImage = button.closest('.review').querySelector('.review-content');
+          coachImage.classList.remove('expanded');
         });
       });
-      
-      let reviews;
-      let slideIndex = 0;
-      let intervalId = null; 
-      let playSvg = document.querySelector('.play');
-      let pauseSvg = document.querySelector('.pause');
-      let playPauseButton = document.querySelector('#play-pause-button');
-      
-      function loadStars(stars){
-        const calculatedStars = [];
-        for (let i = 0; i < Math.floor(stars); i++){
-          calculatedStars.push(`<img src="images/full-star.svg">`);
-        }
-        if(stars === 5){
-          return calculatedStars.map((item) => item).join('');
-        }
-        if(Number.isInteger(stars)){
-          for (let i = 0; i < 5 - stars; i++){
-            calculatedStars.push(`<img src="images/empty-star.svg">`);
-          }
+    });
+
+
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    // Add click event listener to each question button
+    faqItems.forEach(function (item) {
+      const button = item.querySelector('.faq-question');
+      const answer = item.querySelector('.faq-answer');
+      button.addEventListener('click', function () {
+        item.classList.toggle('active');
+        const expanded = button.getAttribute('aria-expanded') === 'true' || false;
+        button.setAttribute('aria-expanded', !expanded);
+        answer.setAttribute('aria-hidden', expanded);
+        if (item.classList.contains('active')) {
+          answer.style.height = answer.scrollHeight + 'px';
         } else {
-          calculatedStars.push(`<img src="images/half-star.svg">`);
-          for (let i = 0; i < 4 - Math.floor(stars); i++){
-            calculatedStars.push(`<img src="images/empty-star.svg">`);
-          }
+          answer.style.height = 0;
         }
+      });
+    });
+
+    let reviews;
+    let slideIndex = 0;
+    let intervalId = null;
+    let playSvg = document.querySelector('.play');
+    let pauseSvg = document.querySelector('.pause');
+    let playPauseButton = document.querySelector('#play-pause-button');
+
+    function loadStars(stars) {
+      const calculatedStars = [];
+      for (let i = 0; i < Math.floor(stars); i++) {
+        calculatedStars.push(`<img src="images/full-star.svg">`);
+      }
+      if (stars === 5) {
         return calculatedStars.map((item) => item).join('');
       }
-      
-      function loadReviews(review){
-        return `
+      if (Number.isInteger(stars)) {
+        for (let i = 0; i < 5 - stars; i++) {
+          calculatedStars.push(`<img src="images/empty-star.svg">`);
+        }
+      } else {
+        calculatedStars.push(`<img src="images/half-star.svg">`);
+        for (let i = 0; i < 4 - Math.floor(stars); i++) {
+          calculatedStars.push(`<img src="images/empty-star.svg">`);
+        }
+      }
+      return calculatedStars.map((item) => item).join('');
+    }
+
+    function loadReviews(review) {
+      return `
           <div class="review">
             <p class="review__name"><strong>${review.name}</strong></p>
             <p class="review__quote"><strong>${review.quote}</strong></p>
@@ -603,91 +612,92 @@ Ook leuk om samen te doen.
           <p class="review__body">${review.body}</p>
         </div>
           `;
+    }
+
+    function moveSlider(e) {
+      if (e && e.currentTarget.id.includes('right')) {
+        slideIndex === reviews.length - 1 ? (slideIndex = 0) : slideIndex++;
+      } else {
+        slideIndex === 0 ? (slideIndex = reviews.length - 1) : slideIndex--;
       }
-      
-      function moveSlider(e){
-        if(e && e.currentTarget.id.includes('right')){
-          slideIndex === reviews.length - 1 ? (slideIndex = 0) : slideIndex++;
-        } else {
-          slideIndex === 0 ? (slideIndex = reviews.length - 1) : slideIndex--;
+      document.querySelector('.reviews').style.transform = `translate(${-100 * slideIndex}%)`;
+    }
+
+    function startSlider() {
+      if (intervalId === null) {
+        console.log('Starting slider...');
+        intervalId = setInterval(moveSlider, 8000);
+      } else {
+        console.warn('Slider is already playing.');
+      }
+    }
+
+    function stopSlider() {
+      if (intervalId !== null) {
+        console.log('Stopping slider...');
+        clearInterval(intervalId);
+        intervalId = null;
+      } else {
+        console.warn('Slider is already paused.');
+      }
+    }
+
+    // 1. Fetch the 'data' from our API
+    async function fetchReviews() {
+      try {
+        const response = await fetch('assets/js/reviews.json');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
         }
-        document.querySelector('.reviews').style.transform = `translate(${-100 * slideIndex}%)`;
+        const data = await response.json();
+        reviews = data;
+        // 2. Parse the data and create the 'review' divs
+        document.querySelector('.reviews').innerHTML = data.map(loadReviews).join('');
+        startSlider(); // Start the automatic slider
+        pauseSvg.style.display = 'block'; // Display pause button by default
+        playPauseButton.style.display = 'block';
+      } catch (error) {
+        console.error('There has been a problem with your fetch operation:', error);
       }
-      
-      function startSlider(){
-        if (intervalId === null) {
-          console.log('Starting slider...');
-          intervalId = setInterval(moveSlider, 8000);
-        } else {
-          console.warn('Slider is already playing.');
-        }
+    }
+    fetchReviews();
+
+    // 3. Add event listeners to move the slider left and right
+    document.querySelector('#arrow--right').addEventListener('click', () => {
+      stopSlider(); // Stop the automatic slider when the user clicks on the arrow
+      moveSlider(event);
+    });
+    document.querySelector('#arrow--left').addEventListener('click', () => {
+      stopSlider(); // Stop the automatic slider when the user clicks on the arrow
+      moveSlider(event);
+    });
+
+    // 4. Add event listener to the play/pause button
+    document.querySelector('#play-pause-button').addEventListener('click', () => {
+      const isSliderPlaying = intervalId !== null;
+      if (isSliderPlaying) {
+        stopSlider(); // If the slider is playing, stop it
+        playSvg.style.display = 'block';
+        pauseSvg.style.display = 'none';
+        console.log('Slider is paused');
+      } else {
+        startSlider(); // If the slider is paused, start it
+        playSvg.style.display = 'none';
+        pauseSvg.style.display = 'block';
+        console.log('Slider is playing');
       }
-      
-      function stopSlider(){
-        if (intervalId !== null) {
-          console.log('Stopping slider...');
-          clearInterval(intervalId);
-          intervalId = null;
-        } else {
-          console.warn('Slider is already paused.');
-        }
-      }
-      
-      // 1. Fetch the 'data' from our API
-      async function fetchReviews() {
-        try {
-          const response = await fetch('assets/js/reviews.json');
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          const data = await response.json();
-          reviews = data;
-          // 2. Parse the data and create the 'review' divs
-          document.querySelector('.reviews').innerHTML = data.map(loadReviews).join('');
-          startSlider(); // Start the automatic slider
-          pauseSvg.style.display = 'block'; // Display pause button by default
-          playPauseButton.style.display = 'block';
-        } catch (error) {
-          console.error('There has been a problem with your fetch operation:', error);
-        }
-      }
-      fetchReviews();
-      
-      // 3. Add event listeners to move the slider left and right
-      document.querySelector('#arrow--right').addEventListener('click', () => {
-        stopSlider(); // Stop the automatic slider when the user clicks on the arrow
-        moveSlider(event);
-      });
-      document.querySelector('#arrow--left').addEventListener('click', () => {
-        stopSlider(); // Stop the automatic slider when the user clicks on the arrow
-        moveSlider(event);
-      });
-      
-     // 4. Add event listener to the play/pause button
-document.querySelector('#play-pause-button').addEventListener('click', () => {
-  const isSliderPlaying = intervalId !== null;
-  if (isSliderPlaying) {
-    stopSlider(); // If the slider is playing, stop it
-    playSvg.style.display = 'block';
-    pauseSvg.style.display = 'none';
-    console.log('Slider is paused');
-  } else {
-    startSlider(); // If the slider is paused, start it
+    });
+
+    // 5. Hide the play button and show the pause button since the slider is playing by default
     playSvg.style.display = 'none';
     pauseSvg.style.display = 'block';
-    console.log('Slider is playing');
-  }
-});
-
-// 5. Hide the play button and show the pause button since the slider is playing by default
-playSvg.style.display = 'none';
-pauseSvg.style.display = 'block';
-
-      
 
 
 
 
-    </script>
-  </body>
+
+
+  </script>
+</body>
+
 </html>
