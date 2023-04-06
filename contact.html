@@ -160,7 +160,7 @@
                 method: 'POST',
                 body: formData,
             });
-
+            console.log(response)
             const result = await response.json();
 
             if (result.success) {
