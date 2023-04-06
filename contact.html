@@ -93,7 +93,7 @@
           <h1 class="h1">Contact</h1>
         </header>
         <div class="form-container">
-          <form id="contact-form" action="contact-minimal.php" method="post">
+          <form id="contact-form">
             <div class="form-group">
               <label for="naam">Naam</label>
               <input type="text" id="naam" class="form-control" required>
@@ -121,7 +121,7 @@
               <button type="submit" class="btn submit-btn">Verstuur</button>
             </div>
           </form>
-          <div id="form-result"></div>
+          <div id="response"></div>
           
       </section>
     </div>
@@ -144,6 +144,39 @@
     <p class="codette">Designed & Developped by Codette web & media - 2023</p>
 
   </footer>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+
+        const responseDiv = document.getElementById('response');
+        responseDiv.innerHTML = '';
+
+        try {
+            const response = await fetch('contactform.php', {
+                method: 'POST',
+                body: formData,
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                responseDiv.innerHTML = result.success;
+                form.reset();
+                grecaptcha.reset();
+            } else if (result.errors) {
+                responseDiv.innerHTML = Object.values(result.errors).join('<br>');
+            } else {
+                responseDiv.innerHTML = 'An unexpected error occurred.';
+            }
+        } catch (err) {
+            console.error(err);
+            responseDiv.innerHTML = 'An error occurred while submitting the form. Please try again.';
+        }
+    });
+</script>
 
   <!-- <script>
     const contactForm = document.getElementById("contact-form");
