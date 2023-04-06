@@ -147,6 +147,7 @@
 
   <script>
     document.getElementById('contactForm').addEventListener('submit', async (e) => {
+      console.log('submitting form');
         e.preventDefault();
         const form = e.target;
         const formData = new FormData(form);
@@ -163,13 +164,16 @@
             const result = await response.json();
 
             if (result.success) {
+              console.log('success');
                 responseDiv.innerHTML = result.success;
                 form.reset();
                 grecaptcha.reset();
             } else if (result.errors) {
                 responseDiv.innerHTML = Object.values(result.errors).join('<br>');
+                console.log(result.errors);
             } else {
                 responseDiv.innerHTML = 'An unexpected error occurred.';
+                console.log(result);
             }
         } catch (err) {
             console.error(err);
