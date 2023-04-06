@@ -4,7 +4,7 @@ class ContactForm {
     constructor(options) {
         // Declare default values
         let defaults = {
-            container: document.querySelector("#contact-form"),
+            container: document.querySelector(".contact-form"),
             php_file_url: "contact.php",
             current_pagination_page: 1
         };

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1">
+		<title>Contact Form</title>
+		<link href="assets/css/style.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+	</head>
+	<body>
+    <nav class="navtop">
+    	<div>
+    		<h1>Contact Form</h1>
+            <a href="minimal.html"><i class="fas fa-angle-right"></i>Minimal</a>
+            <a href="index.html"><i class="fas fa-angle-right"></i>Advanced</a>
+            <a href="admin/"><i class="fas fa-lock"></i>Admin</a>
+    	</div>
+    </nav>
+
+    <div class="content home">
+
+        <h2>Contact Form</h2>
+
+        <form class="contact-form" action="" method="post" enctype="multipart/form-data" novalidate>
+
+            <p class="col-12 pad-y-2">Please use the contact form below.</p>
+
+            <div class="form-group">
+                <label for="naam">Naam</label>
+                <input type="text" id="naam" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="achternaam">Achternaam</label>
+                <input type="text" id="achternaam" class="form-control" >
+              </div>
+              <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="telefoonnummer">Telefoonnummer</label>
+                <input type="tel" id="telefoonnummer" class="form-control" pattern="^\d{10}$" >
+              </div>
+              <input type="hidden" name="subject" value="meergeluk.com mail van ">
+              <div class="form-group">
+                <label for="bericht">Bericht</label>
+                <textarea id="bericht" class="form-control" rows="5" required></textarea>
+              </div>
+              <div class="g-recaptcha" data-sitekey="6Lcke1YlAAAAANoZdNud9lBqKzu3lFFPsyg4Wozz"></div>
+
+
+            <div class="col-12 pad-y-2">
+
+                <button type="submit" class="btn">Submit</button>
+
+                <a href="#" class="btn btn-secondary clear-form">Clear</a>
+
+            </div>
+
+            <p class="col-12 errors"></p>  
+
+        </form>
+
+    </div>
+
+    <script src="assets/js/ContactForm.js"></script>
+    <script>
+    new ContactForm({
+        container: document.querySelector(".contact-form"),
+        php_file_url: "contact-minimal.php"
+    });
+    </script>
+
+    </body>
+</html>
