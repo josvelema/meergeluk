@@ -7,7 +7,9 @@ session_start();
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-
+require 'lib/phpmailer/Exception.php';
+require 'lib/phpmailer/PHPMailer.php';
+require 'lib/phpmailer/SMTP.php';
 require 'vendor/autoload.php';
 require 'config.php';
 
