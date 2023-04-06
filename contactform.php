@@ -24,10 +24,11 @@ try {
     exit('Failed to connect to database!');
 }
 
+file_put_contents('debug.log', '$_POST contents: ' . print_r($_POST, true) . PHP_EOL, FILE_APPEND);
+
 if (isset($_POST['naam'], $_POST['email'], $_POST['bericht'], $_POST['subject'], $_POST['g-recaptcha-response'])) {
     $errors = [];
-    file_put_contents('debug.log', 'headers set' . PHP_EOL, FILE_APPEND);
-
+    file_put_contents('debug.log', 'Inside if statement' . PHP_EOL, FILE_APPEND);
     $extra = [
         'naam' => $_POST['naam']
     ];
@@ -85,9 +86,9 @@ if (isset($_POST['naam'], $_POST['email'], $_POST['bericht'], $_POST['subject'],
 
             $mail->send();
             $response = [
-              'errors' => array_values($errors)
-          ];
-          echo json_encode($response);
+              'success' => 'Message sent successfully.'
+            ];
+            echo json_encode($response);
         } catch (Exception $e) {
             $errors[] = 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
             $response = [
