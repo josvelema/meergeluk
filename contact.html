@@ -169,7 +169,12 @@
                 form.reset();
                 grecaptcha.reset();
             } else if (result.errors) {
-                responseDiv.innerHTML = Object.values(result.errors).join('<br>');
+              responseDiv.innerHTML = '';
+              result.errors.forEach(error => {
+                  const errorParagraph = document.createElement('p');
+                  errorParagraph.textContent = error;
+                  responseDiv.appendChild(errorParagraph);
+              });
                 console.log(result.errors);
             } else {
                 responseDiv.innerHTML = 'An unexpected error occurred.';

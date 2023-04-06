@@ -79,13 +79,22 @@ if (isset($_POST['naam'], $_POST['email'], $_POST['bericht'], $_POST['subject'],
             $mail->AltBody = strip_tags($_POST['bericht']);
 
             $mail->send();
-            echo '{"success":"<h2>Bedankt voor je bericht!</h2><p>Je krijgt spoedig een reactie.</p>"}';
+            $response = [
+              'errors' => array_values($errors)
+          ];
+          echo json_encode($response);
         } catch (Exception $e) {
             $errors[] = 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
-            echo '{"errors":' . json_encode($errors) . '}';
+            $response = [
+              'errors' => array_values($errors)
+          ];
+          echo json_encode($response);
         }
     } else {
-        echo '{"errors":' . json_encode($errors) . '}';
+        $response = [
+    'errors' => $errors
+];
+echo json_encode($response);
     }
 }
 ?>
