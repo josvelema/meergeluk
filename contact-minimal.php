@@ -4,11 +4,14 @@ session_start();
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+require_once 'vendor/autoload.php';
 // Include PHPMailer library
 require 'lib/phpmailer/Exception.php';
 require 'lib/phpmailer/PHPMailer.php';
 require 'lib/phpmailer/SMTP.php';
 require 'config.php';
+
+
 
 // Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
@@ -22,7 +25,16 @@ try {
     exit('Failed to connect to database!');
 }
 // Check if user submitted the contact form
-if (isset($_POST['naam'], $_POST['email'], $_POST['bericht'], $_POST['subject'])) {
+if (isset($_POST['naam'], $_POST['email'], $_POST['bericht'], $_POST['subject'],$_POST['g-recaptcha-response'])) {
+     // Verify the reCAPTCHA response
+     $recaptcha = new \ReCaptcha\ReCaptcha(RECAPTCHA_SECRET_KEY);
+     $resp = $recaptcha->verify($_POST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
+        if (!$resp->isSuccess()) {
+            // What happens when the CAPTCHA was entered incorrectly
+            $errors[] = 'reCAPTCHA onjuist ingevuld!';
+            echo '{"errors":' . json_encode($errors) . '}';
+            exit;
+        }
     // Errors array
     $errors = [];
     // Extra values to store in the database

@@ -239,7 +239,8 @@ nav.active .logo-link,
 
 
 .hero-home .header-container {
-  padding-block: var(--step-4);
+    padding-block: var(--step-4);
+    margin-block: var(--step-2);
 }
 
 nav.active {
@@ -1601,7 +1602,7 @@ transparent 80%);
   
   }
   .hero-image-container {
-    /* margin-top: var(--step-5); */
+    margin-top: 2em;
     padding: var(--space-s);
     /* width: 100%; */
     /* max-height: 300px; */
@@ -1867,10 +1868,13 @@ transparent 80%);
   }
 }
 
+@media (max-width: 768px) {
+  .header-container h2 {
 
-.text-container {
-   /* margin: 20px 0; */
-} 
+  left: 6.5rem;
+}
+
+}
 
 .text-container h3 {
   /* font-size: 36px; */
