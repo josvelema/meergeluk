@@ -17,12 +17,12 @@
     integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <link rel="stylesheet" href="./assets/css/style.css?v=27" />
+  <link rel="stylesheet" href="./assets/css/style.css?v=28" />
 </head>
 
 <body>
   <nav>
-    <div class="container nav-container">
+    <div class="nav-container">
       <a href="/" class="logo-link" aria-label="Go to homepage" aria-current="page">
         home
       </a>
@@ -39,10 +39,10 @@
           </svg>
         </button>
         <ul class="nav-links" id="menu" role="menubar">
-          <li role="none">
+          <!-- <li role="none">
             <a href="overmij.html" class="nav-link btn" role="menuitem">
               Over mij</a>
-          </li>
+          </li> -->
           <li role="none" class="dropdown">
             <button class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false"
               id="coaching-dropdown">
@@ -66,6 +66,13 @@
               </li>
               <li role="none">
                 <a href="creatiefgeluk.html" class="dropdown-item btn" role="menuitem">Creatief Geluk</a>
+              </li>
+              <hr>
+              <li role="none">
+                <a href="overmij.html" class="dropdown-item btn" role="menuitem">Over mij</a>
+              </li>
+              <li role="none">
+                <a href="tarieven.html" class="dropdown-item btn" role="menuitem">Tarieven</a>
               </li>
             </ul>
           </li>
@@ -134,7 +141,7 @@
           <header class="section-header">
             <div class="svg-wrapper">
 
-              <button class="arrow-down" aria-controls="scroll-down" aria-label="scroll down">
+              <button class="arrow-down" aria-controls="scroll-down" aria-label="scroll down" onclick="scrollToContent()" id="scrollDown">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-down-circle"
                   width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="#f0f0f0"
                   stroke-linecap="round" stroke-linejoin="round">
@@ -524,6 +531,10 @@
   </footer>
   <script>
 
+    function scrollToContent() {
+      var section = document.getElementById("scrollDown");
+      section.scrollIntoView({behavior: "smooth"});
+    }
 
     document.addEventListener('DOMContentLoaded', () => {
       const readMoreButtons = document.querySelectorAll('[data-read-more]');
@@ -610,7 +621,7 @@
             <p class="review__name"><strong>${review.name}</strong></p>
             <p class="review__quote"><strong>${review.quote}</strong></p>
             
-          <p class="review__body">${review.body}</p>
+          <!-- <p class="review__body">${review.body}</p> -->
         </div>
           `;
     }

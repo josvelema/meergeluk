@@ -263,6 +263,9 @@ nav.active {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-inline: var(--step-2);
+  position: relative;
+  /* width: 100%; */
 }
 
 .logo {
@@ -394,6 +397,7 @@ height: var(--step-1);
   max-width: fit-content;
   position: relative;
   margin-inline: var(--space-s);
+  font-family: 'Libre Franklin', sans-serif;
 }
 
 .cta-buttons a span {
@@ -511,6 +515,7 @@ li[role="none"],
     padding-left: 1.5rem;
   }
 
+ 
 
 }
 
@@ -850,7 +855,7 @@ place-items: center;
  
 }
 
-.coaching, .review , .overmij , .faq-container,.geluk-page,.cta-section{
+.coaching, .review , .other , .faq-container,.geluk-page,.cta-section{
   border: var(--border);
   box-shadow: var(--box-shadow),
   2px 2px 8px -1px var(--gray-t-2);
@@ -1013,7 +1018,7 @@ background-image: linear-gradient(to bottom,var(--pink-pastel-1) , var(--white-t
   height: var(--step-4);
   fill:var(--pink-300);
   text-shadow: 0 0 3px white;
-  filter: drop-shadow( 0 0 1px --green-300);
+  filter: drop-shadow( 0 1px 1px var(--green-900));
   
   
 }
@@ -1922,19 +1927,19 @@ transparent 80%);
     margin-bottom: 20px;
   } */
 }
-  .cta-buttons a {
+  /* .cta-buttons a {
     height: var(--step-1);
     max-width: var(--step-1);
     /* padding: 0.5em; */
     font-size: var(--step-1);
-  } 
+  }  */
 
 .container--sm {
   max-width: 100%;
   margin-inline: auto;
   
 }
-}
+
 
 .article-img {
   width: 100%;
@@ -1951,7 +1956,11 @@ transparent 80%);
   object-position: top;
 }
 
-.overmij {
+.other-container {
+  padding-block: var(--space-3xl);
+
+}
+.other {
   display: grid;
   place-items: center;
 
@@ -1961,22 +1970,22 @@ transparent 80%);
 }
 
 /* over sabine section  */
-.overmij > * {
+.other > * {
   margin-block: var(--space-l);
   /* margin-inline: auto; */
   
 }
 
-.overmij-heading {
+.other-heading {
   margin: 0 auto;
   text-align: center;
 }
 
-.overmij .p-1 > * {
+.other .p-1 > * {
 padding-inline: var(--space-m);
 }
 
-.overmij-img-wrap {
+.other-img-wrap {
   /* width: 100%; */
   max-width: 300px;
   float: left;
@@ -1984,7 +1993,7 @@ padding-inline: var(--space-m);
   border: 1px solid; */
 }
 
-.overmij-img-wrap img {
+.other-img-wrap img {
   object-fit: contain;
   filter: drop-shadow(2px 4px 6px var(--black-t));
 
@@ -1994,23 +2003,23 @@ padding-inline: var(--space-m);
 
 
 
-.overmij p {
+.other p {
   margin-block: var(--space-m);
   margin-inline: auto;
   max-width: 80ch;
   text-align: justify;
 }
 
-.overmij p:nth-child(1) {
+.other p:nth-child(1) {
   margin-block: var(--space-l);
 }
 
 @media (max-width: 768px) {
-.overmij-img-wrap {
+.other-img-wrap {
 
   float: none;
 }
-.overmij-img-wrap {
+.other-img-wrap {
   margin: 0 auto;
   max-width: 200px;
 
