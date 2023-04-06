@@ -4,6 +4,8 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 session_start();
+file_put_contents('debug.log', 'Script started' . PHP_EOL, FILE_APPEND);
+
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -24,6 +26,7 @@ try {
 
 if (isset($_POST['naam'], $_POST['email'], $_POST['bericht'], $_POST['subject'], $_POST['g-recaptcha-response'])) {
     $errors = [];
+    file_put_contents('debug.log', 'headers set' . PHP_EOL, FILE_APPEND);
 
     $extra = [
         'naam' => $_POST['naam']
