@@ -160,8 +160,9 @@
                 method: 'POST',
                 body: formData,
             });
-            console.log(response)
-            const result = await response.json();
+            const responseText = await response.text(); // Get the response text
+            console.log(responseText); // Log the response text
+            const result = JSON.parse(responseText); // Parse the response text as JSON
 
             if (result.success) {
               console.log('success');
