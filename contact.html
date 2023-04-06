@@ -96,24 +96,24 @@
           <form id="contact-form">
             <div class="form-group">
               <label for="naam">Naam</label>
-              <input type="text" id="naam" class="form-control" required>
+              <input type="text" id="naam" class="form-control" name="naam" required>
             </div>
             <div class="form-group">
               <label for="achternaam">Achternaam</label>
-              <input type="text" id="achternaam" class="form-control" >
+              <input type="text" id="achternaam" class="form-control" name="achternaam">
             </div>
             <div class="form-group">
               <label for="email">E-mail</label>
-              <input type="email" id="email" class="form-control" required>
+              <input type="email" id="email" class="form-control" name="email" required>
             </div>
             <div class="form-group">
               <label for="telefoonnummer">Telefoonnummer</label>
-              <input type="tel" id="telefoonnummer" class="form-control" pattern="^\d{10}$" >
+              <input type="tel" id="telefoonnummer" class="form-control" pattern="^\d{10}$" name="telefoonnummer">
             </div>
             <input type="hidden" name="subject" value="meergeluk.com mail van ">
             <div class="form-group">
               <label for="bericht">Bericht</label>
-              <textarea id="bericht" class="form-control" rows="5" required></textarea>
+              <textarea id="bericht" class="form-control" rows="5" required naam="bericht"></textarea>
             </div>
             <div class="g-recaptcha" data-sitekey="6Lcke1YlAAAAANoZdNud9lBqKzu3lFFPsyg4Wozz"></div>
 
