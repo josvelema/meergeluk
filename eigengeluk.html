@@ -169,53 +169,28 @@
         
         
          </section>
-         <section class="container" aria-labelledby="ervaringen">
+         <section class="full ervaringen" aria-labelledby="ervaringen">
 
           <div class="review-container">
-            <div class="review-header">
+            <div>
               <h2>Ervaringen</h2>
               <!-- <p>We partner with some pretty amazing people! Here’s what they say about us.</p> -->
             </div>
             <div class="review-content">
-              <button id="play-pause-button">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <title>Play/Pause</title>
-                  <circle cx="12" cy="12" r="10" fill="currentColor" stroke="#0e0e0e" stroke-width="2" />
-                  <polygon class="play" points="10 8 16 12 10 16" fill="#0e0e0e" />
-                  <svg id="pause-svg" class="pause" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <rect x="9" y="8" width="2" height="8" />
-                    <rect x="13" y="8" width="2" height="8" />
-                  </svg>
-                </svg>
-  
-              </button>
-              <button class="rj-arrow" id="arrow--left">
-                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" viewBox="0 0 256 256">
-                  <rect width="256" height="256" fill="none"></rect>
-                  <line x1="216" y1="128" x2="40" y2="128" fill="none" stroke="currentColor" stroke-linecap="round"
-                    stroke-linejoin="round" stroke-width="16"></line>
-                  <polyline points="112 56 40 128 112 200" fill="none" stroke="currentColor" stroke-linecap="round"
-                    stroke-linejoin="round" stroke-width="16"></polyline>
-                </svg>
-              </button>
-              <div class="reviews">
+
+
+              <div class="reviews no-slider">
   
               </div>
-              <button class="rj-arrow" id="arrow--right">
-                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" viewBox="0 0 256 256">
-                  <rect width="256" height="256" fill="none"></rect>
-                  <line x1="40" y1="128" x2="216" y2="128" fill="none" stroke="currentColor" stroke-linecap="round"
-                    stroke-linejoin="round" stroke-width="16"></line>
-                  <polyline points="144 56 216 128 144 200" fill="none" stroke="currentColor" stroke-linecap="round"
-                    stroke-linejoin="round" stroke-width="16"></polyline>
-                </svg>
-              </button>
+   
   
             </div>
           </div>
   
   
         </section>
+  
+  
   
 
     </main>
@@ -232,7 +207,12 @@
 
     </footer>
     
-  
+    <script src="assets/js/reviews.js"></script>
+    <script>
+      fetchReviews("eigen"); // Load all reviews by default
+
+
+    </script>
     <script src="assets/js/joscript.js"></script>
 
   </body>
