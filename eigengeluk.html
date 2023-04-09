@@ -1,219 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="theme-color" content="#050307" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Meer geluk - Eigen Geluk</title>
-    <script src="assets/js/nav.js" type="module"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Libre+Franklin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
 
-    <link rel="stylesheet" href="./assets/css/style.css?v=28" />
-  </head>
-  
-  <body>
-    <nav>
-      <div class="container nav-container">
-        <a href="/" class="logo-link" aria-label="Go to homepage" aria-current="page">
-          home
-        </a>
-  
-  
-  
-        <div class="nav-wrapper">
-          <button class="btn btn--menu" id="menu-btn" aria-expanded="false" aria-controls="menu"
-            aria-label="Open mobile navigation">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.25"
-              stroke="currentColor" class="w-6 h-6" width="32" height="32">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
-            </svg>
-          </button>
-          <ul class="nav-links" id="menu" role="menubar">
-            <!-- <li role="none">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="theme-color" content="#050307" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meer geluk - Eigen Geluk</title>
+  <script src="assets/js/nav.js" type="module"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Libre+Franklin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="./assets/css/style.css?v=28" />
+</head>
+
+<body>
+  <nav>
+    <div class="container nav-container">
+      <a href="/" class="logo-link" aria-label="Go to homepage" aria-current="page">
+        home
+      </a>
+
+
+
+      <div class="nav-wrapper">
+        <button class="btn btn--menu" id="menu-btn" aria-expanded="false" aria-controls="menu"
+          aria-label="Open mobile navigation">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.25"
+            stroke="currentColor" class="w-6 h-6" width="32" height="32">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
+          </svg>
+        </button>
+        <ul class="nav-links" id="menu" role="menubar">
+          <!-- <li role="none">
               <a href="overmij.html" class="nav-link btn" role="menuitem">
                 Over mij</a>
             </li> -->
-            <li role="none" class="dropdown">
-              <button class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false"
-                id="coaching-dropdown">
-                Coaching & Begeleiding&nbsp;
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="dropdown-arrow"
-                  width="18" height="18">
-                  <path fill-rule="evenodd"
-                    d="M4.293 7.293a1 1 0 011.414 0L10 11.586l4.293-4.293a1 1 0 011.414 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414z"
-                    clip-rule="evenodd" />
-                </svg>
-              </button>
-              <ul class="dropdown-menu" id="coaching-dropdown-menu" role="menu" aria-labelledby="coaching-dropdown">
-                <li role="none">
-                  <a href="eigengeluk.html" class="dropdown-item btn" role="menuitem">Eigen Geluk</a>
-                </li>
-                <li role="none">
-                  <a href="relatiegeluk.html" class="dropdown-item btn" role="menuitem">Relatie Geluk</a>
-                </li>
-                <li role="none">
-                  <a href="werkgeluk.html" class="dropdown-item btn" role="menuitem">Werk Geluk</a>
-                </li>
-                <li role="none">
-                  <a href="creatiefgeluk.html" class="dropdown-item btn" role="menuitem">Creatief Geluk</a>
-                </li>
-                <hr>
-                <li role="none">
-                  <a href="overmij.html" class="dropdown-item btn" role="menuitem">Over mij</a>
-                </li>
-                <li role="none">
-                  <a href="tarieven.html" class="dropdown-item btn" role="menuitem">Tarieven</a>
-                </li>
-              </ul>
-            </li>
-  
-            <li role="none">
-              <a href="/blog.html" class="nav-link btn" role="menuitem">
-                Blog</a>
-            </li>
-            <li role="none">
-              <a href="contact.html" class="nav-link btn btn--accent" role="menuitem">
-                Contact</a>
-            </li>
-          </ul>
-        </div>
+          <li role="none" class="dropdown">
+            <button class="nav-link dropdown-toggle" role="menuitem" aria-haspopup="true" aria-expanded="false"
+              id="coaching-dropdown">
+              Coaching & Begeleiding&nbsp;
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="dropdown-arrow"
+                width="18" height="18">
+                <path fill-rule="evenodd"
+                  d="M4.293 7.293a1 1 0 011.414 0L10 11.586l4.293-4.293a1 1 0 011.414 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414z"
+                  clip-rule="evenodd" />
+              </svg>
+            </button>
+            <ul class="dropdown-menu" id="coaching-dropdown-menu" role="menu" aria-labelledby="coaching-dropdown">
+              <li role="none">
+                <a href="eigengeluk.html" class="dropdown-item btn" role="menuitem">Eigen Geluk</a>
+              </li>
+              <li role="none">
+                <a href="relatiegeluk.html" class="dropdown-item btn" role="menuitem">Relatie Geluk</a>
+              </li>
+              <li role="none">
+                <a href="werkgeluk.html" class="dropdown-item btn" role="menuitem">Werk Geluk</a>
+              </li>
+              <li role="none">
+                <a href="creatiefgeluk.html" class="dropdown-item btn" role="menuitem">Creatief Geluk</a>
+              </li>
+              <hr>
+              <li role="none">
+                <a href="overmij.html" class="dropdown-item btn" role="menuitem">Over mij</a>
+              </li>
+              <li role="none">
+                <a href="tarieven.html" class="dropdown-item btn" role="menuitem">Tarieven</a>
+              </li>
+            </ul>
+          </li>
+
+          <li role="none">
+            <a href="/blog.html" class="nav-link btn" role="menuitem">
+              Blog</a>
+          </li>
+          <li role="none">
+            <a href="contact.html" class="nav-link btn btn--accent" role="menuitem">
+              Contact</a>
+          </li>
+        </ul>
       </div>
-    </nav>
-    <main class="bg-attached">
-    <section class="full hero-container hero-eigen">
-      <header class="c-header-container ">
-        <div class="" id="changeNavColor">
-          <div class="header-container">
-            <img src="assets/img/meerGelukLogoFull2.png" alt="Meer Geluk in je leven, relatie & werk">
-            <!-- <h1>Meer <span id="geluk">Geluk</span></h1> -->
-          </div>
-        </div>
-        <div class="hero-title">
-          <h1>Eigen Geluk</h1>
-        </div>
-      </header>
+    </div>
+  </nav>
+  <main class="eigenGeluk">
+    <div class="home-wrapper">
 
+      <section class="full hero-container">
+        <header class="c-header-container ">
+          <div id="changeNavColor">
+            <div class="header-container rise subheading">
+              <img src="assets/img/meerGelukLogoFull3.png" alt="Meer Geluk in je leven, relatie & werk">
+              <!-- <h1>Meer <span id="geluk">Geluk</span></h1> -->
+              <h2>In je leven <br> relatie & werk</h2>
+            </div>
+          </div>
+          <div class="hero-title">
+            <h1>Eigen Geluk</h1>
+          </div>
+        </header>
+        
+      </section>
+<section class="container">
+  
+        <div class="svg-wrapper">
+          <button class="arrow-down" aria-controls="scroll-down" aria-label="scroll down" onclick="scrollToContent()" id="scrollDown">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-down-circle"
+            width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="#f0f0f0"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <circle cx="12" cy="12" r="8" />
+            <line x1="8" y1="12" x2="12" y2="16" />
+            <line x1="12" y1="8" x2="12" y2="16" />
+            <line x1="16" y1="12" x2="12" y2="16" />
+          </svg>
+          </button>
+          </div>       
         <article class="geluk-page container">
-        <!-- <div class="c-header">
-     <h2 class="h3">Meer geluk? Samen vinden we de oplossing</h2>
-          <div class="clover">
-            <img src="assets/svg/clover.svg" alt="Clover symbol" />
-          </div>
-        </div> -->
-
+          
           <div class="coach-content">
 
             <p>
-              Meer geluk! Dat wil je! Maar het leven loopt niet lekker of lijkt tegen te zitten. Je kan zelfs last hebben van stress, burn-out, depressiviteit, trauma's, PTSS, rouw, verslaving of andere obstakels die je tegenhouden van een gelukkig leven.
+              Meer geluk! Dat wil je! Maar het leven loopt niet lekker of lijkt tegen te zitten. Je kan zelfs last
+              hebben van stress, burn-out, depressiviteit, trauma's, PTSS, rouw, verslaving of andere obstakels die je
+              tegenhouden van een gelukkig leven.
               <br>
               Ik maak samen met jou een persoonlijk <strong>plan</strong> om het roer om te gooien.
               <hr>
-        <br>
+              <br>
               In slechts 8 stappen krijg je:
             </p>
-              <ul class="c-list">
-                     <li>inzicht hoe je écht in elkaar steekt</li>
-     <li>weten wie je ten diepste bent (jouw blauwdruk)</li>
-     <li>weten wat je écht wilt en wat je drijft</li>
-     <li>weten wat je tegenhoud in je geluk</li>
-     <li>een persoonlijk PLAN van aanpak</li>
-     <li>verwerking van eventuele trauma's</li>
-     <li>motivatie en begeleiding in dit proces</li>
-     <li>zelfvertrouwen, kracht en energie</li>
-     <li>handige tools, e-books en nog meer extra's</li>
-              </ul>
-          
-          </p>
-          <p>
-            Je zult merken dat je je weer krachtig en energiek voelt om te gaan staan en leven zoals jij wilt. Het effect dat je bereikt is blijvend. Na het traject houden we contact om te zorgen dat je op koers blijft. Dat is mijn manier van coachen, zodat jij MEER GELUK blijft ervaren.
-        
-          </p>
-          <p>
-          Kun je niet wachten om je leven een prachtige wending te geven? 
-          <br>
-          Plan dan een gratis eerste gesprek in. Ervaar welk effect je in een sessie kunt bereiken en of je een gezamenlijke klik voelt met mij als coach. Er zijn geen lange wachttijden en ik hanteer flexibele tijden. Kies nu voor je EIGEN GELUK!
+            <ul class="c-list">
+                   <li>inzicht hoe je écht in elkaar steekt</li>
+                   <li>weten wie je ten diepste bent (jouw blauwdruk)</li>
+                   <li>weten wat je écht wilt en wat je drijft</li>
+                   <li>weten wat je tegenhoud in je geluk</li>
+                   <li>een persoonlijk PLAN van aanpak</li>
+                   <li>verwerking van eventuele trauma's</li>
+                   <li>motivatie en begeleiding in dit proces</li>
+                   <li>zelfvertrouwen, kracht en energie</li>
+                   <li>handige tools, e-books en nog meer extra's</li>
+            </ul>
+
             </p>
             <p>
-              
-              
+              Je zult merken dat je je weer krachtig en energiek voelt om te gaan staan en leven zoals jij wilt. Het
+              effect dat je bereikt is blijvend. Na het traject houden we contact om te zorgen dat je op koers blijft.
+              Dat is mijn manier van coachen, zodat jij MEER GELUK blijft ervaren.
+
+            </p>
+            <p>
+              Kun je niet wachten om je leven een prachtige wending te geven?
+              <br>
+              Plan dan een gratis eerste gesprek in. Ervaar welk effect je in een sessie kunt bereiken en of je een
+              gezamenlijke klik voelt met mij als coach. Er zijn geen lange wachttijden en ik hanteer flexibele tijden.
+              Kies nu voor je EIGEN GELUK!
+            </p>
+            <p>
+
+
             </p>
             <div class="cta-buttons">
-              <a href="/contact" class="btn btn--accent"><i class="fa-regular fa-comment-dots"></i><span>Contact</span></a>
-              <a href="whatsapp" " class="btn btn--accent" data-social="whatsapp">
-                  <i class="fa-brands fa-whatsapp"></i>
-                  <span>WhatsApp</span>
+              <a href="/contact" class="btn btn--accent"><i
+                  class="fa-regular fa-comment-dots"></i><span>Contact</span></a>
+              <a href="whatsapp" " class=" btn btn--accent" data-social="whatsapp">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>WhatsApp</span>
               </a>
-              <a href="tel:0623232323"" class="btn btn--accent">
-                  <i class="fa-solid fa-phone"></i>
-                  <span>telefoon</span>
+              <a href="tel:0623232323"" class=" btn btn--accent">
+                <i class="fa-solid fa-phone"></i>
+                <span>telefoon</span>
               </a>
-          </div>
+            </div>
           </div>
         </article>
 
 
-        
-        
-         </section>
-         <section class="full ervaringen" aria-labelledby="ervaringen">
-
-          <div class="review-container">
-            <div>
-              <h2>Ervaringen</h2>
-              <!-- <p>We partner with some pretty amazing people! Here’s what they say about us.</p> -->
-            </div>
-            <div class="review-content">
 
 
-              <div class="reviews no-slider">
-  
-              </div>
-   
-  
-            </div>
+      </section>
+
+      <section class="container ervaringen" aria-labelledby="ervaringen">
+
+        <div class="review-container">
+          <div>
+            <h2>Ervaringen</h2>
+            <!-- <p>We partner with some pretty amazing people! Here’s what they say about us.</p> -->
           </div>
-  
-  
-        </section>
-  
-  
-  
+          <div class="review-content">
 
-    </main>
-    <footer>
-      <div class="footer-wrapper">
-        <div class="footer-column">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro reiciendis quibusdam aut!
+
+            <div class="reviews no-slider">
+
+            </div>
+
+
+          </div>
         </div>
-        <div class="footer-column">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro reiciendis quibusdam aut!
-        </div>
+
+
+      </section>
+
+
+    </div>
+
+  </main>
+  <footer>
+    <div class="footer-wrapper">
+      <div class="footer-column">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro reiciendis quibusdam aut!
       </div>
-      <p class="codette">Designed & Developped by Codette web & media - 2023</p>
+      <div class="footer-column">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro reiciendis quibusdam aut!
+      </div>
+    </div>
+    <p class="codette">Designed & Developped by Codette web & media - 2023</p>
 
-    </footer>
-    
-    <script src="assets/js/reviews.js"></script>
-    <script>
-      fetchReviews("eigen"); // Load all reviews by default
+  </footer>
+
+  <script src="assets/js/joscript.js"></script>
+  <script src="assets/js/reviews.js"></script>
+  <script>
+    function scrollToContent() {
+      var section = document.getElementById("scrollDown");
+      section.scrollIntoView({behavior: "smooth"});
+    }
+
+    fetchReviews("eigen"); // Load all reviews by default
 
 
-    </script>
-    <script src="assets/js/joscript.js"></script>
+  </script>
 
-  </body>
+</body>
+
 </html>

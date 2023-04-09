@@ -31,7 +31,9 @@ function loadReviews(review, isCategoryPage) {
     return `
       <div class="review">
         <p class="review__name"><strong>${review.name}</strong></p>
+        <hr>
         <p class="review__quote"><strong>${review.quote}</strong></p>
+        <hr>
         <p class="review__body">${review.body}</p>
       </div>
     `;
@@ -40,7 +42,9 @@ function loadReviews(review, isCategoryPage) {
     
     <div class="review">
       <p class="review__name"><strong>${review.name}</strong></p>
+      <hr>
       <p class="review__quote"><strong>${review.quote}</strong></p>
+      <hr>
       </div>
   
     `;

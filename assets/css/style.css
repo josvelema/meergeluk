@@ -212,6 +212,34 @@ img {
  max-width: 100%;
 }
 
+hr {
+  background-image: linear-gradient(to top, var(--green-100), var(--white-t-2),var(--green-200));
+  height: 4px;
+  width: min(100% - 2rem, 50ch);
+  border: 1px solid var(--gray-t);
+  border-left: none;
+  border-right: none;
+  margin-bottom: none;
+  margin-top: var(--space-s);
+  margin-inline: auto
+}
+
+hr:first-of-type {
+  margin-bottom: var(--space-s);
+}
+
+
+section {
+  max-width: var(--grid-max-width);
+  /* padding-inline: var(--grid-gutter); */
+  margin-inline: auto;
+  min-height: 100vh;
+  min-height: 100dvh;
+  /* position: relative; */
+  z-index: 1;
+
+ }
+
 nav .nav-link {
  color: var(--black-200);
  text-shadow: 1px 1px 0 var(--white-t);
@@ -238,7 +266,7 @@ nav.active .logo-link,
 }
 
 
-.hero-home .header-container {
+.header-container {
  padding-block: var(--step-4);
  margin-block: var(--step-2);
 }
@@ -396,11 +424,25 @@ height: var(--step-1);
 .cta-buttons a {
  display: flex;
  align-items: center;
- max-width: fit-content;
+ width: min(100% - 2em,180px);
+ /* max-width: max-content; */
  position: relative;
  margin-inline: var(--space-s);
  font-family: 'Libre Franklin', sans-serif;
+ margin-bottom: var(--space-s);
+ text-align: center;
 }
+.hero-image-container .cta-buttons  {
+  margin: 0.25em auto;
+}
+
+.hero-image-container .cta-buttons a {
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 4px;
+}
+
 
 .cta-buttons a span {
  margin-left: 8px;
@@ -564,15 +606,7 @@ main {
 
 }
 
-section {
- max-width: var(--grid-max-width);
- /* padding-inline: var(--grid-gutter); */
- margin-inline: auto;
- min-height: 100vh;
- min-height: 100dvh;
- /* position: relative; */
 
-}
 
 .home-container {
  width: 100%;
@@ -677,21 +711,24 @@ h3 {
 }
 
 .section-wrapper {
- display: grid;
- grid-template-rows: auto 1fr;
- position: relative;
- place-items: center;
- /* place-content: center; */
-margin-inline: auto;
+  padding: var(--space-2xs);
+  margin-block: var(--space-m);
+  margin-inline: auto;
+ /* width: calc(100% - var(--space-m)); */
+  position: relative;
+  display: flex;
+ 
+  align-items: center;
 
 }
 .svg-wrapper {
  position: absolute;
  top: 0;
  left: 50%;
- transform: translate(-50%, -40%);
+ transform: translate(-50%, -70%);
  z-index: 5;
  padding: 1em;
+
 }
 .svg-down {
  color: var(--green-200);
@@ -718,7 +755,7 @@ button.arrow-down {
 /* width: calc(100% - var(--space-m)); */
  position: relative;
  display: flex;
- border-top: 1p;
+
  align-items: center;
  background: linear-gradient(45deg,var(--white-t-8) 25%, transparent);
 
@@ -813,6 +850,7 @@ place-items: center;
 }
 
 .container {
+  /* width: min(100% ,66vw); */
  max-width: 1240px;
  margin-inline: max((100% - 90rem) / 2, 1rem);
  position: relative;
@@ -852,23 +890,23 @@ place-items: center;
 
 /* coaching options section and pages */
 
-.coaching-trajecten {
- transform: translateY(-4em);
 
-}
 
 .coaching, .review , .other , .faq-container,.geluk-page,.cta-section{
  border: var(--border);
  box-shadow: var(--box-shadow),
  2px 2px 8px -1px var(--gray-t-2);
  border-radius: 6px;
- background-image: linear-gradient(176deg, var(--pink-100),var(--white-100) 36%,var(--white-200) 66%,var(--pink-pastel-1) 92%, var(--pink-pastel-2))
+ /* background-image: linear-gradient(176deg, var(--pink-100),var(--white-100) 36%,var(--white-200) 66%,var(--pink-pastel-1) 92%, var(--pink-pastel-2)) */
+ background: #ECE9E6;  /* fallback for old browsers */
+background: -webkit-linear-gradient(315deg, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 
 .geluk-page {
- background-image: var(--bkg-2);
- /* margin-top: -5em; */
+
 }
 
 /* .geluk-page p {
@@ -1192,6 +1230,7 @@ button[data-read-more] {
  position: relative;
  text-align: center;
  margin-inline: auto;
+ 
 }
 
 .review-container::before {
@@ -1236,16 +1275,16 @@ button[data-read-more] {
 }
 
 .review-content {
- position: relative;
- max-width: 750px;
- /* width: calc(100vw - 4rem); */
- padding: 1.5rem 0;
- overflow: hidden;
+  position: relative;
+  max-width: 750px;
+  width: calc(100vw - 4rem);
+  padding: 1.25em 0;
+  overflow: hidden;
 }
 
 .rj-arrow {
  position: absolute;
- top: 50%;
+ top: 25%;
  transform: translateY(-50%);
  background: none;
  padding: .4rem;
@@ -1343,12 +1382,14 @@ button[data-read-more] {
 }
 
 .review {
- padding: 0 2rem 2rem;
- flex: 1 0 100%;
- display: grid;
- max-width: 100%;
- place-items: center;
- gap: 1.3rem;
+  padding: 0 2rem 2rem;
+  flex: 1 0 100%;
+  display: flex;
+  max-width: 100%;
+  gap: var(--space-s);
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
 
@@ -1377,6 +1418,7 @@ button[data-read-more] {
 }
 
 .review__name {
+  margin-top: var(--space-s);
  padding: var(--space-m);
  letter-spacing: .05rem;
  font-size: var(--step-2);
@@ -1385,8 +1427,10 @@ button[data-read-more] {
 .review__quote {
  font-size: var(--step-1);
  position: relative;
- width: 90%;
+ width: calc(fit-content - var(--space-s));
+ max-width: 50ch;
  padding-inline: var(--space-s);
+ flex: 1;
 }
 
 .review__quote::before {
@@ -1398,6 +1442,7 @@ button[data-read-more] {
  top: -2rem;
  left: -2rem;
  color:var(--green-400);
+ padding-inline: var(--space-s);
 
 }
 
@@ -1410,10 +1455,12 @@ button[data-read-more] {
  bottom: -2rem;
  right: -2rem;
  color:var(--green-400);
+ padding-inline: var(--space-s);
+
 }
 
-.reviews.no-slide .review__quote::after,
-.reviews.no-slide .review__quote::before {
+.no-slide .review .review__quote::after,
+.no-slide .review .review__quote::before {
   bottom: -1rem;
  right: -1rem;
 }
@@ -1445,8 +1492,8 @@ button[data-read-more] {
 }
 
 #play-pause-button svg {
- width: 30px;
- height: 30px;
+ width: 36px;
+ height: 36px;
 }
 
 #play-pause-button circle {
@@ -1579,30 +1626,38 @@ transparent 80%);
 }
 
 .home-wrapper {
- /* height: 100dvh; */
+
  width: 100vw;
  width: 100dvw;
- /* max-width: 1246px; */
+
  height: 100%;
 
  background-image: url(../img/zomerGras.jpg);
  background-size: cover;
  background-attachment: fixed;
  background-position: center;
- /* background-position: 50% bottom; */
+
  position: relative;
 }
 
-.home-wrapper::after {
+.home-wrapper::before {
  content: '';
  position: absolute;
  inset: 0;
  width: 100%;
  height: 100%;
- background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0.05),rgba(0, 0, 0, 0.15));
+ background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.15));
  background-size: cover;
  background-attachment: fixed;
  pointer-events: none;
+ z-index: 0;
+}
+
+.eigenGeluk .home-wrapper {
+  background-image: url(../img/eigengelukHero.jpg);
+  background-position: center bottom;
+ 
+ 
 }
 
  .hero-relatie {
@@ -1610,12 +1665,7 @@ transparent 80%);
  background-position: 50% top;
 
  }
- .hero-eigen {
- background-image: url(../img/eigengelukHero.jpg);
- background-position: center bottom;
 
-
- }
  .hero-werk {
  background-image: url(../img/werkgelukHero.jpg);
  background-position: center 50%;
@@ -1627,19 +1677,7 @@ transparent 80%);
  background-position: center;
 
  }
- .hero-image-container {
- margin-top: 2em;
- padding: var(--space-s);
- /* width: 100%; */
- /* max-height: 300px; */
- border: 2px solid var(--green-400);
- border-radius: 6px;
 
- background-color: var(--white-t-2);
- backdrop-filter: blur(4px) saturate(45%);
- -webkit-backdrop-filter: blur(3px) saturate(84%);
- box-shadow: 0 1px 4px 1px var(--gray-t-2);
-}
 
 .hero-title {
  width: 100%;
@@ -1801,15 +1839,22 @@ transparent 80%);
  justify-content: center;
  align-self: start;
 
-
- /* position: relative; */
- /* margin-block: 4em; */
  padding-block: var(--space-m);
+ margin-top: 2em;
+ 
+ border: 2px solid var(--green-400);
+ border-radius: 6px;
+ 
+ background-color: var(--white-t-2);
+ backdrop-filter: blur(4px) saturate(45%);
+ -webkit-backdrop-filter: blur(3px) saturate(84%);
+ box-shadow: 0 1px 4px 1px var(--gray-t-2);
 }
 
+
 .hero-image-container .profile-picture {
- width: min(33vw, 250px);
- height: min(33vw, 250px);
+ width: min(33vw, 220px);
+ height: min(33vw, 220px);
  /* height: auto; */
  /* height: min(33vw, 250px); */
  object-fit: contain;
@@ -1838,9 +1883,9 @@ transparent 80%);
 }
 
 .profile-text {
- text-align: center;
+  text-align: center;
+  padding: var(--space-s);
 }
-
 .hero-image-container .profile-text p {
  font-family: 'Libre Franklin', sans-serif;
 

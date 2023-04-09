@@ -138,7 +138,7 @@
       <section aria-labelledby="coaching trajecten" class="full coaching-trajecten">
 
         <div class="section-wrapper">
-          <header class="section-header">
+          
             <div class="svg-wrapper">
 
               <button class="arrow-down" aria-controls="scroll-down" aria-label="scroll down" onclick="scrollToContent()" id="scrollDown">
@@ -531,11 +531,11 @@
   </footer>
   <script src="assets/js/reviews.js"></script>
   <script>
-   
     function scrollToContent() {
       var section = document.getElementById("scrollDown");
       section.scrollIntoView({behavior: "smooth"});
     }
+
     fetchReviews()
 
     document.addEventListener('DOMContentLoaded', () => {
