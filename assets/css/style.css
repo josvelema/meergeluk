@@ -68,7 +68,8 @@
  --green-analogue: hsl(85, 43%, 85%);
  --green-complement: hsl(223, 43%, 85%);
 
- --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+ --box-shadow: 0 2px 4px var(--gray-t-8);
+--box-shadow-2:  0px 4px 6px -2px var(--gray-t-2);
  --border: 2px solid var(--pink-complement);
  --text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
 
@@ -339,7 +340,11 @@ height: var(--step-1);
  padding-block: 2em;
  border-bottom: 3px solid var(--green-200);
  text-align: center;
+  pointer-events: none;
+}
 
+.nav-links > li {
+  pointer-events: auto;
 }
 
 .nav-links.activated {
@@ -490,6 +495,11 @@ li[role="none"],
  text-underline-offset: 0.35rem;
  text-decoration-thickness: 1px;
 }
+
+        /* dropdown is not working in mobile view please advice */
+
+
+
 .dropdown {
  position: relative;
  /* padding-bottom: 3px; */
@@ -545,15 +555,22 @@ li[role="none"],
  /* fill: var(--green-200) */
 }
 
+.show {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  transition-delay: 0s;
+}
+
 @media (max-width: 767px) {
 
 
- .dropdown-menu {
+ /* .dropdown-menu {
  position: absolute;
  width: 100%;
  border-bottom: none;
 
- }
+ } */
 
  .dropdown-item {
  padding-left: 1.5rem;
@@ -578,7 +595,6 @@ li[role="none"],
  z-index: 0;
  padding: 0;
  inset: 0;
-
 
  }
 
@@ -779,6 +795,8 @@ button.arrow-down {
  .klaverLogo {
  max-width: 33vw;
  }
+
+
 }
 
 .section-header {
@@ -792,7 +810,8 @@ button.arrow-down {
 /* footer section */
 
 footer {
- width: 100%;
+ width: 100vw;
+ width: 100dvw;
  margin-top: var(--space-xl);
  margin-inline: auto;
  /* padding-inline: var(--space-m); */
@@ -855,6 +874,9 @@ place-items: center;
  margin-inline: max((100% - 90rem) / 2, 1rem);
  position: relative;
 }
+main .container:nth-child(2) {
+  margin-top: -2em;
+}
 
 .container--sm {
  max-width: 800px;
@@ -893,16 +915,21 @@ place-items: center;
 
 
 .coaching, .review , .other , .faq-container,.geluk-page,.cta-section{
- border: var(--border);
+ border: var(--border); 
  box-shadow: var(--box-shadow),
  2px 2px 8px -1px var(--gray-t-2);
  border-radius: 6px;
  /* background-image: linear-gradient(176deg, var(--pink-100),var(--white-100) 36%,var(--white-200) 66%,var(--pink-pastel-1) 92%, var(--pink-pastel-2)) */
- background: #ECE9E6;  /* fallback for old browsers */
-background: -webkit-linear-gradient(315deg, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+ background: #DAE2F8;  /* fallback for old browsers */
+ background: -webkit-linear-gradient(to bottom, #D6A4A4, #DAE2F8);  /* Chrome 10-25, Safari 5.1-6 */
+ background: linear-gradient(136deg, var(--pink-pastel-1),
+ var(--pink-pastel-2),
+  var(--green-200-analogue-1),
+  var(--green-200-analogue-2)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
+
 
 
 .geluk-page {
@@ -936,9 +963,6 @@ justify-content: space-between;
 
 
 
-.coaching-traject .coach-content,
-
-.coaching-traject .coach-content p
 
 
 .c-header-container {
@@ -957,7 +981,7 @@ justify-content: space-between;
 
 
 .c-larger-p {
- font-size: var(--step-2);
+ font-size: calc(0.35rem + var(--step-1));
 }
 
 
@@ -970,12 +994,17 @@ justify-content: space-between;
  margin-inline: auto;
 }
 
-.coach-content > p {
- max-width: 66ch;
+.coach-content .auto-grid-item > p {
+ max-width: 60ch;
  text-align: justify;
 
  margin-block: var(--space-m);
  margin-inline: auto;
+}
+
+.coach-content p.first-line::first-line {
+  font-size: var(--step-2);
+  font-weight: 600;
 }
 
 
@@ -1045,13 +1074,6 @@ background-image: linear-gradient(to bottom,var(--pink-pastel-1) , var(--white-t
  padding-block: var(--space-xs);
 }
 
-.image-wrapper .clover {
- /* align-self: self-start;
- z-index: 4;
- margin-top: -5em; */
- position: absolute;
-
-}
 
 .image-wrapper svg.clover-svg {
  width: var(--step-4);
@@ -1070,14 +1092,12 @@ background-image: linear-gradient(to bottom,var(--pink-pastel-1) , var(--white-t
 }
 
 @media (max-width: 768px) {
- /* .coaching-trajecten .coaching {
- grid-template-columns: 1fr 1fr;
- } */
 
-.coaching {
- max-width: 100%;
-}
-}
+  .image-wrapper .clover {
+    bottom: -2.5rem;
+   }
+ }
+
 
 .short-text {
  margin-block: var(--space-s);
@@ -1276,8 +1296,8 @@ button[data-read-more] {
 
 .review-content {
   position: relative;
-  max-width: 750px;
-  width: calc(100vw - 4rem);
+  /* width: calc(100vw - 4rem); */
+  max-width: 66ch;
   padding: 1.25em 0;
   overflow: hidden;
 }
@@ -1355,11 +1375,29 @@ button[data-read-more] {
  transform: translate(-4%, -2%) scale(.8);
 }
 
-.ervaringen {
+
+
+.auto-grid {
  display: grid;
- /* place-items: center; */
- background: transparent;
+ grid-template-columns: repeat(auto-fit, minmax(min(100%,300px), 1fr));
+
+ gap: var(--space-s);
+ margin-block: var(--space-l);
+ place-items: center;
 }
+
+.auto-grid-item {
+  align-self: stretch;
+  padding-inline: var(--space-s);
+  background: #ECE9E6;
+  background: -webkit-linear-gradient(315deg, rgb(250, 250, 250 ), rgb(236, 233, 230 ));
+  background: linear-gradient(315deg, rgb(250, 250, 250 ), rgb(236, 233, 230));
+  border-radius: 6px;
+  box-shadow: var(--box-shadow-2);
+  border-bottom: 2px solid var(--gray-t-2);
+}
+
+
 
 .review-container {
  /* background-color: var(--bkg2); */
@@ -1660,21 +1698,21 @@ transparent 80%);
  
 }
 
- .hero-relatie {
- background-image: url(../img/close-up-portrait-kissing-couple-spending-morning-together.jpg);
- background-position: 50% top;
+.relatieGeluk .home-wrapper {
+  background-image: url(../img/close-up-portrait-kissing-couple-spending-morning-together.jpg);
+  background-position: 50% top;
 
- }
+}
 
- .hero-werk {
- background-image: url(../img/werkgelukHero.jpg);
- background-position: center 50%;
+.werkGeluk .home-wrapper {
+  background-image: url(../img/werkgelukHero.jpg);
+  background-position: center 50%;
+}
 
 
- }
- .hero-creatief {
- background-image: url(../img/kunstHero.jpg);
- background-position: center;
+.creatiefGeluk .home-wrapper {
+  background-image: url(../img/kunstHero.jpg);
+  background-position: center;
 
  }
 

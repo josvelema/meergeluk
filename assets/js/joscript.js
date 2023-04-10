@@ -2,19 +2,7 @@
       document.addEventListener('DOMContentLoaded', () => {
         const readMoreButtons = document.querySelectorAll('[data-read-more]');
         const closeButtons = document.querySelectorAll('[data-close]');
-        const dropdownToggle = document.querySelector('.dropdown-toggle');
-        const dropdownMenu = document.querySelector('.dropdown-menu');
-    
-        dropdownToggle.addEventListener('click', function() {
-          const expanded = dropdownToggle.getAttribute('aria-expanded') === 'true';
-          dropdownToggle.setAttribute('aria-expanded', !expanded);
-        });
-    
-        window.addEventListener('click', function(event) {
-          if (!event.target.closest('.dropdown')) {
-            dropdownToggle.setAttribute('aria-expanded', 'false');
-          }
-        });
+
         readMoreButtons.forEach(button => {
           button.addEventListener('click', () => {
             const coachImage = button.closest('.review').querySelector('.review-content');
@@ -29,7 +17,45 @@
           });
         });
       });
+
+      const navBtn = document.querySelector("#menu-btn");
+      const nav = document.querySelector("nav");
+      const dropdownToggle = document.querySelector('.dropdown-toggle');
+      const dropdownMenu = document.querySelector('.dropdown-menu');
       
+      
+      
+      
+      
+      
+            dropdownToggle.addEventListener('click', function() {
+              const expanded = dropdownToggle.getAttribute('aria-expanded') === 'true';
+              dropdownToggle.setAttribute('aria-expanded', !expanded);
+              
+            });
+      
+            
+            
+      navBtn.addEventListener('click' , () => {
+        const isExpanded = JSON.parse(navBtn.getAttribute('aria-expanded'));
+        navBtn.setAttribute('aria-expanded' , !isExpanded);
+        navLinks.classList.add('activated')
+      
+        // isExpanded && nav.classList.add('active')!
+          if (!isExpanded) {
+          nav.classList.add('active');
+        } else {
+          nav.classList.remove('active');
+        }
+      })
+
+        
+
+      window.addEventListener('click', function(event) {
+        if (!event.target.closest('.dropdown')) {
+          dropdownToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
       
       const faqItems = document.querySelectorAll('.faq-item');
 
@@ -49,4 +75,3 @@
           }
         });
       }); 
-

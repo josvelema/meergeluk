@@ -1,29 +1,46 @@
-const navBtn = document.querySelector("#menu-btn");
-const nav = document.querySelector("nav");
 const navLinks = document.querySelector(".nav-links");
 const navLink = document.querySelectorAll(".nav-link");
-const header = document.querySelector("header");
+
+const navBtn = document.querySelector("#menu-btn");
+const nav = document.querySelector("nav");
+const dropdownToggle = document.querySelector('.dropdown-toggle');
+const dropdownMenu = document.querySelector('.dropdown-menu');
 
 
-// active page
-navLink.forEach(link => {
-  console.log((link.href , window.location.href));
-  if(link.href === window.location.href) {
-    link.setAttribute('aria-current', 'page')
-  };
-})
 
-// --
 
+
+
+      dropdownToggle.addEventListener('click', function() {
+        const expanded = dropdownToggle.getAttribute('aria-expanded') === 'true';
+        dropdownToggle.setAttribute('aria-expanded', !expanded);
+        
+      });
+
+      
+      
 navBtn.addEventListener('click' , () => {
-  navLinks.classList.add('activated')
   const isExpanded = JSON.parse(navBtn.getAttribute('aria-expanded'));
   navBtn.setAttribute('aria-expanded' , !isExpanded);
+  navLinks.classList.add('activated')
 
-  !isExpanded && nav.classList.add('active')
-
+  // isExpanded && nav.classList.add('active')!
+    if (!isExpanded) {
+    nav.classList.add('active');
+  } else {
+    nav.classList.remove('active');
+  }
 })
 
+// active page
+// navLink.forEach(link => {
+//   console.log((link.href , window.location.href));
+//   if(link.href === window.location.href) {
+//     link.setAttribute('aria-current', 'page')
+//   };
+// })
+
+const header = document.querySelector("header");
 // window.addEventListener('DOMContentLoaded', () => {
 // })
 
