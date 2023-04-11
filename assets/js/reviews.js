@@ -29,23 +29,23 @@ function loadStars(stars) {
 function loadReviews(review, isCategoryPage) {
   if (isCategoryPage) {
     return `
-      <div class="review">
+      <article class="review">
         <p class="review__name"><strong>${review.name}</strong></p>
         <hr>
         <p class="review__quote"><strong>${review.quote}</strong></p>
         <hr>
         <p class="review__body">${review.body}</p>
-      </div>
+      </article>
     `;
   } else {
     return `
     
-    <div class="review">
+    <article class="review">
       <p class="review__name"><strong>${review.name}</strong></p>
       <hr>
       <p class="review__quote"><strong>${review.quote}</strong></p>
       <hr>
-      </div>
+      </article>
   
     `;
   }

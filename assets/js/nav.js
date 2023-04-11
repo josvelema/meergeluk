@@ -3,19 +3,6 @@ const navLink = document.querySelectorAll(".nav-link");
 
 const navBtn = document.querySelector("#menu-btn");
 const nav = document.querySelector("nav");
-const dropdownToggle = document.querySelector('.dropdown-toggle');
-const dropdownMenu = document.querySelector('.dropdown-menu');
-
-
-
-
-
-
-      dropdownToggle.addEventListener('click', function() {
-        const expanded = dropdownToggle.getAttribute('aria-expanded') === 'true';
-        dropdownToggle.setAttribute('aria-expanded', !expanded);
-        
-      });
 
       
       

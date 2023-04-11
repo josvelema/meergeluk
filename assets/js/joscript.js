@@ -20,34 +20,28 @@
 
       const navBtn = document.querySelector("#menu-btn");
       const nav = document.querySelector("nav");
-      const dropdownToggle = document.querySelector('.dropdown-toggle');
-      const dropdownMenu = document.querySelector('.dropdown-menu');
+  
       
       
       
       
-      
-      
-            dropdownToggle.addEventListener('click', function() {
-              const expanded = dropdownToggle.getAttribute('aria-expanded') === 'true';
-              dropdownToggle.setAttribute('aria-expanded', !expanded);
-              
-            });
-      
-            
-            
-      navBtn.addEventListener('click' , () => {
-        const isExpanded = JSON.parse(navBtn.getAttribute('aria-expanded'));
-        navBtn.setAttribute('aria-expanded' , !isExpanded);
-        navLinks.classList.add('activated')
-      
-        // isExpanded && nav.classList.add('active')!
-          if (!isExpanded) {
-          nav.classList.add('active');
-        } else {
-          nav.classList.remove('active');
-        }
-      })
+    
+        const readMoreButtons = document.querySelectorAll('[data-read-more]');
+        const closeButtons = document.querySelectorAll('[data-close]');
+        const dropdownToggle = document.querySelector('.dropdown-toggle');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+  
+        dropdownToggle.addEventListener('click', function () {
+          const expanded = dropdownToggle.getAttribute('aria-expanded') === 'true';
+          dropdownToggle.setAttribute('aria-expanded', !expanded);
+          console.log("dropclick");
+        });
+  
+        window.addEventListener('click', function (event) {
+          if (!event.target.closest('.dropdown')) {
+            dropdownToggle.setAttribute('aria-expanded', 'false');
+          }
+        });
 
         
 
@@ -60,10 +54,10 @@
       const faqItems = document.querySelectorAll('.faq-item');
 
       // Add click event listener to each question button
-      faqItems.forEach(function(item) {
+      faqItems.forEach(function (item) {
         const button = item.querySelector('.faq-question');
         const answer = item.querySelector('.faq-answer');
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
           item.classList.toggle('active');
           const expanded = button.getAttribute('aria-expanded') === 'true' || false;
           button.setAttribute('aria-expanded', !expanded);
@@ -74,4 +68,4 @@
             answer.style.height = 0;
           }
         });
-      }); 
+      });
