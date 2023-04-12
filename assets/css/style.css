@@ -76,7 +76,8 @@
  --green-complement: hsl(223, 43%, 85%);
 
  --box-shadow: 0 2px 4px var(--gray-t-8);
---box-shadow-2:  0px 4px 6px -2px var(--gray-t-2);
+/* --box-shadow-2:  0px 4px 6px -2px var(--gray-t-2); */
+--box-shadow-2: 0px 4px 6px 0px var(--gray-t-2),2px -2px 5px -2px #6665;
  --border: 1px solid var(--green-300-analogue-2);
  --text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
  --card-size: 323px;
@@ -201,7 +202,7 @@ body {
 
 a {
  color: var(--black-200);
- text-underline-offset: 2px;
+ text-underline-offset: 4px;
  text-decoration-color: var(--green-400);
 }
 
@@ -735,8 +736,19 @@ h1,h2,h3 {
 }
 
 
+small {
+  font-size: calc(var(--step-1) - 0.2rem);
+}
 
+.block {
+  display: block;
 
+}
+
+address {
+  font-style: normal;
+  padding: var(--space-s)
+}
 
 h1 {
  font-size: var(--step-6);
@@ -774,6 +786,7 @@ h3 {
   text-align: center;
   margin: 0 auto;
 }
+
 
 .white-text-black-outline {
   color: var(--white-200);
@@ -1154,7 +1167,8 @@ justify-content: space-between;
  margin-inline: auto;
 }
 
-.coach-content .auto-grid-item > p {
+.coach-content  > p ,
+.auto-grid > p {
  max-width: 60ch;
  text-align: justify;
 
@@ -1730,7 +1744,7 @@ button[data-read-more] {
     border-radius: 6px;
   box-shadow: var(--box-shadow-2);
   border-bottom: 1px solid var(--gray-t);
-  border-left: 1px solid var(--gray-t-2);
+  border-left: 2px solid var(--gray-t-2);
 }
 
 
@@ -1888,6 +1902,21 @@ transparent 80%);
   background-position: center;
 
  }
+
+ .tarieven .home-wrapper {
+  background-image: url(../img/tarievenHero.png);
+  background-position: center;
+
+ }
+
+ .gratis .home-wrapper {
+  background-image: url(../img/gratisgelukHero.jpg);
+ }
+
+ /* .tarieven section {
+  min-height: 100vh;
+  min-height: 100dvh;
+ } */
 
 
 .hero-title {
@@ -2211,6 +2240,8 @@ transparent 80%);
 
 .other-content {
   padding: var(--space-s);
+  width: min(100% - 0.25em,88ch);
+  margin-inline: auto;
 }
 .other {
  display: grid;
@@ -2233,16 +2264,12 @@ transparent 80%);
  text-align: center;
 }
 
-.other .p-1 > * {
-padding-inline: var(--space-m);
-}
+
 
 .other-img-wrap {
- /* width: 100%; */
- max-width: 300px;
- float: left;
- /* border-radius: 50vw;
- border: 1px solid; */
+ width: var(--img-width);
+ /* aspect-ratio: 2 / 3; */
+
 }
 
 .other-img-wrap img {
@@ -2253,18 +2280,11 @@ padding-inline: var(--space-m);
 
 }
 
-
-
 .other p {
- margin-block: var(--space-m);
- margin-inline: auto;
- max-width: 80ch;
- text-align: justify;
+  padding-block: var(--space-s)
 }
 
-.other p:nth-child(1) {
- margin-block: var(--space-l);
-}
+
 
 @media (max-width: 768px) {
 .other-img-wrap {
