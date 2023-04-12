@@ -22,7 +22,7 @@
 <body>
   <nav>
     <div class="nav-container">
-      <a href="tel:0623232323"" class="btn btn--home" aria-label="Go to homepage" aria-current="page">
+      <a href="/"" class=" btn btn--home" aria-label="Go to homepage" aria-current="page">
         <i class="fa-solid fa-house"></i>
         <span>home</span>
       </a>
@@ -98,9 +98,11 @@
         <header class="c-header-container ">
           <div class="hero" id="changeNavColor">
             <div class="header-container rise subheading">
-              <img src="assets/img/meerGelukLogoFull3.png" alt="Meer Geluk in je leven, relatie & werk">
-              <!-- <h1>Meer <span id="geluk">Geluk</span></h1> -->
-              <h2>In je leven <br> relatie & werk</h2>
+              <div class="header-content">
+                <img src="assets/img/meerGelukLogoFull3.png" alt="Meer Geluk in je leven, relatie & werk">
+                <!-- <h1>Meer <span id="geluk">Geluk</span></h1> -->
+                <h2>In je leven <br> relatie & werk</h2>
+              </div>
             </div>
             <div class="hero-image-container rise">
               <div class="profile-picture">
@@ -113,23 +115,43 @@
                   Kunstzinnig therapeut
                 </p>
               </div>
-              <div class="cta-buttons">
-                <!-- <a href="/contact" class="btn btn--accent"><i class="fa-regular fa-comment-dots"></i><span>Contact</span></a> -->
-                <a href="whatsapp" " class="btn btn--accent" data-social="whatsapp">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    <!-- <span>WhatsApp</span> -->
-                </a>
-                <a href="tel:0623232323"" class="btn btn--accent">
-                    <i class="fa-solid fa-phone"></i>
-                    <!-- <span>telefoon</span> -->
-                </a>
-            </div>
+
             </div>
 
           </div>
+          <aside class="home-cta">
+            <blockquote>
+              <strong>Geluk vinden</strong>
+              is <em>geen </em>kwestie van geluk hebben,
+              <br>
+              maar een kwestie van <strong>geluk maken</strong>.
+            </blockquote>
+            <div class="home-cta-flex">
+              <div class="home-cta-content">
+                <p>
+                  Klaar voor een prachtige wending in je leven?
+                  <br>
+                  <strong>Geen lange wachttijden!</strong>
+                  <br>
+                  Maak nu een afspraak voor een gratis kennismakingsgesprek. Ontdek of er een goede klik is tussen ons als coach en cliënt. Kies vandaag nog voor je EIGEN GELUK!
+                </p>
+              </div>
+              <div class="cta-buttons no-text">
+                <a href="contact.html" class="btn btn--accent"><i class="fa-regular fa-comment-dots"></i></a>
+                <a href="whatsapp" " class=" btn btn--accent" data-social="whatsapp">
+                  <i class="fa-brands fa-whatsapp"></i>
+                  <!-- <span>WhatsApp</span> -->
+                </a>
+                <a href="tel:0623232323"" class=" btn btn--accent">
+                  <i class="fa-solid fa-phone"></i>
+                  <!-- <span>telefoon</span> -->
+                </a>
+              </div>
+            </div>
+          </aside>
         </header>
-
-        <!-- <div class="post-it">
+        <!-- 
+        <div class="post-it">
             <p class="note">
               <strong>Geluk vinden</strong> <br>
               is geen kwestie van <br>
@@ -140,23 +162,24 @@
       <section aria-labelledby="coaching trajecten" class="full coaching-trajecten">
 
         <div class="section-wrapper">
-          
-            <div class="svg-wrapper">
 
-              <button class="arrow-down" aria-controls="scroll-down" aria-label="scroll down" onclick="scrollToContent()" id="scrollDown">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-down-circle"
-                  width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="#f0f0f0"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <circle cx="12" cy="12" r="8" />
-                  <line x1="8" y1="12" x2="12" y2="16" />
-                  <line x1="12" y1="8" x2="12" y2="16" />
-                  <line x1="16" y1="12" x2="12" y2="16" />
-                </svg>
-              </button>
-            </div>
-            <!-- <img src="assets/img/meerGelukLogoKlaver.png" alt="Meer Geluk Klaver" class="klaverLogo"> -->
-            <h2 class="sr-only">Coaching en begeleiding trajecten</h2>
+          <div class="svg-wrapper">
+
+            <button class="arrow-down" aria-controls="scroll-down" aria-label="scroll down" onclick="scrollToContent()"
+              id="scrollDown">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-down-circle" width="44"
+                height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="#f0f0f0"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <circle cx="12" cy="12" r="8" />
+                <line x1="8" y1="12" x2="12" y2="16" />
+                <line x1="12" y1="8" x2="12" y2="16" />
+                <line x1="16" y1="12" x2="12" y2="16" />
+              </svg>
+            </button>
+          </div>
+          <!-- <img src="assets/img/meerGelukLogoKlaver.png" alt="Meer Geluk Klaver" class="klaverLogo"> -->
+          <h2 class="sr-only">Coaching en begeleiding trajecten</h2>
           </header>
           <div class="container coaching-flex">
             <article class="coaching">
@@ -327,7 +350,7 @@
         </header>
 
         <div class="container review-container">
-     
+
           <div class="review-content with-slider">
             <button id="play-pause-button">
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -381,14 +404,15 @@
         </header>
 
         <article class="container about">
-<div class="coach-content auto-grid">
-  
+          <div class="coach-content auto-grid">
+
             <div class="auto-grid-item-span">
-              <h3 class="h3 all-center">Een klik met elkaar en je veilig voelen!</h3>
+              <h3 class="h3 all-center black-text-white-outline">Een klik met elkaar en je veilig voelen!</h3>
             </div>
 
             <div class="auto-grid-item">
-              <p class="c-larger-p"> Ontdek of wij matchen in een <strong>gratis en vrijblijvend</strong> eerste gesprek waarin we:</p>
+              <p class="c-larger-p"> Ontdek of wij matchen in een <strong>gratis en vrijblijvend</strong> eerste gesprek
+                waarin we:</p>
               <ul class="cta-list">
                 <li>Elkaar leren kennen</li>
                 <li>Jouw hulpvraag duidelijk krijgen</li>
@@ -404,13 +428,14 @@
               </div>
               <p>Je kunt me uiteraard ook gewoon <a href="whatsapp">appen</a>, <a href="tel:0123434">bellen</a> of <a
                   href="mailto:info@meergeluk.com">mailen</a> voor meer informatie.
-                <br> Ik zit regelmatig in sessies met klanten, waardoor ik niet altijd de telefoon kan beantwoorden. Laat
+                <br> Ik zit regelmatig in sessies met klanten, waardoor ik niet altijd de telefoon kan beantwoorden.
+                Laat
                 een
                 bericht achter en ik bel je dezelfde dag nog terug.
               </p>
               <p class="c-larger-p"><strong>Vertrouwelijkheid en discretie zijn altijd gegarandeerd.</strong></p>
             </div>
-  
+
             <div class="auto-grid-item-span">
               <div class="faq-section">
                 <h3 class="faq-heading">FAQ - (Veelgestelde vragen)</h3>
@@ -428,18 +453,23 @@
                     <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">Hoe lang duurt een
                       traject? <span class="arrow"></span></button>
                     <div class="faq-answer" id="faq-answer-2" aria-hidden="true">
-                      Het gemiddelde traject bestaat uit 8 afspraken, waarbij de meeste mensen een prachtige transformatie
+                      Het gemiddelde traject bestaat uit 8 afspraken, waarbij de meeste mensen een prachtige
+                      transformatie
                       hebben
-                      ervaren en met een duurzaam resultaat naar huis gaan. Het kan zijn dat jij meer of minder afspraken
+                      ervaren en met een duurzaam resultaat naar huis gaan. Het kan zijn dat jij meer of minder
+                      afspraken
                       nodig hebt. Dit is geen probleem. We bespreken samen wat voor jou het beste is.
                     </div>
                   </div>
                   <div class="faq-item" role="listitem">
-                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">Kost een traject veel
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">Kost een traject
+                      veel
                       tijd? <span class="arrow"></span></button>
                     <div class="faq-answer" id="faq-answer-3" aria-hidden="true">
-                      Het meeste "werk" zal plaatsvinden tijdens de sessies. Je hoeft geen boekwerken thuis door te spitten,
-                      oneindig durende testen in te vullen en je zult merken dat je een coachingstraject gemakkelijk kunt
+                      Het meeste "werk" zal plaatsvinden tijdens de sessies. Je hoeft geen boekwerken thuis door te
+                      spitten,
+                      oneindig durende testen in te vullen en je zult merken dat je een coachingstraject gemakkelijk
+                      kunt
                       combineren met je agenda. We maken het passend voor jou.
                     </div>
                   </div>
@@ -447,12 +477,14 @@
                     <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">Zijn losse sessies
                       mogelijk?<span class="arrow"></span></button>
                     <div class="faq-answer" id="faq-answer-4" aria-hidden="true">
-                      Het is ook mogelijk om losse sessies in te plannen. Laat me weten wat je hulpvraag is, zodat we een
+                      Het is ook mogelijk om losse sessies in te plannen. Laat me weten wat je hulpvraag is, zodat we
+                      een
                       persoonlijk op maat gemaakt plan voor je kunnen ontwerpen.
                     </div>
                   </div>
                   <div class="faq-item" role="listitem">
-                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">Hoe en wanneer kan ik
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">Hoe en wanneer kan
+                      ik
                       een
                       afspraak inplannen?<span class="arrow"></span></button>
                     <div class="faq-answer" id="faq-answer-5" aria-hidden="true">
@@ -472,22 +504,26 @@
                     </div>
                   </div>
                   <div class="faq-item" role="listitem">
-                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-7">Waar vinden de sessies
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-7">Waar vinden de
+                      sessies
                       plaats?<span class="arrow"></span></button>
                     <div class="faq-answer" id="faq-answer-7" aria-hidden="true">
-                      Ik heb 2 locaties in de Drechtsteden waar ik mijn praktijk houd: Papendrecht en Dordrecht. Beide zijn
+                      Ik heb 2 locaties in de Drechtsteden waar ik mijn praktijk houd: Papendrecht en Dordrecht. Beide
+                      zijn
                       heel
-                      makkelijk bereikbaar en er zijn gratis parkeermogelijkheden. Het eerste gesprek vindt plaats op één
+                      makkelijk bereikbaar en er zijn gratis parkeermogelijkheden. Het eerste gesprek vindt plaats op
+                      één
                       van deze locaties. Daarna kunnen we ook bij jou thuis of op een andere locatie afspreken.
-                      Maar we kunnen ook bij jou thuis afspreken. Na het eerste gesprek op één van de twee locaties in de
+                      Maar we kunnen ook bij jou thuis afspreken. Na het eerste gesprek op één van de twee locaties in
+                      de
                       Drechtsteden, kunnen we de mogelijkheden bespreken om bij jou thuis af te spreken.
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-</div>
-          
+          </div>
+
         </article>
       </section>
 
@@ -519,7 +555,7 @@
   <script>
     function scrollToContent() {
       var section = document.getElementById("scrollDown");
-      section.scrollIntoView({behavior: "smooth"});
+      section.scrollIntoView({ behavior: "smooth" });
     }
 
     fetchReviews()
