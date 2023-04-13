@@ -212,13 +212,15 @@ nav {
  z-index: 999;
  width: 100%;
  padding-block: var(--step-0);
- background-image: #000;
- background-position: 5%;
- background-size: 100% 100px;
+ background-image: linear-gradient(to bottom, var(--sepia-t-3),var(--sepia-t-1) 90% ,transparent 90%);
+
+ background-position: 5% 0%;
+ background-size: 100% 4em;
+ background-repeat: no-repeat;
 
 
  transition: all 500ms cubic-bezier(.32,.54,.14,.4);
- /* margin-bottom: 4em; */
+ 
 
 }
 
@@ -261,6 +263,20 @@ nav .nav-link {
 
 }
 
+
+
+nav .nav-link,
+nav .logo-link,
+nav .btn--menu,
+nav .dropdown-toggle {
+
+ color: var(--black-200);
+ text-shadow: 1px 1px 0 var(--green-100);
+
+
+}
+
+
 nav.active .nav-link,
 nav.active .logo-link,
 nav.active .btn--menu,
@@ -272,16 +288,16 @@ nav.active .dropdown-toggle {
 
 }
 
+
 #changeNavColor {
  justify-self: flex-start;
  align-self: flex-end;
- padding-top: 2.5em;
+ padding-top: 4.5em;
 }
 
 @media (min-width: 768px) {
   .hero-home #changeNavColor {
  align-self: flex-start;
- padding-top: 4em;
 }
 }
 
@@ -700,13 +716,8 @@ li[role="none"],
 
 
 main {
- /* display: grid;
- width: 100%; */
- /* gap: var(--grid-gutter); */
- /* position: relative;
- top: -10vh; */
- min-height: 100dvh;
 
+ min-height: 100dvh;
 }
 
 
@@ -716,13 +727,6 @@ main {
  background-image: url(../img/HeroHomeGraan.png);
  background-repeat: no-repeat;
  background-size: cover;
- /* border: 1px solid red; */
-
-}
-
-section.home-hero-container {
- /* min-height: unset; */
-
 
 }
 
@@ -1825,7 +1829,7 @@ transparent 80%);
  background-size: 100% 200px;
  background-repeat: no-repeat;
  /* margin-top: 4em; */
- padding: var(--space-l);
+ /* padding: var(--space-l); */
  /* max-height: 250px; */
  /* border-top: 1px solid hsl(181, 22%, 41%); */
  /* max-height: 500px; */
