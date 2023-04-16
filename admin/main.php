@@ -25,6 +25,8 @@ function template_admin_header($title, $selected = 'dashboard') {
     $admin_links = '
         <a href="index.php"' . ($selected == 'dashboard' ? ' class="selected"' : '') . '><i class="fas fa-tachometer-alt"></i>Dashboard</a>
         <a href="messages.php"' . ($selected == 'messages' ? ' class="selected"' : '') . '><i class="fas fa-inbox"></i>Messages<span>' . $unread_messages . '</span></a>
+        <a href="posts.php"' . ($selected == 'posts' ? ' class="selected"' : '') . '><i class="fas fa-comment-dots"></i>Blog posts</a>
+        <a href="comments.php"' . ($selected == 'comments' ? ' class="selected"' : '') . '><i class="fas fa-comment-dots"></i>Blog comments</a>
         <a href="settings.php"' . ($selected == 'settings' ? ' class="selected"' : '') . '><i class="fas fa-tools"></i>Settings</a>
     ';
 echo <<<EOT
@@ -36,6 +38,14 @@ echo <<<EOT
 		<title>$title</title>
 		<link href="admin.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+		<link href="adminjostyle.css" rel="stylesheet" type="text/css">
+        <!-- Include TinyMCE stylesheet -->
+        <link rel="stylesheet" href="../vendor/tinymce/tinymce/skins/ui/oxide/skin.min.css">
+
+        <!-- Include TinyMCE script -->
+        <script src="../vendor/tinymce/tinymce/tinymce.min.js"></script>
+
+
 	</head>
 	<body class="admin">
         <aside class="responsive-width-100 responsive-hidden">
