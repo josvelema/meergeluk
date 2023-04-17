@@ -27,7 +27,9 @@ if (isset($_GET['p_id'])) {
     $post_category_id   = $row['post_cat_id'];
     $post_status        = $row['post_status'];
     $post_image         = $row['post_image'];
-    $post_content       = $row['post_content'];
+    $post_content       = str_replace("assets", "../assets", $row['post_content']) ;
+    $post_intro         = $row['post_intro'];
+
     $post_url           = $row['post_url'];
 
     $post_tags          = $row['post_tags'];
@@ -47,19 +49,13 @@ if (isset($_POST['update_post'])) {
 
   $post_image          =  $_FILES['image']['name'];
   $post_image_temp     =  $_FILES['image']['tmp_name'];
-  $post_content        =  $_POST['post_content'];
+  $post_content = str_replace("../assets", "assets", ($_POST['post_content']));
+
+  $post_intro          =  $_POST['post_intro'];
   $post_url            =  $_POST['post_url'];
 
   $post_tags           =  $_POST['post_tags'];
 
-  // Add date time string to the beginning of the file name
-  $date_time_string = date("y-m-d-H-i");
-  $new_post_image = $date_time_string . "-" . $post_image;
-
-  move_uploaded_file($post_image_temp, "../assets/blogMedia/$new_post_image");
-
-  // Update $post_image variable to store the new file name in the database
-  $post_image = $new_post_image;
 
   if (empty($post_image)) {
 
@@ -71,7 +67,20 @@ if (isset($_POST['update_post'])) {
     while ($row = $stmt->fetch()) {
 
       $post_image = $row['post_image'];
-    }
+    } 
+  } else {
+      // Add date time string to the beginning of the file name
+
+  $date_time_string = date("y-m-d-H-i");
+  $new_post_image = $date_time_string . "-" . $post_image;
+
+ 
+
+  move_uploaded_file($post_image_temp, "../assets/blogMedia/$new_post_image");
+
+  // Update $post_image variable to store the new file name in the database
+  $post_image = $new_post_image;
+
   }
 
 
@@ -82,6 +91,7 @@ if (isset($_POST['update_post'])) {
   $query .= "post_author = ? , ";
   $query .= "post_status = ? , ";
   $query .= "post_tags   = ? , ";
+  $query .= "post_intro  = ? , ";
   $query .= "post_content= ? , ";
   $query .= "post_url    = ? , ";
   $query .= "post_image  = ? ";
@@ -94,11 +104,12 @@ if (isset($_POST['update_post'])) {
   $stmt->bindParam(3, $post_author, PDO::PARAM_STR);
   $stmt->bindParam(4, $post_status, PDO::PARAM_STR);
   $stmt->bindParam(5, $post_tags, PDO::PARAM_STR);
-  $stmt->bindParam(6, $post_content, PDO::PARAM_STR);
-  $stmt->bindParam(7, $post_url, PDO::PARAM_STR);
+  $stmt->bindParam(6, $post_intro, PDO::PARAM_STR);
+  $stmt->bindParam(7, $post_content, PDO::PARAM_STR);
+  $stmt->bindParam(8, $post_url, PDO::PARAM_STR);
 
-  $stmt->bindParam(8, $post_image, PDO::PARAM_STR);
-  $stmt->bindParam(9, $post_id, PDO::PARAM_INT);
+  $stmt->bindParam(9, $post_image, PDO::PARAM_STR);
+  $stmt->bindParam(10, $post_id, PDO::PARAM_INT);
   $stmt->execute();
 
 
@@ -168,16 +179,18 @@ if (isset($_POST['update_post'])) {
 
   </div>
 
-  <div class="form-group">
+  <!-- <div class="form-group">
     <label for="users">Users</label>
     <select name="post_user" id="">
 
 
-      <?php echo "<option value=" . $post_author . ">" . $post_author . "</option>"; ?>
+      <?php
+      //  echo "<option value=" . $post_author . ">" . $post_author . "</option>";
+        ?>
 
     </select>
 
-  </div>
+  </div> -->
   <!-- <div class="form-group">
     <select name="post_status" id="">
 
@@ -209,8 +222,14 @@ if (isset($_POST['update_post'])) {
   </div>
 
   <div class="form-group">
+    <label for="post_intro">Post Content</label>
+    <textarea class="form-control " name="post_intro" id="body" cols="30" rows="10">
+      <?php echo trim($post_intro); ?>
+    </textarea>
+  </div>
+  <div class="form-group">
     <label for="post_content">Post Content</label>
-    <textarea class="form-control " name="post_content" id="body" cols="30" rows="10">
+    <textarea class="form-control " name="post_content" id="post_content" cols="30" rows="10">
       <?php echo trim($post_content); ?>
     </textarea>
   </div>
@@ -239,6 +258,89 @@ if (isset($_POST['update_post'])) {
   }
 </script>
 
+<script>
+  const example_image_upload_handler = (blobInfo, progress) => new Promise((resolve, reject) => {
+  const xhr = new XMLHttpRequest();
+  xhr.withCredentials = false;
+  xhr.open('POST', 'postAcceptor.php');
+
+  xhr.upload.onprogress = (e) => {
+    progress(e.loaded / e.total * 100);
+  };
+
+  xhr.onload = () => {
+    if (xhr.status === 403) {
+      reject({ message: 'HTTP Error: ' + xhr.status, remove: true });
+      return;
+    }
+
+    if (xhr.status < 200 || xhr.status >= 300) {
+      reject('HTTP Error: ' + xhr.status);
+      return;
+    }
+
+    const json = JSON.parse(xhr.responseText);
+
+    if (!json || typeof json.location != 'string') {
+      reject('Invalid JSON: ' + xhr.responseText);
+      return;
+    }
+
+    resolve(json.location);
+  };
+
+  xhr.onerror = () => {
+    reject('Image upload failed due to a XHR Transport error. Code: ' + xhr.status);
+  };
+
+  const formData = new FormData();
+  formData.append('file', blobInfo.blob(), blobInfo.filename());
+
+  xhr.send(formData);
+});
+  tinymce.init({
+    selector: '#post_content', // Replace "#post_content" with the ID or class of the textarea where you want to enable TinyMCE
+    height: 600, // Set the height of the editor as needed
+    plugins: 'link image code fontsizeselect formatselect', // Add any additional plugins you want to use
+    toolbar: 'image | bold italic underline | link |  fontsizeselect | formatselect',
+    images_upload_handler: example_image_upload_handler
+
+
+    // images_upload_handler: function (blobInfo, success, failure) {
+    //             let xhr, formData;
+    //             xhr = new XMLHttpRequest();
+    //             xhr.withCredentials = false;
+    //             xhr.open('POST', 'postMediaUpload.php'); 
+    //             xhr.onload = function() {
+    //               console.log("xhr onload");
+    //                 var json;
+
+    //                 if (xhr.status !== 200) {
+    //                     failure('HTTP Error: ' + xhr.status);
+    //                     return;
+    //                 }
+    //                 console.log("kjjs" , xhr.responseText);
+    //                 json = JSON.parse(xhr.responseText);
+
+    //                 if (!json || typeof json.location !== 'string') {
+    //                     failure('Invalid JSON: ' + xhr.responseText);
+    //                     return;
+    //                 }
+    //                 console.log("successsss")
+
+    //                 success(json.location);
+    //             };
+    //             formData = new FormData();
+    //             formData.append('post_images[]', blobInfo.blob(), blobInfo.filename());
+    //             console.log("formdata", formData);
+    //             xhr.send(formData);
+    //         }
+        });
+
+
+
+
+</script>
 
 
 <?= template_admin_footer() ?>

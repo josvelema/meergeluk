@@ -2656,6 +2656,11 @@ label {
  -ms-hyphens: auto;
 }
 
+.blog-item-text {
+  text-align: justify;
+  word-break: break-all;
+}
+
 .blog-item-link {
  display: flex;
  justify-content: flex-end;

@@ -14,142 +14,183 @@ $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
 
 ?>
-<?= template_header('Gallery') ?>
-<link rel="stylesheet" href="assets/css/blog.css">
-<?= template_nav() ?>
+<?= template_header('Blog') ?>
+
+</head>
+
+<body>
 
 
-<?php
-
-$per_page = 6;
+  <?= template_nav() ?>
 
 
-(isset($_GET['page'])) ? $page = $_GET['page'] : $page = "";
+  <?php
 
-($page == "" || $page == 1) ? $page_1 = 0 : $page_1 = ($page * $per_page) - $per_page;
+  $per_page = 6;
 
-$stmt = $pdo->query("SELECT * FROM posts WHERE post_status = 'published' ORDER BY post_id DESC");
 
-$count = $stmt->rowCount();
-$total_posts = $count;
+  (isset($_GET['page'])) ? $page = $_GET['page'] : $page = "";
 
-if ($count < 1) {
+  ($page == "" || $page == 1) ? $page_1 = 0 : $page_1 = ($page * $per_page) - $per_page;
 
-  echo "<h1 class='text-center'>No posts available</h1>";
-} else {
-  $count  = ceil($count / $per_page);
-  $published = "published";
-?>
+  $stmt = $pdo->query("SELECT * FROM posts WHERE post_status = 'published' ORDER BY post_id DESC");
 
-  <main class="rj-blog-main">
-    <section class="rj-blog">
+  $count = $stmt->rowCount();
+  $total_posts = $count;
 
-      <header class="rj-blog-header">
-        <h2>Pieter Adriaans - Blog </h2>
-        <small>total posts: 
-          <?php echo $total_posts . ' | viewing page ' . $current_page . ' of ' . $count ;?>
-        </small>
+  if ($count < 1) {
 
-          <ul class="rj-pager">
+    echo "<h1 class='text-center'>Er zijn geen posts</h1>";
+  } else {
+    $count  = ceil($count / $per_page);
+    $published = "published";
+  ?>
+
+
+    <main class="full">
+      <div class="home-wrapper">
+        <section class="full hero-container hero-home">
+          <header class="c-header-container ">
+            <div class="hero" id="changeNavColor">
+              <div class="header-container rise subheading">
+                <div class="header-content">
+                  <img src="assets/img/meerGelukLogoFull3.png" alt="Meer Geluk in je leven, relatie & werk">
+                
+                  <h1 class="hero-h1">Blog</h1>
+                </div>
+              </div>
+
+              <aside class="home-cta">
+                <p class="c-larger-p">
+                  Welkom op de 'Meer Geluk' blog!
+
+                </p>
+                <p>
+                  Hier vind je compacte, inspirerende artikelen die je helpen geluk te vinden in je leven, relaties en
+                  werk. Duik in de wereld van persoonlijke groei en ontdek jouw pad naar een gelukkiger leven. Veel
+                  leesplezier!
+                </p>
+              </aside>
+
+            </div>
+
+          </header>
+        </section>
+        <aside class="blog-pager">
+          <small>Blog posts:
+            <?php echo $total_posts . ' | Pagina ' . $current_page . ' van ' . $count; ?>
+          </small>
+          <ul>
             <span>page </span>
             <?php
-
             $number_list = array();
-
-
             for ($i = 1; $i <= $count; $i++) {
               echo ($i == $page) ? "<li><a class='rj-active-page' href='blog.php?page={$i}'>{$i}</a></li>"
                 : "<li><a href='blog.php?page={$i}'>{$i}</a></li>";
             }
-
             ?>
-
           </ul>
-          <hr>
-      </header>
-
-      <div data-component class="blog-css-grid">
-
-
-        <?php
-        //todo prepared stmt
-        // $query = "SELECT * FROM posts LIMIT $page_1, $per_page";
-        // $select_all_posts_query = mysqli_query($pdo, $query);
-
-        $stmt = $pdo->prepare('SELECT * FROM posts WHERE post_status = ? ORDER BY post_id DESC LIMIT ? , ?');
-        $stmt->bindParam(1, $published, PDO::PARAM_STR);
-        $stmt->bindParam(2, $page_1, PDO::PARAM_INT);
-        $stmt->bindParam(3, $per_page, PDO::PARAM_INT);
-        $stmt->execute();
-
-        // while ($row = mysqli_fetch_assoc($select_all_posts_query)) {
-        while ($row = $stmt->fetch()) {
-          $post_id = $row['post_id'];
-          $post_title = $row['post_title'];
-          $post_author = $row['post_author'];
-          $post_date = $row['post_date'];
-          $post_image = $row['post_image'];
-          $post_content = substr($row['post_content'], 0, 250) . "..."; //! truncated !!
-          $post_status = $row['post_status'];
-          $post_views = $row['post_views'];
+        </aside>
+        <section aria-labelledby="Blog artikelen" class="full">
+          <div class="section-wrapper">
 
 
+            <div data-component class="blog-grid">
+              <?php
+              $stmt = $pdo->prepare('SELECT * FROM posts WHERE post_status = ? ORDER BY post_id DESC LIMIT ? , ?');
+              $stmt->bindParam(1, $published, PDO::PARAM_STR);
+              $stmt->bindParam(2, $page_1, PDO::PARAM_INT);
+              $stmt->bindParam(3, $per_page, PDO::PARAM_INT);
+              $stmt->execute();
 
-        ?>
+              // while ($row = mysqli_fetch_assoc($select_all_posts_query)) {
+              while ($row = $stmt->fetch()) {
+                $post_id = $row['post_id'];
+                $post_title = $row['post_title'];
+                $post_author = $row['post_author'];
+                $date = new DateTime($row['post_date']);
+                $post_tags = $row['post_tags'];
+                $post_image = $row['post_image'];
+                $post_intro = $row['post_intro'];
+                // $post_intro = substr($row['post_content'], 0, 250) . "..."; 
+                $post_status = $row['post_status'];
+                $post_views = $row['post_views'];
 
 
-          <div data-component class="rj-blog-card">
-            <div class="rj-blog-card-header">
-              <a href="post.php?p_id=<?php echo $post_id; ?>" class="rj-card-title"><?php echo $post_title ?></a>
-              <p>by : <?php echo $post_author ?> - <em><?php echo $post_date . "</em> - <small>" . $post_views; ?> views</small></p>
-            </div>
-            <div class="rj-blog-card-content">
-              <a href="post.php?p_id=<?php echo $post_id; ?>">
-                <img class="blog-image" src="images/<?php echo $post_image; ?>" alt="<?php echo $post_title ?>">
-              </a>
-              <?php echo "<pre>" . trim($post_content) . "</pre>"; ?>
+                // Format the date as "Woensdag 17 april 2023"
+                $formatted_date = ucfirst(strftime('%A %e %B %Y', $date->getTimestamp())); // ucfirst to make the first letter capital
+                if (version_compare(PHP_VERSION, '8.1.0') >= 0) {
+                  setlocale(LC_TIME, 'nl_NL'); // set the locale to Dutch
 
-            </div>
-            <div class="rj-blog-card-footer">
-              <a class="rj-btn-light" href="post.php?p_id=<?php echo $post_id; ?>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
-              <!-- <a href="https://moderncss.dev">Visit ModernCSS.dev</a> -->
+                  $formatted_date = ucfirst($date->formatLocalized('%A %e %B %Y')); // use formatLocalized for PHP 8.1.0 and above
+                } else {
+                  setlocale(LC_TIME, 'nl_NL'); // set the locale to Dutch
+                  $formatted_date = ucfirst(strftime('%A %e %B %Y', $date->getTimestamp())); // use strftime for PHP versions below 8.1.0
+                }
+
+                // Calculate the difference in days between the post date and today
+                $today = new DateTime();
+                $diff = $today->diff($date)->days;
+
+                // Determine how long ago the post was made
+                if ($diff == 0) {
+                  $time_ago = 'Vandaag';
+                } elseif ($diff == 1) {
+                  $time_ago = 'Gisteren';
+                } elseif ($diff < 7) {
+                  $time_ago = $diff . ' dagen geleden';
+                } elseif ($diff == 7) {
+                  $time_ago = '1 week geleden';
+                } elseif ($diff < 30) {
+                  $time_ago = ceil($diff / 7) . ' weken geleden';
+                } elseif ($diff == 30) {
+                  $time_ago = '1 maand geleden';
+                } elseif ($diff < 365) {
+                  $time_ago = ceil($diff / 30) . ' maanden geleden';
+                } elseif ($diff == 365 || $diff < 730) {
+                  $time_ago = '1 jaar geleden';
+                } else {
+                  $time_ago = 'meer dan een jaar geleden';
+                }
+
+                // Combine the formatted date and time ago into one string
+                $outputDateInfo = $formatted_date . ' (' . $time_ago . ')';
+
+
+              ?>
+
+
+                <article class="blog-item">
+                  <div class="blog-item-header">
+                    <h2 class="blog-item-title"><?= $post_title ?></h2>
+                    <p>Gepost door <?= $post_author ?> </p>
+                    <p><small><?= $outputDateInfo ?> - <?= $post_views; ?> views</small></p>
+                    <p class="blog-item-tags"><?= $post_tags ?> </p>
+                  </div>
+
+                  <div class="blog-item-img">
+                    <img src="assets/blogMedia/<?= $post_image; ?>" alt="<?= $post_title; ?>">
+                  </div>
+
+                  <div class="blog-item-content">
+                    <p class="blog-item-text"><?= $post_intro ?></p>
+                    <a href="post.php?p_id=<?= $post_id ?>" class="blog-item-link">Lees meer</a>
+
+                  </div>
+
+                </article>
+            <?php }
+            } ?>
+
             </div>
           </div>
 
-
-      <?php }
-      } ?>
+        </section>
 
       </div>
-
-      <ul class="rj-pager">
-        <span>Page </span>
-        <?php
-
-        $number_list = array();
+    </main>
 
 
-        for ($i = 1; $i <= $count; $i++) {
-          echo ($i == $page) ? "<li><a class='rj-active-page' href='blog.php?page={$i}'>{$i}</a></li>"
-            : "<li><a href='blog.php?page={$i}'>{$i}</a></li>";
-        }
+    <div class="media-popup"></div>
 
-        ?>
-
-      </ul>
-
-    </section>
-  </main>
-
-
-
-
-
-
-
-
-  </div>
-
-  <div class="media-popup"></div>
-
-  <?= template_footer() ?>
+    <?= template_footer() ?>
