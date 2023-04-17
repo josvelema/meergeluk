@@ -7,7 +7,7 @@
   /*********************************************
    * Change this line to set the upload folder *
    *********************************************/
-  $imageFolder = "images/";
+  $imageFolder = "../assets/blogMedia/";
 
   if (isset($_SERVER['HTTP_ORIGIN'])) {
     // same-origin requests won't set an origin. If the origin is set, it must be valid.
@@ -48,8 +48,12 @@
     }
 
     // Accept upload if there was no origin, or if it is an accepted origin
-    $filetowrite = $imageFolder . $temp['name'];
+    $date_time_string = date("y-m-d-H-i") . "-";
+    $filetowrite = $imageFolder . $date_time_string . $temp['name'];
+    // $filetowrite = $imageFolder . $temp['name'];
     move_uploaded_file($temp['tmp_name'], $filetowrite);
+
+      // $filetowrite = str_replace("../", "", $filetowrite);
 
     // Determine the base URL
     $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on' ? "https://" : "http://";

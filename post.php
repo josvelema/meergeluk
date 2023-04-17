@@ -38,7 +38,7 @@ if (isset($_GET['p_id'])) {
     $post_content = $row['post_content'];
     $post_url = $row['post_url'];
 
-    $post_views = $row['post_views'];
+    $post_views = $row['post_views_count'];
   }
 
 ?>
@@ -56,7 +56,7 @@ if (isset($_GET['p_id'])) {
         </header>
         <div class="rj-blog-card-content rj-post-column-reverse">
           <div class="rj-post-image">
-            <img class="blog-image" src="images/<?php echo $post_image; ?>" alt="<?php echo $post_title ?>">
+            <img class="blog-image" src="assets/blogMedia/<?php echo $post_image; ?>" alt="<?php echo $post_title ?>">
 
           </div>
 

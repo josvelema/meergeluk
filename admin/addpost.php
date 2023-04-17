@@ -24,11 +24,14 @@ if (isset($_POST['create_post'])) {
 
 
   $post_tags         = ($_POST['post_tags']);
-  $post_content      = ($_POST['post_content']);
+
+  $post_content = str_replace("../assets", "assets", ($_POST['post_content']));
+
   $post_intro      = ($_POST['post_intro']);
   $post_url      = ($_POST['post_url']);
 
   $post_date         = (date('d-m-y'));
+
 
 
    // Add date time string to the beginning of the file name
