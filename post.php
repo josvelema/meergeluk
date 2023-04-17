@@ -33,34 +33,85 @@ if (isset($_GET['p_id'])) {
   while ($row = $stmt->fetch()) {
     $post_title = $row['post_title'];
     $post_author = $row['post_author'];
-    $post_date = $row['post_date'];
+    $date = new DateTime($row['post_date']);
+    $post_tags = $row['post_tags'];
+
     $post_image = $row['post_image'];
     $post_content = $row['post_content'];
     $post_url = $row['post_url'];
 
-    $post_views = $row['post_views_count'];
+    $post_views = $row['post_views'];
   }
+ 
 
+  // Format the date as "Woensdag 17 april 2023"
+  $formatted_date = ucfirst(strftime('%A %e %B %Y', $date->getTimestamp())); // ucfirst to make the first letter capital
+  if (version_compare(PHP_VERSION, '8.1.0') >= 0) {
+    setlocale(LC_TIME, 'nl_NL'); // set the locale to Dutch
+
+    $formatted_date = ucfirst($date->formatLocalized('%A %e %B %Y')); // use formatLocalized for PHP 8.1.0 and above
+  } else {
+    setlocale(LC_TIME, 'nl_NL'); // set the locale to Dutch
+    $formatted_date = ucfirst(strftime('%A %e %B %Y', $date->getTimestamp())); // use strftime for PHP versions below 8.1.0
+  }
+  
+  // Calculate the difference in days between the post date and today
+  $today = new DateTime();
+  $diff = $today->diff($date)->days;
+  
+  // Determine how long ago the post was made
+  if ($diff == 0) {
+    $time_ago = 'Vandaag';
+  } elseif ($diff == 1) {
+    $time_ago = 'Gisteren';
+  } elseif ($diff < 7) {
+    $time_ago = $diff . ' dagen geleden';
+  } elseif ($diff == 7) {
+    $time_ago = '1 week geleden';
+  } elseif ($diff < 30) {
+    $time_ago = ceil($diff / 7) . ' weken geleden';
+  } elseif ($diff == 30) {
+    $time_ago = '1 maand geleden';
+  } elseif ($diff < 365) {
+    $time_ago = ceil($diff / 30) . ' maanden geleden';
+  } elseif ($diff == 365 || $diff < 730) {
+    $time_ago = '1 jaar geleden';
+  } else {
+    $time_ago = 'meer dan een jaar geleden';
+  }
+  
+  // Combine the formatted date and time ago into one string
+  $outputDateInfo = $formatted_date . ' (' . $time_ago . ')';
+
+  
+  
 ?>
   <?= template_header($post_title) ?>
+  </head>
+
+<body>
   <?= template_nav() ?>
 
 
 
-  <main class="rj-home">
-    <section class="rj-post-section">
-      <article class="rj-blog-card rj-blog-card-post">
-        <header class="rj-blog-header">
-          <h1 class="rj-post-h1"><?php echo $post_title; ?></h1>
-          <p>by : <?php echo $post_author ?> - <em><?php echo $post_date . "</em> - <small>" . $post_views; ?> views</small></p>
+  <main class="blog-post-main">
+    <div class="home-wrapper">
+    <section class="container blog-post-page">
+      
+      <article class="blog-item">
+
+        <header class="blog-item-header">
+          <h1 class="blog-item-title"><?= $post_title; ?></h1>
+          <p>Gepost door <?=  $post_author ?> op <?= $outputDateInfo ?> - <?= $post_views; ?> views</p>
+          <p class="blog-item-tags"><?= $post_tags ?>  </p>
         </header>
-        <div class="rj-blog-card-content rj-post-column-reverse">
-          <div class="rj-post-image">
-            <img class="blog-image" src="assets/blogMedia/<?php echo $post_image; ?>" alt="<?php echo $post_title ?>">
 
-          </div>
+        <div class="blog-item-img">
+          <img src="assets/blogMedia/<?= $post_image; ?>" alt="<?= $post_title; ?>">
+        </div>
 
-          <?php echo "<pre>" . trim($post_content) . "</pre>"; ?>
+        <div class="blog-item-content">
+          <?php echo "<div class='blog-item-text'>" . trim($post_content) . "</div>"; ?>
           <?php if ($post_url != null) {
             echo "<p><a href='" . $post_url . "' target='" . "_blank'>"
               . $post_url . "</a></p>";
@@ -86,26 +137,29 @@ if (isset($_GET['p_id'])) {
           $comment_content = $row['comment_content'];
           $comment_author = $row['comment_author'];
       ?>
-          <article class="rj-blog-card rj-blog-card-post">
-            <header class="rj-post-comment-header">
-              <i class="fa-regular fa-message push-left"></i> <?php echo ucfirst($comment_author); ?>
-              <small> <?php echo $comment_date; ?></small></p>
+          <div class="blog-item blog-comment">
+            <header class="blog-item-header">
+              <p>
+            <small>
+
+            <i class="fa-regular fa-message"></i> reactie van  <?= ucfirst($comment_author); ?> - <?= $comment_date; ?>
+            </small></p>
             </header>
-            <div class="rj-post-comment">
-              <?php echo $comment_content; ?>
+            <div class="blog-item-content">
+              <p><?= $comment_content; ?></p>
             </div>
-          </article>
+        </div>
         <?php
         }
       } else {
         ?>
-        <article class="rj-blog-card">
+        <div class="blog-item">
 
-          <header class="rj-post-comment-header">
-            <h3>No comments , yet!</h3>
+          <header class="blog-comment">
+            <p>Nog geen reacties</p>
           </header>
 
-        </article>
+        </div>
     <?php
       }
     } else {
@@ -114,39 +168,37 @@ if (isset($_GET['p_id'])) {
     ?>
 
 
-    </article>
+    
+   
 
-    <div class="rj-comment-button">
-      <a href="#commentform">comment</a>
-    </div>
-
+ 
 
 
 
-    <article class="rj-comment-form-wrapper">
-      <div class="rj-post-comment-header rj-form-header">
-        <h4>Leave a Comment:</h4>
-      </div>
-      <form action="#" method="POST" role="form" class="rj-comment-form">
 
-        <div class="rj-comment-form-group">
-          <label for="Author">Author</label>
-          <input type="text" name="comment_author" class="form-control" name="comment_author">
+
+      <aside class="form-container">
+        <div class="form-header">
+          <h3>Plaats een reactie:</h3>
         </div>
-
-        <div class="rj-comment-form-group">
-          <label for="Author">Email</label>
-          <input type="email" name="comment_email" class="form-control" name="comment_email">
+        <form method="POST" role="form" class="form">
+          <div class="form-group">
+            <label for="Author">Je naamr</label>
+            <input type="text" name="comment_author" class="form-control" name="comment_author">
+          </div>
+          <div class="form-group">
+            <label for="Author">E-mail</label>
+            <input type="email" name="comment_email" class="form-control" name="comment_email">
+          </div>
+          <div class="form-group">
+            <label for="comment">Je reactie</label>
+            <textarea name="comment_content" class="form-control" rows="5"></textarea>
+          </div>
+          <button type="submit" name="create_comment" class="btn btn--accent">Verstuur</button>
+        </form>
         </div>
-
-        <div class="rj-comment-form-group">
-          <label for="comment">Your Comment</label>
-          <textarea name="comment_content" class="form-control" rows="3"></textarea>
-          <button type="submit" name="create_comment" class="rj-btn-light rj-comment-button">Submit</button>
-        </div>
-      </form>
-      </div>
-    </article>
+      </aside>
+    
 
 
 
@@ -177,17 +229,17 @@ if (isset($_GET['p_id'])) {
         <label for="rj-modal" class="rj-modal-background"></label>
       <div class="rj-modal">
         <div class="rj-modal-header">
-          <h3>Comment Send!</h3>
+          <h3>Reactie verstuurd!</h3>
               <label for="rj-modal">
                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAdVBMVEUAAABNTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU1NTU0N3NIOAAAAJnRSTlMAAQIDBAUGBwgRFRYZGiEjQ3l7hYaqtLm8vsDFx87a4uvv8fP1+bbY9ZEAAAB8SURBVBhXXY5LFoJAAMOCIP4VBRXEv5j7H9HFDOizu2TRFljedgCQHeocWHVaAWStXnKyl2oVWI+kd1XLvFV1D7Ng3qrWKYMZ+MdEhk3gbhw59KvlH0eTnf2mgiRwvQ7NW6aqNmncukKhnvo/zzlQ2PR/HgsAJkncH6XwAcr0FUY5BVeFAAAAAElFTkSuQmCC" width="16" height="16" alt="" onclick="closeModal()">
               </label>
           </div>
            <p>
-           Thank you!<br>
-          Your comment will be posted after approval.
+           Bedankt!<br>
+          Je reactie zal na goedkeuring worden geplaatst.
           </p>
           <p>
-          <a href="#" onclick="closeModal()" class="rj-modal-btn">Go back to post</a>
+          <a href="" onclick="closeModal()" class="rj-modal-btn">Ga terug</a>
           </p>
       </div>
         
@@ -209,6 +261,7 @@ if (isset($_GET['p_id'])) {
     </div>
     </div>
     </section>
+    </div>
   </main>
 
   <hr>
@@ -216,16 +269,16 @@ if (isset($_GET['p_id'])) {
 
   <div class="media-popup"></div>
   <script>
-    let commentForm = document.querySelector(".rj-comment-form-wrapper");
-    let commentBtn = document.querySelector(".rj-comment-button");
+    // let commentForm = document.querySelector(".form-wrapper");
+    // let commentBtn = document.querySelector(".button");
 
-    commentBtn.addEventListener('click', function() {
-      commentForm.style.display = "flex";
-      commentBtn.style.display = "none";
-    })
+    // commentBtn.addEventListener('click', function() {
+    //   commentForm.style.display = "flex";
+    //   commentBtn.style.display = "none";
+    // })
 
-    modalBg = document.querySelector('.rj-modal-background');
-  modal = document.querySelector('.rj-modal');
+    let modalBg = document.querySelector('.rj-modal-background');
+  let modal = document.querySelector('.rj-modal');
 
   function closeModal() {
     modalBg.style.display = "none";

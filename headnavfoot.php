@@ -20,27 +20,24 @@ function template_header($title)
 {
     echo <<<EOT
     <!DOCTYPE html>
-    <html>
+    <html lang="nl">
+    
     <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7EZLG850Z4"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-7EZLG850Z4');
-    </script>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <title>$title - Pieter Adriaans</title>
-    <link rel="shortcut icon" href="assets/favicon/favicon.ico" type="image/x-icon">
-    <link rel="icon" type="image/png" href="assets/favicon/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="assets/favicon/favicon-16x16.png" sizes="16x16" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="style.css?v=4" rel="stylesheet" type="text/css">
-    <link href="jostyle.css?v=4" rel="stylesheet" type="text/css">
-    <link href="assets/css/home.css?v=4" rel="stylesheet" type="text/css">
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="theme-color" content="#050307" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Meer geluk</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+        href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Libre+Franklin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+      <link rel="stylesheet" href="./assets/css/style.css?v=28" />
     EOT;
 }
 function template_header_other()
@@ -54,49 +51,83 @@ EOT;
 link:
 function template_nav()
 {
+
 echo <<<EOT
-                </head>
-                <body>
-                <div class="rj-foreground">
-        
-                <nav class="navtop">
-                <input type="checkbox" id="dropdown" style="display:none">
-                <label for="dropdown" class="dropdown">
-                <span class="hamburger">
-                <span class="icon-bar top-bar"></span>
-                <span class="icon-bar middle-bar"></span>
-                <span class="icon-bar bottom-bar"></span>
-                </span>
-                <span class="rj-nav-menu-span">Menu</span>
-                </label>
-                <div class="rj-nav-wrap">
-                <a href="index.php" id="home"><img src="assets/svg/navHome.svg" class="rj-nav-svg"></a>
-                <a href="about.php" id="home"><img src="assets/svg/navAbout.svg" class="rj-nav-svg"></a>
-                <a class="rj-dropdown-art" onclick="toggleArtNav()"><img src="assets/svg/navArt.svg" class="rj-nav-svg"></a>
-                <div class="rj-dropdown-nav">
-                <ul class="rj-dropdown-nav-ul">
-                <li><a href="painting.php">Painting</a></li>
-                <li><a href="music.php">Music</a></li>
-                <li><a href="gallery.php">Virtual Museum</a></li>
-                
+            <nav>
+            <div class="nav-container">
+            <a href="/"" class=" btn btn--home" aria-label="Go to homepage" aria-current="page">
+                <i class="fa-solid fa-house"></i>
+                <span>home</span>
+            </a>
 
+
+
+            <div class="nav-wrapper">
+                <button class="btn btn--menu" id="menu-btn" aria-expanded="false" aria-controls="menu"
+                aria-label="Open mobile navigation">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.25"
+                    stroke="currentColor" class="w-6 h-6" width="32" height="32">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
+                </svg>
+                </button>
+                <ul class="nav-links" id="menu" role="menubar">
+                <!-- <li role="none">
+                    <a href="overmij.html" class="nav-link btn" role="menuitem">
+                    Over mij</a>
+                </li> -->
+                <li role="none" class="dropdown">
+                    <button class="dropdown-toggle " role="menuitem" aria-haspopup="true" aria-expanded="false"
+                    id="coaching-dropdown">
+                    Coaching & Begeleiding&nbsp;
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="dropdown-arrow"
+                        width="18" height="18">
+                        <path fill-rule="evenodd"
+                            d="M4.293 7.293a1 1 0 011.414 0L10 11.586l4.293-4.293a1 1 0 011.414 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414z"
+                            clip-rule="evenodd" />
+                        </svg>
+                    </span>
+                    </button>
+                    <ul class="dropdown-menu" id="coaching-dropdown-menu" role="menu" aria-labelledby="coaching-dropdown">
+                    <li role="none">
+                        <a href="eigengeluk.html" class="dropdown-item btn" role="menuitem">Eigen Geluk</a>
+                    </li>
+                    <li role="none">
+                        <a href="relatiegeluk.html" class="dropdown-item btn" role="menuitem">Relatie Geluk</a>
+                    </li>
+                    <li role="none">
+                        <a href="werkgeluk.html" class="dropdown-item btn" role="menuitem">Werk Geluk</a>
+                    </li>
+                    <li role="none">
+                        <a href="creatiefgeluk.html" class="dropdown-item btn" role="menuitem">Creatief Geluk</a>
+                    </li>
+                    <hr>
+                    <li role="none">
+                        <a href="overmij.html" class="dropdown-item btn" role="menuitem">Over mij</a>
+                    </li>
+                    <li role="none">
+                        <a href="tarieven.html" class="dropdown-item btn" role="menuitem">Tarieven</a>
+                    </li>
+                    <li role="none">
+                        <a href="gratis.html" class="dropdown-item btn" role="menuitem">Gratis Geluk</a>
+                    </li>
+                    </ul>
+                </li>
+                <li role="none">
+                    <a href="/blog.html" class="nav-link btn" role="menuitem">
+                    Blog</a>
+                </li>
+
+                <li role="none">
+                    <a href="contact.html" class="nav-link btn btn--accent" role="menuitem">
+                    Contact</a>
+                </li>
                 </ul>
-                </div>
+            </div>
+            </div>
+            </nav>
 
-                <a href="science.php" id="science"><img src="assets/svg/navScience.svg" class="rj-nav-svg"></a>
-
-                <a id="blog" class="rj-dropdown-biz" onclick="toggleBizNav()"><img src="assets/svg/navBusiness.svg" class="rj-nav-svg"></a>
-                <div class="rj-nav-biz">
-                <ul class="rj-dropdown-nav-ul">
-                <li><a href="manezinho.php">Grand cafe Manezinho</a></li>
-                <li><a href="kaasfabriek.php">Atelier de Kaasfabriek</a></li>
-                </ul>
-                </div>
-
-                <a href="blog.php" id="blog"><img src="assets/svg/navBlog.svg" class="rj-nav-svg"></a>
-                <a href="contact.php" id="contact"><img src="assets/svg/navContact.svg" class="rj-nav-svg"></a>
-                </div>
-                </nav>
             EOT;
 }
 // <a href="music.php" id="music"><i class="fa-solid fa-music"></i>Music</a>
@@ -106,43 +137,37 @@ echo <<<EOT
 function template_footer()
 {
     echo <<<EOT
-<footer class="rj-footer">
-<p>2022 Pieter Adriaans
-<br>
-<small> Designed and Developed by Jos Velema <a href="http://www.codette.net">codette.net</a></small>
-</p>
-</footer> 
-</div>
-<script>
+    <footer>
+    <div class="footer-certificat">
+      <img src="assets/img/certificaten2.png" alt="Certificaten">
+    </div>
+    <div class="footer-wrapper">
+      <div class="footer-column">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro reiciendis quibusdam aut!
+      </div>
+      <div class="footer-column">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro reiciendis quibusdam aut!
+      </div>
+    </div>
+    <p class="codette">Designed & Developped by Codette web & media - 2023</p>
 
-let artDropDown = document.querySelector('.rj-dropdown-nav');
-let bizDropDown = document.querySelector('.rj-nav-biz')
+  </footer>
+  <script src="assets/js/nav.js" type="module"></script>
+  <script src="assets/js/joscript.js"></script>
 
-
-
-function toggleArtNav() {
-    if (artDropDown.style.display == "none") {
-        artDropDown.style.display = "block";
-        bizDropDown.style.display = "none";
-    } else {
-        artDropDown.style.display = "none";
+  <script src="assets/js/reviews.js"></script>
+  <script>
+    function scrollToContent() {
+      var section = document.getElementById("scrollDown");
+      section.scrollIntoView({ behavior: "smooth" });
     }
-}
 
-function toggleBizNav() {
-    if (bizDropDown.style.display == "none") {
-        bizDropDown.style.display = "block";
-        artDropDown.style.display = "none"
-    } else {
-        bizDropDown.style.display = "none";
-    }
-} 
-</script>
-	    
-        <script src="node_modules/lozad/dist/lozad.min.js"></script>
-        <script src="script.js?v=5"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    </body>
+    fetchReviews()
+
+
+  </script>
+</body>
+
 </html>
 EOT;
 }
