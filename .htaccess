@@ -1,0 +1,14 @@
+# local 
+
+RewriteEngine On
+
+# Rewrite URLs for the admin folder
+# RewriteRule ^admin/(.*)$ /manezinho/admin/$1 [L]
+
+# Rewrite URLs for the login page
+# RewriteRule ^login/?$ /manezinho/login/index.php [L]
+
+# Rewrite URLs for other pages
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)$ /meergeluk/$1.html [L]

@@ -43,7 +43,12 @@ function loadReviews(review, isCategoryPage) {
     <article class="review">
       <p class="review__name"><strong>${review.name}</strong></p>
       <hr>
-      <p class="review__quote"><strong>${review.quote}</strong></p>
+      <p class="review__quote"><strong>${review.quote}</strong>
+      <br>
+      <small> 
+     <a href="${review.category}geluk">Lees meer</a>
+      </small>
+      </p>
       <hr>
       </article>
   
