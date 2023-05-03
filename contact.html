@@ -103,14 +103,18 @@
           
           
         </header>
-        <div class="form-container">
-          <form id="contact-form">
-            <div class="form-group">
-              <label for="naam">Naam</label>
-              <input type="text" id="naam" class="form-control" name="naam" required>
-            </div>
-            <div class="form-group">
-              <label for="achternaam">Achternaam</label>
+        <!-- Calendly inline widget begin -->
+<div class="calendly-inline-widget" data-url="https://calendly.com/meergelukgesprek?hide_gdpr_banner=1&background_color=f0ecec&text_color=1b251b&primary_color=cf9cd7" style="min-width:320px;height:630px;"></div>
+<!-- Calendly inline widget end -->
+
+<div class="form-container">
+  <form id="contact-form">
+    <div class="form-group">
+      <label for="naam">Naam</label>
+      <input type="text" id="naam" class="form-control" name="naam" required>
+    </div>
+    <div class="form-group">
+      <label for="achternaam">Achternaam</label>
               <input type="text" id="achternaam" class="form-control" name="achternaam">
             </div>
             <div class="form-group">
@@ -127,34 +131,35 @@
               <textarea id="bericht" class="form-control" rows="5" required name="bericht">Ik wil graag een eerste afspraak maken</textarea>
             </div>
             <div class="g-recaptcha" data-sitekey="6Lcke1YlAAAAANoZdNud9lBqKzu3lFFPsyg4Wozz"></div>
-
+            
             <div class="form-group">
               <button type="submit" class="btn submit-btn">Verstuur</button>
             </div>
           </form>
           <div id="response"></div>
           
-      </section>
-    </div>
-
-  </main>
-
-
-  <footer>
-    <div class="footer-certificat">
-      <img src="assets/img/certificaten2.png" alt="Certificaten">
-    </div>
-    <div class="footer-wrapper">
-      <div class="footer-column">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro reiciendis quibusdam aut!
+        </section>
       </div>
-      <div class="footer-column">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro reiciendis quibusdam aut!
+      
+    </main>
+    
+    
+    <footer>
+      <div class="footer-certificat">
+        <img src="assets/img/certificaten2.png" alt="Certificaten">
       </div>
-    </div>
-    <p class="codette">Designed & Developped by Codette web & media - 2023</p>
+      <div class="footer-wrapper">
+        <div class="footer-column">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro reiciendis quibusdam aut!
+        </div>
+        <div class="footer-column">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro reiciendis quibusdam aut!
+        </div>
+      </div>
+      <p class="codette">Designed & Developped by Codette web & media - 2023</p>
 
   </footer>
+  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
   <script>
     document.getElementById('contact-form').addEventListener('submit', async (e) => {
