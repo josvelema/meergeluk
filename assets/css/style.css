@@ -1769,14 +1769,16 @@ button[data-read-more] {
 .review,
 .faq-section,
 .other-content,
-.home-cta{
+.home-cta,
+.blog-pager{
     border-radius: 6px;
   box-shadow: var(--box-shadow-2);
   border-bottom: 1px solid var(--gray-t);
   border-left: 2px solid var(--gray-t-2);
 }
 
-.home-cta {
+.home-cta ,
+.blog-pager{
   background-image: linear-gradient(to left,var(--sepia),#ffffff);
 
 }
@@ -2605,6 +2607,11 @@ label {
  margin-top: var(--space-m);
 }
 
+.blog-pager {
+  max-width: 60ch;
+  margin-inline: auto;
+  padding: var(--space-s);
+}
 .blog-grid {
  display: grid;
  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

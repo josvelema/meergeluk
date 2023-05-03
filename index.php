@@ -1,100 +1,8 @@
-<!DOCTYPE html>
-<html lang="nl">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="theme-color" content="#050307" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meer geluk</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Libre+Franklin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <link rel="stylesheet" href="./assets/css/style.css?v=28" />
-</head>
-
-<body>
-  <nav>
-    <div class="nav-container">
-      <a href="/"" class=" btn btn--home" aria-label="Go to homepage" aria-current="page">
-        <i class="fa-solid fa-house"></i>
-        <span>home</span>
-      </a>
-
-
-
-      <div class="nav-wrapper">
-        <button class="btn btn--menu" id="menu-btn" aria-expanded="false" aria-controls="menu"
-          aria-label="Open mobile navigation">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.25"
-            stroke="currentColor" class="w-6 h-6" width="32" height="32">
-            <path stroke-linecap="round" stroke-linejoin="round"
-              d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
-          </svg>
-        </button>
-        <ul class="nav-links" id="menu" role="menubar">
-          <!-- <li role="none">
-            <a href="overmij.html" class="nav-link btn" role="menuitem">
-              Over mij</a>
-          </li> -->
-          <li role="none" class="dropdown">
-            <button class="dropdown-toggle " role="menuitem" aria-haspopup="true" aria-expanded="false"
-              id="coaching-dropdown">
-              Coaching & Begeleiding&nbsp;
-              <span>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="dropdown-arrow"
-                  width="18" height="18">
-                  <path fill-rule="evenodd"
-                    d="M4.293 7.293a1 1 0 011.414 0L10 11.586l4.293-4.293a1 1 0 011.414 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414z"
-                    clip-rule="evenodd" />
-                </svg>
-              </span>
-            </button>
-            <ul class="dropdown-menu" id="coaching-dropdown-menu" role="menu" aria-labelledby="coaching-dropdown">
-              <li role="none">
-                <a href="eigengeluk" class="dropdown-item btn" role="menuitem">Eigen Geluk</a>
-              </li>
-              <li role="none">
-                <a href="relatiegeluk" class="dropdown-item btn" role="menuitem">Relatie Geluk</a>
-              </li>
-              <li role="none">
-                <a href="werkgeluk" class="dropdown-item btn" role="menuitem">Werk Geluk</a>
-              </li>
-              <li role="none">
-                <a href="creatiefgeluk" class="dropdown-item btn" role="menuitem">Creatief Geluk</a>
-              </li>
-              <hr>
-              <li role="none">
-                <a href="overmij.html" class="dropdown-item btn" role="menuitem">Over mij</a>
-              </li>
-              <li role="none">
-                <a href="tarieven.html" class="dropdown-item btn" role="menuitem">Tarieven</a>
-              </li>
-          
-            </ul>
-          </li>
-          <li role="none">
-            <a href="blog" class="nav-link btn" role="menuitem">
-              Blog</a>
-          </li>
-          <li role="none">
-            <a href="gratisgeluk" class="nav-link btn" role="menuitem">Gratis Geluk</a>
-          </li>
-
-          <li role="none">
-            <a href="contact" class="nav-link btn btn--accent" role="menuitem">
-              Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+<?php
+include 'functions.php';
+?>
+<?= template_header('Meer Geluk - home') ?>
+<?= template_nav() ?>
 
   <main class="full">
     <div class="home-wrapper">
@@ -141,7 +49,7 @@
                   <i class="fa-brands fa-whatsapp"></i>
                   <!-- <span>WhatsApp</span> -->
                 </a>
-                <a href="tel:0623232323"" class=" btn btn--accent">
+                <a href="tel:0612204799"" class=" btn btn--accent">
                   <i class="fa-solid fa-phone"></i>
                   <!-- <span>telefoon</span> -->
                 </a>
@@ -425,7 +333,7 @@
                 <br>
                 <a href="contact.html" class="btn btn--accent cta-button">Gratis intake-gesprek</a>
               </div>
-              <p>Je kunt me uiteraard ook gewoon <a href="whatsapp">appen</a>, <a href="tel:0123434">bellen</a> of <a
+              <p>Je kunt me uiteraard ook gewoon <a href="whatsapp">appen</a>, <a href="tel:0612204799">bellen</a> of <a
                   href="mailto:info@meergeluk.com">mailen</a> voor meer informatie.
                 <br> Ik zit regelmatig in sessies met klanten, waardoor ik niet altijd de telefoon kan beantwoorden.
                 Laat
@@ -530,40 +438,6 @@
     </div>
 
   </main>
-
-
-  <footer>
-
-    <div class="footer-wrapper">
-      <div class="footer-column">
-        <address>
-          <small class="block">Sabine Bezemer</small>
-          <small class="block">Coaching & Begeleiding</small>
-          <small class="block"><a href="mailto:info@meergeluk.com">info@meergeluk.com</a></small>
-          <small class="block"> <a href="tel:+31(0)612345678">+31(0)612345678</a> </small>
-        </address>
-      </div>
-      <div class="footer-column">
-        <div class="footer-nav">
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="overmij">Over mij</a></li>
-            <li><a href="contact">Contact</a></li>
-            <li><i class="fa-regular fa-file-pdf"></i> <a href="assets/pdf/Algemene Voorwaarden Meer Geluk 2023.pdf" target="_blank">Algemene Voorwaarden Meer Geluk 2023 </a></li>
-            <li><i class="fa-regular fa-file-pdf"></i> <a href="assets/pdf/Privacyverklaring Meer Geluk 2023.pdf" target="_blank">Privacyverklaring Meer Geluk 2023 </a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-certificat">
-      <img src="assets/img/certificaten2.png" alt="Certificaten">
-    </div>
-    <p class="codette">Designed & Developped by Codette web & media - 2023</p>
-
-  </footer>
-  <script src="assets/js/nav.js" type="module"></script>
-  <script src="assets/js/joscript.js"></script>
-
   <script src="assets/js/reviews.js"></script>
   <script>
     function scrollToContent() {
@@ -575,6 +449,8 @@
 
 
   </script>
-</body>
 
-</html>
+<?= template_footer() ?>
+  </body>
+  </html>
+  

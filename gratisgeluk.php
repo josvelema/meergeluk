@@ -14,7 +14,7 @@ $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
 
 ?>
-<?= template_header('Blog') ?>
+<?= template_header('Gratis Geluk - Meer Geluk') ?>
 
 </head>
 
@@ -47,57 +47,49 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
   ?>
 
 
-    <main class="full">
+    <main class="gratis">
       <div class="home-wrapper">
         <section class="full hero-container hero-home">
           <header class="c-header-container ">
-            <div class="hero" id="changeNavColor">
+            <div id="changeNavColor">
               <div class="header-container rise subheading">
-                <div class="header-content">
-                  <img src="assets/img/meerGelukLogoFull3.png" alt="Meer Geluk in je leven, relatie & werk">
-                
-                  <h1 class="hero-h1">Blog</h1>
-                </div>
+                <img src="assets/img/meerGelukLogoFull3.png" alt="Meer Geluk in je leven, relatie & werk">
+                <!-- <h1>Meer <span id="geluk">Geluk</span></h1> -->
+                <h2>In je leven <br> relatie & werk</h2>
               </div>
-
-              <aside class="home-cta">
-                <p class="c-larger-p">
-                  Welkom op de 'Meer Geluk' blog!
-
-                </p>
-                <p>
-                  Hier vind je compacte, inspirerende artikelen die je helpen geluk te vinden in je leven, relaties en
-                  werk. Duik in de wereld van persoonlijke groei en ontdek jouw pad naar een gelukkiger leven. Veel
-                  leesplezier!
-                </p>
-              </aside>
-
             </div>
-
+            <div class="hero-title">
+              <h1>Gratis Geluk</h1>
+            </div>
           </header>
         </section>
-        <aside class="blog-pager">
-          <small>Blog posts:
-            <?php echo $total_posts . ' | Pagina ' . $current_page . ' van ' . $count; ?>
-          </small>
-          <ul>
-            <span>page </span>
-            <?php
-            $number_list = array();
-            for ($i = 1; $i <= $count; $i++) {
-              echo ($i == $page) ? "<li><a class='rj-active-page' href='blog.php?page={$i}'>{$i}</a></li>"
-                : "<li><a href='blog.php?page={$i}'>{$i}</a></li>";
-            }
-            ?>
-          </ul>
-        </aside>
-        <section aria-labelledby="Blog artikelen" class="full">
-          <div class="section-wrapper">
+
+        <section aria-labelledby="Blog artikelen" class="container">
+          <div class="">
 
 
-            <div data-component class="blog-grid">
+            <div class="other-content">
+              <p class="c-larger-p ">Omdat ik iedereen zoveel mogelijk <strong>geluk gun</strong> zal ik hier regelmatig
+                <strong>gratis geluksbrengers</strong> plaatsen.
+              </p>
+              <p>Deze mag je printen, gebruiken, delen en aanraden. Zolang het jouw maar <strong>meer geluk </strong>
+                brengt.
+              </p>
+            </div>
+            <div class="auto-grid">
+            <div class="auto-grid-item">
+              <p><strong>TIP!</strong> Kijk ook eens in mijn <a href="blog">blog </a>voor interessante artikelen,
+                tips en weetjes over geluk, relatie en werk.
+                <br>
+                Of volg me via Facebook en Instagram voor wekelijkse inspirerende posts.
+              </p>
+              <div class="cta-buttons">
+                <a href="contact.html" class="btn btn--accent"><i
+                  <i class="fa-brands fa-facebook"></i><span>Facebook</span></a>
+              </div>
+            </div>
               <?php
-              $stmt = $pdo->prepare('SELECT * FROM posts WHERE post_status = ?  AND post_cat_id = 1 ORDER BY post_id DESC LIMIT ? , ?');
+              $stmt = $pdo->prepare('SELECT * FROM posts WHERE post_status = ?  AND post_cat_id = 2 ORDER BY post_id DESC LIMIT ? , ?');
               $stmt->bindParam(1, $published, PDO::PARAM_STR);
               $stmt->bindParam(2, $page_1, PDO::PARAM_INT);
               $stmt->bindParam(3, $per_page, PDO::PARAM_INT);
@@ -112,6 +104,8 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
                 $post_tags = $row['post_tags'];
                 $post_image = $row['post_image'];
                 $post_intro = $row['post_intro'];
+                $post_content = $row['post_content'];
+                $post_url = $row['post_url'];
                 // $post_intro = substr($row['post_content'], 0, 250) . "..."; 
                 $post_status = $row['post_status'];
                 $post_views = $row['post_views'];
@@ -160,30 +154,57 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
               ?>
 
 
-                <article class="blog-item">
+                <article class="auto-grid-item">
                   <div class="blog-item-header">
                     <h2 class="blog-item-title"><?= $post_title ?></h2>
-                    <p>Gepost door <?= $post_author ?> </p>
+                    <!-- <p>Gepost door <?= $post_author ?> </p>
                     <p><small><?= $outputDateInfo ?> - <?= $post_views; ?> views</small></p>
-                    <p class="blog-item-tags"><?= $post_tags ?> </p>
+                    <p class="blog-item-tags"><?= $post_tags ?> </p> -->
                   </div>
 
-                  <div class="blog-item-img">
+                  <!-- <div class="blog-item-img">
                     <img src="assets/blogMedia/<?= $post_image; ?>" alt="<?= $post_title; ?>">
-                  </div>
+                  </div> -->
 
                   <div class="blog-item-content">
                     <p class="blog-item-text"><?= $post_intro ?></p>
-                    <a href="post.php?p_id=<?= $post_id ?>" class="blog-item-link">Lees meer</a>
+                    <p class="blog-item-text"><?= $post_content ?></p>
+                    <a href=<?= $post_url ?>" class="blog-item-link" target><?= $post_url ?> </a>
 
                   </div>
 
                 </article>
             <?php }
             } ?>
-
+            <div class="auto-grid-item auto-grid-item-span">
+              <p>Wil je snel en effectief aan jezelf of aan je relatie werken en ben je benieuwd naar de mogelijkheden,
+                dan is het eerste kennismakingsgesprek bij mij ook 100% gratis en vrijblijvend.
+              </p>
+              <p>Neem contact met me op via het contact formulier, telefoon/whatsapp of e-mail..</p>
+              <div class="cta-buttons">
+                <a href="contact.html" class="btn btn--accent"><i
+                    class="fa-regular fa-comment-dots"></i><span>Contact</span></a>
+                <a href="whatsapp" " class=" btn btn--accent" data-social="whatsapp">
+                  <i class="fa-brands fa-whatsapp"></i>
+                  <span>WhatsApp</span>
+                </a> <a href="tel:0623232323"" class=" btn btn--accent">
+                  <i class="fa-solid fa-phone"></i>
+                  <span>telefoon</span>
+                </a>
+              </div>
+              <address>
+                <small class="block">Sabine Bezemer</small>
+                <small class="block">Coaching & Begeleiding</small>
+                <small class="block"><a href="mailto:info@meergeluk.com">info@meergeluk.com</a></small>
+                <small class="block"> <a href="tel:+31(0)6 1220 4799">+31(0)6 1220 4799</a> </small>
+              </address>
             </div>
           </div>
+            </div>
+
+          </div>
+
+
 
         </section>
 
@@ -194,3 +215,6 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
     <div class="media-popup"></div>
 
     <?= template_footer() ?>
+
+</body>
+</html>

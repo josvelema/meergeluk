@@ -85,7 +85,7 @@ include 'functions.php';
                   <i class="fa-brands fa-whatsapp"></i>
                   <span>WhatsApp</span>
                 </a>
-                <a href="tel:0623232323"" class=" btn btn--accent">
+                <a href="tel:0612204799"" class=" btn btn--accent">
                   <i class="fa-solid fa-phone"></i>
                   <span>telefoon</span>
                 </a>
@@ -133,8 +133,7 @@ include 'functions.php';
   </footer>
 
 
-  <script src="assets/js/joscript.js"></script>
-  <script src="assets/js/reviews.js"></script>
+  <?= template_footer() ?>
   <script>
     function scrollToContent() {
       var section = document.getElementById("scrollDown");

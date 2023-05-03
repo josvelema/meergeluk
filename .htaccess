@@ -11,4 +11,4 @@ RewriteEngine On
 # Rewrite URLs for other pages
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.+)$ /meergeluk/$1.html [L]
+RewriteRule ^(.+)$ /meergeluk/$1.php [L]
