@@ -55,7 +55,7 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
               <div class="header-container rise subheading">
                 <div class="header-content">
                   <img src="assets/img/meerGelukLogoFull3.png" alt="Meer Geluk in je leven, relatie & werk">
-                
+
                   <h1 class="hero-h1">Blog</h1>
                 </div>
               </div>
@@ -118,15 +118,14 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
 
 
                 // Format the date as "Woensdag 17 april 2023"
-                $formatted_date = ucfirst(strftime('%A %e %B %Y', $date->getTimestamp())); // ucfirst to make the first letter capital
                 if (version_compare(PHP_VERSION, '8.1.0') >= 0) {
-                  setlocale(LC_TIME, 'nl_NL'); // set the locale to Dutch
-
-                  $formatted_date = ucfirst($date->formatLocalized('%A %e %B %Y')); // use formatLocalized for PHP 8.1.0 and above
+                  $formatter = new IntlDateFormatter('nl_NL', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+                  $formatted_date = ucfirst($formatter->format($date));
                 } else {
                   setlocale(LC_TIME, 'nl_NL'); // set the locale to Dutch
                   $formatted_date = ucfirst(strftime('%A %e %B %Y', $date->getTimestamp())); // use strftime for PHP versions below 8.1.0
                 }
+
 
                 // Calculate the difference in days between the post date and today
                 $today = new DateTime();

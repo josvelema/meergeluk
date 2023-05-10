@@ -42,23 +42,21 @@ if (isset($_GET['p_id'])) {
 
     $post_views = $row['post_views'];
   }
- 
+
 
   // Format the date as "Woensdag 17 april 2023"
-  $formatted_date = ucfirst(strftime('%A %e %B %Y', $date->getTimestamp())); // ucfirst to make the first letter capital
   if (version_compare(PHP_VERSION, '8.1.0') >= 0) {
-    setlocale(LC_TIME, 'nl_NL'); // set the locale to Dutch
-
-    $formatted_date = ucfirst($date->formatLocalized('%A %e %B %Y')); // use formatLocalized for PHP 8.1.0 and above
+    $formatter = new IntlDateFormatter('nl_NL', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+    $formatted_date = ucfirst($formatter->format($date));
   } else {
     setlocale(LC_TIME, 'nl_NL'); // set the locale to Dutch
     $formatted_date = ucfirst(strftime('%A %e %B %Y', $date->getTimestamp())); // use strftime for PHP versions below 8.1.0
   }
-  
+
   // Calculate the difference in days between the post date and today
   $today = new DateTime();
   $diff = $today->diff($date)->days;
-  
+
   // Determine how long ago the post was made
   if ($diff == 0) {
     $time_ago = 'Vandaag';
@@ -79,152 +77,153 @@ if (isset($_GET['p_id'])) {
   } else {
     $time_ago = 'meer dan een jaar geleden';
   }
-  
+
   // Combine the formatted date and time ago into one string
   $outputDateInfo = $formatted_date . ' (' . $time_ago . ')';
 
-  
-  
+
+
 ?>
   <?= template_header($post_title) ?>
   </head>
 
-<body>
-  <?= template_nav() ?>
+  <body>
+    <?= template_nav() ?>
 
 
 
-  <main class="blog-post-main">
-    <div class="home-wrapper">
-    <section class="container blog-post-page">
-      
-      <article class="blog-item">
+    <main class="blog-post-main">
+      <div class="home-wrapper">
+        <section class="container blog-post-page">
 
-        <header class="blog-item-header">
-          <h1 class="blog-item-title"><?= $post_title; ?></h1>
-          <p>Gepost door <?=  $post_author ?> op <?= $outputDateInfo ?> - <?= $post_views; ?> views</p>
-          <p class="blog-item-tags"><?= $post_tags ?>  </p>
-        </header>
+          <article class="blog-item">
 
-        <div class="blog-item-img">
-          <img src="assets/blogMedia/<?= $post_image; ?>" alt="<?= $post_title; ?>">
-        </div>
+            <header class="blog-item-header">
+              <h1 class="blog-item-title"><?= $post_title; ?></h1>
+              <p>Gepost door <?= $post_author ?> op <?= $outputDateInfo ?> - <?= $post_views; ?> views</p>
+              <p class="blog-item-tags"><?= $post_tags ?> </p>
+            </header>
 
-        <div class="blog-item-content">
-          <?php echo "<div class='blog-item-text'>" . trim($post_content) . "</div>"; ?>
-          <?php if ($post_url != null) {
-            echo "<p><a href='" . $post_url . "' target='" . "_blank'>"
-              . $post_url . "</a></p>";
-          }
+            <div class="blog-item-img">
+              <img src="assets/blogMedia/<?= $post_image; ?>" alt="<?= $post_title; ?>">
+            </div>
+
+            <div class="blog-item-content">
+              <?php echo "<div class='blog-item-text'>" . trim($post_content) . "</div>"; ?>
+              <?php if ($post_url != null) {
+                echo "<p><a href='" . $post_url . "' target='" . "_blank'>"
+                  . $post_url . "</a></p>";
+              }
+              ?>
+          </article>
+
+
+
+          <?php
+          $query = "SELECT * FROM comments WHERE comment_post_id = ? ";
+          $query .= "AND comment_status = 'approved' ";
+          $query .= "ORDER BY comment_id DESC ";
+          // $select_comment_query = mysqli_query($connection, $query);
+          $stmt = $pdo->prepare($query);
+          $stmt->bindParam(1, $the_post_id, PDO::PARAM_INT);
+          $stmt->execute();
+          // while ($row = mysqli_fetch_array($select_comment_query)) {
+          $count = $stmt->rowCount();
+          if ($count !== 0) {
+            while ($row = $stmt->fetch()) {
+              $comment_date   = $row['comment_date'];
+              $comment_content = $row['comment_content'];
+              $comment_author = $row['comment_author'];
           ?>
-      </article>
+              <div class="blog-item blog-comment">
+                <header class="blog-item-header">
+                  <p>
+                    <small>
+
+                      <i class="fa-regular fa-message"></i> reactie van <?= ucfirst($comment_author); ?> - <?= $comment_date; ?>
+                    </small>
+                  </p>
+                </header>
+                <div class="blog-item-content">
+                  <p><?= $comment_content; ?></p>
+                </div>
+              </div>
+            <?php
+            }
+          } else {
+            ?>
+            <div class="blog-item">
+
+              <header class="blog-comment">
+                <p>Nog geen reacties</p>
+              </header>
+
+            </div>
+        <?php
+          }
+        } else {
+          header("Location: index.php");
+        }
+        ?>
+
+
+
+
+
+
+
+
+
+
+
+        <aside class="form-container">
+          <div class="form-header">
+            <h3>Plaats een reactie:</h3>
+          </div>
+          <form method="POST" role="form" class="form">
+            <div class="form-group">
+              <label for="Author">Je naamr</label>
+              <input type="text" name="comment_author" class="form-control" name="comment_author">
+            </div>
+            <div class="form-group">
+              <label for="Author">E-mail</label>
+              <input type="email" name="comment_email" class="form-control" name="comment_email">
+            </div>
+            <div class="form-group">
+              <label for="comment">Je reactie</label>
+              <textarea name="comment_content" class="form-control" rows="5"></textarea>
+            </div>
+            <button type="submit" name="create_comment" class="btn btn--accent">Verstuur</button>
+          </form>
+      </div>
+      </aside>
+
 
 
 
       <?php
-      $query = "SELECT * FROM comments WHERE comment_post_id = ? ";
-      $query .= "AND comment_status = 'approved' ";
-      $query .= "ORDER BY comment_id DESC ";
-      // $select_comment_query = mysqli_query($connection, $query);
-      $stmt = $pdo->prepare($query);
-      $stmt->bindParam(1, $the_post_id, PDO::PARAM_INT);
-      $stmt->execute();
-      // while ($row = mysqli_fetch_array($select_comment_query)) {
-      $count = $stmt->rowCount();
-      if ($count !== 0) {
-        while ($row = $stmt->fetch()) {
-          $comment_date   = $row['comment_date'];
-          $comment_content = $row['comment_content'];
-          $comment_author = $row['comment_author'];
-      ?>
-          <div class="blog-item blog-comment">
-            <header class="blog-item-header">
-              <p>
-            <small>
+      if (isset($_POST['create_comment'])) {
 
-            <i class="fa-regular fa-message"></i> reactie van  <?= ucfirst($comment_author); ?> - <?= $comment_date; ?>
-            </small></p>
-            </header>
-            <div class="blog-item-content">
-              <p><?= $comment_content; ?></p>
-            </div>
-        </div>
-        <?php
-        }
-      } else {
-        ?>
-        <div class="blog-item">
-
-          <header class="blog-comment">
-            <p>Nog geen reacties</p>
-          </header>
-
-        </div>
-    <?php
-      }
-    } else {
-      header("Location: index.php");
-    }
-    ?>
+        $the_post_id = $_GET['p_id'];
+        $comment_author = $_POST['comment_author'];
+        $comment_email = $_POST['comment_email'];
+        $comment_content = $_POST['comment_content'];
 
 
-    
-   
+        if (!empty($comment_author) && !empty($comment_email) && !empty($comment_content)) {
+          $query = "INSERT INTO comments (comment_post_id, comment_author, comment_email, comment_content, comment_status,comment_date)";
+          // $query .= "VALUES ($the_post_id ,'{$comment_author}', '{$comment_email}', '{$comment_content }', 'unapproved',now())";
+          $query .= "VALUES (? , ? , ? , ? , 'unapproved' , now())";
+          // $create_comment_query = mysqli_query($connection, $query);
 
- 
+          $stmt = $pdo->prepare($query);
+          $stmt->bindParam(1, $the_post_id, PDO::PARAM_INT);
+          $stmt->bindParam(2, $comment_author, PDO::PARAM_STR);
+          $stmt->bindParam(3, $comment_email, PDO::PARAM_STR);
+          $stmt->bindParam(4, $comment_content, PDO::PARAM_STR);
+          $stmt->execute();
 
-
-
-
-
-      <aside class="form-container">
-        <div class="form-header">
-          <h3>Plaats een reactie:</h3>
-        </div>
-        <form method="POST" role="form" class="form">
-          <div class="form-group">
-            <label for="Author">Je naamr</label>
-            <input type="text" name="comment_author" class="form-control" name="comment_author">
-          </div>
-          <div class="form-group">
-            <label for="Author">E-mail</label>
-            <input type="email" name="comment_email" class="form-control" name="comment_email">
-          </div>
-          <div class="form-group">
-            <label for="comment">Je reactie</label>
-            <textarea name="comment_content" class="form-control" rows="5"></textarea>
-          </div>
-          <button type="submit" name="create_comment" class="btn btn--accent">Verstuur</button>
-        </form>
-        </div>
-      </aside>
-    
-
-
-
-    <?php
-    if (isset($_POST['create_comment'])) {
-
-      $the_post_id = $_GET['p_id'];
-      $comment_author = $_POST['comment_author'];
-      $comment_email = $_POST['comment_email'];
-      $comment_content = $_POST['comment_content'];
-
-
-      if (!empty($comment_author) && !empty($comment_email) && !empty($comment_content)) {
-        $query = "INSERT INTO comments (comment_post_id, comment_author, comment_email, comment_content, comment_status,comment_date)";
-        // $query .= "VALUES ($the_post_id ,'{$comment_author}', '{$comment_email}', '{$comment_content }', 'unapproved',now())";
-        $query .= "VALUES (? , ? , ? , ? , 'unapproved' , now())";
-        // $create_comment_query = mysqli_query($connection, $query);
-
-        $stmt = $pdo->prepare($query);
-        $stmt->bindParam(1, $the_post_id, PDO::PARAM_INT);
-        $stmt->bindParam(2, $comment_author, PDO::PARAM_STR);
-        $stmt->bindParam(3, $comment_email, PDO::PARAM_STR);
-        $stmt->bindParam(4, $comment_content, PDO::PARAM_STR);
-        $stmt->execute();
-
-        echo '
+          echo '
   
         <label for="rj-modal" class="rj-modal-background"></label>
       <div class="rj-modal">
@@ -247,46 +246,44 @@ if (isset($_GET['p_id'])) {
 
 
 
-    ?>
-        <script>
-          commentForm.style.display = "none";
-        </script>
-    <?php
+      ?>
+          <script>
+            commentForm.style.display = "none";
+          </script>
+      <?php
+        }
       }
-    }
-    ?>
+      ?>
 
 
 
-    </div>
-    </div>
-    </section>
-    </div>
-  </main>
+      </div>
+      </div>
+      </section>
+      </div>
+    </main>
 
-  <hr>
-
-
-  <div class="media-popup"></div>
-  <script>
-    // let commentForm = document.querySelector(".form-wrapper");
-    // let commentBtn = document.querySelector(".button");
-
-    // commentBtn.addEventListener('click', function() {
-    //   commentForm.style.display = "flex";
-    //   commentBtn.style.display = "none";
-    // })
-
-    let modalBg = document.querySelector('.rj-modal-background');
-  let modal = document.querySelector('.rj-modal');
-
-  function closeModal() {
-    modalBg.style.display = "none";
-    modal.style.display = "none";
-
-  }
+    <hr>
 
 
-  </script>
+    <div class="media-popup"></div>
+    <script>
+      // let commentForm = document.querySelector(".form-wrapper");
+      // let commentBtn = document.querySelector(".button");
 
-  <?= template_footer() ?>
+      // commentBtn.addEventListener('click', function() {
+      //   commentForm.style.display = "flex";
+      //   commentBtn.style.display = "none";
+      // })
+
+      let modalBg = document.querySelector('.rj-modal-background');
+      let modal = document.querySelector('.rj-modal');
+
+      function closeModal() {
+        modalBg.style.display = "none";
+        modal.style.display = "none";
+
+      }
+    </script>
+
+    <?= template_footer() ?>

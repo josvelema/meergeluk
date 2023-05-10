@@ -77,17 +77,16 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
               </p>
             </div>
             <div class="auto-grid">
-            <div class="auto-grid-item">
-              <p><strong>TIP!</strong> Kijk ook eens in mijn <a href="blog">blog </a>voor interessante artikelen,
-                tips en weetjes over geluk, relatie en werk.
-                <br>
-                Of volg me via Facebook en Instagram voor wekelijkse inspirerende posts.
-              </p>
-              <div class="cta-buttons">
-                <a href="contact.html" class="btn btn--accent"><i
-                  <i class="fa-brands fa-facebook"></i><span>Facebook</span></a>
+              <div class="auto-grid-item">
+                <p><strong>TIP!</strong> Kijk ook eens in mijn <a href="blog">blog </a>voor interessante artikelen,
+                  tips en weetjes over geluk, relatie en werk.
+                  <br>
+                  Of volg me via Facebook en Instagram voor wekelijkse inspirerende posts.
+                </p>
+                <div class="cta-buttons">
+                  <a href="contact.html" class="btn btn--accent"><i <i class="fa-brands fa-facebook"></i><span>Facebook</span></a>
+                </div>
               </div>
-            </div>
               <?php
               $stmt = $pdo->prepare('SELECT * FROM posts WHERE post_status = ?  AND post_cat_id = 2 ORDER BY post_id DESC LIMIT ? , ?');
               $stmt->bindParam(1, $published, PDO::PARAM_STR);
@@ -112,15 +111,14 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
 
 
                 // Format the date as "Woensdag 17 april 2023"
-                $formatted_date = ucfirst(strftime('%A %e %B %Y', $date->getTimestamp())); // ucfirst to make the first letter capital
                 if (version_compare(PHP_VERSION, '8.1.0') >= 0) {
-                  setlocale(LC_TIME, 'nl_NL'); // set the locale to Dutch
-
-                  $formatted_date = ucfirst($date->formatLocalized('%A %e %B %Y')); // use formatLocalized for PHP 8.1.0 and above
+                  $formatter = new IntlDateFormatter('nl_NL', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+                  $formatted_date = ucfirst($formatter->format($date));
                 } else {
                   setlocale(LC_TIME, 'nl_NL'); // set the locale to Dutch
                   $formatted_date = ucfirst(strftime('%A %e %B %Y', $date->getTimestamp())); // use strftime for PHP versions below 8.1.0
                 }
+
 
                 // Calculate the difference in days between the post date and today
                 $today = new DateTime();
@@ -182,8 +180,7 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
               </p>
               <p>Neem contact met me op via het contact formulier, telefoon/whatsapp of e-mail..</p>
               <div class="cta-buttons">
-                <a href="contact.html" class="btn btn--accent"><i
-                    class="fa-regular fa-comment-dots"></i><span>Contact</span></a>
+                <a href="contact.html" class="btn btn--accent"><i class="fa-regular fa-comment-dots"></i><span>Contact</span></a>
                 <a href="whatsapp" " class=" btn btn--accent" data-social="whatsapp">
                   <i class="fa-brands fa-whatsapp"></i>
                   <span>WhatsApp</span>
@@ -199,14 +196,14 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
                 <small class="block"> <a href="tel:+31(0)6 1220 4799">+31(0)6 1220 4799</a> </small>
               </address>
             </div>
-          </div>
             </div>
-
           </div>
 
+      </div>
 
 
-        </section>
+
+      </section>
 
       </div>
     </main>
@@ -217,4 +214,5 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
     <?= template_footer() ?>
 
 </body>
+
 </html>

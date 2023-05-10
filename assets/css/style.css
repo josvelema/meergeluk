@@ -1918,6 +1918,7 @@ transparent 80%);
 .blog-post-main .home-wrapper {
   background-image: url(../img/eigengelukHero.jpg);
   background-position: center bottom;
+  padding-top: 4em;
  
  
 }
@@ -2607,6 +2608,8 @@ label {
  margin-top: var(--space-m);
 }
 
+
+
 .blog-pager {
   max-width: 60ch;
   margin-inline: auto;
@@ -2624,6 +2627,7 @@ label {
  display: flex;
  flex-direction: column;
  justify-content: space-between;
+ width: min(100%, 580px);
  padding: 1em;
  background-color: var(--white-100);
  border-radius: 5px;
