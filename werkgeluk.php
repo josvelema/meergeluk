@@ -119,21 +119,11 @@ include 'functions.php';
     </div>
 
   </main>
-  <footer>
-    <div class="footer-wrapper">
-      <div class="footer-column">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro reiciendis quibusdam aut!
-      </div>
-      <div class="footer-column">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro reiciendis quibusdam aut!
-      </div>
-    </div>
-    <p class="codette">Designed & Developped by Codette web & media - 2023</p>
-
-  </footer>
 
 
   <?= template_footer() ?>
+  <script src="assets/js/reviews.js"></script>
+
   <script>
     function scrollToContent() {
       var section = document.getElementById("scrollDown");
