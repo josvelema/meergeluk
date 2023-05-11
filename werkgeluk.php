@@ -3,137 +3,144 @@ include 'functions.php';
 ?>
 <?= template_header('Werk Geluk - Meer Geluk') ?>
 <?= template_nav() ?>
-  <main class="werkGeluk">
-    <div class="home-wrapper">
-      <section aria-labelledby="Werk Geluk" class="full hero-container ">
-        <header class="c-header-container ">
-          <div id="changeNavColor">
-            <div class="header-container rise subheading">
-              <img src="assets/img/meerGelukLogoFull3.png" alt="Meer Geluk in je leven, relatie & werk">
-              <!-- <h1>Meer <span id="geluk">Geluk</span></h1> -->
-              <h2>In je leven <br> relatie & werk</h2>
-            </div>
+<main class="werkGeluk">
+  <div class="home-wrapper">
+    <section aria-labelledby="Werk Geluk" class="full hero-container ">
+      <header class="c-header-container ">
+        <div id="changeNavColor">
+          <div class="header-container rise subheading">
+            <img src="assets/img/meerGelukLogoFull3.png" alt="Meer Geluk in je leven, relatie & werk">
+            <!-- <h1>Meer <span id="geluk">Geluk</span></h1> -->
+            <h2>In je leven <br> relatie & werk</h2>
           </div>
-          <div class="hero-title">
-            <h1>Werk Geluk</h1>
-          </div>
-        </header>
-      </section>
-      <section class="container">
-        <div class="svg-wrapper">
-          <button class="arrow-down" aria-controls="scroll-down" aria-label="scroll down" onclick="scrollToContent()"
-            id="scrollDown">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-down-circle" width="44"
-              height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="#f0f0f0"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <circle cx="12" cy="12" r="8" />
-              <line x1="8" y1="12" x2="12" y2="16" />
-              <line x1="12" y1="8" x2="12" y2="16" />
-              <line x1="16" y1="12" x2="12" y2="16" />
-            </svg>
-          </button>
         </div>
-        <article class="geluk-page container">
-          <div class="coach-content auto-grid">
-            <div class="auto-grid-item">
-              <p class="c-larger-p"">
-                  Niet gelukkig in je werk? Of voel je dat dit niet jouw ‘levenswerk’ / missie is en mis je plezier en voldoening?
+        <div class="hero-title">
+          <h1>Werk Geluk</h1>
+        </div>
+      </header>
+    </section>
+    <section class="container">
+      <div class="svg-wrapper">
+        <button class="arrow-down" aria-controls="scroll-down" aria-label="scroll down" onclick="scrollToContent()" id="scrollDown">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-down-circle" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="#f0f0f0" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <circle cx="12" cy="12" r="8" />
+            <line x1="8" y1="12" x2="12" y2="16" />
+            <line x1="12" y1="8" x2="12" y2="16" />
+            <line x1="16" y1="12" x2="12" y2="16" />
+          </svg>
+        </button>
+      </div>
+      <article class="geluk-page container">
+        <div class="coach-content auto-grid">
+          <div class="auto-grid-item">
+            <p class="c-larger-p"">
+                  Niet gelukkig in je werk? 
+                  <br>
+                  Of voel je dat dit niet jouw ‘levenswerk’ / missie is en mis je plezier en voldoening?
                 </p>
                   <p>
                     Krijg inzicht en geef richting aan jouw loopbaan met een <strong>uniek </strong>en <strong>persoonlijk plan</strong> voor jou. 
-                    Samen komen we erachter wat je wilt en wat bij je past qua werk. In 5 tot 8 afspraken heb je al resultaat!
+                    Samen komen we erachter wat je wilt en wat bij je past qua werk.
+                    <br>
+                    In 5 tot 8 afspraken heb je al resultaat!
                 </p>
             </div>
-              <div class="auto-grid-item">
-                <p class="c-larger-p">
-                  Het traject / plan
-                  </p>
-                  <ul class=" c-list">
-                <li>Werkt snel en simpel en geeft diep inzicht</li>
-                <li>Maakt duidelijk wat je drijft en motiveert</li>
-                <li>Laat je ervaren waar jij écht gelukkig van wordt</li>
-                <li>Haalt oude pijnen en patronen weg</li>
-                <li>Geeft je toekomstperspectief en handvaten</li>
-                <li>Maakt je zelfverzekerd, krachtig en energiek</li>
-                <li>Geeft je praktische tips en tools</li>
-                <li>Bied je persoonlijke ondersteuning en begeleiding</li>
-                <li>Verzekerd je van een coach die jou ten diepste ziet</li>
-                <li>Zal je brengen naar loopbaan met geluk en voldoening</li>
-                </ul>
-              </div>
-
-            <div class="auto-grid-item">
-              <p>
-                Dit traject is uit te breiden met persoonlijke ondersteuning en begeleiding om jou naar dat ultieme WERK
-                GELUK te brengen.
-                Denk aan hulp bij het maken van een sollicitatiebrief, power-talk voor een sollicitatiegesprek of
-                spar-partner.
-              </p>
-            </div>
-            <div class="auto-grid-item">
-              <p class="c-larger-p">
-                Nieuwsgierig naar jouw levensmissie?
-                <br>
-                Plan een <strong>gratis</strong> eerste kennismakingsgesprek.
-              </p>
-              
-              <div class="cta-buttons">
-                <a href="/contact" class="btn btn--accent"><i
-                    class="fa-regular fa-comment-dots"></i><span>Contact</span></a>
-                <a href="whatsapp" " class=" btn btn--accent" data-social="whatsapp">
-                  <i class="fa-brands fa-whatsapp"></i>
-                  <span>WhatsApp</span>
-                </a>
-                <a href="tel:0612204799"" class=" btn btn--accent">
-                  <i class="fa-solid fa-phone"></i>
-                  <span>telefoon</span>
-                </a>
-              </div>
-            </div>
+              <div class=" auto-grid-item">
+            <p class="c-larger-p">
+              Jouw persoonlijk traject:
+            </p>
+            <ul class=" c-list">
+              <li>Werkt snel en simpel en geeft diep inzicht</li>
+              <li>Maakt duidelijk wat je drijft en motiveert</li>
+              <li>Laat je ervaren waar jij écht gelukkig van wordt</li>
+              <li>Haalt oude pijnen en patronen weg</li>
+              <li>Geeft je toekomstperspectief en handvaten</li>
+              <li>Maakt je zelfverzekerd, krachtig en energiek</li>
+              <li>Geeft je praktische tips en tools</li>
+              <li>Bied je persoonlijke ondersteuning en begeleiding</li>
+              <li>Verzekerd je van een coach die jou ten diepste ziet</li>
+              <li>Zal je brengen naar loopbaan met geluk en voldoening</li>
+            </ul>
           </div>
-        </article>
-      </section>
 
-      <section class="container ervaringen" aria-labelledby="ervaringen">
+          <div class="auto-grid-item">
+            <p>
+              Dit traject is uit te breiden met persoonlijke ondersteuning en begeleiding om jou naar dat ultieme werk geluk te brengen.
+              Denk aan hulp bij het maken van een sollicitatiebrief, power-talk voor een sollicitatiegesprek of
+              spar-partner.
+            </p>
+          </div>
+          <div class="auto-grid-item">
+            <p class="c-larger-p">
+              Nieuwsgierig naar jouw levensmissie?
 
-        <div>
-          <h2>Ervaringen</h2>
-          <!-- <p>We partner with some pretty amazing people! Here’s what they say about us.</p> -->
-        </div>
-        <div class="review-container auto-grid">
-          <div class="review-content">
+            </p>
+            <p>
+              <a href="contact" class="btn btn--accent cta-button">Gratis intake-gesprek</a>
 
-
-            <div class="reviews no-slider">
-
-            </div>
-
+            </p>
 
           </div>
+
+          <div class="auto-grid-item-span">
+            <div class="cta-buttons">
+              <a href="/contact" class="btn btn--accent"><i class="fa-regular fa-comment-dots"></i><span>Contact</span></a>
+              <a href="whatsapp" " class=" btn btn--accent" data-social="whatsapp">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>WhatsApp</span>
+              </a>
+              <a href="tel:0612204799"" class=" btn btn--accent">
+                <i class="fa-solid fa-phone"></i>
+                <span>telefoon</span>
+              </a>
+            </div>
+          </div>
         </div>
+      </article>
+    </section>
+
+    <section class="container ervaringen" aria-labelledby="ervaringen">
+
+      <header class="section-header">
+        <!-- <img src="assets/img/meerGelukLogoKlaver.png" alt="Meer Geluk Klaver" class="klaverLogo"> -->
+        <h2>Ervaringen</h2>
+
+      </header>
+
+      <div class="review-container auto-grid">
+        <div class="review-content">
 
 
-      </section>
+          <div class="reviews no-slider">
 
-    </div>
-
-  </main>
+          </div>
 
 
-  <?= template_footer() ?>
-  <script src="assets/js/reviews.js"></script>
-
-  <script>
-    function scrollToContent() {
-      var section = document.getElementById("scrollDown");
-      section.scrollIntoView({ behavior: "smooth" });
-    }
-
-    fetchReviews("werk"); // Load all reviews by default
+        </div>
+      </div>
 
 
-  </script>
+    </section>
+
+  </div>
+
+</main>
+
+
+<?= template_footer() ?>
+<script src="assets/js/reviews.js"></script>
+
+<script>
+  function scrollToContent() {
+    var section = document.getElementById("scrollDown");
+    section.scrollIntoView({
+      behavior: "smooth"
+    });
+  }
+
+  fetchReviews("werk"); // Load all reviews by default
+</script>
 
 </body>
 

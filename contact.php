@@ -2,107 +2,142 @@
 include 'functions.php';
 ?>
 <?= template_header('Meer Geluk - home') ?>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 <?= template_nav() ?>
 
-  <main class="full">
-    <div class="home-wrapper">
-      <section class="full contact">
-  
-        <header class="hero-title" id="changeNavColor">
-          <div class="card-3d"><img class="card-3d-logo" src="assets/img/visitekaartje.png" alt="Visitekaartje"></div>
-          <h1 class="h1">Contact</h1>
-          
-          
-          
-        </header>
-        <!-- Calendly inline widget begin -->
-<div class="calendly-inline-widget" data-url="https://calendly.com/meergelukgesprek?hide_gdpr_banner=1&background_color=f0ecec&text_color=1b251b&primary_color=cf9cd7" style="min-width:320px;height:630px;"></div>
-<!-- Calendly inline widget end -->
+<main class="full">
+  <div class="home-wrapper">
+    <section class="full contact">
 
-<div class="form-container">
-  <form id="contact-form">
-    <div class="form-group">
-      <label for="naam">Naam</label>
-      <input type="text" id="naam" class="form-control" name="naam" required>
-    </div>
-    <div class="form-group">
-      <label for="achternaam">Achternaam</label>
-              <input type="text" id="achternaam" class="form-control" name="achternaam">
-            </div>
-            <div class="form-group">
-              <label for="email">E-mail</label>
-              <input type="email" id="email" class="form-control" name="email" required>
-            </div>
-            <div class="form-group">
-              <label for="telefoonnummer">Telefoonnummer</label>
-              <input type="tel" id="telefoonnummer" class="form-control" pattern="^\d{10}$" name="telefoonnummer">
-            </div>
-            <input type="hidden" name="subject" value="meergeluk.com mail van ">
-            <div class="form-group">
-              <label for="bericht">Bericht</label>
-              <textarea id="bericht" class="form-control" rows="5" required name="bericht">Ik wil graag een eerste afspraak maken</textarea>
-            </div>
-            <div class="g-recaptcha" data-sitekey="6Lcke1YlAAAAANoZdNud9lBqKzu3lFFPsyg4Wozz"></div>
-            
-            <div class="form-group">
-              <button type="submit" class="btn submit-btn">Verstuur</button>
-            </div>
-          </form>
-          <div id="response"></div>
-          
-        </section>
-      </div>
-      
-    </main>
-    
-    
+      <header class="hero-title" id="changeNavColor">
+        <div class="card-3d"><img class="card-3d-logo" src="assets/img/visitekaartje.png" alt="Visitekaartje"></div>
+        <h1 class="h1">Contact</h1>
 
-  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        <aside class="home-cta">
 
-  <script>
-    document.getElementById('contact-form').addEventListener('submit', async (e) => {
-      console.log('submitting form');
-        e.preventDefault();
-        const form = e.target;
-        const formData = new FormData(form);
+          <div class="home-cta-flex">
+            <div class="home-cta-content">
+              <p>
+                Heb je een vraag of wil je een gratis afspraak inplannen?
+                Schroom niet om mij te bellen, appen of mailen. Dan kun je:
+              </p>
+              <ul class="c-list">
+                <li>een gratis gesprek inplannen (in persoon of online)</li>
 
-        const responseDiv = document.getElementById('response');
+                <li>meer informatie krijgen over de trajecten en mijn werkwijze</li>
+
+                <li>snel een offerte ontvangen die op jouw situatie is afgestemd</li>
+              </ul>
+              <p>
+              Ik zit regelmatig in sessies met klanten, waardoor ik dan geen telefoon kan beantwoorden. Laat een bericht achter en ik bel je z.s.m. (diezelfde dag nog) terug. 
+              </p>
+
+
+            </div>
+            <div class="cta-buttons no-text">
+              <!-- <a href="contact" class="btn btn--accent"><i class="fa-regular fa-envelope"></i></a> -->
+              <a href="whatsapp" " class=" btn btn--accent" data-social="whatsapp">
+                <i class="fa-brands fa-whatsapp"></i>
+                <!-- <span>WhatsApp</span> -->
+              </a>
+              <a href="tel:0612204799"" class=" btn btn--accent">
+                <i class="fa-solid fa-phone"></i>
+                <!-- <span>telefoon</span> -->
+              </a>
+            </div>
+          </div>
+        </aside>
+
+      </header>
+      <!-- Calendly inline widget begin -->
+      <div class="calendly-inline-widget" data-url="https://calendly.com/meergelukgesprek?hide_gdpr_banner=1&background_color=f0ecec&text_color=1b251b&primary_color=cf9cd7" style="min-width:320px;height:630px;"></div>
+      <!-- Calendly inline widget end -->
+
+      <div class="form-container">
+        <form id="contact-form">
+          <div class="form-group">
+            <label for="naam">Naam</label>
+            <input type="text" id="naam" class="form-control" name="naam" required>
+          </div>
+          <div class="form-group">
+            <label for="achternaam">Achternaam</label>
+            <input type="text" id="achternaam" class="form-control" name="achternaam">
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" class="form-control" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="telefoonnummer">Telefoonnummer</label>
+            <input type="tel" id="telefoonnummer" class="form-control" pattern="^\d{10}$" name="telefoonnummer">
+          </div>
+          <input type="hidden" name="subject" value="meergeluk.com mail van ">
+          <div class="form-group">
+            <label for="bericht">Bericht</label>
+            <textarea id="bericht" class="form-control" rows="5" required name="bericht">Ik wil graag meer informatie over ..</textarea>
+          </div>
+          <div class="g-recaptcha" data-sitekey="6Lcke1YlAAAAANoZdNud9lBqKzu3lFFPsyg4Wozz"></div>
+
+          <div class="form-group">
+            <button type="submit" class="btn submit-btn">Verstuur</button>
+          </div>
+        </form>
+        <div id="response"></div>
+
+    </section>
+  </div>
+
+</main>
+
+
+
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+<script>
+  document.getElementById('contact-form').addEventListener('submit', async (e) => {
+    console.log('submitting form');
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+
+    const responseDiv = document.getElementById('response');
+    responseDiv.innerHTML = '';
+
+    try {
+      const response = await fetch('contactform.php', {
+        method: 'POST',
+        body: formData,
+      });
+      const responseText = await response.text(); // Get the response text
+      console.log(responseText); // Log the response text
+      const result = JSON.parse(responseText); // Parse the response text as JSON
+
+      if (result.success) {
+        console.log('success');
+        responseDiv.innerHTML = result.success;
+        form.reset();
+        grecaptcha.reset();
+      } else if (result.errors) {
         responseDiv.innerHTML = '';
-
-        try {
-            const response = await fetch('contactform.php', {
-                method: 'POST',
-                body: formData,
-            });
-            const responseText = await response.text(); // Get the response text
-            console.log(responseText); // Log the response text
-            const result = JSON.parse(responseText); // Parse the response text as JSON
-
-            if (result.success) {
-              console.log('success');
-                responseDiv.innerHTML = result.success;
-                form.reset();
-                grecaptcha.reset();
-            } else if (result.errors) {
-              responseDiv.innerHTML = '';
-              result.errors.forEach(error => {
-                  const errorParagraph = document.createElement('p');
-                  errorParagraph.textContent = error;
-                  responseDiv.appendChild(errorParagraph);
-              });
-                console.log(result.errors);
-            } else {
-                responseDiv.innerHTML = 'An unexpected error occurred.';
-                console.log(result);
-            }
-        } catch (err) {
-            console.error(err);
-            responseDiv.innerHTML = 'An error occurred while submitting the form. Please try again.';
-        }
-    });
+        result.errors.forEach(error => {
+          const errorParagraph = document.createElement('p');
+          errorParagraph.textContent = error;
+          responseDiv.appendChild(errorParagraph);
+        });
+        console.log(result.errors);
+      } else {
+        responseDiv.innerHTML = 'An unexpected error occurred.';
+        console.log(result);
+      }
+    } catch (err) {
+      console.error(err);
+      responseDiv.innerHTML = 'An error occurred while submitting the form. Please try again.';
+    }
+  });
 </script>
 
-  <!-- <script>
+<!-- <script>
     const contactForm = document.getElementById("contact-form");
     const formResult = document.getElementById("form-result");
     

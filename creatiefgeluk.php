@@ -52,7 +52,7 @@ include 'functions.php';
             </div>
 
             <div class="auto-grid-item">
-              <p class="c-larger-p">Creatief Geluk:</p>
+              <p class="c-larger-p">Een creatieve sessie:</p>
               <ul class="c-list">
                 <li>Combineert coaching met creativiteit</li>
                 <li>Geeft je meer zelfvertrouwen en inzicht</li>
@@ -98,7 +98,10 @@ include 'functions.php';
                 Nodig een vriend of vriendin uit en beleef samen dit creatief helende proces.
                 Kom je samen, betaal je slechts €99 per persoon. </p>
                 <p>App, bel of mail voor meer informatie of voor het maken van een Creatieve Geluks Sessie </p>
-                <div class="cta-buttons">
+               
+              </div>
+              <div class="auto-grid-item-span">
+              <div class="cta-buttons">
                   <a href="contact.html" class="btn btn--accent"><i
                       class="fa-regular fa-comment-dots"></i><span>Contact</span></a>
                   <a href="whatsapp" " class=" btn btn--accent" data-social="whatsapp">

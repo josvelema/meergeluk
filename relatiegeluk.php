@@ -48,6 +48,7 @@ include 'functions.php';
                   Jullie relatie begon zo sprankelend en rooskleurig, maar voelt nu niet meer zo toekomstbestendig.
                   <br>
                     Wil je werken aan het terugvinden van dat eerste gevoel?
+                    <br>
                    Dit traject biedt snelle en langdurige resultaten, en is ook nog eens leuk om te doen!
                 </p>
               </div>
@@ -57,7 +58,7 @@ include 'functions.php';
                   </p>
                             <ul class="c-list">
                     <li>Je (individueel) inzicht en verwerking krijgt van oude patronen en overtuigingen</li>
-                    <li>Er zelfs na heftige situaties in jullie relatie HOOP is</li>
+                    <li>Er zelfs na heftige situaties in jullie relatie hoop is</li>
                     <li>Je je partner écht leert kennen en begrijpen op een diep niveau</li>
                     <li>Jullie een praktische handleiding van elkaar krijgen</li>
                     <li>De emotionele verbinding wordt hersteld/vernieuwd</li>
@@ -82,8 +83,17 @@ include 'functions.php';
                   Wil je meer informatie over het Relatie Geluk Traject en de inhoud ervan?
                   <br>
                    Neem contact met me op en ik beantwoord graag al je vragen.
+                   
                    Of plan direct een gratis en vrijblijvend intake/kennismakingsgesprek in.
-                   <div class="cta-buttons">
+          
+                  </p>
+                  <p>
+              <a href="contact" class="btn btn--accent cta-button">Gratis intake-gesprek</a>
+
+            </p>
+                </div>
+                <div class="auto-grid-item-span">
+                <div class="cta-buttons">
                     <a href="/contact" class="btn btn--accent"><i class="fa-regular fa-comment-dots"></i><span>Contact</span></a>
                     <a href="whatsapp" " class="btn btn--accent" data-social="whatsapp">
                         <i class="fa-brands fa-whatsapp"></i>
@@ -94,7 +104,6 @@ include 'functions.php';
                         <span>telefoon</span>
                     </a>
                   </div>
-                  </p>
                 </div>
               </div>
              
@@ -104,24 +113,26 @@ include 'functions.php';
            </section>
            <section class="container ervaringen" aria-labelledby="ervaringen">
 
-            <div>
-              <h2>Ervaringen</h2>
-              <!-- <p>We partner with some pretty amazing people! Here’s what they say about us.</p> -->
-            </div>
-            <div class="review-container ">
-              <div class="review-content">
-    
-    
-                <div class="reviews no-slider auto-grid">
-    
-                </div>
-    
-    
-              </div>
-            </div>
-    
-    
-          </section>
+<header class="section-header">
+  <!-- <img src="assets/img/meerGelukLogoKlaver.png" alt="Meer Geluk Klaver" class="klaverLogo"> -->
+  <h2>Ervaringen</h2>
+
+</header>
+
+<div class="review-container auto-grid">
+  <div class="review-content">
+
+
+    <div class="reviews no-slider">
+
+    </div>
+
+
+  </div>
+</div>
+
+
+</section>
         </div>
 
     </main>

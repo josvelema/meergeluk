@@ -500,6 +500,7 @@ height: var(--step-1);
  display: flex;
  flex-wrap: wrap;
  justify-content: center;
+ align-items: center;
  /* height: 85%; */
  margin: var(--space-m) 0.3em;
  /* position: relative; */
@@ -518,8 +519,19 @@ height: var(--step-1);
  margin-bottom: var(--space-s);
  text-align: center;
 }
-.home-cta .cta-buttons  {
+
+@media (min-width: 768px) {
+  .home-cta .cta-buttons {
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+  
+}
+
+.home-cta .cta-buttons,
+.home-cta .home-cta-content {
   margin: 0.25em auto;
+  padding-inline: var(--space-2xs);
 }
 
 .home-cta .cta-buttons a {
@@ -855,7 +867,7 @@ filter:drop-shadow(0 0 1px var(--gray-400));
   margin-top: var(--space-s);
   margin-bottom:  var(--space-l);
   margin-inline: auto;
-  width: min(100% - var(--space-s), 60ch);
+  width: min(100% - var(--space-s),61ch);
   padding: var(--space-xs);
 
   align-self: start;
@@ -1061,6 +1073,13 @@ place-items: center;
 }
 }
 
+.social-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-s);
+}
+
 .codette {
  padding-block: var(--space-s);
  text-align: center;
@@ -1084,9 +1103,7 @@ place-items: center;
  margin-inline: max((100% - 90rem) / 2, 0.5rem);
  position: relative;
 }
-main .container:nth-child(2) {
-  margin-top: -2em;
-}
+/* w */
 
 .container--sm {
  max-width: 800px;
@@ -1191,7 +1208,7 @@ justify-content: space-between;
 
 .coach-content {
  padding-inline: var(--space-s);
- text-align: justify;
+ /* text-align: left; */
  padding-block: var(--space-m);
  margin-inline: auto;
 }
@@ -1587,6 +1604,10 @@ button[data-read-more] {
 .auto-grid-item-span {
  justify-self: stretch;
 }
+
+.auto-grid-item p {
+  padding-block: var(--space-xs);
+}
 @media (min-width: 701px) {
   .auto-grid-item-span {
     grid-column: span 2;
@@ -1716,6 +1737,7 @@ button[data-read-more] {
  max-width: 550px;
  text-align: justify;
  margin: auto;
+ padding-inline: var(--space-xs);
 }
 
 #play-pause-button {
@@ -2439,7 +2461,8 @@ transparent 80%);
 
 .cta-button-container {
  display: flex;
- flex-wrap: wrap;
+ /* flex-wrap: wrap; */
+ flex-direction: column;
  align-items: center;
  margin-block: var(--space-m);
 }

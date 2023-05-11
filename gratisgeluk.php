@@ -84,7 +84,7 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
                   Of volg me via Facebook en Instagram voor wekelijkse inspirerende posts.
                 </p>
                 <div class="cta-buttons">
-                  <a href="contact.html" class="btn btn--accent"><i <i class="fa-brands fa-facebook"></i><span>Facebook</span></a>
+                  <a href="contact.html" class="btn btn--accent"><i class="fa-brands fa-facebook"></i><span>Facebook</span></a>
                 </div>
               </div>
               <?php

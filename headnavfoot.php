@@ -148,9 +148,16 @@ function template_footer()
         <address>
           <small class="block">Sabine Bezemer</small>
           <small class="block">Coaching & Begeleiding</small>
+          <small class="block">Praktijk locaties in Dordrecht en Papendrecht</small>
+          
           <small class="block"><a href="mailto:info@meergeluk.com">info@meergeluk.com</a></small>
           <small class="block"> <a href="tel:+31(0)612204799">+31 (0)6 1220 4799</a> </small>
         </address>
+      <div class="social-icons">
+      <a href="facebook.com" target="_blank" class="social-icon"><i class="fa-brands fa-facebook"></i></a>
+      <a href="instagram.com " target="_blank" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+      <a href="linkedin.com" target="_blank" class="social-icon"><i class="fa-brands fa-linkedin"></i></a>
+      </div>
       </div>
       <div class="footer-column">
         <div class="footer-nav">
@@ -158,8 +165,8 @@ function template_footer()
             <li><a href="/">Home</a></li>
             <li><a href="overmij">Over mij</a></li>
             <li><a href="contact">Contact</a></li>
-            <li><i class="fa-regular fa-file-pdf"></i> <a href="assets/pdf/Algemene Voorwaarden Meer Geluk 2023.pdf" target="_blank">Algemene Voorwaarden Meer Geluk 2023 </a></li>
-            <li><i class="fa-regular fa-file-pdf"></i> <a href="assets/pdf/Privacyverklaring Meer Geluk 2023.pdf" target="_blank">Privacyverklaring Meer Geluk 2023 </a></li>
+            <li><i class="fa-regular fa-file-pdf"></i> <a href="assets/pdf/Algmene Voorwaarden Meer Geluk.pdf" target="_blank">Algemene Voorwaarden Meer Geluk  </a></li>
+            <li><i class="fa-regular fa-file-pdf"></i> <a href="assets/pdf/Privacyverklaring Meer Geluk 2023.pdf" target="_blank">Privacyverklaring Meer Geluk  </a></li>
           </ul>
         </div>
       </div>

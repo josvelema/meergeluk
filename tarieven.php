@@ -39,7 +39,11 @@ include 'functions.php';
                 </p>
                   <p>
                   Neem contact met me op via het contact formulier, telefoon/whatsapp of e-mail.</p>
-                <div class="cta-buttons">
+
+
+              </div>
+              <div class="auto-grid-item-span">
+              <div class="cta-buttons">
                   <a href="contact.html" class="btn btn--accent"><i class="fa-regular fa-comment-dots"></i><span>Contact</span></a>
                   <a href="whatsapp" " class="btn btn--accent" data-social="whatsapp">
                       <i class="fa-brands fa-whatsapp"></i>
@@ -50,12 +54,6 @@ include 'functions.php';
                       <span>telefoon</span>
                   </a>
                 </div>
-                <address>
-                  <small class="block">Sabine Bezemer</small>
-                  <small class="block">Coaching & Begeleiding</small>
-                  <small class="block"><a href="mailto:info@meergeluk.com">info@meergeluk.com</a></small>
-                  <small class="block"> <a href="tel:+31(0)612345678">+31(0)612345678</a> </small>
-                </address>
               </div>
             </div>
             

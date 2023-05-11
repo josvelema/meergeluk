@@ -32,19 +32,21 @@ include 'functions.php';
 
           </div>
           <aside class="home-cta">
-\
+
             <div class="home-cta-flex">
               <div class="home-cta-content">
                 <p>
                   Klaar voor een prachtige wending in je leven?
-                  <br>
-                  Maak nu een afspraak voor een gratis kennismakingsgesprek.
-                  <br>
-                  <strong>Geen lange wachttijden!</strong>
                 </p>
+                  <p>
+                    <a href="contact" class="btn btn--accent cta-button">Gratis intake-gesprek</a>
+                    
+                  </p>
+                  <p><strong>Geen lange wachttijden!</strong></p>
+                
               </div>
               <div class="cta-buttons no-text">
-                <a href="contact.html" class="btn btn--accent"><i class="fa-regular fa-envelope"></i></a>
+                <a href="contact" class="btn btn--accent"><i class="fa-regular fa-envelope"></i></a>
                 <a href="whatsapp" " class=" btn btn--accent" data-social="whatsapp">
                   <i class="fa-brands fa-whatsapp"></i>
                   <!-- <span>WhatsApp</span> -->
@@ -66,11 +68,11 @@ include 'functions.php';
             </p>
           </div> -->
       </section>
-      <section aria-labelledby="coaching trajecten" class="full coaching-trajecten">
+      <section aria-labelledby="coaching trajecten" class="container coaching-trajecten">
 
         <div class="section-wrapper">
 
-          <div class="svg-wrapper">
+          <!-- <div class="svg-wrapper">
 
             <button class="arrow-down" aria-controls="scroll-down" aria-label="scroll down" onclick="scrollToContent()"
               id="scrollDown">
@@ -84,7 +86,7 @@ include 'functions.php';
                 <line x1="16" y1="12" x2="12" y2="16" />
               </svg>
             </button>
-          </div>
+          </div> -->
           <!-- <img src="assets/img/meerGelukLogoKlaver.png" alt="Meer Geluk Klaver" class="klaverLogo"> -->
           <h2 class="sr-only">Coaching en begeleiding trajecten</h2>
           </header>
@@ -125,7 +127,7 @@ include 'functions.php';
                   Ervaar hoe je snel meer geluk kunt ervaren in 8 stappen
                 </p>
               </div>
-              <a class="btn btn--accent" href="eigengeluk.html">Lees meer</a>
+              <a class="btn btn--accent" href="eigengeluk">Lees meer</a>
 
             </article>
             <article class="coaching">
@@ -165,7 +167,7 @@ include 'functions.php';
                   verbinding, passie en is ook nog eens leuk om te doen!
                 </p>
               </div>
-              <a class="btn btn--accent" href="relatiegeluk.html">Lees meer</a>
+              <a class="btn btn--accent" href="relatiegeluk">Lees meer</a>
 
             </article>
             <article class="coaching">
@@ -204,7 +206,7 @@ include 'functions.php';
                   Weten wat je wilt en wat bij je past mét een uniek stappenplan op jou afgestemd!
                 </p>
               </div>
-              <a class="btn btn--accent" href="werkgeluk.html">Lees meer</a>
+              <a class="btn btn--accent" href="werkgeluk">Lees meer</a>
 
             </article>
             <article class="coaching">
@@ -242,7 +244,7 @@ include 'functions.php';
                   Ook leuk om samen te doen.
                 </p>
               </div>
-              <a class="btn btn--accent" href="creatiefgeluk.html">Lees meer</a>
+              <a class="btn btn--accent" href="creatiefgeluk">Lees meer</a>
 
             </article>
 
@@ -320,6 +322,7 @@ include 'functions.php';
             <div class="auto-grid-item">
               <p class="c-larger-p"> Ontdek of wij matchen in een <strong>gratis en vrijblijvend</strong> eerste gesprek
                 waarin we:</p>
+              <br>
               <ul class="cta-list">
                 <li>Elkaar leren kennen</li>
                 <li>Jouw hulpvraag duidelijk krijgen</li>
@@ -329,9 +332,13 @@ include 'functions.php';
 
             <div class="auto-grid-item">
               <div class="cta-button-container">
-                <p class="c-larger-p">Ja, dit wil ik:</p>
-                <br>
-                <a href="contact.html" class="btn btn--accent cta-button">Gratis intake-gesprek</a>
+                <p class="c-larger-p">Ja, dit wil ik:
+                
+                </p>
+                <p>
+                  
+                  <a href="contact" class="btn btn--accent cta-button">Gratis intake-gesprek</a>
+                </p>
               </div>
               <p>Je kunt me uiteraard ook gewoon <a href="whatsapp">appen</a>, <a href="tel:0612204799">bellen</a> of <a
                   href="mailto:info@meergeluk.com">mailen</a> voor meer informatie.
@@ -340,9 +347,11 @@ include 'functions.php';
                 een
                 bericht achter en ik bel je dezelfde dag nog terug.
               </p>
-              <p class="c-larger-p"><strong>Vertrouwelijkheid en discretie zijn altijd gegarandeerd.</strong></p>
             </div>
+            <div class="auto-grid-item auto-grid-item-span">
+            <p class="c-larger-p"><strong>Vertrouwelijkheid en discretie zijn altijd gegarandeerd.</strong></p>
 
+            </div>
             <div class="auto-grid-item-span">
               <div class="faq-section">
                 <h3 class="faq-heading">FAQ - (Veelgestelde vragen)</h3>
@@ -386,7 +395,7 @@ include 'functions.php';
                     <div class="faq-answer" id="faq-answer-4" aria-hidden="true">
                       Het is ook mogelijk om losse sessies in te plannen. Laat me weten wat je hulpvraag is, zodat we
                       een
-                      persoonlijk op maat gemaakt plan voor je kunnen ontwerpen.
+                      persoonlijk en op maat gemaakt plan voor je kunnen ontwerpen.
                     </div>
                   </div>
                   <div class="faq-item" role="listitem">
@@ -421,9 +430,7 @@ include 'functions.php';
                       makkelijk bereikbaar en er zijn gratis parkeermogelijkheden. Het eerste gesprek vindt plaats op
                       één
                       van deze locaties. Daarna kunnen we ook bij jou thuis of op een andere locatie afspreken.
-                      Maar we kunnen ook bij jou thuis afspreken. Na het eerste gesprek op één van de twee locaties in
-                      de
-                      Drechtsteden, kunnen we de mogelijkheden bespreken om bij jou thuis af te spreken.
+                     
                     </div>
                   </div>
                 </div>
