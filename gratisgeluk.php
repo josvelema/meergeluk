@@ -67,8 +67,9 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
         <section aria-labelledby="Blog artikelen" class="container">
           <div class="">
 
+            <div class="auto-grid">
 
-            <div class="other-content">
+            <div class="auto-grid-item auto-grid-item-span">
               <p class="c-larger-p ">Omdat ik iedereen zoveel mogelijk <strong>geluk gun</strong> zal ik hier regelmatig
                 <strong>gratis geluksbrengers</strong> plaatsen.
               </p>
@@ -76,17 +77,7 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
                 brengt.
               </p>
             </div>
-            <div class="auto-grid">
-              <div class="auto-grid-item">
-                <p><strong>TIP!</strong> Kijk ook eens in mijn <a href="blog">blog </a>voor interessante artikelen,
-                  tips en weetjes over geluk, relatie en werk.
-                  <br>
-                  Of volg me via Facebook en Instagram voor wekelijkse inspirerende posts.
-                </p>
-                <div class="cta-buttons">
-                  <a href="contact.html" class="btn btn--accent"><i class="fa-brands fa-facebook"></i><span>Facebook</span></a>
-                </div>
-              </div>
+
               <?php
               $stmt = $pdo->prepare('SELECT * FROM posts WHERE post_status = ?  AND post_cat_id = 2 ORDER BY post_id DESC LIMIT ? , ?');
               $stmt->bindParam(1, $published, PDO::PARAM_STR);
@@ -152,49 +143,86 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
               ?>
 
 
-                <article class="auto-grid-item">
+                <article class="auto-grid-item auto-grid-item-span">
                   <div class="blog-item-header">
                     <h2 class="blog-item-title"><?= $post_title ?></h2>
-                    <!-- <p>Gepost door <?= $post_author ?> </p>
-                    <p><small><?= $outputDateInfo ?> - <?= $post_views; ?> views</small></p>
-                    <p class="blog-item-tags"><?= $post_tags ?> </p> -->
+
                   </div>
 
-                  <!-- <div class="blog-item-img">
-                    <img src="assets/blogMedia/<?= $post_image; ?>" alt="<?= $post_title; ?>">
-                  </div> -->
-
                   <div class="blog-item-content">
-                    <p class="blog-item-text"><?= $post_intro ?></p>
-                    <p class="blog-item-text"><?= $post_content ?></p>
-                    <a href=<?= $post_url ?>" class="blog-item-link" target><?= $post_url ?> </a>
+
+                    <?php if (empty($post_intro)) { ?>
+                      <p class="blog-item-text"><?= $post_content ?></p>
+                    <?php } else { ?>
+                      <p class="blog-item-text"><?= $post_intro ?></p>
+                      <p class="blog-item-text"><?= $post_content ?></p>
+                    <?php } ?>
+
+
+                    <?php if (strpos($post_image, '.pdf') !== false) { ?>
+                      <a href="assets/blogMedia/<?= $post_image ?>" class="blog-item-link" target="_blank">Download hier de PDF</a>
+                    <?php } else { ?>
+                      <br>
+
+                    <?php } ?>
+                    
+                    <?php if (isset($post_url) && !empty($post_url)) { ?>
+                      <a href=<?= $post_url ?> class="blog-item-link" target="_blank">Meer informatie</a>
+                    <?php } else { ?>
+                      <br>
+
+                    <?php } ?>
+
+
+
 
                   </div>
 
                 </article>
             <?php }
             } ?>
-            <div class="auto-grid-item auto-grid-item-span">
+            <div class="auto-grid-item">
+              <p><strong>TIP!</strong> Kijk ook eens in mijn <a href="blog">blog </a>voor interessante artikelen,
+                tips en weetjes over geluk, relatie en werk.
+                <br>
+                Of volg me via Facebook en Instagram voor wekelijkse inspirerende posts.
+              </p>
+              <div class="cta-buttons">
+                <a href="contact.html" class="btn btn--accent"><i class="fa-brands fa-facebook" target="_blank"></i><span>Facebook</span></a>
+                
+                <a href="https://www.instagram.com/meer.geluk/" class="btn btn--accent" target="_blank"><i class="fa-brands fa-instagram"></i><span>Instagram</span></a>
+                
+                <a href="https://www.linkedin.com/in/meer-geluk-961b98274/" class="btn btn--accent" target="_blank"><i class="fa-brands fa-linkedin"></i><span>LinkedIn</span></a>
+                
+
+
+
+
+              </div>
+            </div>
+            <div class="auto-grid-item">
               <p>Wil je snel en effectief aan jezelf of aan je relatie werken en ben je benieuwd naar de mogelijkheden,
                 dan is het eerste kennismakingsgesprek bij mij ook 100% gratis en vrijblijvend.
               </p>
-              <p>Neem contact met me op via het contact formulier, telefoon/whatsapp of e-mail..</p>
-              <div class="cta-buttons">
-                <a href="contact.html" class="btn btn--accent"><i class="fa-regular fa-comment-dots"></i><span>Contact</span></a>
+              <p>
+              <a href="contact" class="btn btn--accent cta-button">Gratis intake-gesprek</a>
+
+            </p>
+             
+
+    
+            </div>
+            <div class="auto-grid-item-span">
+            <div class="cta-buttons">
+                <a href="contact" class="btn btn--accent"><i class="fa-regular fa-comment-dots"></i><span>Contact</span></a>
                 <a href="whatsapp" " class=" btn btn--accent" data-social="whatsapp">
                   <i class="fa-brands fa-whatsapp"></i>
                   <span>WhatsApp</span>
-                </a> <a href="tel:0623232323"" class=" btn btn--accent">
+                </a> <a href="tel:061220479"" class=" btn btn--accent">
                   <i class="fa-solid fa-phone"></i>
                   <span>telefoon</span>
                 </a>
               </div>
-              <address>
-                <small class="block">Sabine Bezemer</small>
-                <small class="block">Coaching & Begeleiding</small>
-                <small class="block"><a href="mailto:info@meergeluk.com">info@meergeluk.com</a></small>
-                <small class="block"> <a href="tel:+31(0)6 1220 4799">+31(0)6 1220 4799</a> </small>
-              </address>
             </div>
             </div>
           </div>

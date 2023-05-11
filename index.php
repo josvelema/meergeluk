@@ -403,13 +403,20 @@ include 'functions.php';
                       ik
                       een
                       afspraak inplannen?<span class="arrow"></span></button>
-                    <div class="faq-answer" id="faq-answer-5" aria-hidden="true">
-                      Een gratis intakegesprek kun je aanvragen per mail via <a href="/contact">deze link</a>.
-                      Maar je kunt ook bellen of appen om direct een afspraak in te plannen.
-                      Ik ben vrij flexibel qua uren en tijden. Avonden zijn zelfs ook mogelijk.
+                      <div class="faq-answer" id="faq-answer-5" aria-hidden="true">
+                        Een gratis intakegesprek kun je aanvragen per mail via <a href="/contact">deze link</a>.
+                        Maar je kunt ook bellen of appen om direct een afspraak in te plannen.
+                        Ik ben vrij flexibel qua uren en tijden. Avonden zijn zelfs ook mogelijk.
+                      </div>
                     </div>
-                  </div>
-                  <div class="faq-item" role="listitem">
+                    <div class="faq-item" role="listitem">
+                      <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">Wat kost een sessie?<span class="arrow"></span></button>
+                      <div class="faq-answer" id="faq-answer-4" aria-hidden="true">
+                      Ik bied verschillende soorten pakketten aan.
+                        Kijk bij <a href="tarieven">tarieven</a> voor meer informatie over de kosten van de verschillende trajecten.
+                      </div>
+                    </div>
+                    <div class="faq-item" role="listitem">
                     <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-6">Hoe snel en hoe vaak
                       kunnen de sessies ingepland worden? <span class="arrow"></span></button>
                     <div class="faq-answer" id="faq-answer-6" aria-hidden="true">

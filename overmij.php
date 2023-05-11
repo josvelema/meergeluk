@@ -34,7 +34,7 @@ include 'functions.php';
               </div>
               <div class="auto-grid-item">
                 <p>
-                  Als MEER GELUK Coach, heb ik een warme, rustige coaching stijl met een vleugje humor, spontaniteit en
+                  Als meer geluk coach, heb ik een warme, rustige coaching stijl met een vleugje humor, spontaniteit en
                   creativiteit.
                   <br>
                   Ik leef zoveel mogelijk met een positieve instelling, geloof in oplossingen en kan snel doorzien wat jij
@@ -46,15 +46,23 @@ include 'functions.php';
                 
               </div>
                 <div class="auto-grid-item auto-grid-item-span">
-                  <p>Samen met jou/ jullie ga ik voor het beste resultaat en geef niet snel op. Tijdens ons traject ben jij
-                  mijn topprioriteit
-                  en dat zal je merken. Ik houd regelmatig contact met je tussen en na de sessies en blijf betrokken.
-                  </p>
-                  <p>
-                  Mensen die mij goed kennen omschrijven mij als: Positief, grappig, eerlijk en open. Liefdevol,
-                  empathisch en
-                  betrokken.
-                                </p>
+                <p>Samen met jou/ jullie ga ik voor het beste resultaat en geef niet snel op. Tijdens ons traject ben jij mijn topprioriteit en dat zal je merken. Ik houd regelmatig contact met je tussen en na de sessies en blijf betrokken.</p>
+                 Onze contactmomenten zullen veelal live plaatsvinden, maar zijn ook mogelijk via de Whatsapp en videobellen.
+
+                <p>Zodra je klant bij mij bent, heb je een hoge prioriteit en ben ik bereikbaar voor al je vragen en moeilijke momenten. Ik ga respectvol en vertrouwelijk met jouw privacy om. Jouw geluk is mijn gewenste resultaat en je zult je echt gehoord, gezien en gesteund voelen.</p>
+
+                <p>
+                  Mensen die mij goed kennen omschrijven mij als: Positief, grappig, eerlijk en open. Liefdevol, empathisch en zeer betrokken.
+                  
+                  Ik sta bekend om mijn fijngevoeligheid en opmerkzaamheid. Ik kan snel schakelen en oplossingen verzinnen, zodat er een persoonlijk en op-maat-gemaakt plan voor jou ontstaat tijdens je traject.
+                </p>
+
+                <p>Ervaar zelf of wij matchen in een gratis kennismakingsgesprek.</p>
+                                
+                                <p>
+              <a href="contact" class="btn btn--accent cta-button">Gratis intake-gesprek</a>
+
+            </p>
                 </div>
             <div class="auto-grid-item-span">
               <div class="cta-buttons">

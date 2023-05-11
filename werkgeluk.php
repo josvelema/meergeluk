@@ -35,17 +35,18 @@ include 'functions.php';
         <div class="coach-content auto-grid">
           <div class="auto-grid-item">
             <p class="c-larger-p"">
-                  Niet gelukkig in je werk? 
-                  <br>
-                  Of voel je dat dit niet jouw ‘levenswerk’ / missie is en mis je plezier en voldoening?
-                </p>
-                  <p>
-                    Krijg inzicht en geef richting aan jouw loopbaan met een <strong>uniek </strong>en <strong>persoonlijk plan</strong> voor jou. 
-                    Samen komen we erachter wat je wilt en wat bij je past qua werk.
-                    <br>
-                    In 5 tot 8 afspraken heb je al resultaat!
-                </p>
-            </div>
+            Passioneel en gedreven werken
+          </p>
+          <p>
+            Mis je plezier en voldoening uit je werk en wil je nu eindelijk eens uitzoeken welke loopbaan écht bij jou past? 
+             Gebaseerd op wie je bent en waar je gelukkig van wordt.
+
+            </p>
+            <p>
+            Samen gaan maken we jouw blauwdruk duidelijk en hieruit volgt een uniek en persoonlijk plan voor jouw loopbaan. 
+            Je krijgt duidelijke antwoorden, waarmee je praktische vervolgstappen kunt zetten, zodat je vervolgens heel gericht aan de slag kunt met jouw toekomstplannen! In 5 tot 8 afspraken heb je al resultaat!
+            </p>
+          </div>
               <div class=" auto-grid-item">
             <p class="c-larger-p">
               Jouw persoonlijk traject:
@@ -73,7 +74,7 @@ include 'functions.php';
           </div>
           <div class="auto-grid-item">
             <p class="c-larger-p">
-              Nieuwsgierig naar jouw levensmissie?
+              Ontdek welke loopbaan perfect bij jou past!
 
             </p>
             <p>

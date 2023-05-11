@@ -49,6 +49,7 @@ include 'functions.php';
               Ik maak samen met jou een <strong>persoonlijk plan</strong> om het roer om te gooien.
 
               <br>
+              Pak deze kans om jezelf te bevrijden en ga leven zoals jij dat wilt, met meer vertrouwen, voldoening en levensgeluk! En dat in 8 afspraken!
             </p>
           </div>
           <div class="auto-grid-item">

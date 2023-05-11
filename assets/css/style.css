@@ -1262,7 +1262,7 @@ justify-content: space-between;
  background-image: url(../img/werkgelukHero.jpg);
 }
 .coaching:nth-child(4) .image-wrapper {
- background-image: url(../img/kunstHero.jpg);
+ background-image: url(../img/creatiefHero.jpg);
 }
 
 
@@ -1958,7 +1958,7 @@ transparent 80%);
 
 
 .creatiefGeluk .home-wrapper {
-  background-image: url(../img/kunstHero.jpg);
+  background-image: url(../img/creatiefHero.jpg);
   background-position: center;
 
  }

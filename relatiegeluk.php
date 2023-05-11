@@ -44,12 +44,11 @@ include 'functions.php';
           </div> -->
             <div class="coach-content auto-grid">
               <div class="auto-grid-item">
-                <p >
-                  Jullie relatie begon zo sprankelend en rooskleurig, maar voelt nu niet meer zo toekomstbestendig.
-                  <br>
-                    Wil je werken aan het terugvinden van dat eerste gevoel?
-                    <br>
-                   Dit traject biedt snelle en langdurige resultaten, en is ook nog eens leuk om te doen!
+                <p class="c-larger-p">
+                <strong>Een bruisende relatie vol passie!</strong>
+                </p>
+                  
+                <p>Wil je het vuur voor je geliefde weer voelen zoals in het begin? Met mijn 8 stappen-relatie-plan creëer je een diepe en unieke verbinding die voor een intens samenzijn zal zorgen. Uniek aan dit traject is dat jullie eerst individuele coaching en vervolgens gezamenlijke op-maat-coaching ontvangen. En dat allemaal in 8 afspraken. Beleef echte eye-openers, leer jezelf én elkaar kennen op een ander niveau en voel de vlinders weer!</p>
                 </p>
               </div>
               <div class="auto-grid-item">
@@ -94,7 +93,7 @@ include 'functions.php';
                 </div>
                 <div class="auto-grid-item-span">
                 <div class="cta-buttons">
-                    <a href="/contact" class="btn btn--accent"><i class="fa-regular fa-comment-dots"></i><span>Contact</span></a>
+                    <a href="contact" class="btn btn--accent"><i class="fa-regular fa-comment-dots"></i><span>Contact</span></a>
                     <a href="whatsapp" " class="btn btn--accent" data-social="whatsapp">
                         <i class="fa-brands fa-whatsapp"></i>
                         <span>WhatsApp</span>
