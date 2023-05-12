@@ -28,6 +28,15 @@ function template_header($title)
     <html lang="nl">
     
     <head>
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-CH6GHDSSJF"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+      
+        gtag('config', 'G-CH6GHDSSJF');
+      </script>
       <meta charset="UTF-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="description" content="Meer Geluk biedt professionele coaching voor je leven, relatie en werk. Ontdek hoe je meer geluk kunt ervaren met de hulp van Sabine Bezemer, een ervaren relatie- en levenscoach en kunstzinnig therapeut."> 
