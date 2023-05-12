@@ -217,7 +217,7 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
                 <a href="whatsapp" " class=" btn btn--accent" data-social="whatsapp">
                   <i class="fa-brands fa-whatsapp"></i>
                   <span>WhatsApp</span>
-                </a> <a href="tel:061220479"" class=" btn btn--accent">
+                </a> <a href="https://wa.me/0031612204799" class=" btn btn--accent">
                   <i class="fa-solid fa-phone"></i>
                   <span>telefoon</span>
                 </a>

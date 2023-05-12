@@ -41,7 +41,7 @@ include 'functions.php';
                 <i class="fa-brands fa-whatsapp"></i>
                 <!-- <span>WhatsApp</span> -->
               </a>
-              <a href="tel:0612204799"" class=" btn btn--accent">
+              <a href="https://wa.me/0031612204799" class=" btn btn--accent">
                 <i class="fa-solid fa-phone"></i>
                 <!-- <span>telefoon</span> -->
               </a>
