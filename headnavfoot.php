@@ -189,7 +189,7 @@ function template_footer()
             <li><a href="overmij">Over mij</a></li>
             <li><a href="contact">Contact</a></li>
             <li><i class="fa-regular fa-file-pdf"></i> <a href="assets/pdf/Algmene Voorwaarden Meer Geluk.pdf" target="_blank">Algemene Voorwaarden Meer Geluk  </a></li>
-            <li><i class="fa-regular fa-file-pdf"></i> <a href="assets/pdf/Privacyverklaring Meer Geluk 2023.pdf" target="_blank">Privacyverklaring Meer Geluk  </a></li>
+            <li><i class="fa-regular fa-file-pdf"></i> <a href="assets/pdf/Gedragscode Meer Geluk 2023.pdf" target="_blank">Privacyverklaring Meer Geluk  </a></li>
           </ul>
           <div class="footer-certificat">
           <img src="assets/img/certificaten2.png" alt="Certificaten">
