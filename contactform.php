@@ -57,7 +57,7 @@ if (isset($_POST['naam'], $_POST['email'], $_POST['bericht'], $_POST['subject'],
     $resp = $recaptcha->verify($_POST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
 
     if (!$resp->isSuccess()) {
-        $errors['recaptcha'] = 'Captcha validation failed. Please try again.';
+        $errors['recaptcha'] = 'Captcha validatie mislukt , probeer a.u.b nogmaals.';
     }
 
     if (!$errors) {
@@ -86,7 +86,7 @@ if (isset($_POST['naam'], $_POST['email'], $_POST['bericht'], $_POST['subject'],
 
             $mail->send();
             $response = [
-              'success' => 'Message sent successfully.'
+              'success' => 'Bericht succesvol verstuurd! Bedankt!'
             ];
             echo json_encode($response);
         } catch (Exception $e) {

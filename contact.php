@@ -30,7 +30,7 @@ include 'functions.php';
                 <li>snel een offerte ontvangen die op jouw situatie is afgestemd</li>
               </ul>
               <p>
-              Ik zit regelmatig in sessies met klanten, waardoor ik dan geen telefoon kan beantwoorden. Laat een bericht achter en ik bel je z.s.m. (diezelfde dag nog) terug. 
+                Ik zit regelmatig in sessies met klanten, waardoor ik dan geen telefoon kan beantwoorden. Laat een bericht achter en ik bel je z.s.m. (diezelfde dag nog) terug.
               </p>
 
 
@@ -84,7 +84,12 @@ include 'functions.php';
           </div>
         </form>
         <div id="response"></div>
-
+        <div id="popup" class="popup" style="display: none;">
+          <div class="popup-content">
+            <div id="popup-response"></div>
+            <span class="popup-close" onclick="closePopup()">×</span>
+          </div>
+        </div>
     </section>
   </div>
 
@@ -95,6 +100,17 @@ include 'functions.php';
 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
 <script>
+  const popup = document.getElementById('popup');
+  const popupResponseDiv = document.getElementById('popup-response');
+    popupResponseDiv.innerHTML = '';
+
+
+  function closePopup() {
+
+    popup.style.display = 'none';
+  }
+
+
   document.getElementById('contact-form').addEventListener('submit', async (e) => {
     console.log('submitting form');
     e.preventDefault();
@@ -127,12 +143,20 @@ include 'functions.php';
         });
         console.log(result.errors);
       } else {
-        responseDiv.innerHTML = 'An unexpected error occurred.';
+        responseDiv.innerHTML = 'Een onverwachte fout is opgetreden.';
         console.log(result);
       }
+
+      popupResponseDiv.innerHTML = responseDiv.innerHTML;
+      popup.style.display = 'block';
+      responseDiv.innerHTML = '';
     } catch (err) {
       console.error(err);
-      responseDiv.innerHTML = 'An error occurred while submitting the form. Please try again.';
+      responseDiv.innerHTML = 'Er is een fout opgetreden, probeer het nog een keer.';
+      popupResponseDiv.innerHTML = responseDiv.innerHTML;
+      popup.style.display = 'block';
+      responseDiv.innerHTML = '';
+
     }
   });
 </script>
