@@ -47,7 +47,7 @@ include 'functions.php';
               </div>
               <div class="cta-buttons no-text">
                 <a href="contact" class="btn btn--accent"><i class="fa-regular fa-envelope"></i></a>
-                <a href="https://wa.me/0031612204799" " class=" btn btn--accent" data-social="whatsapp">
+                <a href="https://wa.me/31612204799" " class=" btn btn--accent" data-social="whatsapp">
                   <i class="fa-brands fa-whatsapp"></i>
                   <!-- <span>WhatsApp</span> -->
                 </a>
@@ -340,7 +340,7 @@ include 'functions.php';
                   <a href="contact" class="btn btn--accent cta-button">Gratis intake-gesprek</a>
                 </p>
               </div>
-              <p>Je kunt me uiteraard ook gewoon <a href="https://wa.me/0031612204799">appen</a>, <a href="tel:0612204799">bellen</a> of <a
+              <p>Je kunt me uiteraard ook gewoon <a href="https://wa.me/31612204799">appen</a>, <a href="tel:0612204799">bellen</a> of <a
                   href="mailto:info@meergeluk.com">mailen</a> voor meer informatie.
                 <br> Ik zit regelmatig in sessies met klanten, waardoor ik niet altijd de telefoon kan beantwoorden.
                 Laat

@@ -97,7 +97,7 @@ include 'functions.php';
                 <div class="auto-grid-item-span">
                 <div class="cta-buttons">
                     <a href="contact" class="btn btn--accent"><i class="fa-regular fa-comment-dots"></i><span>Contact</span></a>
-                    <a href="https://wa.me/0031612204799" class="btn btn--accent" data-social="whatsapp">
+                    <a href="https://wa.me/31612204799" class="btn btn--accent" data-social="whatsapp">
                         <i class="fa-brands fa-whatsapp"></i>
                         <span>WhatsApp</span>
                     </a>
