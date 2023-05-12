@@ -182,7 +182,7 @@ if (isset($_GET['p_id'])) {
           </div>
           <form method="POST" role="form" class="form">
             <div class="form-group">
-              <label for="Author">Je naamr</label>
+              <label for="Author">Je naam</label>
               <input type="text" name="comment_author" class="form-control" name="comment_author">
             </div>
             <div class="form-group">

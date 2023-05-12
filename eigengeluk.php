@@ -39,9 +39,10 @@ include 'functions.php';
         <div class="coach-content auto-grid">
 
           <div class="auto-grid-item">
-            <p class="first-line">
-              Meer geluk! Dat wil je!
-              <br> Maar het leven loopt niet lekker of lijkt tegen te zitten.
+            
+              <p class="c-larger-p">Meer geluk! Dat wil je!</p>
+              <p>
+               Maar het leven loopt niet lekker of lijkt tegen te zitten.
               <br>
               Je kan zelfs last hebben van stress, burn-out, depressiviteit, trauma's, PTSS, rouw, verslaving of andere obstakels die je
               tegenhouden van een gelukkig leven.

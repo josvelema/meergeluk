@@ -224,35 +224,6 @@ if (isset($_POST['create_post'])) {
     images_upload_handler: example_image_upload_handler
 
 
-    // images_upload_handler: function (blobInfo, success, failure) {
-    //             let xhr, formData;
-    //             xhr = new XMLHttpRequest();
-    //             xhr.withCredentials = false;
-    //             xhr.open('POST', 'postMediaUpload.php'); 
-    //             xhr.onload = function() {
-    //               console.log("xhr onload");
-    //                 var json;
-
-    //                 if (xhr.status !== 200) {
-    //                     failure('HTTP Error: ' + xhr.status);
-    //                     return;
-    //                 }
-    //                 console.log("kjjs" , xhr.responseText);
-    //                 json = JSON.parse(xhr.responseText);
-
-    //                 if (!json || typeof json.location !== 'string') {
-    //                     failure('Invalid JSON: ' + xhr.responseText);
-    //                     return;
-    //                 }
-    //                 console.log("successsss")
-
-    //                 success(json.location);
-    //             };
-    //             formData = new FormData();
-    //             formData.append('post_images[]', blobInfo.blob(), blobInfo.filename());
-    //             console.log("formdata", formData);
-    //             xhr.send(formData);
-    //         }
         });
 
 

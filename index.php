@@ -124,7 +124,7 @@ include 'functions.php';
                   Is gelukkig zijn nog niet gelukt? Door allerlei klachten of gebeurtenissen kun je wel wat hulp
                   gebruiken.
 
-                  Ervaar hoe je snel meer geluk kunt ervaren in 8 stappen
+                  Ervaar hoe je snel meer geluk kunt ervaren in 8 stappen.
                 </p>
               </div>
               <a class="btn btn--accent" href="eigengeluk">Lees meer</a>

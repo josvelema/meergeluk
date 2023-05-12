@@ -37,15 +37,24 @@ include 'functions.php';
 
         <div class="coach-content auto-grid">
           <div class="auto-grid-item">
-            <p class="c-larger-p"><strong>Ervaar het effect van creativiteit</strong></p>
-            <p>
+            <p class="c-larger-p">Ervaar het effect van creativiteit</p>
+            
               Door creatief bezig te zijn ontdek je heel snel wat er onbewust bij jou speelt.
-              <br>
+            <p>
               Je zult verbaasd zijn wat er allemaal boven komt vanuit je onbewuste en zodra je hier kennis van hebt kun je hier sturing aan geven.
-              <br>
-              
-              Het geeft je inzicht, verwerking en heling en verminderd stress, angst en depressiviteit.
+
             </p>
+              
+              <p>
+
+                Het geeft je inzicht, verwerking en heling en verminderd stress, angst en depressiviteit.
+
+              </p>
+            
+              <p>
+              Samen gaan we aan de slag met een intuïtief kunstwerk en zul je tegelijkertijd ervaren hoe jouw creativiteit je helpt in jouw proces.
+              </p>
+
           </div>
 
           <div class="auto-grid-item">
@@ -94,7 +103,9 @@ include 'functions.php';
             </p>
             <p>
             Je kunt deze creatieve en leerzame sessie ook samen met iemand doen. Nodig een vriend of vriendin uit en beleef samen dit creatief helende proces.
-              Wil je meer weten over deze Creatieve Geluks Sessie? Neem gerust vrijblijvend contact met me op.
+              Wil je meer weten over deze Creatieve Geluks Sessie?
+              <br>
+               Neem gerust vrijblijvend <a href="contact">contact</a> met me op.
             </p>
           </div>
           <div class="auto-grid-item-span">

@@ -44,7 +44,10 @@ include 'functions.php';
             </p>
             <p>
             Samen gaan maken we jouw blauwdruk duidelijk en hieruit volgt een uniek en persoonlijk plan voor jouw loopbaan. 
-            Je krijgt duidelijke antwoorden, waarmee je praktische vervolgstappen kunt zetten, zodat je vervolgens heel gericht aan de slag kunt met jouw toekomstplannen! In 5 tot 8 afspraken heb je al resultaat!
+
+            Je krijgt duidelijke antwoorden, waarmee je praktische vervolgstappen kunt zetten, zodat je vervolgens heel gericht aan de slag kunt met jouw toekomstplannen!
+            <br>
+             In 5 tot 8 afspraken heb je al resultaat!
             </p>
           </div>
               <div class=" auto-grid-item">

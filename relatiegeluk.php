@@ -45,10 +45,13 @@ include 'functions.php';
             <div class="coach-content auto-grid">
               <div class="auto-grid-item">
                 <p class="c-larger-p">
-                <strong>Een bruisende relatie vol passie!</strong>
+                Een bruisende relatie vol passie!
                 </p>
                   
-                <p>Wil je het vuur voor je geliefde weer voelen zoals in het begin? Met mijn 8 stappen-relatie-plan creëer je een diepe en unieke verbinding die voor een intens samenzijn zal zorgen. Uniek aan dit traject is dat jullie eerst individuele coaching en vervolgens gezamenlijke op-maat-coaching ontvangen. En dat allemaal in 8 afspraken. Beleef echte eye-openers, leer jezelf én elkaar kennen op een ander niveau en voel de vlinders weer!</p>
+                <p>Wil je het vuur voor je geliefde weer voelen zoals in het begin? Met mijn 8 stappen-relatie-plan creëer je een diepe en unieke verbinding die voor een intens samenzijn zal zorgen.
+</p>
+                   <p>Uniek aan dit traject is dat jullie eerst individuele coaching en vervolgens gezamenlijke op-maat-coaching ontvangen. En dat allemaal in 8 afspraken.</p>
+                   <p> Beleef echte eye-openers, leer jezelf én elkaar kennen op een ander niveau en voel de vlinders weer!</p>
                 </p>
               </div>
               <div class="auto-grid-item">
