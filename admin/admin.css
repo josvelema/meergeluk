@@ -264,7 +264,7 @@ main .form {
     -webkit-box-direction: normal;
     -ms-flex-flow: column;
     flex-flow: column;
-    width: 500px;
+    width: min(100% , 900px);
     padding: 20px;
 }
 

@@ -878,6 +878,10 @@ filter:drop-shadow(0 0 1px var(--gray-400));
   
 }
 
+.contact .home-cta {
+  margin-inline: auto 0;
+}
+
 section[aria-labelledby='Over Mij'] blockquote
  {
   font-size: 1.5rem;
@@ -1042,7 +1046,7 @@ place-items: center;
  flex-wrap: wrap;
 }
 .footer-column {
- padding: var(--space-m);
+ padding: var(--space-xs);
  /* margin: var(--space-2xs); */
  flex: 33%;
  /* border-radius: 6px; */
@@ -1076,12 +1080,12 @@ place-items: center;
 .social-icons {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: start;
   gap: var(--space-s);
 }
 
 .codette {
- padding-block: var(--space-s);
+ padding-block: var(--space-xs);
  text-align: center;
  border-top: 1px solid #2226;
  font-size: var(--step--3);
@@ -1988,7 +1992,8 @@ transparent 80%);
 }
 
 .hero-title h1,
-.logo-h1 {
+.logo-h1,
+.sub-title {
  color: var(--green-200);
  text-shadow: 1px 1px 0 var(--green-400),
  1px -1px 0 var(--green-400),
@@ -2541,10 +2546,14 @@ section.contact {
  padding: var(--space-s)
 }
 
-section.contact header,
-.calendly-inline-widget {
+section.contact header
+ {
  margin: 4em auto 0.5em auto;
 
+}
+
+.calendly-inline-widget {
+  margin: 0 var(--space-m);
 }
 
 .calendly-inline-widget {
@@ -2634,10 +2643,27 @@ label {
 
 
 .blog-pager {
-  max-width: 60ch;
-  margin-inline: auto;
+  max-width: 33ch;
+  margin-inline: auto 2em;
   padding: var(--space-s);
 }
+
+.blog-pager ul {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  padding: 0;
+}
+
+.blog-pager small {
+  display: block;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-bottom: var(--space-xs);
+  text-align: center;
+}
+
+
 .blog-grid {
  display: grid;
  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

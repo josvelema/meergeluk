@@ -30,9 +30,23 @@ function template_header($title)
     <head>
       <meta charset="UTF-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="theme-color" content="#050307" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Meer geluk</title>
+      <meta name="description" content="Meer Geluk biedt professionele coaching voor je leven, relatie en werk. Ontdek hoe je meer geluk kunt ervaren met de hulp van Sabine Bezemer, een ervaren relatie- en levenscoach en kunstzinnig therapeut."> 
+      <meta name="keywords" content="relatie therapie, trauma therapie, loopbaan begeleiding, werk coach, relatiecoach, relatietherapeut, levenscoach, gelukscoach, therapeut, coaching, begeleiding, relatieproblemen, burn-out, stress, depressief, ongelukkig, gratis intake gesprek, Papendrecht, Dordrecht, Zuid Holland">
+      <meta name="author" content="Sabine Bezemer">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="robots" content="index, follow">
+      <meta property="og:title" content="Meer Geluk - Levens- en relatiecoaching in Zuid-Holland">
+      <meta property="og:description" content="Meer Geluk biedt professionele coaching voor je leven, relatie en werk. Ontdek hoe je meer geluk kunt ervaren met de hulp van Sabine Bezemer, een ervaren relatie- en levenscoach en kunstzinnig therapeut.">
+      <meta property="og:image" content="https://www.meergeluk.com/assets/img/visitekaartje.png">
+      <meta property="og:url" content="https://www.meergeluk.com">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Meer Geluk">
+      <meta property="og:locale" content="nl_NL">
+      <meta property="og:locale:alternate" content="en_US">
+      <link rel="canonical" href="https://www.meergeluk.com">
+      <link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg">
+      <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+      <title>Meer Geluk - Levens- en relatiecoaching</title>
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
       <link
@@ -168,17 +182,101 @@ function template_footer()
             <li><i class="fa-regular fa-file-pdf"></i> <a href="assets/pdf/Algmene Voorwaarden Meer Geluk.pdf" target="_blank">Algemene Voorwaarden Meer Geluk  </a></li>
             <li><i class="fa-regular fa-file-pdf"></i> <a href="assets/pdf/Privacyverklaring Meer Geluk 2023.pdf" target="_blank">Privacyverklaring Meer Geluk  </a></li>
           </ul>
+          <div class="footer-certificat">
+          <img src="assets/img/certificaten2.png" alt="Certificaten">
+        </div>
         </div>
       </div>
     </div>
-    <div class="footer-certificat">
-      <img src="assets/img/certificaten2.png" alt="Certificaten">
-    </div>
+
     <p class="codette">Designed & Developped by Codette web & media - 2023</p>
 
   </footer>
   <script src="assets/js/nav.js" type="module"></script>
   <script src="assets/js/joscript.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Relatie Therapie, Trauma Therapie & Loopbaan Begeleiding in Zuid-Holland",
+    "description": "Wij bieden professionele relatie therapie, trauma therapie en loopbaan begeleiding in Papendrecht, Dordrecht en omliggende gebieden. Ontvang een gratis intake gesprek en praktische, efficiënte sessies voor een gelukkiger en energieker leven.",
+    "areaServed": {
+      "@type": "AdministrativeArea",
+      "name": "Zuid-Holland"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Papendrecht",
+      "addressRegion": "Zuid-Holland",
+      "addressCountry": "NL"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Diensten",
+      "itemListElement": [
+        {
+        "@type": "OfferCatalog",
+        "name": "Relatie Therapie",
+        "itemListElement": [
+        {
+        "@type": "Offer",
+        "itemOffered": {
+        "@type": "Service",
+        "name": "Relatie Therapie"
+        },
+        "description": "Professionele begeleiding voor koppels met relatieproblemen, sleur, passie, intimiteit en communicatie-uitdagingen. Versterk vertrouwen en verbeter de kwaliteit van uw liefdesleven."
+        }
+        ]
+        },
+        {
+        "@type": "OfferCatalog",
+        "name": "Trauma Therapie",
+        "itemListElement": [
+        {
+        "@type": "Offer",
+        "itemOffered": {
+        "@type": "Service",
+        "name": "Trauma Therapie"
+        },
+        "description": "Begeleiding bij het verwerken en herstellen van traumatische ervaringen, met ondersteuning voor het opbouwen van zelfvertrouwen en het vinden van balans."
+        }
+        ]
+        },
+        {
+        "@type": "OfferCatalog",
+        "name": "Loopbaan Begeleiding",
+        "itemListElement": [
+        {
+        "@type": "Offer",
+        "itemOffered": {
+        "@type": "Service",
+        "name": "Loopbaan Begeleiding"
+        },
+        "description": "Werk coaching en loopbaan therapie voor het navigeren van professionele uitdagingen, stress, burn-out en het ontdekken van een bevredigend en gelukkig carrièrepad."
+        }
+        ]
+        }
+      ]
+    },
+    "telephone": "+31 6 1220 4799",
+    "email": "info@meergeluk.com",
+    "url": "https://www.meergeluk.com",
+    "image": "https://www.meergeluk.com/assets/img/visitekaartje.png",
+    "priceRange": "$$",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "17:00"
+    }
+  }
+      </script>
 
 EOT;
 }

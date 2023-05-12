@@ -56,7 +56,7 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
                 <div class="header-content">
                   <img src="assets/img/meerGelukLogoFull3.png" alt="Meer Geluk in je leven, relatie & werk">
 
-                  <h1 class="hero-h1">Blog</h1>
+                  <h1 class="sub-title">Blog</h1>
                 </div>
               </div>
 
@@ -77,11 +77,11 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
           </header>
         </section>
         <aside class="blog-pager">
-          <small>Blog posts:
-            <?php echo $total_posts . ' | Pagina ' . $current_page . ' van ' . $count; ?>
+          <small>
+            <?php echo $total_posts . ' artikelen <br> Pagina ' . $current_page . ' van ' . $count; ?>
           </small>
           <ul>
-            <span>page </span>
+            <span>Pagina </span>
             <?php
             $number_list = array();
             for ($i = 1; $i <= $count; $i++) {

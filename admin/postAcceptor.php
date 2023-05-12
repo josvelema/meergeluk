@@ -2,7 +2,7 @@
   /***************************************************
    * Only these origins are allowed to upload images *
    ***************************************************/
-  $accepted_origins = array("http://localhost", "http://192.168.1.1", "http://meergeluk.codette.net");
+  $accepted_origins = array("http://localhost", "https://www.meergeluk.com/admin/", "https://www.meergeluk.com","https://meergeluk.com");
 
   /*********************************************
    * Change this line to set the upload folder *
