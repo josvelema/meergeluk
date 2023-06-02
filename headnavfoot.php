@@ -178,7 +178,7 @@ function template_footer()
         </address>
       <div class="social-icons">
       <a href="https://www.facebook.com/profile.php?id=100090384705707" target="_blank" class="social-icon"><i class="fa-brands fa-facebook"></i></a>
-      <a href="https://www.instagram.com/meer.geluk/" target="_blank" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://www.instagram.com/meergelukcoaching/" target="_blank" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
       <a href="https://www.linkedin.com/in/meer-geluk-961b98274/" target="_blank" class="social-icon"><i class="fa-brands fa-linkedin"></i></a>
       </div>
       </div>

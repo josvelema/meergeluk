@@ -86,7 +86,7 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
               <div class="cta-buttons">
                 <a href="contact.html" class="btn btn--accent"><i class="fa-brands fa-facebook" target="_blank"></i><span>Facebook</span></a>
                 
-                <a href="https://www.instagram.com/meer.geluk/" class="btn btn--accent" target="_blank"><i class="fa-brands fa-instagram"></i><span>Instagram</span></a>
+                <a href="https://www.instagram.com/meergelukcoaching/" class="btn btn--accent" target="_blank"><i class="fa-brands fa-instagram"></i><span>Instagram</span></a>
                 
                 <a href="https://www.linkedin.com/in/meer-geluk-961b98274/" class="btn btn--accent" target="_blank"><i class="fa-brands fa-linkedin"></i><span>LinkedIn</span></a>
                 
@@ -196,7 +196,7 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
                     <?php } ?>
                     
                     <?php if (isset($post_url) && !empty($post_url)) { ?>
-                      <a href=<?= $post_url ?> class="blog-item-link" target="_blank">Meer informatie</a>
+                      <a href="<?= $post_url ?>" class="blog-item-link" target="_blank">Meer informatie</a>
                     <?php } else { ?>
                       <br>
 

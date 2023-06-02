@@ -43,7 +43,7 @@ include 'functions.php';
 
             </p>
             <p>
-            Samen gaan maken we jouw blauwdruk duidelijk en hieruit volgt een uniek en persoonlijk plan voor jouw loopbaan. 
+            Samen maken we jouw blauwdruk duidelijk en hieruit volgt een uniek en persoonlijk plan voor jouw loopbaan. 
 
             Je krijgt duidelijke antwoorden, waarmee je praktische vervolgstappen kunt zetten, zodat je vervolgens heel gericht aan de slag kunt met jouw toekomstplannen!
             <br>
@@ -64,7 +64,7 @@ include 'functions.php';
               <li>Geeft je praktische tips en tools</li>
               <li>Bied je persoonlijke ondersteuning en begeleiding</li>
               <li>Verzekerd je van een coach die jou ten diepste ziet</li>
-              <li>Zal je brengen naar loopbaan met geluk en voldoening</li>
+              <li>Zal je brengen naar een loopbaan met geluk en voldoening</li>
             </ul>
           </div>
 

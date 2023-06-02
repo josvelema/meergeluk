@@ -270,8 +270,8 @@ nav .logo-link,
 nav .btn--menu,
 nav .dropdown-toggle {
 
- color: var(--black-200);
- text-shadow: 1px 1px 0 var(--green-100);
+ color: var(--black-100);
+ /* text-shadow: 1px 1px 0 var(--green-100); */
 
 
 }
@@ -282,8 +282,8 @@ nav.active .logo-link,
 nav.active .btn--menu,
 nav.active .dropdown-toggle {
 
- color: var(--black-200);
- text-shadow: 1px 1px 0 var(--white-t);
+ color: var(--black-100);
+ /* text-shadow: 1px 1px 0 var(--white-t); */
 
 
 }
@@ -2780,12 +2780,12 @@ label {
 
 .blog-item-content {
  margin-top: var(--space-m);
- text-align: justify;
- hyphens: auto;
+ /* text-align: justify; */
+ /* hyphens: auto; */
  /* For browser compatibility, you can add the following vendor prefixes */
- -webkit-hyphens: auto;
- -moz-hyphens: auto;
- -ms-hyphens: auto;
+ /* -webkit-hyphens: auto; */
+ /* -moz-hyphens: auto; */
+ /* -ms-hyphens: auto; */
 }
 
 .blog-item-text {

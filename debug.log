@@ -102,3 +102,16 @@ $_POST contents: Array
 )
 
 Inside if statement
+Script started
+$_POST contents: Array
+(
+    [naam] => joa
+    [achternaam] => 
+    [email] => rjvelemail@gmail.com
+    [telefoonnummer] => 
+    [subject] => meergeluk.com mail van 
+    [bericht] => Ik wil graag meer informatie over ..
+    [g-recaptcha-response] => 
+)
+
+Inside if statement
