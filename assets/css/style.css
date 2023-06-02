@@ -2780,12 +2780,7 @@ label {
 
 .blog-item-content {
  margin-top: var(--space-m);
- /* text-align: justify; */
- /* hyphens: auto; */
- /* For browser compatibility, you can add the following vendor prefixes */
- /* -webkit-hyphens: auto; */
- /* -moz-hyphens: auto; */
- /* -ms-hyphens: auto; */
+
 }
 
 .blog-item-text {
