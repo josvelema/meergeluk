@@ -69,43 +69,43 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
 
             <div class="auto-grid">
 
-            <div class="auto-grid-item auto-grid-item-span">
-              <p class="c-larger-p ">Omdat ik iedereen zoveel mogelijk <strong>geluk gun</strong> zal ik hier regelmatig
-                <strong>gratis geluksbrengers</strong> plaatsen.
-              </p>
-              <p>Deze mag je printen, gebruiken, delen en aanraden. Zolang het jouw maar <strong>meer geluk </strong>
-                brengt.
-              </p>
-            </div>
-            <div class="auto-grid-item">
-              <p><strong>TIP!</strong> Kijk ook eens in mijn <a href="blog">blog </a>voor interessante artikelen,
-                tips en weetjes over geluk, relatie en werk.
-                <br>
-                Of volg me via Facebook en Instagram voor wekelijkse inspirerende posts.
-              </p>
-              <div class="cta-buttons">
-                <a href="contact.html" class="btn btn--accent"><i class="fa-brands fa-facebook" target="_blank"></i><span>Facebook</span></a>
-                
-                <a href="https://www.instagram.com/meergelukcoaching/" class="btn btn--accent" target="_blank"><i class="fa-brands fa-instagram"></i><span>Instagram</span></a>
-                
-                <a href="https://www.linkedin.com/in/meer-geluk-961b98274/" class="btn btn--accent" target="_blank"><i class="fa-brands fa-linkedin"></i><span>LinkedIn</span></a>
-                
+              <div class="auto-grid-item auto-grid-item-span">
+                <p class="c-larger-p ">Omdat ik iedereen zoveel mogelijk <strong>geluk gun</strong> zal ik hier regelmatig
+                  <strong>gratis geluksbrengers</strong> plaatsen.
+                </p>
+                <p>Deze mag je printen, gebruiken, delen en aanraden. Zolang het jouw maar <strong>meer geluk </strong>
+                  brengt.
+                </p>
+              </div>
+              <div class="auto-grid-item">
+                <p><strong>TIP!</strong> Kijk ook eens in mijn <a href="blog">blog </a>voor interessante artikelen,
+                  tips en weetjes over geluk, relatie en werk.
+                  <br>
+                  Of volg me via Facebook en Instagram voor wekelijkse inspirerende posts.
+                </p>
+                <div class="cta-buttons">
+                  <a href="contact.html" class="btn btn--accent"><i class="fa-brands fa-facebook" target="_blank"></i><span>Facebook</span></a>
+
+                  <a href="https://www.instagram.com/meergelukcoaching/" class="btn btn--accent" target="_blank"><i class="fa-brands fa-instagram"></i><span>Instagram</span></a>
+
+                  <a href="https://www.linkedin.com/in/meer-geluk-961b98274/" class="btn btn--accent" target="_blank"><i class="fa-brands fa-linkedin"></i><span>LinkedIn</span></a>
 
 
 
+
+
+                </div>
+              </div>
+              <div class="auto-grid-item">
+                <p>Wil je snel en effectief aan jezelf of aan je relatie werken en ben je benieuwd naar de mogelijkheden,
+                  dan is het eerste kennismakingsgesprek bij mij ook 100% gratis en vrijblijvend.
+                </p>
+                <p>
+                  <a href="contact" class="btn btn--accent cta-button">Gratis intake-gesprek</a>
+
+                </p>
 
               </div>
-            </div>
-            <div class="auto-grid-item">
-              <p>Wil je snel en effectief aan jezelf of aan je relatie werken en ben je benieuwd naar de mogelijkheden,
-                dan is het eerste kennismakingsgesprek bij mij ook 100% gratis en vrijblijvend.
-              </p>
-              <p>
-              <a href="contact" class="btn btn--accent cta-button">Gratis intake-gesprek</a>
-
-            </p>
-            
-            </div>
 
               <?php
               $stmt = $pdo->prepare('SELECT * FROM posts WHERE post_status = ?  AND post_cat_id = 2 ORDER BY post_id DESC LIMIT ? , ?');
@@ -194,8 +194,14 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
                       <br>
 
                     <?php } ?>
-                    
-                    <?php if (isset($post_url) && !empty($post_url)) { ?>
+
+                    <?php
+                    if (isset($post_url) && !empty($post_url)) {
+                      // Check if $post_url is an absolute URL
+                      if (!preg_match('/^https?:\/\//', $post_url)) {
+                        $post_url = 'https://' . $post_url; // Assuming HTTP protocol, you can change it to 'https://' if needed
+                      }
+                    ?>
                       <a href="<?= $post_url ?>" class="blog-item-link" target="_blank">Meer informatie</a>
                     <?php } else { ?>
                       <br>
@@ -212,7 +218,7 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
             } ?>
 
             <div class="auto-grid-item-span">
-            <div class="cta-buttons">
+              <div class="cta-buttons">
                 <a href="contact" class="btn btn--accent"><i class="fa-regular fa-comment-dots"></i><span>Contact</span></a>
                 <a href="whatsapp" " class=" btn btn--accent" data-social="whatsapp">
                   <i class="fa-brands fa-whatsapp"></i>
