@@ -2784,8 +2784,8 @@ label {
 }
 
 .blog-item-text {
-  text-align: justify;
-  word-break: break-all;
+  /* text-align: justify;
+  word-break: break-all; */
 }
 
 .blog-item-link {
