@@ -2995,3 +2995,109 @@ border-radius: 6px;
 
   }
 }
+
+/* kerntest  */
+
+.progress-bar {
+  height: 5px;
+  background-color: var(--gray-300);
+  margin-bottom: var(--space-m);
+}
+
+.progress {
+  height: 100%;
+  width: 0;
+  background-color: var(--pink-300);
+  transition: width 0.3s;
+}
+
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.radio-group input[type="radio"] {
+  display: none;
+}
+
+.radio-group label {
+  display: block;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.radio-group label::before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 5px;
+  border: 2px solid var(--gray-300);
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.radio-group input[type="radio"]:checked + label::before {
+  background-color: var(--pink-300);
+}
+
+.explanation-popup {
+  position: fixed;
+  display: none;
+
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: var(--white);
+  
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+.explanation-popup-content {
+  position: relative;
+  background-color: var(--white);
+  padding: var(--space-s);
+  box-shadow: var(--box-shadow);
+  border-radius: 5px;
+  font-size: var(--step--1);
+  width: min(100% - 2em, 50ch);
+  height: min(100% - 2em, 50ch);
+  overflow-y: auto;
+}
+
+.explanation-popup[aria-hidden="false"] {
+  display: flex;
+}
+
+.explanation-popup p {
+  margin-bottom: var(--space-xs);
+  color: var(--black);
+  font-size: var(--step-1);
+  padding-top: 2.5em
+}
+
+.explanation-popup-close {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 24px;
+ 
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.explanation-popup-close:focus,
+.explanation-popup-close:hover {
+  outline: none;
+}
+
+
+
+
+/* ... Existing CSS styles ... */
