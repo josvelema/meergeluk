@@ -1,0 +1,240 @@
+[
+  "questions",
+  [
+    {
+      "questionId": 1,
+      "content": "vraag over betekenis",
+      "score": 0,
+      "categoryId": 1
+    },
+    {
+      "questionId": 2,
+      "content": "vraag over betekenis",
+      "score": 0,
+      "categoryId": 1
+    },
+    {
+      "questionId": 3,
+      "content": "vraag over betekenis",
+      "score": 0,
+      "categoryId": 1
+    },
+    {
+      "questionId": 4,
+      "content": "vraag over betekenis",
+      "score": 0,
+      "categoryId": 1
+    },
+    {
+      "questionId": 5,
+      "content": "vraag over betekenis",
+      "score": 0,
+      "categoryId": 1
+    },
+    {
+      "questionId": 6,
+      "content": "vraag over betekenis",
+      "score": 0,
+      "categoryId": 1
+    },
+    {
+      "questionId": 7,
+      "content": "vraag over betekenis",
+      "score": 0,
+      "categoryId": 1
+    },
+    {
+      "questionId": 8,
+      "content": "vraag over betekenis",
+      "score": 0,
+      "categoryId": 1
+    },
+    {
+      "questionId": 9,
+      "content": "vraag over betekenis",
+      "score": 0,
+      "categoryId": 1
+    },
+    {
+      "questionId": 10,
+      "content": "vraag over betekenis",
+      "score": 0,
+      "categoryId": 1
+    },
+    {
+      "questionId": 11,
+      "content": "vraag over betekenis",
+      "score": 0,
+      "categoryId": 1
+    },
+    {
+      "questionId": 12,
+      "content": "vraag over betekenis",
+      "score": 0,
+      "categoryId": 1
+    },
+    {
+      "questionId": 13,
+      "content": "vraag over betekenis",
+      "score": 0,
+      "categoryId": 1
+    },
+    {
+    "questionId": 14,
+      "content": "vraag over betekenis",
+      "score": 0,
+      "categoryId": 1
+    },
+    {
+    "questionId": 15,
+      "content": "vraag over bijdrage",
+      "score": 0,
+      "categoryId": 2
+    },
+    {
+    "questionId": 16,
+      "content": "vraag over bijdrage",
+      "score": 0,
+      "categoryId": 2
+    },
+    { 
+    "questionId": 17,
+      "content": "vraag over bijdrage",
+      "score": 0,
+      "categoryId": 2
+    },
+    {
+    "questionId": 18,
+      "content": "vraag over bijdrage",
+      "score": 0,
+      "categoryId": 2
+    },
+    {
+    "questionId": 19,
+      "content": "vraag over bijdrage",
+      "score": 0,
+      "categoryId": 2
+    },
+    {
+    "questionId": 20,
+      "content": "vraag over bijdrage",
+      "score": 0,
+      "categoryId": 2
+    },
+    {
+    "questionId": 21,
+      "content": "vraag over bijdrage",
+      "score": 0,
+      "categoryId": 2
+    },
+    {
+    "questionId": 22,
+      "content": "vraag over bijdrage",
+      "score": 0,
+      "categoryId": 2
+    },
+    {
+    "questionId": 23,
+      "content": "vraag over bijdrage",
+      "score": 0,
+      "categoryId": 2
+    },
+    {
+    "questionId": 24,
+      "content": "vraag over bijdrage",
+      "score": 0,
+      "categoryId": 2
+    },
+    {
+    "questionId": 25,
+      "content": "vraag over bijdrage",
+      "score": 0,
+      "categoryId": 2
+    },
+    {
+    "questionId": 26,
+      "content": "vraag over bijdrage",
+      "score": 0,
+      "categoryId": 2
+    },
+    {
+    "questionId": 27,
+      "content": "vraag over bijdrage",
+      "score": 0,
+      "categoryId": 2
+    },
+    {
+    "questionId": 28,
+      "content": "vraag over bijdrage",
+      "score": 0,
+      "categoryId": 2
+    },
+    {
+    "questionId": 29,
+      "content": "vraag over groei",
+      "score": 0,
+      "categoryId": 3
+    },
+    {
+    "questionId": 30,
+      "content": "vraag over groei",
+      "score": 0,
+      "categoryId": 3
+    }
+  ],
+  "categories",
+  [
+    {
+      "categoryId": 1,
+      "content": "Betekenis",
+      "categoryScore": 0,
+      "top3questionScores": [0, 0 ,0]
+    },
+    {
+      "categoryId": 2,
+      "content": "Bijdrage",
+      "categoryScore": 0,
+      "top3questionScores": [0, 0 ,0]
+    },
+    {
+      "categoryId": 3,
+      "content": "Groei",
+      "categoryScore": 0,
+      "top3questionScores": [0, 0 ,0]
+    },
+    {
+      "categoryId": 4,
+      "content": "Liefde",
+      "categoryScore": 0,
+      "top3questionScores": [0, 0 ,0]
+    },
+    {
+      "categoryId": 5,
+      "content": "Variatie",
+      "categoryScore": 0,
+      "top3questionScores": [0, 0 ,0]
+    },
+    {
+      "categoryId": 6,
+      "content": "Zekerheid",
+      "categoryScore": 0,
+      "top3questionScores": [0, 0 ,0]
+    }
+  ],
+  "userinfo",
+  [
+    {
+      "userId": null,
+      "name": "",
+      "email": "",
+      "telephone": "",
+      "prefersEmail": true, 
+      "vervolggesprek": true,
+      "newsletter": false,
+      "CreatedAt": "",
+      "UpdatedAt": ""
+    }
+
+  ]
+  
+]
