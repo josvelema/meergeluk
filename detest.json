@@ -3,25 +3,25 @@
   [
     {
       "questionId": 1,
-      "content": "vraag over betekenis",
+      "content": "Erkenning is belangrijk voor mij. ",
       "score": 0,
       "categoryId": 1
     },
     {
       "questionId": 2,
-      "content": "vraag over betekenis",
+      "content": "Ik ben competitief/strijdlustig. ",
       "score": 0,
       "categoryId": 1
     },
     {
       "questionId": 3,
-      "content": "vraag over betekenis",
+      "content": "Ik ben trots op wie ik ben. ",
       "score": 0,
       "categoryId": 1
     },
     {
       "questionId": 4,
-      "content": "vraag over betekenis",
+      "content": "Ik vergelijk mijn eigen succes altijd met dat van anderen.",
       "score": 0,
       "categoryId": 1
     },
@@ -87,28 +87,35 @@
       "content": "Betekenis",
       "categoryScore": 0,
       "top3questionIds": [0,0,0],
-      "top3questionScores": [0, 0 ,0]
+      "top3questionScores": [0, 0 ,0],
+      "maxScore": 0
     },
     {
       "categoryId": 2,
       "content": "Bijdrage",
       "categoryScore": 0,
       "top3questionIds": [0,0,0],
-      "top3questionScores": [0, 0 ,0]
+      "top3questionScores": [0, 0 ,0],
+      "maxScore": 0
+
     },
     {
       "categoryId": 3,
       "content": "Groei",
       "categoryScore": 0,
       "top3questionIds": [0,0,0],
-      "top3questionScores": [0, 0 ,0]
+      "top3questionScores": [0, 0 ,0],
+      "maxScore": 0
+
     },
     {
       "categoryId": 4,
       "content": "Liefde",
       "categoryScore": 0,
       "top3questionIds": [0,0,0],
-      "top3questionScores": [0, 0 ,0]
+      "top3questionScores": [0, 0 ,0],
+      "maxScore": 0
+
     },
     {
       "categoryId": 5,
@@ -122,7 +129,9 @@
       "content": "Zekerheid",
       "categoryScore": 0,
       "top3questionIds": [0,0,0],
-      "top3questionScores": [0, 0 ,0]
+      "top3questionScores": [0, 0 ,0],
+      "maxScore": 0
+
     }
   ],
   "userinfo",
@@ -132,8 +141,8 @@
       "name": "",
       "email": "",
       "telephone": "",
-      "prefersEmail": true,
-      "followUpConversation": true,
+      "wantsPDF": false,
+      "wantsIntake": false,
       "newsletter": false,
       "CreatedAt": "",
       "UpdatedAt": ""
