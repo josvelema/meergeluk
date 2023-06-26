@@ -1,6 +1,7 @@
 {
     "require": {
         "google/recaptcha": "^1.3",
-        "tinymce/tinymce": "^6.4"
+        "tinymce/tinymce": "^6.4",
+        "mpdf/mpdf": "^8.1"
     }
 }

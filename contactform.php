@@ -4,7 +4,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 session_start();
-file_put_contents('debug.log', 'Script started' . PHP_EOL, FILE_APPEND);
+file_put_contents('debug.log', 'kerntest Script started' . PHP_EOL, FILE_APPEND);
 
 
 use PHPMailer\PHPMailer\PHPMailer;

@@ -42,11 +42,6 @@
 
           </div>
 
-
-
-
-          <input type="hidden" id="score" name="score">
-
           <div id="question-steps">
             <!-- Questions steps will be dynamically generated -->
           </div>
@@ -514,18 +509,16 @@
     if (userInfo.wantsPDF) {
 
       document.getElementById('result-screen').insertAdjacentHTML('beforeend', submitHTML);
-      document.getElementById('submit-btn').addEventListener('click', () => {
-        submitResults();
-      });
+      document.getElementById('submit-btn').addEventListener('click', submitResults);
 
     } else {
       document.getElementById('result-screen').insertAdjacentHTML('beforeend', exitHTML);
+      // add event listener to exit button
+      document.getElementById('exit-btn').addEventListener('click', () => {
+        window.location.href = '/';
+      });
     }
 
-    // add event listener to exit button
-    document.getElementById('exit-btn').addEventListener('click', () => {
-      window.location.href = '/';
-    });
 
 
   }
@@ -535,33 +528,58 @@
   // Show the initial step
   showStep(currentStep);
 
-  const submitResults = () => {
-    // create a new FormData object
-    const formData = new FormData();
-    // add the user information to the form data
-    formData.append(userInfoKey, JSON.stringify(userInfo));
-    // add the questions to the form data
-    formData.append(questionsKey, JSON.stringify(questions));
-    // add the categories to the form data
-    formData.append(categoriesKey, JSON.stringify(categories));
+  const submitResults = (event) => {
+  // Prevent the form from submitting
+  event.preventDefault();
 
-    console.log('Form Data:', formData);
-    // send the form data to the server
-    // fetch('submit.php', {
-    //     method: 'POST',
-    //     body: formData,
-    //   })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //     // redirect the user to the home page
-    //     window.location.href = '/';
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //   });
+  console.log('Submitting results...');
 
-  }
+  // Create the data object to be submitted
+  const data = {
+    [userInfoKey]: userInfo,
+    [questionsKey]: questions,
+    [categoriesKey]: categories,
+  };
+
+  // Generate the HTML snippet with the score results per category
+  const categoryResultsHTML = Object.values(categories).map((category) => {
+    return `
+      <div class="category-result">
+        <h4>${category.content}</h4>
+        <div>
+          <p>Score:</p>
+          <p><strong>${category.categoryScore}</strong> punten</p>
+          <p>van ${category.maxScore}</p>
+        </div>
+      </div>
+    `;
+  });
+
+  // Convert the category results HTML to a string
+  const categoryResultsString = categoryResultsHTML.join('');
+
+  // Include the HTML snippet in the data object
+  data.categoryResultsHTML = categoryResultsString;
+
+  // Use the Fetch API to send a POST request to the server
+  fetch('submitTestResults.php', {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((response) => {
+      console.log(response);
+      console.log('Results submitted successfully!');
+      // Redirect the user to the home page
+      // window.location.href = '/';
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
 
   // function to show validation error messages in the form
   const showErrorMessage = (input, message) => {
