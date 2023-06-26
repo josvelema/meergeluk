@@ -1,5 +1,6 @@
 <?php
 include 'functions.php';
+$base_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
 
 $currentPage = "blog";
 // Connect to MySQL
@@ -107,6 +108,7 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
               while ($row = $stmt->fetch()) {
                 $post_id = $row['post_id'];
                 $post_title = $row['post_title'];
+                $slug = $row['post_slug'];
                 $post_author = $row['post_author'];
                 $date = new DateTime($row['post_date']);
                 $post_tags = $row['post_tags'];
@@ -168,12 +170,12 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
                   </div>
 
                   <div class="blog-item-img">
-                    <img src="assets/blogMedia/<?= $post_image; ?>" alt="<?= $post_title; ?>">
+                    <img src="<?= $base_url ?>/assets/blogMedia/<?= $post_image; ?>" alt="<?= $post_title; ?>">
                   </div>
 
                   <div class="blog-item-content">
                     <p class="blog-item-text"><?= $post_intro ?></p>
-                    <a href="post.php?p_id=<?= $post_id ?>" class="blog-item-link">Lees meer</a>
+                    <a href="<?= $base_url ?>/blogpost/<?= $slug?>" class="blog-item-link">Lees meer</a>
 
                   </div>
 

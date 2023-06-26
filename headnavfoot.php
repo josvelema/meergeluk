@@ -2,6 +2,7 @@
 // Set the time period for which the page should be cached (in seconds)
 $cache_time = 60; // 3600 1 hour
 
+
 // Get the last modified time of the page
 $last_modified = filemtime(__FILE__);
 
@@ -21,6 +22,7 @@ if(isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) || isset($_SERVER['HTTP_IF_NONE_MAT
 
 function template_header($title)
 {
+    $base_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
     $unique_id = date('dHis');
 
     echo <<<EOT
@@ -53,8 +55,8 @@ function template_header($title)
       <meta property="og:locale" content="nl_NL">
       <meta property="og:locale:alternate" content="en_US">
       <link rel="canonical" href="https://www.meergeluk.com">
-      <link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg">
-      <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+      <link rel="icon" type="image/svg+xml" href="{$base_url}/assets/img/favicon.svg">
+      <link rel="icon" type="image/png" href="{$base_url}/assets/img/favicon.png">
       <title>Meer Geluk - Levens- en relatiecoaching</title>
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -65,11 +67,12 @@ function template_header($title)
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     
-      <link rel="stylesheet" href="./assets/css/style.css?v=$unique_id" />
+      <link rel="stylesheet" href="{$base_url}/assets/css/style.css?v=$unique_id" />
     </head>
     
     EOT;
 }
+
 function template_header_other()
 {
     echo <<<EOT
@@ -81,6 +84,7 @@ EOT;
 link:
 function template_nav()
 {
+  $base_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
 
 echo <<<EOT
             <nav>
@@ -117,37 +121,37 @@ echo <<<EOT
                     </button>
                     <ul class="dropdown-menu" id="coaching-dropdown-menu" role="menu" aria-labelledby="coaching-dropdown">
                       <li role="none">
-                        <a href="eigengeluk" class="dropdown-item btn" role="menuitem">Eigen Geluk</a>
+                        <a href="{$base_url}/eigengeluk" class="dropdown-item btn" role="menuitem">Eigen Geluk</a>
                       </li>
                       <li role="none">
-                        <a href="relatiegeluk" class="dropdown-item btn" role="menuitem">Relatie Geluk</a>
+                        <a href="{$base_url}/relatiegeluk" class="dropdown-item btn" role="menuitem">Relatie Geluk</a>
                       </li>
                       <li role="none">
-                        <a href="werkgeluk" class="dropdown-item btn" role="menuitem">Werk Geluk</a>
+                        <a href="{$base_url}/werkgeluk" class="dropdown-item btn" role="menuitem">Werk Geluk</a>
                       </li>
                       <li role="none">
-                        <a href="creatiefgeluk" class="dropdown-item btn" role="menuitem">Creatief Geluk</a>
+                        <a href="{$base_url}/creatiefgeluk" class="dropdown-item btn" role="menuitem">Creatief Geluk</a>
                       </li>
                       <hr>
                       <li role="none">
-                        <a href="overmij" class="dropdown-item btn" role="menuitem">Over mij</a>
+                        <a href="{$base_url}/overmij" class="dropdown-item btn" role="menuitem">Over mij</a>
                       </li>
                       <li role="none">
-                        <a href="tarieven" class="dropdown-item btn" role="menuitem">Tarieven</a>
+                        <a href={$base_url}/tarieven" class="dropdown-item btn" role="menuitem">Tarieven</a>
                       </li>
                   
                     </ul>
                   </li>
                   <li role="none">
-                    <a href="blog" class="nav-link btn" role="menuitem">
+                    <a href="{$base_url}/blog" class="nav-link btn" role="menuitem">
                       Blog</a>
                   </li>
                   <li role="none">
-                    <a href="gratisgeluk" class="nav-link btn" role="menuitem">Gratis Geluk</a>
+                    <a href="{$base_url}/gratisgeluk" class="nav-link btn" role="menuitem">Gratis Geluk</a>
                   </li>
 
                   <li role="none">
-                    <a href="contact" class="nav-link btn btn--accent" role="menuitem">
+                    <a href="{$base_url}/contact" class="nav-link btn btn--accent" role="menuitem">
                       Contact</a>
                   </li>
                 </ul>
@@ -163,6 +167,8 @@ echo <<<EOT
 // Template footer
 function template_footer()
 {
+  $base_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
+
     echo <<<EOT
     <footer>
 
@@ -188,11 +194,11 @@ function template_footer()
             <li><a href="/">Home</a></li>
             <li><a href="overmij">Over mij</a></li>
             <li><a href="contact">Contact</a></li>
-            <li><i class="fa-regular fa-file-pdf"></i> <a href="assets/pdf/Algmene Voorwaarden Meer Geluk.pdf" target="_blank">Algemene Voorwaarden Meer Geluk  </a></li>
-            <li><i class="fa-regular fa-file-pdf"></i> <a href="assets/pdf/Gedragscode Meer Geluk 2023.pdf" target="_blank">Privacyverklaring Meer Geluk  </a></li>
+            <li><i class="fa-regular fa-file-pdf"></i> <a href="{$base_url}/assets/pdf/Algmene Voorwaarden Meer Geluk.pdf" target="_blank">Algemene Voorwaarden Meer Geluk  </a></li>
+            <li><i class="fa-regular fa-file-pdf"></i> <a href="{$base_url}/assets/pdf/Gedragscode Meer Geluk 2023.pdf" target="_blank">Privacyverklaring Meer Geluk  </a></li>
           </ul>
           <div class="footer-certificat">
-          <img src="assets/img/certificaten2.png" alt="Certificaten">
+          <img src="{$base_url}/assets/img/certificaten2.png" alt="Certificaten">
         </div>
         </div>
       </div>
@@ -201,8 +207,8 @@ function template_footer()
     <p class="codette">Designed & Developped by Codette web & media - 2023</p>
 
   </footer>
-  <script src="assets/js/nav.js" type="module"></script>
-  <script src="assets/js/joscript.js"></script>
+  <script src="{$base_url}/assets/js/nav.js" type="module"></script>
+  <script src="{$base_url}/assets/js/joscript.js"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",

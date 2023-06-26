@@ -1,4 +1,5 @@
 <?php
+
 include 'main.php';
 
 // SQL query that will retrieve all the posts from the database ordered by the ID column
@@ -14,6 +15,9 @@ include 'main.php';
 <?php
 $post_id = null;
 if (isset($_GET['p_id'])) {
+  $base_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
+  $root_url  = str_replace('/admin', '', $base_url);
+
   $post_id = $_GET['p_id'];
 
   $stmt = $pdo->prepare('SELECT * FROM posts WHERE post_id = ? ');
@@ -24,10 +28,13 @@ if (isset($_GET['p_id'])) {
     $post_id            = $row['post_id'];
     $post_author          = $row['post_author'];
     $post_title         = $row['post_title'];
+    $post_slug         = $row['post_slug'];
     $post_category_id   = $row['post_cat_id'];
     $post_status        = $row['post_status'];
     $post_image         = $row['post_image'];
-    $post_content       = str_replace("assets", "../assets", $row['post_content']) ;
+    // $post_content       = str_replace("assets", "../assets", $row['post_content']) ;
+    $post_content = str_replace($base_url . 'assets', 'assets', $row['post_content']);
+
     $post_intro         = $row['post_intro'];
 
     $post_url           = $row['post_url'];
@@ -39,22 +46,38 @@ if (isset($_GET['p_id'])) {
 }
 
 if (isset($_POST['update_post'])) {
+  $base_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
 
 
-  $post_author         =  $_POST['post_user'];
-  $post_title          =  $_POST['post_title'];
+
+  // $post_author         =  $_POST['post_author'];
+  $post_author       =  'Sabine';  
+
+  $post_title = $_POST['post_title'];
+
+  // Remove special characters except for hyphens and alphanumeric characters
+  // $sanitized_title = preg_replace('/[^a-zA-Z0-9-]/', '', $post_title);
+  $sanitized_title = preg_replace('/[^a-zA-Z0-9-\s]/', '', $post_title);
+
+  
+  // Replace spaces with hyphens
+  $slug = strtolower(str_replace(' ', '-', $sanitized_title));
+
   $post_category_id    =  $_POST['post_category'];
   // $post_status         =  $_POST['post_status'];
   $post_status         =  "published";
 
   $post_image          =  $_FILES['image']['name'];
   $post_image_temp     =  $_FILES['image']['tmp_name'];
-  $post_content = str_replace("../assets", "assets", ($_POST['post_content']));
+  // $post_content = str_replace("../assets", "assets", ($_POST['post_content']));
+  $post_content = str_replace($base_url . 'assets', 'assets', $_POST['post_content']);
+
 
   $post_intro          =  $_POST['post_intro'];
   $post_url            =  $_POST['post_url'];
 
   $post_tags           =  $_POST['post_tags'];
+  $post_author       =  'Sabine';  
 
 
   if (empty($post_image)) {
@@ -67,25 +90,25 @@ if (isset($_POST['update_post'])) {
     while ($row = $stmt->fetch()) {
 
       $post_image = $row['post_image'];
-    } 
+    }
   } else {
-      // Add date time string to the beginning of the file name
+    // Add date time string to the beginning of the file name
 
-  $date_time_string = date("y-m-d-H-i");
-  $new_post_image = $date_time_string . "-" . $post_image;
+    $date_time_string = date("y-m-d-H-i");
+    $new_post_image = $date_time_string . "-" . $post_image;
 
- 
 
-  move_uploaded_file($post_image_temp, "../assets/blogMedia/$new_post_image");
 
-  // Update $post_image variable to store the new file name in the database
-  $post_image = $new_post_image;
+    move_uploaded_file($post_image_temp, "../assets/blogMedia/$new_post_image");
 
+    // Update $post_image variable to store the new file name in the database
+    $post_image = $new_post_image;
   }
 
 
   $query = "UPDATE posts SET ";
   $query .= "post_title  = ? , ";
+  $query .= "post_slug  = ? , ";
   $query .= "post_cat_id = ? , ";
   $query .= "post_date   = now(), ";
   $query .= "post_author = ? , ";
@@ -100,16 +123,17 @@ if (isset($_POST['update_post'])) {
 
   $stmt = $pdo->prepare($query);
   $stmt->bindParam(1, $post_title, PDO::PARAM_STR);
-  $stmt->bindParam(2, $post_category_id, PDO::PARAM_INT);
-  $stmt->bindParam(3, $post_author, PDO::PARAM_STR);
-  $stmt->bindParam(4, $post_status, PDO::PARAM_STR);
-  $stmt->bindParam(5, $post_tags, PDO::PARAM_STR);
-  $stmt->bindParam(6, $post_intro, PDO::PARAM_STR);
-  $stmt->bindParam(7, $post_content, PDO::PARAM_STR);
-  $stmt->bindParam(8, $post_url, PDO::PARAM_STR);
+  $stmt->bindParam(2, $slug, PDO::PARAM_STR);
+  $stmt->bindParam(3, $post_category_id, PDO::PARAM_INT);
+  $stmt->bindParam(4, $post_author, PDO::PARAM_STR);
+  $stmt->bindParam(5, $post_status, PDO::PARAM_STR);
+  $stmt->bindParam(6, $post_tags, PDO::PARAM_STR);
+  $stmt->bindParam(7, $post_intro, PDO::PARAM_STR);
+  $stmt->bindParam(8, $post_content, PDO::PARAM_STR);
+  $stmt->bindParam(9, $post_url, PDO::PARAM_STR);
 
-  $stmt->bindParam(9, $post_image, PDO::PARAM_STR);
-  $stmt->bindParam(10, $post_id, PDO::PARAM_INT);
+  $stmt->bindParam(10, $post_image, PDO::PARAM_STR);
+  $stmt->bindParam(11, $post_id, PDO::PARAM_INT);
   $stmt->execute();
 
 
@@ -124,7 +148,7 @@ if (isset($_POST['update_post'])) {
         </label>
     </div>
     <p>
-    <a href="../post.php?p_id=' . $post_id . '" class="rj-modal-btn">View Post on site</a>
+    <a href="' . $root_url . '/blogpost/' . $slug . '" class="rj-modal-btn">View Post on site</a>
     </p>
     <p>
     <a href="posts.php" class="rj-modal-btn">Go back to all posts table</a>
@@ -186,7 +210,7 @@ if (isset($_POST['update_post'])) {
 
       <?php
       //  echo "<option value=" . $post_author . ">" . $post_author . "</option>";
-        ?>
+      ?>
 
     </select>
 
@@ -260,44 +284,47 @@ if (isset($_POST['update_post'])) {
 
 <script>
   const example_image_upload_handler = (blobInfo, progress) => new Promise((resolve, reject) => {
-  const xhr = new XMLHttpRequest();
-  xhr.withCredentials = false;
-  xhr.open('POST', 'postAcceptor.php');
+    const xhr = new XMLHttpRequest();
+    xhr.withCredentials = false;
+    xhr.open('POST', 'postAcceptor.php');
 
-  xhr.upload.onprogress = (e) => {
-    progress(e.loaded / e.total * 100);
-  };
+    xhr.upload.onprogress = (e) => {
+      progress(e.loaded / e.total * 100);
+    };
 
-  xhr.onload = () => {
-    if (xhr.status === 403) {
-      reject({ message: 'HTTP Error: ' + xhr.status, remove: true });
-      return;
-    }
+    xhr.onload = () => {
+      if (xhr.status === 403) {
+        reject({
+          message: 'HTTP Error: ' + xhr.status,
+          remove: true
+        });
+        return;
+      }
 
-    if (xhr.status < 200 || xhr.status >= 300) {
-      reject('HTTP Error: ' + xhr.status);
-      return;
-    }
+      if (xhr.status < 200 || xhr.status >= 300) {
+        reject('HTTP Error: ' + xhr.status);
+        return;
+      }
 
-    const json = JSON.parse(xhr.responseText);
+      const json = JSON.parse(xhr.responseText);
 
-    if (!json || typeof json.location != 'string') {
-      reject('Invalid JSON: ' + xhr.responseText);
-      return;
-    }
+      if (!json || typeof json.location != 'string') {
+        reject('Invalid JSON: ' + xhr.responseText);
+        return;
+      }
 
-    resolve(json.location);
-  };
+      resolve(json.location);
+    };
 
-  xhr.onerror = () => {
-    reject('Image upload failed due to a XHR Transport error. Code: ' + xhr.status);
-  };
+    xhr.onerror = () => {
+      reject('Image upload failed due to a XHR Transport error. Code: ' + xhr.status);
+    };
 
-  const formData = new FormData();
-  formData.append('file', blobInfo.blob(), blobInfo.filename());
+    const formData = new FormData();
+    formData.append('file', blobInfo.blob(), blobInfo.filename());
 
-  xhr.send(formData);
-});
+    xhr.send(formData);
+  });
   tinymce.init({
     selector: '#post_content', // Replace "#post_content" with the ID or class of the textarea where you want to enable TinyMCE
     height: 600, // Set the height of the editor as needed
@@ -335,11 +362,7 @@ if (isset($_POST['update_post'])) {
     //             console.log("formdata", formData);
     //             xhr.send(formData);
     //         }
-        });
-
-
-
-
+  });
 </script>
 
 

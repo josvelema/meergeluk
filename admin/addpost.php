@@ -1,5 +1,7 @@
 <?php
 include 'main.php';
+// $base_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
+
 
 // SQL query that will retrieve all the posts from the database ordered by the ID column
 $stmt = $pdo->prepare('SELECT * FROM posts ORDER BY post_id DESC');
@@ -12,8 +14,18 @@ $media = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <?php
 if (isset($_POST['create_post'])) {
+    $base_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
 
-  $post_title        = ($_POST['title']);
+
+    $post_title = $_POST['title'];
+
+    // Remove special characters except for hyphens and alphanumeric characters and spaces
+    $sanitized_title = preg_replace('/[^a-zA-Z0-9-\s]/', '', $post_title);
+
+    // Replace spaces with hyphens
+    $slug = strtolower(str_replace(' ', '-', $sanitized_title));
+    
+
   $post_category_id  = ($_POST['post_category']);
   // $post_status       = ($_POST['post_status']);
   $post_status       = "published";
@@ -25,7 +37,9 @@ if (isset($_POST['create_post'])) {
 
   $post_tags         = ($_POST['post_tags']);
 
-  $post_content = str_replace("../assets", "assets", ($_POST['post_content']));
+  // $post_content = str_replace("../assets", "assets", ($_POST['post_content']));
+  $post_content = str_replace($base_url . 'assets', 'assets', $_POST['post_content']);
+
 
   $post_intro      = ($_POST['post_intro']);
   $post_url      = ($_POST['post_url']);
@@ -46,20 +60,21 @@ if (isset($_POST['create_post'])) {
 
   //todo 1 user ???
   $sabine = "Sabine";
-  $query = "INSERT INTO posts(post_cat_id, post_title, post_author, post_date,post_image,post_intro,post_content,post_url,post_tags,post_status) ";
-  $query .= "VALUES(? , ? , ? , now() , ? , ? , ? , ? , ? , ?) ";
+  $query = "INSERT INTO posts(post_cat_id, post_title, post_slug, post_author, post_date,post_image,post_intro,post_content,post_url,post_tags,post_status) ";
+  $query .= "VALUES(? , ? , ? , ? , now() , ? , ? , ? , ? , ? , ?) ";
 
   $stmt = $pdo->prepare($query);
   $stmt->bindParam(1, $post_category_id, PDO::PARAM_INT);
   $stmt->bindParam(2, $post_title, PDO::PARAM_STR);
-  $stmt->bindParam(3, $sabine, PDO::PARAM_STR);
-  $stmt->bindParam(4, $post_image, PDO::PARAM_STR);
-  $stmt->bindParam(5, $post_intro, PDO::PARAM_STR);
-  $stmt->bindParam(6, $post_content, PDO::PARAM_STR);
+  $stmt->bindParam(3, $slug, PDO::PARAM_STR);
+  $stmt->bindParam(4, $sabine, PDO::PARAM_STR);
+  $stmt->bindParam(5, $post_image, PDO::PARAM_STR);
+  $stmt->bindParam(6, $post_intro, PDO::PARAM_STR);
+  $stmt->bindParam(7, $post_content, PDO::PARAM_STR);
   
-  $stmt->bindParam(7, $post_url, PDO::PARAM_STR);
-  $stmt->bindParam(8, $post_tags, PDO::PARAM_STR);
-  $stmt->bindParam(9, $post_status, PDO::PARAM_STR);
+  $stmt->bindParam(8, $post_url, PDO::PARAM_STR);
+  $stmt->bindParam(9, $post_tags, PDO::PARAM_STR);
+  $stmt->bindParam(10, $post_status, PDO::PARAM_STR);
   $stmt->execute();
 
   $the_post_id = $pdo->lastInsertId();
@@ -81,7 +96,7 @@ if (isset($_POST['create_post'])) {
 
     echo '
     <p>
-    <a href="../post.php?p_id=' . $the_post_id . '">View Post on site</a>
+    <a href="' . $base_url . '/blogpost?title=' . $slug . '">View Post on site</a>
     </p>
     '; 
   };
@@ -108,7 +123,7 @@ if (isset($_POST['create_post'])) {
 
   <div class="form-group">
     <label for="title">Post Title</label>
-    <input type="text" class="form-control" name="title">
+    <input type="text" class="form-control" name="title" require>
   </div>
 
   <div class="form-group">

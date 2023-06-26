@@ -2,36 +2,23 @@
 include 'functions.php';
 // Connect to MySQL
 $pdo = pdo_connect_mysql();
+$base_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
 
 
-if (isset($_GET['p_id'])) {
 
-  $the_post_id = $_GET['p_id'];
-
-
-  //todo toPDO
-  // $update_statement = mysqli_prepare($connection, "UPDATE posts SET post_views_count = post_views_count + 1 WHERE post_id = ?");
-  // mysqli_stmt_bind_param($update_statement, "i", $the_post_id);
-  // mysqli_stmt_execute($update_statement);
-
-  $stmt = $pdo->prepare('UPDATE posts SET post_views = post_views + 1 WHERE post_id = ?');
-  $stmt->bindParam(1, $the_post_id, PDO::PARAM_INT);
-  $stmt->execute();
-
-  // $stmt2 = mysqli_prepare($connection , "SELECT post_title, post_author, post_date, post_image, post_content FROM posts WHERE post_id = ? AND post_status = ? ");
-  // mysqli_stmt_bind_param($stmt2, "is", $the_post_id, $published);
-  // mysqli_stmt_execute($stmt2);
-  // mysqli_stmt_bind_result($stmt2, $post_title, $post_author, $post_date, $post_image, $post_content);
-  // $stmt = $stmt2;
+if (isset($_GET['title'])) {
+  $post_title_slug = $_GET['title'];
 
   $published = 'published';
 
-  $stmt = $pdo->prepare('SELECT * FROM posts WHERE post_id = ? AND post_status = ? ');
-  $stmt->bindParam(1, $the_post_id, PDO::PARAM_INT);
+  $stmt = $pdo->prepare('SELECT * FROM posts WHERE post_slug = ? AND post_status = ?');
+  $stmt->bindParam(1, $post_title_slug, PDO::PARAM_STR);
   $stmt->bindParam(2, $published, PDO::PARAM_STR);
   $stmt->execute();
-  while ($row = $stmt->fetch()) {
+
+  if ($row = $stmt->fetch()) {
     $post_title = $row['post_title'];
+    $post_title_slug = $row['post_slug'];
     $post_author = $row['post_author'];
     $date = new DateTime($row['post_date']);
     $post_tags = $row['post_tags'];
@@ -41,141 +28,127 @@ if (isset($_GET['p_id'])) {
     $post_url = $row['post_url'];
 
     $post_views = $row['post_views'];
-  }
 
+    // Update post views count
+    $stmt = $pdo->prepare('UPDATE posts SET post_views = post_views + 1 WHERE post_title = ?');
+    $stmt->bindParam(1, $post_title, PDO::PARAM_STR);
+    $stmt->execute();
 
-  // Format the date as "Woensdag 17 april 2023"
-  if (version_compare(PHP_VERSION, '8.1.0') >= 0) {
-    $formatter = new IntlDateFormatter('nl_NL', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
-    $formatted_date = ucfirst($formatter->format($date));
+    // Format the date
+    if (version_compare(PHP_VERSION, '8.1.0') >= 0) {
+      $formatter = new IntlDateFormatter('nl_NL', IntlDateFormatter::LONG, IntlDateFormatter::NONE);
+      $formatted_date = ucfirst($formatter->format($date));
+    } else {
+      setlocale(LC_TIME, 'nl_NL');
+      $formatted_date = ucfirst(strftime('%A %e %B %Y', $date->getTimestamp()));
+    }
+
+    // Calculate time ago
+    $today = new DateTime();
+    $diff = $today->diff($date)->days;
+
+    if ($diff == 0) {
+      $time_ago = 'Vandaag';
+    } elseif ($diff == 1) {
+      $time_ago = 'Gisteren';
+    } elseif ($diff < 7) {
+      $time_ago = $diff . ' dagen geleden';
+    } elseif ($diff == 7) {
+      $time_ago = '1 week geleden';
+    } elseif ($diff < 30) {
+      $time_ago = ceil($diff / 7) . ' weken geleden';
+    } elseif ($diff == 30) {
+      $time_ago = '1 maand geleden';
+    } elseif ($diff < 365) {
+      $time_ago = ceil($diff / 30) . ' maanden geleden';
+    } elseif ($diff == 365 || $diff < 730) {
+      $time_ago = '1 jaar geleden';
+    } else {
+      $time_ago = 'meer dan een jaar geleden';
+    }
+
+    $outputDateInfo = $formatted_date . ' (' . $time_ago . ')';
+    
   } else {
-    setlocale(LC_TIME, 'nl_NL'); // set the locale to Dutch
-    $formatted_date = ucfirst(strftime('%A %e %B %Y', $date->getTimestamp())); // use strftime for PHP versions below 8.1.0
+    header("Location: index.php");
+    exit();
   }
-
-  // Calculate the difference in days between the post date and today
-  $today = new DateTime();
-  $diff = $today->diff($date)->days;
-
-  // Determine how long ago the post was made
-  if ($diff == 0) {
-    $time_ago = 'Vandaag';
-  } elseif ($diff == 1) {
-    $time_ago = 'Gisteren';
-  } elseif ($diff < 7) {
-    $time_ago = $diff . ' dagen geleden';
-  } elseif ($diff == 7) {
-    $time_ago = '1 week geleden';
-  } elseif ($diff < 30) {
-    $time_ago = ceil($diff / 7) . ' weken geleden';
-  } elseif ($diff == 30) {
-    $time_ago = '1 maand geleden';
-  } elseif ($diff < 365) {
-    $time_ago = ceil($diff / 30) . ' maanden geleden';
-  } elseif ($diff == 365 || $diff < 730) {
-    $time_ago = '1 jaar geleden';
-  } else {
-    $time_ago = 'meer dan een jaar geleden';
-  }
-
-  // Combine the formatted date and time ago into one string
-  $outputDateInfo = $formatted_date . ' (' . $time_ago . ')';
-
-
-
+} else {
+  header("Location: index.php");
+  exit();
+}
 ?>
-  <?= template_header($post_title) ?>
-  </head>
 
-  <body>
-    <?= template_nav() ?>
+<?= template_header($post_title) ?>
+</head>
 
+<body>
+  <?= template_nav() ?>
 
+  <main class="blog-post-main">
+    <div class="home-wrapper">
+      <section class="container blog-post-page">
+        <article class="blog-item">
+          <header class="blog-item-header">
+            <h1 class="blog-item-title"><?= $post_title; ?></h1>
+            <p>Gepost door <?= $post_author ?> op <?= $outputDateInfo ?> - <?= $post_views; ?> views</p>
+            <p class="blog-item-tags"><?= $post_tags ?> </p>
+          </header>
+          <div class="blog-item-img">
+            <img src="<?= $base_url ?>/assets/blogMedia/<?= $post_image; ?>" alt="<?= $post_title; ?>">
+          </div>
+          <div class="blog-item-content">
+            <div class='blog-item-text'><?= trim($post_content); ?></div>
+            <?php if ($post_url != null) : ?>
+              <p><a href="<?= $post_url; ?>" target="_blank"><?= $post_url; ?></a></p>
+            <?php endif; ?>
+          </div>
+        </article>
 
-    <main class="blog-post-main">
-      <div class="home-wrapper">
-        <section class="container blog-post-page">
-
-          <article class="blog-item">
-
-            <header class="blog-item-header">
-              <h1 class="blog-item-title"><?= $post_title; ?></h1>
-              <p>Gepost door <?= $post_author ?> op <?= $outputDateInfo ?> - <?= $post_views; ?> views</p>
-              <p class="blog-item-tags"><?= $post_tags ?> </p>
-            </header>
-
-            <div class="blog-item-img">
-              <img src="assets/blogMedia/<?= $post_image; ?>" alt="<?= $post_title; ?>">
-            </div>
-
-            <div class="blog-item-content">
-              <?php echo "<div class='blog-item-text'>" . trim($post_content) . "</div>"; ?>
-              <?php if ($post_url != null) {
-                echo "<p><a href='" . $post_url . "' target='" . "_blank'>"
-                  . $post_url . "</a></p>";
-              }
-              ?>
-          </article>
-
-
-
-          <?php
-          $query = "SELECT * FROM comments WHERE comment_post_id = ? ";
-          $query .= "AND comment_status = 'approved' ";
-          $query .= "ORDER BY comment_id DESC ";
-          // $select_comment_query = mysqli_query($connection, $query);
-          $stmt = $pdo->prepare($query);
-          $stmt->bindParam(1, $the_post_id, PDO::PARAM_INT);
-          $stmt->execute();
-          // while ($row = mysqli_fetch_array($select_comment_query)) {
-          $count = $stmt->rowCount();
-          if ($count !== 0) {
-            while ($row = $stmt->fetch()) {
-              $comment_date   = $row['comment_date'];
-              $comment_content = $row['comment_content'];
-              $comment_author = $row['comment_author'];
-          ?>
-              <div class="blog-item blog-comment">
-                <header class="blog-item-header">
-                  <p>
-                    <small>
-
-                      <i class="fa-regular fa-message"></i> reactie van <?= ucfirst($comment_author); ?> - <?= $comment_date; ?>
-                    </small>
-                  </p>
-                </header>
-                <div class="blog-item-content">
-                  <p><?= $comment_content; ?></p>
-                </div>
-              </div>
-            <?php
-            }
-          } else {
-            ?>
-            <div class="blog-item">
-
-              <header class="blog-comment">
-                <p>Nog geen reacties</p>
-              </header>
-
-            </div>
+        <!-- Rest of the code -->
         <?php
+        $query = "SELECT * FROM comments WHERE comment_post_id = ? ";
+        $query .= "AND comment_status = 'approved' ";
+        $query .= "ORDER BY comment_id DESC ";
+        // $select_comment_query = mysqli_query($connection, $query);
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(1, $the_post_id, PDO::PARAM_INT);
+        $stmt->execute();
+        // while ($row = mysqli_fetch_array($select_comment_query)) {
+        $count = $stmt->rowCount();
+        if ($count !== 0) {
+          while ($row = $stmt->fetch()) {
+            $comment_date   = $row['comment_date'];
+            $comment_content = $row['comment_content'];
+            $comment_author = $row['comment_author'];
+        ?>
+            <div class="blog-item blog-comment">
+              <header class="blog-item-header">
+                <p>
+                  <small>
+
+                    <i class="fa-regular fa-message"></i> reactie van <?= ucfirst($comment_author); ?> - <?= $comment_date; ?>
+                  </small>
+                </p>
+              </header>
+              <div class="blog-item-content">
+                <p><?= $comment_content; ?></p>
+              </div>
+            </div>
+          <?php
           }
         } else {
-          header("Location: index.php");
+          ?>
+          <div class="blog-item">
+
+            <header class="blog-comment">
+              <p>Nog geen reacties</p>
+            </header>
+
+          </div>
+        <?php
         }
         ?>
-
-
-
-
-
-
-
-
-
-
-
         <aside class="form-container">
           <div class="form-header">
             <h3>Plaats een reactie:</h3>
@@ -195,35 +168,35 @@ if (isset($_GET['p_id'])) {
             </div>
             <button type="submit" name="create_comment" class="btn btn--accent">Verstuur</button>
           </form>
-      </div>
-      </aside>
+    </div>
+    </aside>
 
 
 
 
-      <?php
-      if (isset($_POST['create_comment'])) {
+    <?php
+    if (isset($_POST['create_comment'])) {
 
-        $the_post_id = $_GET['p_id'];
-        $comment_author = $_POST['comment_author'];
-        $comment_email = $_POST['comment_email'];
-        $comment_content = $_POST['comment_content'];
+      $the_post_id = $_GET['p_id'];
+      $comment_author = $_POST['comment_author'];
+      $comment_email = $_POST['comment_email'];
+      $comment_content = $_POST['comment_content'];
 
 
-        if (!empty($comment_author) && !empty($comment_email) && !empty($comment_content)) {
-          $query = "INSERT INTO comments (comment_post_id, comment_author, comment_email, comment_content, comment_status,comment_date)";
-          // $query .= "VALUES ($the_post_id ,'{$comment_author}', '{$comment_email}', '{$comment_content }', 'unapproved',now())";
-          $query .= "VALUES (? , ? , ? , ? , 'unapproved' , now())";
-          // $create_comment_query = mysqli_query($connection, $query);
+      if (!empty($comment_author) && !empty($comment_email) && !empty($comment_content)) {
+        $query = "INSERT INTO comments (comment_post_id, comment_author, comment_email, comment_content, comment_status,comment_date)";
+        // $query .= "VALUES ($the_post_id ,'{$comment_author}', '{$comment_email}', '{$comment_content }', 'unapproved',now())";
+        $query .= "VALUES (? , ? , ? , ? , 'unapproved' , now())";
+        // $create_comment_query = mysqli_query($connection, $query);
 
-          $stmt = $pdo->prepare($query);
-          $stmt->bindParam(1, $the_post_id, PDO::PARAM_INT);
-          $stmt->bindParam(2, $comment_author, PDO::PARAM_STR);
-          $stmt->bindParam(3, $comment_email, PDO::PARAM_STR);
-          $stmt->bindParam(4, $comment_content, PDO::PARAM_STR);
-          $stmt->execute();
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(1, $the_post_id, PDO::PARAM_INT);
+        $stmt->bindParam(2, $comment_author, PDO::PARAM_STR);
+        $stmt->bindParam(3, $comment_email, PDO::PARAM_STR);
+        $stmt->bindParam(4, $comment_content, PDO::PARAM_STR);
+        $stmt->execute();
 
-          echo '
+        echo '
   
         <label for="rj-modal" class="rj-modal-background"></label>
       <div class="rj-modal">
@@ -246,27 +219,24 @@ if (isset($_GET['p_id'])) {
 
 
 
-      ?>
-          <script>
-            commentForm.style.display = "none";
-          </script>
-      <?php
-        }
+    ?>
+        <script>
+          commentForm.style.display = "none";
+        </script>
+    <?php
       }
-      ?>
+    }
+    ?>
 
 
 
-      </div>
-      </div>
-      </section>
-      </div>
-    </main>
+    </div>
+    </div>
 
-    <hr>
-
-
-    <div class="media-popup"></div>
+    </section>
+    </div>
+  </main>
+  <div class="media-popup"></div>
     <script>
       // let commentForm = document.querySelector(".form-wrapper");
       // let commentBtn = document.querySelector(".button");
@@ -286,4 +256,6 @@ if (isset($_GET['p_id'])) {
       }
     </script>
 
-    <?= template_footer() ?>
+  <!-- Rest of the code -->
+
+  <?= template_footer() ?>
