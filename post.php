@@ -17,6 +17,7 @@ if (isset($_GET['title'])) {
   $stmt->execute();
 
   if ($row = $stmt->fetch()) {
+    $the_post_id = $row['post_id'];
     $post_title = $row['post_title'];
     $post_title_slug = $row['post_slug'];
     $post_author = $row['post_author'];
@@ -24,6 +25,7 @@ if (isset($_GET['title'])) {
     $post_tags = $row['post_tags'];
 
     $post_image = $row['post_image'];
+    $post_intro = $row['post_intro'];
     $post_content = $row['post_content'];
     $post_url = $row['post_url'];
 
@@ -79,7 +81,8 @@ if (isset($_GET['title'])) {
 }
 ?>
 
-<?= template_header($post_title) ?>
+<!-- call blogpost_template_header($title, $description, $keywords, $imageURL, $canonicalURL)  -->
+<?= blogpost_template_header($post_title, $post_intro, $post_tags, $base_url . '/assets/blogMedia/' . $post_image, $base_url . '/blogpost/' . $post_title_slug) ?>
 </head>
 
 <body>
@@ -87,7 +90,7 @@ if (isset($_GET['title'])) {
 
   <main class="blog-post-main">
     <div class="home-wrapper">
-      <section class="container blog-post-page">
+      <section class="container single-blog-post blog-post-page ">
         <article class="blog-item">
           <header class="blog-item-header">
             <h1 class="blog-item-title"><?= $post_title; ?></h1>
@@ -125,9 +128,10 @@ if (isset($_GET['title'])) {
             <div class="blog-item blog-comment">
               <header class="blog-item-header">
                 <p>
+                <i class="fa-regular fa-message"></i> 
                   <small>
 
-                    <i class="fa-regular fa-message"></i> reactie van <?= ucfirst($comment_author); ?> - <?= $comment_date; ?>
+                    reactie van <?= ucfirst($comment_author); ?> - <?= $comment_date; ?>
                   </small>
                 </p>
               </header>
@@ -177,7 +181,7 @@ if (isset($_GET['title'])) {
     <?php
     if (isset($_POST['create_comment'])) {
 
-      $the_post_id = $_GET['p_id'];
+      
       $comment_author = $_POST['comment_author'];
       $comment_email = $_POST['comment_email'];
       $comment_content = $_POST['comment_content'];

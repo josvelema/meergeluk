@@ -1,5 +1,7 @@
 <?php
 include 'functions.php';
+// $base_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
+
 
 $currentPage = "blog";
 // Connect to MySQL
@@ -70,11 +72,9 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
             <div class="auto-grid">
 
               <div class="auto-grid-item auto-grid-item-span">
-                <p class="c-larger-p ">Omdat ik iedereen zoveel mogelijk <strong>geluk gun</strong> zal ik hier regelmatig
-                  <strong>gratis geluksbrengers</strong> plaatsen.
-                </p>
-                <p>Deze mag je printen, gebruiken, delen en aanraden. Zolang het jouw maar <strong>meer geluk </strong>
-                  brengt.
+                <p>Omdat ik iedereen zoveel mogelijk geluk gun zal ik hier regelmatig gratis geluksbrengers plaatsen.
+                <br>
+           Deze mag je printen, gebruiken, delen en aanraden. Zolang het jouw maar meer geluk brengt.
                 </p>
               </div>
               <div class="auto-grid-item">
@@ -122,6 +122,7 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
                 $date = new DateTime($row['post_date']);
                 $post_tags = $row['post_tags'];
                 $post_image = $row['post_image'];
+                $post_thumb = $row['post_thumb'];
                 $post_intro = $row['post_intro'];
                 $post_content = $row['post_content'];
                 $post_url = $row['post_url'];
@@ -172,27 +173,31 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
               ?>
 
 
-                <article class="auto-grid-item auto-grid-item-span">
-                  <div class="blog-item-header">
+
+                <article class="blog-item">
+                  <header class="blog-item-header">
                     <h2 class="blog-item-title"><?= $post_title ?></h2>
 
+                  </header>
+
+                  <div class="blog-item-download">
+                    <a href="assets/blogMedia/<?= $post_image ?>" target="_blank" title="Download <?= $post_title ?>">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-download" width="22" height="22" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="currentColor" />
+                        <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" />
+                        <path d="M7 11l5 5l5 -5" />
+                        <path d="M12 4l0 12" />
+                      </svg>
+                      <img src="./assets/blogMedia/<?= $post_thumb; ?>" alt="Download <?= $post_title; ?>">
+                    </a>
                   </div>
 
                   <div class="blog-item-content">
-
                     <?php if (empty($post_intro)) { ?>
                       <p class="blog-item-text"><?= $post_content ?></p>
                     <?php } else { ?>
                       <p class="blog-item-text"><?= $post_intro ?></p>
                       <p class="blog-item-text"><?= $post_content ?></p>
-                    <?php } ?>
-
-
-                    <?php if (strpos($post_image, '.pdf') !== false) { ?>
-                      <a href="assets/blogMedia/<?= $post_image ?>" class="blog-item-link" target="_blank">Download hier de PDF</a>
-                    <?php } else { ?>
-                      <br>
-
                     <?php } ?>
 
                     <?php
@@ -202,14 +207,10 @@ $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
                         $post_url = 'https://' . $post_url; // Assuming HTTP protocol, you can change it to 'https://' if needed
                       }
                     ?>
-                      <a href="<?= $post_url ?>" class="blog-item-link" target="_blank">Meer informatie</a>
+                      <a href="<?= $post_url ?>" class="blog-item-link" target="_blank"><?= $post_url ?></a>
                     <?php } else { ?>
                       <br>
-
                     <?php } ?>
-
-
-
 
                   </div>
 

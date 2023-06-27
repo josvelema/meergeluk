@@ -32,6 +32,8 @@ if (isset($_GET['p_id'])) {
     $post_category_id   = $row['post_cat_id'];
     $post_status        = $row['post_status'];
     $post_image         = $row['post_image'];
+    $post_thumbnail         = $row['post_thumb'];
+
     // $post_content       = str_replace("assets", "../assets", $row['post_content']) ;
     $post_content = str_replace($base_url . 'assets', 'assets', $row['post_content']);
 
@@ -69,6 +71,10 @@ if (isset($_POST['update_post'])) {
 
   $post_image          =  $_FILES['image']['name'];
   $post_image_temp     =  $_FILES['image']['tmp_name'];
+
+  $post_thumbnail          =  $_FILES['thumbnail']['name'];
+  $post_thumbnail_temp     =  $_FILES['thumbnail']['tmp_name'];
+  
   // $post_content = str_replace("../assets", "assets", ($_POST['post_content']));
   $post_content = str_replace($base_url . 'assets', 'assets', $_POST['post_content']);
 
@@ -92,17 +98,22 @@ if (isset($_POST['update_post'])) {
       $post_image = $row['post_image'];
     }
   } else {
-    // Add date time string to the beginning of the file name
+  // Add date time string to the beginning of the file name
+  $date_time_string = date("y-m-d-H-i");
+  $new_post_image = $date_time_string . "-" . $post_image;
 
-    $date_time_string = date("y-m-d-H-i");
-    $new_post_image = $date_time_string . "-" . $post_image;
+  move_uploaded_file($post_image_temp, "../assets/blogMedia/$new_post_image");
+
+  $new_post_thumbnail = 'thumb-' . $date_time_string . "-" . $post_thumbnail;
+
+  move_uploaded_file($post_thumbnail_temp, "../assets/blogMedia/$new_post_thumbnail");
 
 
+  sleep(1);
 
-    move_uploaded_file($post_image_temp, "../assets/blogMedia/$new_post_image");
 
-    // Update $post_image variable to store the new file name in the database
-    $post_image = $new_post_image;
+  $post_image = $new_post_image;
+  $post_thumbnail = $new_post_thumbnail;
   }
 
 
@@ -118,6 +129,7 @@ if (isset($_POST['update_post'])) {
   $query .= "post_content= ? , ";
   $query .= "post_url    = ? , ";
   $query .= "post_image  = ? ";
+  $query .= "post_thumb  = ?";
   $query .= "WHERE post_id = ? ";
 
 
@@ -133,7 +145,8 @@ if (isset($_POST['update_post'])) {
   $stmt->bindParam(9, $post_url, PDO::PARAM_STR);
 
   $stmt->bindParam(10, $post_image, PDO::PARAM_STR);
-  $stmt->bindParam(11, $post_id, PDO::PARAM_INT);
+  $stmt->bindParam(11, $post_thumbnail, PDO::PARAM_STR);
+  $stmt->bindParam(12, $post_id, PDO::PARAM_INT);
   $stmt->execute();
 
 
@@ -161,21 +174,14 @@ if (isset($_POST['update_post'])) {
   ';
 }
 
-
-
 ?>
-
-
-
-
-
 
 <form action="" method="post" enctype="multipart/form-data" class="form responsive-width-100">
 
 
   <div class="form-group">
     <label for="title">Post Title</label>
-    <input value="<?php echo htmlspecialchars(stripslashes($post_title)); ?>" type="text" class="form-control" name="post_title">
+    <input value="<?= htmlspecialchars(stripslashes($post_title)) ?>" type="text" class="form-control" name="post_title">
   </div>
 
   <div class="form-group">
@@ -236,32 +242,37 @@ if (isset($_POST['update_post'])) {
 
   <div class="form-group">
 
-    <img width="100" src="../images/<?php echo $post_image; ?>" alt="">
+    <img width="100" src="../assets/blogMedia/<?=  $post_image ?>" alt="">
     <input type="file" name="image">
+  </div>
+  <div class="form-group">
+    <label for="post_image">Post Thumbnail</label>
+    <input type="file" name="thumbnail">
   </div>
 
   <div class="form-group">
-    <label for="post_tags">Post Tags</label>
-    <input value="<?php echo $post_tags; ?>" type="text" class="form-control" name="post_tags">
+    <label for="post_tags">Post Tags / Keywords</label>
+    <input type="text" class="form-control" name="post_tags">
   </div>
+
 
   <div class="form-group">
     <label for="post_intro">Post Content</label>
     <textarea class="form-control " name="post_intro" id="body" cols="30" rows="10">
-      <?php echo trim($post_intro); ?>
+      <?= trim($post_intro) ?>
     </textarea>
   </div>
   <div class="form-group">
     <label for="post_content">Post Content</label>
     <textarea class="form-control " name="post_content" id="post_content" cols="30" rows="10">
-      <?php echo trim($post_content); ?>
+      <?= trim($post_content) ?>
     </textarea>
   </div>
 
 
   <div class="form-group">
     <label for="post_url">reference URL</label>
-    <input value="<?php echo $post_url; ?>" type="text" class="form-control" name="post_url">
+    <input value="<?= $post_url ?>" type="text" class="form-control" name="post_url">
   </div>
 
   <div class="form-group">

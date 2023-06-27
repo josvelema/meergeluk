@@ -226,6 +226,7 @@ nav {
 
 img {
  max-width: 100%;
+ 
 }
 
 hr {
@@ -2717,6 +2718,7 @@ label {
  flex-direction: column;
  justify-content: space-between;
  width: min(100%, 580px);
+ height: 100%;
  padding: 1em;
  background-color: var(--white-100);
  border-radius: 5px;
@@ -2749,7 +2751,7 @@ label {
 .blog-item-header p {
  font-size: var(--step-0);
  font-weight: 400;
- color: var(--gray-500);
+ color: var(--black-300);
 }
 
 .blog-item-tags {
@@ -2771,30 +2773,57 @@ label {
   content: "";
 }
 
-.blog-item-img {
- /* width: 100%; */
- height: 300px;
+.blog-item-img,
+ .blog-item-download {
+  width: min(100% , 90ch);
 
- border-radius: 5px 5px 0 0;
- box-shadow: var(--box-shadow-2);
+  margin: auto;
+  border-radius: 5px 5px 0 0;
+  box-shadow: var(--box-shadow-2);
 }
 
-.blog-item-img img {
- width: 100%;
- height: 100%;
- object-fit: cover;
- object-position: center;
- border-radius: 5px 5px 0 0;
+.blog-item-img img,
+.blog-item-download img {
+  display: block;
 }
+
+.blog-item-download a  {
+  position: relative;
+  color: var(--white-100);
+}
+
+.blog-item-download svg {
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  margin: 0.5em;
+  scale: 0.95;
+  opacity: 0.90;
+  transition: all 0.3s;
+  border: 1px solid var(--green-200);
+  border-radius: 0.1em;
+}
+
+.blog-item-download a:hover svg,
+.blog-item-download a:focus svg,
+.blog-item-download a:focus-visible svg {
+  opacity: 1;
+  scale: 1.05;
+  transform: translateY(4px);
+}
+ 
+
+
 
 .blog-item-content {
  margin-top: var(--space-m);
+word-break: break-word;
 
 }
 
 .blog-item-text {
-  /* text-align: justify;
-  word-break: break-all; */
+  width: min(100%, 80ch);
+  margin: 0 auto;
 }
 
 .blog-item-link {
@@ -2818,8 +2847,13 @@ label {
   box-shadow: var(--box-shadow);
 }
 
+.single-blog-post.blog-post-page  {
+  background-color: transparent;
+  box-shadow: unset;
+}
+
 .blog-post-page .blog-item  {
-  margin-block: var(--space-m);
+  margin-block: var(--space-xs);
   width: min(100% - var(--space-s), 1025px);
   
 }
@@ -2830,18 +2864,44 @@ label {
 }
 
 .blog-post-page .blog-item-img img {
-  max-height: 600px;
-  max-width: 100%;
+  /* max-height: 600px; */
+  /* max-width: 100%; */
   /* height: 100%; */
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px 5px 0 0;
 }
 
 .blog-comment {
-  background-color: var(--sepia-t-1);
+ 
+  padding: var(--space-xs);
+  width: min(100%, 80ch);
+  margin: 0 auto;
 
 }
+.blog-comment .blog-item-header p small {
+  font-weight: 600;
 
+  }
+.blog-comment .blog-item-header i {
+    margin-right: 0.5em;
+    margin-left: 0.2em;
+    font-size: var(--step-1);
+    color: var(--green-400);
+
+}
+.blog-comment .blog-item-content {
+  padding: var(--space-s);
+  width: min(100% - var(--space-xs), 66ch);
+  margin: 0.2em auto 0.5em 0.5em;
+  border-bottom: 1px solid var(--green-200);
+  border-left: 2px solid var(--green-300);
+  box-shadow: 2px 2px 6px -1px var(--gray-t-2);
+  background-color: var(--white);
+  border-radius: 0 6px 6px 0;
+}
 
 .rj-modal-background {
   width: 100%;

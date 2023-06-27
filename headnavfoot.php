@@ -57,7 +57,7 @@ function template_header($title)
       <link rel="canonical" href="https://www.meergeluk.com">
       <link rel="icon" type="image/svg+xml" href="{$base_url}/assets/img/favicon.svg">
       <link rel="icon" type="image/png" href="{$base_url}/assets/img/favicon.png">
-      <title>Meer Geluk - Levens- en relatiecoaching</title>
+      <title>Meer Geluk - $title</title>
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
       <link
@@ -73,15 +73,68 @@ function template_header($title)
     EOT;
 }
 
-function template_header_other()
+function blogpost_template_header($title, $description, $keywords, $imageURL, $canonicalURL)
 {
+    $base_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
+  
+    // get the keywords and replace spaces with comma and space
+    $keywords = str_replace(' ', ', ', htmlspecialchars($keywords, ENT_QUOTES, 'UTF-8'));
+
+    
+    $title = htmlspecialchars($title, ENT_QUOTES, 'UTF-8');
+    $description = trim(htmlspecialchars($description, ENT_QUOTES, 'UTF-8'));
+    $imageURL = htmlspecialchars($imageURL, ENT_QUOTES, 'UTF-8');
+    $canonicalURL = htmlspecialchars($canonicalURL, ENT_QUOTES, 'UTF-8');
+
     echo <<<EOT
-    <link href="assets/css/painting.css?v=4" rel="stylesheet" type="text/css">
-    <link href="assets/css/science.css?v=4" rel="stylesheet" type="text/css">
-EOT;
+    <!DOCTYPE html>
+    <html lang="nl">
+    
+    <head>
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-CH6GHDSSJF"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+      
+        gtag('config', 'G-CH6GHDSSJF');
+      </script>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="description" content="$description"> 
+      <meta name="keywords" content="$keywords">
+      <meta name="author" content="Sabine Bezemer">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="robots" content="index, follow">
+      <meta property="og:title" content="$title">
+      <meta property="og:description" content="$description">
+      <meta property="og:image" content="$imageURL">
+      <meta property="og:url" content="$canonicalURL">
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Meer Geluk - Blog">
+      <meta property="og:locale" content="nl_NL">
+      <meta property="og:locale:alternate" content="en_US">
+      <link rel="canonical" href="$canonicalURL">
+      <link rel="icon" type="image/svg+xml" href="{$base_url}/assets/img/favicon.svg">
+      <link rel="icon" type="image/png" href="{$base_url}/assets/img/favicon.png">
+      <title>Meer Geluk Blog - $title</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+        href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Libre+Franklin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+      <link rel="stylesheet" href="{$base_url}/assets/css/style.css">
+      
+    </head>
+    
+    EOT;
 }
 
-link:
 function template_nav()
 {
   $base_url = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
