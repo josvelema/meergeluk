@@ -54,6 +54,7 @@ function template_header($title)
       <meta property="og:site_name" content="Meer Geluk">
       <meta property="og:locale" content="nl_NL">
       <meta property="og:locale:alternate" content="en_US">
+      <meta name="view-transition" content="same-origin">
       <link rel="canonical" href="https://www.meergeluk.com">
       <link rel="icon" type="image/svg+xml" href="{$base_url}/assets/img/favicon.svg">
       <link rel="icon" type="image/png" href="{$base_url}/assets/img/favicon.png">
@@ -115,6 +116,7 @@ function blogpost_template_header($title, $description, $keywords, $imageURL, $c
       <meta property="og:site_name" content="Meer Geluk - Blog">
       <meta property="og:locale" content="nl_NL">
       <meta property="og:locale:alternate" content="en_US">
+      <meta name="view-transition" content="same-origin">
       <link rel="canonical" href="$canonicalURL">
       <link rel="icon" type="image/svg+xml" href="{$base_url}/assets/img/favicon.svg">
       <link rel="icon" type="image/png" href="{$base_url}/assets/img/favicon.png">

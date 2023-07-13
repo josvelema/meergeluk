@@ -2,7 +2,7 @@
 <?= template_header('Meer Geluk - home') ?>
 <?= template_nav() ?>
 
-<main class="gratis">
+<main class="gelukskompas">
   <div class="home-wrapper">
     <section class="full hero-container hero-home">
       <header class="c-header-container">
@@ -14,7 +14,7 @@
           </div>
         </div>
         <div class="hero-title">
-          <h1>KernTest</h1>
+          <h1>Geluks Kompas</h1>
         </div>
       </header>
     </section>
@@ -543,13 +543,27 @@
 
   // Generate the HTML snippet with the score results per category
   const categoryResultsHTML = Object.values(categories).map((category) => {
+    // Get the top 3 question IDs and scores in the category
+    const top3QuestionIds = category.top3questionIds;
+    const top3QuestionScores = category.top3questionScores;
+
+    // Retrieve the question content for the top 3 questions
+    const top3Questions = top3QuestionIds.map((questionId) => questions[questionId].content);
+
     return `
-      <div class="category-result">
-        <h4>${category.content}</h4>
+      <div class="category-result-pdf">
+        <h3>${category.content}</h3>
         <div>
-          <p>Score:</p>
-          <p><strong>${category.categoryScore}</strong> punten</p>
-          <p>van ${category.maxScore}</p>
+          <p>Score: <strong>${category.categoryScore}</strong> punten van ${category.maxScore}</p>
+          <p>
+          Top 3
+          </p>
+          <ol>
+            <li>${category.top3QuestionScores[0]} "${top3Questions[0]}"</li>
+            <li>${category.top3QuestionScores[1]} "${top3Questions[0]}"</li>
+            <li>${category.top3QuestionScores[2]} "${top3Questions[0]}"</li>
+            
+          </ol>
         </div>
       </div>
     `;

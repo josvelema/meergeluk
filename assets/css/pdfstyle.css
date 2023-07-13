@@ -1,0 +1,134 @@
+:root {
+
+--text: #0e0e0e;
+--sepia-t-1: hsl(21, 33%, 50%, 0.1);
+--sepia-t-2: hsl(21, 33%, 53%, 0.2);
+ --sepia-t-3: hsl(21, 33%, 56%, 0.3);
+--sepia-t-5: hsl(21, 33%, 60%, 0.5);  
+--sepia-t-8: hsl(21, 33%, 63%, 0.8);
+--sepia: #c8a592;
+
+
+--pink-pastel-1: #e7dbda;
+--pink-pastel-2: #edd5d4;
+--pink-100: hsl(3, 61%, 88%);
+--pink-100-analogue-1: hwb(8 81% 5%);
+--pink-100-analogue-2: hsl(357, 58%, 88%);
+--green-100: #d7eaea;
+--green-100-analogue-1: hsl(189, 30%, 88%);
+--green-100-analogue-2: hsl(171, 29%, 88%);
+
+--green-200: #9bbfbf;
+--green-200-analogue-1: hsl(190, 20%, 68%);
+--green-200-analogue-2: hsl(170, 18%, 68%);
+
+--green-300: #527f80;
+--green-300-analogue-1: hsl(191, 20%, 41%);
+--green-300-analogue-2: hsl(169, 18%, 41%);
+
+--green-400: hsl(182, 22%, 29%);
+--green-400-analogue-1: #3b5359;
+--green-400-analogue-2: hsl(168, 18%, 29%);
+
+--green-900: hsl(182, 22%, 8%);
+--green-900-analogue-1: hsl(192, 26%, 8%);
+--green-900-analogue-2: hsl(168, 30%, 8%);
+
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'EB Garamond', serif;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  line-height: 1.55;
+  background-color: hsla(23, 33%, 86%,95%);
+ 
+  background-image: linear-gradient(126deg , #e7dbda, #c8a592);
+  color: #0e0e0e;
+ }
+
+ h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #527f80;
+  text-align: center;
+  margin-block: 1em;
+ }
+
+ h2 {
+  font-size: 1.6rem;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+ }
+
+ h3 {
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-underline-offset: 8px;
+  padding-bottom: 0.25em;
+  letter-spacing: 1px;
+
+ }
+
+ P {
+  margin: 0;
+ }
+
+ .container {
+  border-radius: 6px;
+  
+  width: 100%;
+  height: auto;
+  padding: 0.5em;
+  
+}
+
+
+.category-result-pdf {
+  border-radius: 6px;
+  padding: 0.25em;
+  margin-bottom: 0.5em;
+    border-bottom: 1px solid #0005;
+    text-align: center;
+    letter-spacing: 1px;
+    background-color: #f0eef0;
+    width: 100%;
+    
+    
+    
+
+}
+
+.category-result-pdf div {
+  border-radius: 6px;
+  background-color: rgb(240, 240, 240 , 0.85);
+
+
+}
+
+.category-result-pdf p {
+  border-top: 1px solid #9bbfbf;
+  padding-block: 0.35em;
+}
+
+ol {
+  text-align: left;
+  padding: 0.25em;
+  border: 1px solid #3b5359;
+  border-radius: 4px;
+  margin-inline: auto;
+}
+
+ol li {
+  margin-left: 2em;
+}
+

@@ -46,22 +46,28 @@ $html = '
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Test Results</title>
-  <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
-  <style>
-    /* Inline styles specific to the PDF */
-  </style>
+  <title>Test Resultaten Geluks Kompas - ' . $userInfo['name'] . '</title>
+  <link rel="stylesheet" type="text/css" href="./assets/css/pdfstyle.css">
+  <link
+        href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Libre+Franklin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+
 </head>
 <body>
+  <h1>Geluks Kompas</h1>
+  <h2>' . $userInfo['name'] . '</h2>
+  <div class="container">
   ' . $categoryResultsHTML . '
+  </div>
+  <small>Copyright ' . date('Y') . ' - meergeluk.com </small>
 </body>
 </html>';
 
 try {
-$mpdf = new \Mpdf\Mpdf();
-$mpdf->WriteHTML($html);
-$pdfFilename = 'test.pdf';
-$mpdf->Output($pdfFilename, \Mpdf\Output\Destination::FILE);
+  $mpdf = new \Mpdf\Mpdf();
+  $mpdf->WriteHTML($html);
+  $pdfFilename = 'test3.pdf';
+  $mpdf->Output($pdfFilename, \Mpdf\Output\Destination::FILE);
 } catch (\Mpdf\MpdfException $e) { // Note: safer fully qualified exception name used for catch
   // Process the exception, log, print etc.
   echo $e->getMessage();
