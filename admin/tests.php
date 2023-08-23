@@ -24,7 +24,8 @@ template_admin_header('Test resultaten', 'tests')
         <th>Telefoon</th>
         <th>Intake</th>
         <th>Resultaat</th>
-        <th>PDF</th>
+        <th>PDF user</th>
+        <th>PDF admin</th>
       </tr>
     </thead>
     <tbody>
@@ -42,6 +43,7 @@ template_admin_header('Test resultaten', 'tests')
         $test_wants_intake  = $row['wants_intake'];
         $test_json          = $row['json_file_url'];
         $test_pdf           = $row['pdf_file_url'];
+        $test_pdf_full      = $row['pdf_full_url'];
         $date_created       = date("d-m-y", strtotime($row['date_created']));
         $time_created       = $row['time_created'];
         echo "<tr>"
@@ -53,7 +55,18 @@ template_admin_header('Test resultaten', 'tests')
         <td><?= $test_telephone ?></td>
         <td><?= ($test_wants_intake) ? 'Ja' : 'Nee' ?></td>
         <td><a href="#" class="json-link" data-json="<?= $test_json ?>" data-user-id="<?= $test_id ?>" data-user-name="<?= $test_name?>" data-user-email="<?= $test_email ?>" data-created="<?= $date_created ?>">Bekijken</a></td>
-        <td><?= $test_pdf ?></td>
+        <td><a href="../<?= $test_pdf  ?>" target="_blank">Open</td> 
+        <td>
+        <?php 
+        if ($test_pdf_full !== null) {
+        echo "<a href='" . $test_pdf_full . "' target='_blank'>Open</a>";
+        }
+        else {
+        echo "*";
+
+        }
+        ?>
+      </td> 
         </tr>
 
       <?php
@@ -198,7 +211,7 @@ template_admin_header('Test resultaten', 'tests')
           },
           body: JSON.stringify({
             formattedData,
-            id: userId,
+            id: Number(userId),
             name: userName,
             email: userEmail
 

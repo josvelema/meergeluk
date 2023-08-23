@@ -4,12 +4,20 @@ include_once '../config.php';
 
 require '../vendor/autoload.php'; // Include mPDF
 
+try {
+  $pdo = new PDO('mysql:host=' . db_host . ';dbname=' . db_name . ';charset=' . db_charset, db_user, db_pass);
+  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $exception) {
+  // If there is an error with the connection, stop the script and display the error.
+  exit('Failed to connect to database!');
+}
+
 // Get the JSON data from the POST request
 $requestData = json_decode(file_get_contents('php://input'), true);
 $formattedData = $requestData['formattedData'];
 $name = $requestData['name'];
 $email = $requestData['email'];
-$id = $requestData['id'];
+$id = (int)$requestData['id'];
 
 // Create an mPDF instance
 $mpdf = new \Mpdf\Mpdf();
@@ -27,14 +35,22 @@ $mpdf->Output($pdfPath, 'F');
 // Return the URL to download the generated PDF
 $pdfUrl = 'fullPDF/' . $pdfFilename;
 
-$sql = "UPDATE test_results SET (pdf_full_url) VALUES (:pdf_full) WHERE id = :id ";
+try {
+  $sql = "UPDATE test_results SET pdf_full_url = ? WHERE id = ? ";
 
-$stmt = $pdo->prepare($sql);
-$stmt->bindParam(':pdf_full', $pdfUrl);
-$stmt->bindParam(':id', $id);
+  $stmt = $pdo->prepare($sql);
+  $stmt->bindParam(1, $pdfUrl, PDO::PARAM_STR);
+  $stmt->bindParam(2, $id, PDO::PARAM_INT);
+  $stmt->execute();
 
-// Execute the statement
-$stmt->execute();
+  // Check if the update was successful
+  if ($stmt->rowCount() > 0) {
+      echo json_encode(['pdfUrl' => $pdfUrl]);
+  } else {
+      echo json_encode(['error' => 'Failed to update the database']);
+  }
+} catch (PDOException $e) {
+  echo json_encode(['error' => 'Database error: ' . $e->getMessage()]);
+}
 
-echo json_encode(['pdfUrl' => $pdfUrl]);
 ?>
