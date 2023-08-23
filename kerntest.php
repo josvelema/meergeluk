@@ -548,7 +548,8 @@
     const top3QuestionScores = category.top3questionScores;
 
     // Retrieve the question content for the top 3 questions
-    const top3Questions = top3QuestionIds.map((questionId) => questions[questionId].content);
+    // const top3Questions = top3QuestionIds.map((questionId) => questions[questionId].content);
+    const top3Questions = top3QuestionIds.map((questionId) => questions[questionId]?.content || '');
 
     return `
       <div class="category-result-pdf">
@@ -559,15 +560,19 @@
           Top 3
           </p>
           <ol>
-            <li>${category.top3QuestionScores[0]} "${top3Questions[0]}"</li>
-            <li>${category.top3QuestionScores[1]} "${top3Questions[0]}"</li>
-            <li>${category.top3QuestionScores[2]} "${top3Questions[0]}"</li>
+            <li> "${top3Questions[0]}" lsd</li>
+            <li> "${top3Questions[1]}"</li>
+            <li> "${top3Questions[2]}"</li>
             
           </ol>
         </div>
       </div>
     `;
   });
+
+//   ${category.top3QuestionScores[0]}
+// ${category.top3QuestionScores[1]}
+// ${category.top3QuestionScores[2]}
 
   // Convert the category results HTML to a string
   const categoryResultsString = categoryResultsHTML.join('');

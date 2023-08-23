@@ -27,6 +27,8 @@ function template_admin_header($title, $selected = 'dashboard') {
         <a href="messages.php"' . ($selected == 'messages' ? ' class="selected"' : '') . '><i class="fas fa-inbox"></i>Messages<span>' . $unread_messages . '</span></a>
         <a href="posts.php"' . ($selected == 'posts' ? ' class="selected"' : '') . '><i class="fas fa-comment-dots"></i>Blog posts</a>
         <a href="comments.php"' . ($selected == 'comments' ? ' class="selected"' : '') . '><i class="fas fa-comment-dots"></i>Blog comments</a>
+        <a href="tests.php"' . ($selected == 'tests' ? ' class="selected"' : '') . '><i class="fas fa-comment-dots"></i>Kerntests</a>
+        
         <a href="settings.php"' . ($selected == 'settings' ? ' class="selected"' : '') . '><i class="fas fa-tools"></i>Settings</a>
     ';
 echo <<<EOT

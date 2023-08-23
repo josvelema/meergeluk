@@ -128,8 +128,8 @@ if (isset($_POST['update_post'])) {
   $query .= "post_intro  = ? , ";
   $query .= "post_content= ? , ";
   $query .= "post_url    = ? , ";
-  $query .= "post_image  = ? ";
-  $query .= "post_thumb  = ?";
+  $query .= "post_image  = ? , ";
+  $query .= "post_thumb  = ? ";
   $query .= "WHERE post_id = ? ";
 
 
@@ -241,15 +241,17 @@ if (isset($_POST['update_post'])) {
   </div> -->
 
   <div class="form-group">
+  <label for="post_image">Post Image of PDF (Bestand om te downloaden bij gratisGeluk)</label>
 
     <img width="100" src="../assets/blogMedia/<?=  $post_image ?>" alt="">
     <input type="file" name="image">
   </div>
+  <?php if($post_category_id == 2) { ?>
   <div class="form-group">
     <label for="post_image">Post Thumbnail</label>
     <input type="file" name="thumbnail">
   </div>
-
+<?php } ?>
   <div class="form-group">
     <label for="post_tags">Post Tags / Keywords</label>
     <input type="text" class="form-control" name="post_tags">

@@ -156,13 +156,13 @@ if (isset($_POST['create_post'])) {
 
 
   <div class="form-group">
-    <label for="post_image">Post Image / PDF</label>
+    <label for="post_image">Post Image of PDF (Bestand om te downloaden bij gratisGeluk)</label>
     <input type="file" name="image">
   </div>
 
 
   <div class="form-group">
-    <label for="post_image">Post Thumbnail</label>
+    <label for="post_image">Post Thumbnail (alleen in gratis geluk blog)</label>
     <input type="file" name="thumbnail">
   </div>
 

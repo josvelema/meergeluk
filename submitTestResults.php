@@ -54,7 +54,7 @@ $html = '
 
 </head>
 <body>
-  <h1>Geluks Kompas</h1>
+  <h1><img src="assets/img/kompas300.png" class="kompas"> Geluks Kompas</h1>
   <h2>' . $userInfo['name'] . '</h2>
   <div class="container">
   ' . $categoryResultsHTML . '
@@ -82,7 +82,7 @@ try {
 
 // $pdfFilename = 'testing.pdf';
 // Prepare the SQL statement
-$sql = "INSERT INTO test_results (name, email, telephone, wants_intake, json_file_url, pdf_file_url, date, time) VALUES (:name, :email, :telephone, :wantsIntake, :jsonFileUrl, :pdfFileUrl, :date, :time)";
+$sql = "INSERT INTO test_results (name, email, telephone, wants_intake, json_file_url, pdf_file_url, date_created, time_created) VALUES (:name, :email, :telephone, :wantsIntake, :jsonFileUrl, :pdfFileUrl, :date_created, :time_created)";
 
 // Create a formatted date and time string
 $currentDateTime = date('Y-m-d H:i:s');
@@ -95,8 +95,8 @@ $stmt->bindParam(':telephone', $userInfo['telephone']);
 $stmt->bindParam(':wantsIntake', $userInfo['wantsIntake'], PDO::PARAM_BOOL);
 $stmt->bindParam(':jsonFileUrl', $JSONfilename);
 $stmt->bindParam(':pdfFileUrl', $pdfFilename);
-$stmt->bindParam(':date', $currentDateTime);
-$stmt->bindParam(':time', $currentDateTime);
+$stmt->bindParam(':date_created', $currentDateTime);
+$stmt->bindParam(':time_created', $currentDateTime);
 
 // Execute the statement
 $stmt->execute();

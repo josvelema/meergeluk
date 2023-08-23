@@ -1916,9 +1916,11 @@ header .arrow-down {
 }
 .gelukskompas .home-wrapper {
   background-image: url(../img/kompasbg.jpg);
-  background-size: 80%;
+  /* background-size: cover; */
   background-repeat: no-repeat;
-  background-position-x: left;
+  background-position-x: right;
+  background-position-y: bottom;
+  background-attachment: scroll;
 }
 main.gelukskompas {
   background-color: var(--gray-t-2);
@@ -1926,7 +1928,7 @@ main.gelukskompas {
 
 @media (max-width: 1025px) {
   .gelukskompas .home-wrapper {
-    background-size: cover;
+    background-attachment: fixed;
   }
 }
 
@@ -2619,10 +2621,33 @@ label {
   box-shadow: var(--box-shadow-2);
 }
 
+.blog-item-download {
+  position: relative;
+}
+
+.blog-item-download::before {
+  content: "Klik om te downloaden";
+  position: absolute;
+  width: 100%;
+  bottom: 1em;
+  height: fit-content;
+  z-index: 2;
+  color: var(--white-100);
+  background: var(--black-t-8);
+  text-align: center;
+  padding: 0.25em;
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: var(--step-0);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
 .blog-item-img img,
 .blog-item-download img {
   display: block;
 }
+
+
 
 .blog-item-download a {
   position: relative;
@@ -2648,6 +2673,7 @@ label {
   scale: 1.05;
   transform: translateY(4px);
 }
+
 
 .blog-item-content {
   margin-top: var(--space-m);
