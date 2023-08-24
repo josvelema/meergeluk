@@ -1,0 +1,112 @@
+* {
+  font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;
+}
+
+.test-result-sum {
+ 
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid #2d2d2d;
+  page-break-after: always;
+}
+
+
+
+.test-result-sum p {
+  
+ 
+  background-color: #f0f0f0;
+  border: 1px solid #5a5a5a;
+}
+
+.test-result .info {
+  float: left;
+}
+
+.test-result .total-scores {
+  float: right;
+}
+
+.category {
+  clear: both;
+  padding: 1em 0.5em;
+  margin-bottom: 2em;
+  border-bottom: 3px double #2d2d2d;
+  page-break-after: always;
+}
+
+p,
+ol,
+ul,
+h3,
+h4 {
+  padding: 0.5em;
+
+}
+
+h3, h4 {
+  text-align: center;
+  border: 1px solid #5555;
+  background-color: rgba(221, 238, 170, 0.13);
+}
+
+strong {
+  text-align: left;
+  padding-right: 1em;
+}
+ol,
+ul {
+  border: 1px solid #0005;
+  background-color: #dedeee;
+  list-style: none;
+
+}
+
+.questions li,
+.top-3-questions li,
+.test-result-sum li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 1.8;
+  padding: 0.25em;
+  border-bottom: 1px solid #fff3;
+  background-color: rgba(222, 222, 238, 0.7);
+
+}
+
+
+.questions li:nth-child(even), .top-3-questions li:nth-child(even), .test-result-sum li:nth-child(even) {
+  background-color: rgba(222, 212, 222, 0.8);
+}
+
+
+li span {
+  padding: 0.25em;
+  min-width: 86px;
+  text-align: justify;
+}
+
+li span:last-of-type {
+  border: 1px solid #5d5d5d;
+}
+
+span.score-0 {
+  background-color: rgba(236, 200, 202, 0.8);
+}
+
+span.score-50 {
+  background-color: rgba(216, 200, 202, 0.8);
+}
+
+span.score-100 {
+  background-color: rgba(210, 230, 210, 0.8);
+}
+
+span.score-150 {
+  background-color: rgba(170, 250, 200, 0.8);
+}
+
+span.score-200 {
+  background-color: rgba(120, 250, 150, 0.8);
+}

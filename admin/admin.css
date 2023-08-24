@@ -553,3 +553,19 @@ th:hover::after {
     z-index: -1;
 }
 
+.test-result-btns {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: 1em 0 2em;
+}
+
+
+.test-result-btns button {
+    all: unset;
+    border: 1px solid #5d5d5d;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    background-color: rgb(100 180 50 / 0.8);
+    color: #fafafa;
+}

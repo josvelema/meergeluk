@@ -14,16 +14,28 @@ try {
 
 // Get the JSON data from the POST request
 $requestData = json_decode(file_get_contents('php://input'), true);
-$formattedData = $requestData['formattedData'];
+
+// Log the incoming data for debugging
+error_log('Incoming Request Data:');
+error_log(print_r($requestData, true));
+
+if (!isset($requestData['headerData'], $requestData['name'], $requestData['email'], $requestData['id'])) {
+  echo json_encode(['error' => 'Invalid request data']);
+  exit;
+}
+
+$headerData = $requestData['headerData'];
 $name = $requestData['name'];
 $email = $requestData['email'];
 $id = (int)$requestData['id'];
+
+$html = $headerData;
 
 // Create an mPDF instance
 $mpdf = new \Mpdf\Mpdf();
 
 // Add the formatted data to the PDF
-$mpdf->WriteHTML($formattedData);
+$mpdf->WriteHTML($html);
 
 // Generate a unique filename for the PDF using name and email
 $pdfFilename = $name . '_' . $id . '_' .  $email . '_test_result.pdf';
@@ -50,7 +62,8 @@ try {
       echo json_encode(['error' => 'Failed to update the database']);
   }
 } catch (PDOException $e) {
-  echo json_encode(['error' => 'Database error: ' . $e->getMessage()]);
+  // Log the database error
+  error_log('Database error: ' . $e->getMessage());
+  echo json_encode(['error' => 'Database error']);
 }
-
 ?>
