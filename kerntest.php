@@ -529,29 +529,29 @@
   showStep(currentStep);
 
   const submitResults = (event) => {
-  // Prevent the form from submitting
-  event.preventDefault();
+    // Prevent the form from submitting
+    event.preventDefault();
 
-  console.log('Submitting results...');
+    console.log('Submitting results...');
 
-  // Create the data object to be submitted
-  const data = {
-    [userInfoKey]: userInfo,
-    [questionsKey]: questions,
-    [categoriesKey]: categories,
-  };
+    // Create the data object to be submitted
+    const data = {
+      [userInfoKey]: userInfo,
+      [questionsKey]: questions,
+      [categoriesKey]: categories,
+    };
 
-  // Generate the HTML snippet with the score results per category
-  const categoryResultsHTML = Object.values(categories).map((category) => {
-    // Get the top 3 question IDs and scores in the category
-    const top3QuestionIds = category.top3questionIds;
-    const top3QuestionScores = category.top3questionScores;
+    // Generate the HTML snippet with the score results per category
+    const categoryResultsHTML = Object.values(categories).map((category) => {
+      // Get the top 3 question IDs and scores in the category
+      const top3QuestionIds = category.top3questionIds;
+      const top3QuestionScores = category.top3questionScores;
 
-    // Retrieve the question content for the top 3 questions
-    // const top3Questions = top3QuestionIds.map((questionId) => questions[questionId].content);
-    const top3Questions = top3QuestionIds.map((questionId) => questions[questionId]?.content || '');
+      // Retrieve the question content for the top 3 questions
+      // const top3Questions = top3QuestionIds.map((questionId) => questions[questionId].content);
+      const top3Questions = top3QuestionIds.map((questionId) => questions[questionId]?.content || '');
 
-    return `
+      return `
       <div class="category-result-pdf">
         <h3>${category.content}</h3>
         <div>
@@ -568,37 +568,52 @@
         </div>
       </div>
     `;
-  });
-
-//   ${category.top3QuestionScores[0]}
-// ${category.top3QuestionScores[1]}
-// ${category.top3QuestionScores[2]}
-
-  // Convert the category results HTML to a string
-  const categoryResultsString = categoryResultsHTML.join('');
-
-  // Include the HTML snippet in the data object
-  data.categoryResultsHTML = categoryResultsString;
-
-  // Use the Fetch API to send a POST request to the server
-  fetch('submitTestResults.php', {
-    method: 'POST',
-    body: JSON.stringify(data),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  })
-    .then((response) => response.json())
-    .then((response) => {
-      console.log(response);
-      console.log('Results submitted successfully!');
-      // Redirect the user to the home page
-      // window.location.href = '/';
-    })
-    .catch((error) => {
-      console.error(error);
     });
-};
+
+    //   ${category.top3QuestionScores[0]}
+    // ${category.top3QuestionScores[1]}
+    // ${category.top3QuestionScores[2]}
+
+    // Convert the category results HTML to a string
+    const categoryResultsString = categoryResultsHTML.join('');
+
+    // Include the HTML snippet in the data object
+    data.categoryResultsHTML = categoryResultsString;
+
+    // Use the Fetch API to send a POST request to the server
+    fetch('admin/submitTestResults.php', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      .then((response) => response.json())
+      .then((response) => {
+        console.log(response);
+        console.log('Results submitted successfully!');
+        // Call the sendEmail.php script to send the email
+        fetch('sendEmail.php', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          })
+          .then((emailResponse) => emailResponse.text())
+          .then((emailResponse) => {
+            console.log(emailResponse);
+          })
+          .catch((emailError) => {
+            console.error('Email sending error:', emailError);
+          });
+
+
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   // function to show validation error messages in the form
   const showErrorMessage = (input, message) => {

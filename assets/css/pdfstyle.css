@@ -67,7 +67,8 @@ P {
   letter-spacing: 1px;
   background-color: #f0eef0;
   width: 100%;
-  page-break-inside: avoid;
+  
+  page-break-after: always;
 }
 
 .category-result-pdf div {

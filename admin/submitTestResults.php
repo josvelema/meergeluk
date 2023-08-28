@@ -3,8 +3,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require_once 'config.php';
-require_once 'vendor/autoload.php';
+require_once '../config.php';
+require_once '../vendor/autoload.php';
 
 
 
@@ -35,9 +35,10 @@ $userInfo = $requestPayload['userinfo'];
 $questions = $requestPayload['questions'];
 $categories = $requestPayload['categories'];
 $categoryResultsHTML = $requestPayload['categoryResultsHTML'];
+// $sanitizedCategoryResultsHTML = htmlspecialchars($categoryResultsHTML);
 
 // make a JSON file the userInfo question and categories data
-$JSONfilename = 'admin/testResults/' . $userInfo['name'] . '_' . $userInfo['email'] . '.json';
+$JSONfilename = 'testResults/' . $userInfo['name'] . '_' . $userInfo['email'] . '.json';
 file_put_contents($JSONfilename, json_encode($requestPayload));
 
 // TODO: make a HTML file with the categoryResultsHTML data and convert it to PDF
@@ -54,7 +55,7 @@ $html = '
 
 </head>
 <body>
-  <h1><img src="assets/img/kompas300.png" class="kompas"> Geluks Kompas</h1>
+  <h1><img src="../assets/img/kompas300.png" class="kompas"> Geluks Kompas</h1>
   <h2>' . $userInfo['name'] . '</h2>
   <div class="container">
   ' . $categoryResultsHTML . '
@@ -66,7 +67,7 @@ $html = '
 try {
   $mpdf = new \Mpdf\Mpdf();
   $mpdf->WriteHTML($html);
-  $pdfFilename = 'test3.pdf';
+  $pdfFilename = 'userPDF/' . $userInfo['name'] . '_' . $userInfo['email'] . '.pdf';
   $mpdf->Output($pdfFilename, \Mpdf\Output\Destination::FILE);
 } catch (\Mpdf\MpdfException $e) { // Note: safer fully qualified exception name used for catch
   // Process the exception, log, print etc.
