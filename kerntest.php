@@ -1,5 +1,7 @@
 <?php include 'functions.php'; ?>
-<?= template_header('Meer Geluk - home') ?>
+<?= template_header('Meer Geluk - GeluksKompas') ?>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 <?= template_nav() ?>
 
 <main class="gelukskompas">
@@ -39,6 +41,8 @@
               <label for="phone">Telefoonnummer <small>(optioneel)</small></label>
               <input type="tel" id="phone" class="form-control">
             </div>
+          <!-- <div class="g-recaptcha" data-sitekey="6Lcke1YlAAAAANoZdNud9lBqKzu3lFFPsyg4Wozz"></div> -->
+
 
           </div>
 
@@ -590,24 +594,41 @@
       })
       .then((response) => response.json())
       .then((response) => {
-        console.log(response);
-        console.log('Results submitted successfully!');
+        if(response.success)  {
+          
+        console.log('Results submitted successfully! Email to:');
+        console.log(response.userEmail)
+        console.log(response.userId)
+
+        const emailData = {
+          userEmail: response.userEmail,
+          userId: response.userId,
+
+        }
         // Call the sendEmail.php script to send the email
-        fetch('sendEmail.php', {
+        fetch('admin/sendEmail.php', {
             method: 'POST',
-            body: JSON.stringify(data),
+            body: JSON.stringify(emailData),
             headers: {
               'Content-Type': 'application/json',
             },
           })
           .then((emailResponse) => emailResponse.text())
           .then((emailResponse) => {
-            console.log(emailResponse);
+            if(emailResponse.success) {
+              alert("Gelukt!")
+            } else {
+              console.log(emailResponse.errors);
+            }
           })
           .catch((emailError) => {
             console.error('Email sending error:', emailError);
           });
 
+        }else {
+      console.log('Results submission failed.');
+      // Handle the case when the submission failed, e.g., show an error message to the user.
+    }
 
       })
       .catch((error) => {
@@ -630,4 +651,4 @@
 <?= template_footer() ?>
 </body>
 
-</html>
+</html> 

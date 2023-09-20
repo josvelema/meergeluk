@@ -37,13 +37,34 @@ $categories = $requestPayload['categories'];
 $categoryResultsHTML = $requestPayload['categoryResultsHTML'];
 // $sanitizedCategoryResultsHTML = htmlspecialchars($categoryResultsHTML);
 
-// make a JSON file the userInfo question and categories data
-$JSONfilename = 'testResults/' . $userInfo['name'] . '_' . $userInfo['email'] . '.json';
-file_put_contents($JSONfilename, json_encode($requestPayload));
+// Check if the email already exists in the database
+$emailExists = false; // Initialize as false
+$josdebugMail = 'rjvelemail@gmail.com';
 
-// TODO: make a HTML file with the categoryResultsHTML data and convert it to PDF
+if ($userInfo['email'] !== $josdebugMail) {
+  $checkEmailQuery = "SELECT COUNT(*) FROM test_results WHERE email = :userEmail";
+  $checkEmailStmt = $pdo->prepare($checkEmailQuery);
+  $checkEmailStmt->bindParam(':userEmail', $userInfo['email']);
+  $checkEmailStmt->execute();
+  $emailCount = $checkEmailStmt->fetchColumn();
 
-$html = '
+  if ($emailCount > 0) {
+    $emailExists = true;
+  }
+}
+
+
+if (!$emailExists) {
+  // Continue with PDF generation and database insertion
+
+
+  // make a JSON file the userInfo question and categories data
+  $JSONfilename = 'testResults/' . $userInfo['name'] . '_' . $userInfo['email'] . '.json';
+  file_put_contents($JSONfilename, json_encode($requestPayload));
+
+  // TODO: make a HTML file with the categoryResultsHTML data and convert it to PDF
+
+  $html = '
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,48 +85,53 @@ $html = '
 </body>
 </html>';
 
-try {
-  $mpdf = new \Mpdf\Mpdf();
-  $mpdf->WriteHTML($html);
-  $pdfFilename = 'userPDF/' . $userInfo['name'] . '_' . $userInfo['email'] . '.pdf';
-  $mpdf->Output($pdfFilename, \Mpdf\Output\Destination::FILE);
-} catch (\Mpdf\MpdfException $e) { // Note: safer fully qualified exception name used for catch
-  // Process the exception, log, print etc.
-  echo $e->getMessage();
+  try {
+    $mpdf = new \Mpdf\Mpdf();
+    $mpdf->WriteHTML($html);
+    $pdfFilename = 'userPDF/' . $userInfo['name'] . '_' . $userInfo['email'] . '.pdf';
+    $mpdf->Output($pdfFilename, \Mpdf\Output\Destination::FILE);
+  } catch (\Mpdf\MpdfException $e) { // Note: safer fully qualified exception name used for catch
+    // Process the exception, log, print etc.
+    echo $e->getMessage();
+  }
+
+
+  // Prepare the SQL statement
+  $sql = "INSERT INTO test_results (name, email, telephone, wants_intake, json_file_url, pdf_file_url, date_created, time_created) VALUES (:name, :email, :telephone, :wantsIntake, :jsonFileUrl, :pdfFileUrl, :date_created, :time_created)";
+
+  // Create a formatted date and time string
+  $currentDateTime = date('Y-m-d H:i:s');
+
+  // Bind the values to the parameters
+  $stmt = $pdo->prepare($sql);
+  $stmt->bindParam(':name', $userInfo['name']);
+  $stmt->bindParam(':email', $userInfo['email']);
+  $stmt->bindParam(':telephone', $userInfo['telephone']);
+  $stmt->bindParam(':wantsIntake', $userInfo['wantsIntake'], PDO::PARAM_BOOL);
+  $stmt->bindParam(':jsonFileUrl', $JSONfilename);
+  $stmt->bindParam(':pdfFileUrl', $pdfFilename);
+  $stmt->bindParam(':date_created', $currentDateTime);
+  $stmt->bindParam(':time_created', $currentDateTime);
+
+  // Execute the statement
+  $stmt->execute();
+
+  // retrieve the last inserted ID
+  $lastInsertedId = $pdo->lastInsertId();
+
+  // Include the ID and email in the response
+  $response = [
+    'success' => true,
+    'userId' => $lastInsertedId,
+    'userEmail' => $userInfo['email']
+  ];
+} else {
+  // Email already exists, send an appropriate error response
+  $response = [
+    'error' => 'Email already exists. PDF cannot be generated.'
+  ];
 }
 
-
-
-
-// TODO: Store userinfo, JSON file URL, PDF file URL, date, and time in the database table using PDO
-
-// pdf dummy content
-
-// $pdfFilename = 'testing.pdf';
-// Prepare the SQL statement
-$sql = "INSERT INTO test_results (name, email, telephone, wants_intake, json_file_url, pdf_file_url, date_created, time_created) VALUES (:name, :email, :telephone, :wantsIntake, :jsonFileUrl, :pdfFileUrl, :date_created, :time_created)";
-
-// Create a formatted date and time string
-$currentDateTime = date('Y-m-d H:i:s');
-
-// Bind the values to the parameters
-$stmt = $pdo->prepare($sql);
-$stmt->bindParam(':name', $userInfo['name']);
-$stmt->bindParam(':email', $userInfo['email']);
-$stmt->bindParam(':telephone', $userInfo['telephone']);
-$stmt->bindParam(':wantsIntake', $userInfo['wantsIntake'], PDO::PARAM_BOOL);
-$stmt->bindParam(':jsonFileUrl', $JSONfilename);
-$stmt->bindParam(':pdfFileUrl', $pdfFilename);
-$stmt->bindParam(':date_created', $currentDateTime);
-$stmt->bindParam(':time_created', $currentDateTime);
-
-// Execute the statement
-$stmt->execute();
-
-
-$response = [
-  'success' => true, // Set to true if the data was saved successfully
-];
 
 // Send the response as JSON
 header('Content-Type: application/json');

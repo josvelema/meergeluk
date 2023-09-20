@@ -4,103 +4,116 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 session_start();
-file_put_contents('debug.log', 'kerntest Script started' . PHP_EOL, FILE_APPEND);
-
+file_put_contents('debugMail.log', 'kerntest Email script started' . PHP_EOL, FILE_APPEND);
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+
 require '../lib/phpmailer/Exception.php';
 require '../lib/phpmailer/PHPMailer.php';
 require '../lib/phpmailer/SMTP.php';
 require '../vendor/autoload.php';
-require '../config.php';
+require '../config.php'; // Include your configuration file
 
-$mail = new PHPMailer(true);
+// Retrieve the request payload as JSON
+$requestPayload = json_decode(file_get_contents('php://input'), true);
+
+// Sanity check for required fields
+if (!isset($requestPayload['userId'], $requestPayload['userEmail'])) {
+    header('HTTP/1.1 400 Bad Request');
+    exit;
+}
 
 try {
     $pdo = new PDO('mysql:host=' . db_host . ';dbname=' . db_name . ';charset=' . db_charset, db_user, db_pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $exception) {
-    exit('Failed to connect to database!');
+    exit('Failed to connect to the database!');
 }
 
-file_put_contents('debug.log', '$_POST contents: ' . print_r($_POST, true) . PHP_EOL, FILE_APPEND);
+// Cast userId to an integer
+$userId = (int)$requestPayload['userId'];
 
-if (isset($_POST['naam'], $_POST['email'], $_POST['bericht'], $_POST['subject'], $_POST['g-recaptcha-response'])) {
-    $errors = [];
-    file_put_contents('debug.log', 'Inside if statement' . PHP_EOL, FILE_APPEND);
-    $extra = [
-        'naam' => $_POST['naam']
+// Proceed with the database query
+$stmt = $pdo->prepare('SELECT pdf_file_url, name FROM test_results WHERE email = :email AND id = :id ');
+$stmt->bindParam(':email', $requestPayload['userEmail']);
+$stmt->bindParam(':id', $userId);
+
+// Execute the query and fetch data
+$stmt->execute();
+$result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if ($result) {
+    // user exists so get the pdf
+    $pdfFilePath = $result['pdf_file_url'];
+    $userName = $result['name'];
+} else {
+    $errors[] = 'No userId or Email or db entry?';
+    $response = [
+        'success' => false,
+        'errors' => array_values($errors)
     ];
+    echo json_encode($response);
+    exit;
+}
 
-    if (isset($_POST['achternaam'])) {
-        $extra['achternaam'] = $_POST['achternaam'];
+$mail = new PHPMailer(true);
+
+try {
+    if (SMTP) {
+        $mail->isSMTP();
+        $mail->Host = smtp_host;
+        $mail->SMTPAuth = true;
+        $mail->Username = smtp_username;
+        $mail->Password = smtp_password;
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+        $mail->Port = smtp_port;
     }
 
-    if (isset($_POST['telefoonnummer'])) {
-        $extra['telefoonnummer'] = $_POST['telefoonnummer'];
-    }
+    if (!empty($pdfFilePath) && file_exists($pdfFilePath)) {
+        $mail->setFrom(mail_from, 'Meer Geluk Coaching en Begeleiding');
 
-    if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-        $errors['email'] = 'Voer een geldid e-mail adres in!';
-    }
+        // Add the user's email as a recipient
+        $mail->addAddress($requestPayload['userEmail'], $userName);
 
-    if (!preg_match('/^[a-zA-Z ]+$/', $_POST['naam'])) {
-        $errors['naam'] = 'Naam kan alleen letters bevatten!';
-    }
+        // Add the site owner's email as a recipient
+        $siteOwnerEmail = 'jos@meergeluk.com';
+        $mail->addAddress($siteOwnerEmail, 'Test door Jos');
 
-    if (empty($_POST['bericht'])) {
-        $errors['bericht'] = 'Voer  a.u.b. een bericht in!';
-    }
+        $mail->addReplyTo('rjvelemail@gmail.com', 'Jos Dev');
 
-    $recaptcha = new \ReCaptcha\ReCaptcha(RECAPTCHA_SECRET_KEY);
-    $resp = $recaptcha->verify($_POST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
+        $mail->isHTML(true);
+        $mail->Subject = 'Geluks Kompas - Resultaten voor ' . $userName;
 
-    if (!$resp->isSuccess()) {
-        $errors['recaptcha'] = 'Captcha validatie mislukt , probeer a.u.b nogmaals.';
-    }
+        // Include a short message in the email body
+        $emailBody = 'Dit is een test! <br>
+            <h2>Werkt headers?</h2>. <p>hallo dit is leuk zeg <strong>TOP</strong></p>';
+        $mail->Body = $emailBody;
+        $mail->AltBody = strip_tags($emailBody);
 
-    if (!$errors) {
-        $stmt = $pdo->prepare('INSERT INTO messages (email, subject, msg, extra) VALUES (?,?,?,?)');
-        $stmt->execute([$_POST['email'], $_POST['subject'], $_POST['bericht'], json_encode($extra)]);
+        // Attach the PDF file
+        $mail->addAttachment($pdfFilePath, 'Gelukskompas-' . str_replace(' ', '', $userName) . '.pdf');
 
-        try {
-            if (SMTP) {
-                $mail->isSMTP();
-                $mail->Host = smtp_host;
-                $mail->SMTPAuth = true;
-                $mail->Username = smtp_username;
-                $mail->Password = smtp_password;
-                $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-                $mail->Port = smtp_port;
-            }
+        $mail->send();
 
-            $mail->setFrom(mail_from, $_POST['naam']);
-            $mail->addAddress(support_email, 'Support');
-            $mail->addReplyTo($_POST['email'], $_POST['naam']);
-
-            $mail->isHTML(true);
-            $mail->Subject = $_POST['subject'] . ' : ' . $_POST['naam'] . ' ' . $_POST['achternaam'];
-            $mail->Body = $_POST['bericht'];
-            $mail->AltBody = strip_tags($_POST['bericht']);
-
-            $mail->send();
-            $response = [
-              'success' => 'Bericht succesvol verstuurd! Bedankt!'
-            ];
-            echo json_encode($response);
-        } catch (Exception $e) {
-            $errors[] = 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
-            $response = [
-              'errors' => array_values($errors)
-          ];
-          echo json_encode($response);
-        }
-    } else {
         $response = [
-    'errors' => $errors
-];
-echo json_encode($response);
+            'success' => true
+        ];
+        echo json_encode($response);
+    } else {
+        $errors[] = 'PDF file not found or invalid.';
+        $response = [
+            'success' => false,
+            'errors' => array_values($errors)
+        ];
+        echo json_encode($response);
     }
+} catch (Exception $e) {
+    $errors[] = 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
+    $response = [
+        'success' => false,
+        'errors' => array_values($errors)
+    ];
+    echo json_encode($response);
 }
 ?>
