@@ -23,13 +23,12 @@ function template_admin_header($title, $selected = 'dashboard') {
     $unread_messages = $stmt->fetchColumn();
     // Admin HTML links
     $admin_links = '
-        <a href="index.php"' . ($selected == 'dashboard' ? ' class="selected"' : '') . '><i class="fas fa-tachometer-alt"></i>Dashboard</a>
-        <a href="messages.php"' . ($selected == 'messages' ? ' class="selected"' : '') . '><i class="fas fa-inbox"></i>Messages<span>' . $unread_messages . '</span></a>
-        <a href="posts.php"' . ($selected == 'posts' ? ' class="selected"' : '') . '><i class="fas fa-comment-dots"></i>Blog posts</a>
-        <a href="comments.php"' . ($selected == 'comments' ? ' class="selected"' : '') . '><i class="fas fa-comment-dots"></i>Blog comments</a>
-        <a href="tests.php"' . ($selected == 'tests' ? ' class="selected"' : '') . '><i class="fas fa-comment-dots"></i>Kerntests</a>
-        
-        <a href="settings.php"' . ($selected == 'settings' ? ' class="selected"' : '') . '><i class="fas fa-tools"></i>Settings</a>
+    <a href="index.php"' . ($selected == 'dashboard' ? ' class="selected"' : '') . '><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a>
+    <a href="messages.php"' . ($selected == 'messages' ? ' class="selected"' : '') . '><i class="fas fa-inbox"></i><span>Messages</span></a>
+    <a href="posts.php"' . ($selected == 'posts' ? ' class="selected"' : '') . '><i class="fas fa-comment-dots"></i><span>Blog posts</span></a>
+    <a href="comments.php"' . ($selected == 'comments' ? ' class="selected"' : '') . '><i class="fa-regular fa-comments"></i><span>Blog comments</span></a>
+    <a href="tests.php"' . ($selected == 'tests' ? ' class="selected"' : '') . '><i class="fa-solid fa-clipboard-question"></i><span>Kerntests</span></a>        
+    <a href="settings.php"' . ($selected == 'settings' ? ' class="selected"' : '') . '><i class="fas fa-tools"></i><span>Settings</span></a>
     ';
 echo <<<EOT
 <!DOCTYPE html>
@@ -39,8 +38,8 @@ echo <<<EOT
 		<meta name="viewport" content="width=device-width,minimum-scale=1">
 		<title>$title</title>
 		<link href="admin.css" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+		
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<link href="adminjostyle.css" rel="stylesheet" type="text/css">
         <!-- Include TinyMCE stylesheet -->
         <link rel="stylesheet" href="../vendor/tinymce/tinymce/skins/ui/oxide/skin.min.css">
@@ -91,3 +90,5 @@ echo <<<EOT
 EOT;
 }
 ?>
+
+

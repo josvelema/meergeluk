@@ -32,7 +32,7 @@ if (isset($_GET['delete'])) {
 
 <h2>Comments</h2>
 
-<table class="table table-bordered">
+<table class="jostable">
   <thead>
     <tr>
       <th>id</th>
@@ -75,9 +75,7 @@ if (isset($_GET['delete'])) {
       $stmt->execute();
       foreach ($stmt as $row) {
 
-        // $select_post_id_query = mysqli_query($conn, $query);
-        // while ($row = mysqli_fetch_assoc($select_post_id_query)) 
-        // {
+    
         $post_id = $row['post_id'];
         $post_title = $row['post_title'];
 

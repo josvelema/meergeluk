@@ -2557,7 +2557,7 @@ label {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: min(100%, 580px);
+  width: min(100%, 80ch);
   height: 100%;
   padding: 1em;
   background-color: var(--white-100);
@@ -2706,6 +2706,8 @@ label {
   box-shadow: var(--box-shadow);
 }
 
+
+
 .single-blog-post.blog-post-page {
   background-color: transparent;
   box-shadow: unset;
@@ -2713,7 +2715,7 @@ label {
 
 .blog-post-page .blog-item {
   margin-block: var(--space-xs);
-  width: min(100% - var(--space-s), 1025px);
+  width: min(100% - var(--space-xs), 77ch);
 }
 
 .blog-post-page .blog-item-img {

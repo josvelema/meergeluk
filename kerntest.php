@@ -564,7 +564,7 @@
           Top 3
           </p>
           <ol>
-            <li> "${top3Questions[0]}" lsd</li>
+            <li> "${top3Questions[0]}"</li>
             <li> "${top3Questions[1]}"</li>
             <li> "${top3Questions[2]}"</li>
             

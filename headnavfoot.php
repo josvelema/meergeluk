@@ -112,8 +112,8 @@ function blogpost_template_header($title, $description, $keywords, $imageURL, $c
       <meta property="og:description" content="$description">
       <meta property="og:image" content="$imageURL">
       <meta property="og:url" content="$canonicalURL">
-      <meta property="og:type" content="website">
-      <meta property="og:site_name" content="Meer Geluk - Blog">
+      <meta property="og:type" content="article">
+      <meta property="og:site_name" content="Meer Geluk Coaching & Begeleiding">
       <meta property="og:locale" content="nl_NL">
       <meta property="og:locale:alternate" content="en_US">
       <meta name="view-transition" content="same-origin">

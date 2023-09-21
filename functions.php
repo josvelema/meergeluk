@@ -3,9 +3,6 @@ include_once 'config.php';
 
 include_once 'headnavfoot.php';
 
-
-
-// igore this comment
 function pdo_connect_mysql()
 {
     try {

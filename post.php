@@ -260,6 +260,6 @@ if (isset($_GET['title'])) {
       }
     </script>
 
-  <!-- Rest of the code -->
+
 
   <?= template_footer() ?>
