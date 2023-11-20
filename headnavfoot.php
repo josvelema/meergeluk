@@ -164,7 +164,7 @@ echo <<<EOT
                   <li role="none" class="dropdown">
                     <button class="dropdown-toggle " role="menuitem" aria-haspopup="true" aria-expanded="false"
                       id="coaching-dropdown">
-                      Coaching & Begeleiding&nbsp;
+                      Coaching;
                       <span>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="dropdown-arrow"
                           width="18" height="18">
@@ -196,6 +196,10 @@ echo <<<EOT
                       </li>
                   
                     </ul>
+                  </li>
+                  <li role="none">
+                    <a href="{$base_url}/gelukskompas" class="nav-link btn" role="menuitem">
+                      GeluksKompas</a>
                   </li>
                   <li role="none">
                     <a href="{$base_url}/blog" class="nav-link btn" role="menuitem">

@@ -2,3 +2,4 @@ config.php
 assets/blogMedia
 .htaccess
 debug.log
+oldCodeDump

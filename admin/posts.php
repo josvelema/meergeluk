@@ -28,6 +28,74 @@ if (isset($_GET['reset'])) {
 
 <?= template_admin_header('All posts', 'posts') ?>
 
+<form action="" method="post">
+  <label class="my-custom-checkbox">
+    <input type="checkbox" class="my-checkbox-input">
+    <span class="my-checkbox-indicator"></span>
+  </label>
+</form>
+<style>
+.my-custom-checkbox {
+  --custom-color: #26a69a;
+  position: relative;
+}
+
+.my-checkbox-input {
+  display: none;
+}
+
+.my-checkbox-input:checked ~ .my-checkbox-indicator {
+  background-color: var(--custom-color);
+  border-color: var(--custom-color);
+  background-size: 80%;
+}
+
+.my-checkbox-indicator {
+  border-radius: 3px;
+  display: inline-block;
+  position: absolute;
+  top: 4px;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #aaa;
+  transition: .3s;
+  background: transparent;
+  background-size: 0%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+}
+
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+  const checkboxes = document.querySelectorAll('.my-checkbox-input');
+
+  checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+      const indicator = this.nextElementSibling;
+      if (this.checked) {
+        indicator.style.backgroundSize = '80%';
+      } else {
+        indicator.style.backgroundSize = '0%';
+      }
+    });
+  });
+});
+
+</script>
+  <div id="bulkOptionContainer">
+
+    <select class="form-control" name="bulk_options" id="">
+      <option value="">Select Bulk operation</option>
+      <option value="published">Publish</option>
+      <option value="draft">Draft</option>
+      <option value="delete">Delete</option>
+      <option value="clone">Clone</option>
+    </select>
+
+  </div>
 <h2>All Posts</h2>
 
 <?php
@@ -118,10 +186,63 @@ if (isset($_POST['checkBoxArray'])) {
 
 
 
-<form action="" method='post'>
+<form action="" method="post">
+  <label class="my-custom-checkbox">
+    <input type="checkbox" class="my-checkbox-input">
+    <span class="my-checkbox-indicator"></span>
+  </label>
+</form>
+<style>
+.my-custom-checkbox {
+  --custom-color: #26a69a;
+  position: relative;
+}
 
+.my-checkbox-input {
+  display: none;
+}
 
+.my-checkbox-input:checked ~ .my-checkbox-indicator {
+  background-color: var(--custom-color);
+  border-color: var(--custom-color);
+  background-size: 80%;
+}
 
+.my-checkbox-indicator {
+  border-radius: 3px;
+  display: inline-block;
+  position: absolute;
+  top: 4px;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #aaa;
+  transition: .3s;
+  background: transparent;
+  background-size: 0%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E");
+}
+
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+  const checkboxes = document.querySelectorAll('.my-checkbox-input');
+
+  checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+      const indicator = this.nextElementSibling;
+      if (this.checked) {
+        indicator.style.backgroundSize = '80%';
+      } else {
+        indicator.style.backgroundSize = '0%';
+      }
+    });
+  });
+});
+
+</script>
   <div id="bulkOptionContainer">
 
     <select class="form-control" name="bulk_options" id="">
@@ -218,7 +339,7 @@ if (isset($_POST['checkBoxArray'])) {
           </td>
 
           <td>
-            <img width="100" src="../assets/blogMedia/<?= ($cat_title !== 'Blog') ? $post_thumb : $post_image ?>" alt='<?= $post_title ?>'>
+            <img width="100" src="../assets/blogMedia/<?= ($cat_title !== 'Blog') ? $post_thumb : $post_image ?>" alt='<?= $post_title ?>' loading="lazy">
           </td>
 
           <td>

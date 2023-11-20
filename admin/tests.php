@@ -162,7 +162,7 @@ template_admin_header('Test resultaten', 'tests')
         <td><?= $test_telephone ?></td>
         <td><?= ($test_wants_intake) ? 'Ja' : 'Nee' ?></td>
         <td><a href="#" class="json-link" data-json="<?= $test_json ?>" data-user-id="<?= $test_id ?>" data-user-name="<?= $test_name ?>" data-user-email="<?= $test_email ?>" data-created="<?= $date_created ?>">Bekijken</a></td>
-        <td><a href="../<?= $test_pdf  ?>" target="_blank">Open</td>
+        <td><a href="<?= $test_pdf  ?>" target="_blank">Open</td>
         <td>
           <?php
           if ($test_pdf_full !== null) {

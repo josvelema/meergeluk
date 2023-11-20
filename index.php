@@ -4,6 +4,7 @@ include 'functions.php';
 <?= template_header('Meer Geluk - home') ?>
 <?= template_nav() ?>
 
+
   <main class="full">
     <div class="home-wrapper">
       <section class="full hero-container hero-home">
@@ -47,11 +48,10 @@ include 'functions.php';
               </div>
               <div class="cta-buttons no-text">
                 <a href="contact" class="btn btn--accent"><i class="fa-regular fa-envelope"></i></a>
-                <a href="https://wa.me/31612204799" " class=" btn btn--accent" data-social="whatsapp">
+                <a href="https://wa.me/31612204799"  class=" btn btn--accent" data-social="whatsapp">
                   <i class="fa-brands fa-whatsapp"></i>
-                  <!-- <span>WhatsApp</span> -->
-                </a>
-                <a href="tel:0612204799"" class=" btn btn--accent">
+
+                  <a href="tel:0612204799"" class=" btn btn--accent">
                   <i class="fa-solid fa-phone"></i>
                   <!-- <span>telefoon</span> -->
                 </a>
@@ -72,24 +72,7 @@ include 'functions.php';
 
         <div class="section-wrapper">
 
-          <!-- <div class="svg-wrapper">
-
-            <button class="arrow-down" aria-controls="scroll-down" aria-label="scroll down" onclick="scrollToContent()"
-              id="scrollDown">
-              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-down-circle" width="44"
-                height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="#f0f0f0"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <circle cx="12" cy="12" r="8" />
-                <line x1="8" y1="12" x2="12" y2="16" />
-                <line x1="12" y1="8" x2="12" y2="16" />
-                <line x1="16" y1="12" x2="12" y2="16" />
-              </svg>
-            </button>
-          </div> -->
-          <!-- <img src="assets/img/meerGelukLogoKlaver.png" alt="Meer Geluk Klaver" class="klaverLogo"> -->
           <h2 class="sr-only">Coaching en begeleiding trajecten</h2>
-          </header>
           <div class="container coaching-flex">
             <article class="coaching">
 
@@ -135,9 +118,9 @@ include 'functions.php';
               <div class="image-wrapper">
                 <h2 class="h2">Relatie Geluk</h2>
                 <div class="clover">
-                  <svg height="16px" width="16px" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"
-                    stroke="currentColor" fill="#e2887e" class="clover-svg">
+                  <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg"
+                       xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"
+                       stroke="currentColor" fill="#e2887e" class="clover-svg">
 
                     <g>
                       <path class="st0" d="M384.666,268.189c-40.783,3.87-74.411-2.838-100.612-12.41c26.045-10.036,59.55-17.293,100.392-14.116
@@ -175,9 +158,9 @@ include 'functions.php';
               <div class="image-wrapper">
                 <h2 class="h2">Werk Geluk</h2>
                 <div class="clover">
-                  <svg height="16px" width="16px" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"
-                    stroke="currentColor" fill="#e2887e" class="clover-svg">
+                  <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg"
+                       xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"
+                       stroke="currentColor" fill="#e2887e" class="clover-svg">
 
                     <g>
                       <path class="st0" d="M384.666,268.189c-40.783,3.87-74.411-2.838-100.612-12.41c26.045-10.036,59.55-17.293,100.392-14.116
@@ -214,9 +197,9 @@ include 'functions.php';
               <div class="image-wrapper">
                 <h2 class="h2">Creatief Geluk</h2>
                 <div class="clover">
-                  <svg height="16px" width="16px" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"
-                    stroke="currentColor" fill="#e2887e" class="clover-svg">
+                  <svg height="16px" width="16px" xmlns="http://www.w3.org/2000/svg"
+                       xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"
+                       stroke="currentColor" fill="#e2887e" class="clover-svg">
 
                     <g>
                       <path class="st0" d="M384.666,268.189c-40.783,3.87-74.411-2.838-100.612-12.41c26.045-10.036,59.55-17.293,100.392-14.116

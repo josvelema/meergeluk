@@ -16,8 +16,9 @@ html {
 body {
     position: relative;
     min-height: 100%;
-    color: #555555;
-    background-color: #ebeced;
+    color: #2a2a2a;
+    background: linear-gradient(180deg, rgba(224,233,253,1) 0%, rgba(233,236,241,1) 90%);
+  box-shadow: 0 0 0 10px rgba(255, 255, 255,.4); #ebeced;
     margin: 0;
 }
 
@@ -32,7 +33,7 @@ h5 {
 }
 
 header {
-    display: -ms-flexbox;
+    
     display: flex;
     position: fixed;
     top: 0;
@@ -40,9 +41,9 @@ header {
     padding-left: 260px;
     z-index: 888;
     width: 100%;
-    height: 55px;
+    height: 4em;
     background-color: #fff;
-    -webkit-box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.15);
+    
     box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.15);
 }
 
@@ -52,11 +53,11 @@ header a {
     color: #4a5361;
     height: 100%;
     text-decoration: none;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
+    
+    
     justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
+    
+    ;
     align-items: center;
     padding: 0 20px;
 }
@@ -84,6 +85,7 @@ aside {
     position: fixed;
     z-index: 889;
     height: 100%;
+    
     /* width: 260px; */
     width: fit-content;
     
@@ -106,12 +108,12 @@ aside h1 {
     margin: 0;
     font-weight: 600;
     font-size: 14px;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
+    
+    ;
     align-items: center;
     padding: 0 20px;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
+    
+    
     justify-content: center;
 }
 
@@ -166,12 +168,13 @@ main h2 {
 
 main .content-block {
     background-color: #fff;
+    box-shadow: 0 2px 6px 0 rgba(136,148,171,.2),0 24px 20px -24px rgba(71,82,107,.1);
     margin-top: 25px;
     padding: 15px;
 }
 
 main .dashboard {
-    display: -ms-flexbox;
+    
     display: flex;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
@@ -181,7 +184,7 @@ main .dashboard {
 
 main .dashboard .stat {
     width: 24%;
-    display: -ms-flexbox;
+    
     display: flex;
 }
 
@@ -195,8 +198,8 @@ main .dashboard .stat i {
     -ms-flex-pack: end;
     justify-content: flex-end;
     padding-right: 15px;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
+    
+    ;
     align-items: center;
     font-size: 40px;
     width: 27%;
@@ -261,7 +264,7 @@ main .table table .details:hover {
 }
 
 main .form {
-    display: -ms-flexbox;
+    
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -351,7 +354,7 @@ main .form div {
 }
 
 main .form .submit-btns {
-    display: -ms-flexbox;
+    
     display: flex;
 }
 
@@ -368,7 +371,7 @@ main .form .submit-btns .delete:hover {
 }
 
 main .links {
-    display: -ms-flexbox;
+    
     display: flex;
     -ms-flex-flow: wrap;
     flex-flow: wrap;
@@ -403,7 +406,7 @@ main .error {
 
 .login form {
     padding-top: 100px;
-    display: -ms-flexbox;
+    
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -503,8 +506,10 @@ main .error {
 hsl(263, 45%, 23%);
  : hsl(31, 32%, 93%);
 
+   background: url(https://flayks.com/images/grain.png) 0 0/150px auto;
 
      */
+     
 .btn {
     all: unset;
     text-decoration: none;
@@ -518,7 +523,7 @@ hsl(263, 45%, 23%);
     background-color: hsl(31, 32%, 93%);
     outline: 1px solid transparent;
     outline-offset: 3px;
-        
+
     transform-origin: 0px;
     transform: translateY(-1px);
     transition: all 250ms 100ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
@@ -544,6 +549,8 @@ outline: 1px solid hsl(263, 40%, 36%)
     
         /* border: 1px springgreen; */
         box-shadow: -3px 8px 20px 1px #3335;
+        border-collapse: collapse;
+
     }
 .jostable tbody {
     vertical-align: top;
@@ -553,58 +560,100 @@ outline: 1px solid hsl(263, 40%, 36%)
 
 
 .jostable th {
+    display: table-cell;
     background: rgb(61 53 80 / 86%);
-    color: #fff;
-    /* width: 6em; */
-    padding: 0.5em;
-    border-right: 1px solid #eee;
-    border-bottom: 4px double #222;
-}
+      color:#D5DDE5;;
+    background:#1b1e24;
+    border-bottom:4px solid #9ea7af;
+    border-right: 1px solid #343a45;
+        font-weight: 100;
+    padding:1em 0.5em;
+    text-align:left;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    vertical-align:middle;
+  }
+  
+  .jostabel th:first-child {
+    border-top-left-radius:3px;
+  }
+   
+  .jostable th:last-child {
+    border-top-right-radius:3px;
+    border-right:none;
+  }
+
+  tr {
+    border-top: 1px solid #C1C3D1;
+    border-bottom: 1px solid #C1C3D1;
+    /* color:#666B85; */
+    font-size:16px;
+    font-weight:normal;
+    /* text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1); */
+  }
+  tr:first-child {
+    border-top:none;
+  }
+  
+  tr:last-child {
+    border-bottom:none;
+  }
+   
 
 .jostable td {
-    
+    display: table-cell;
+    word-wrap: break-word;
+    max-width: fit-content;
     padding: 0.5em !important;
     text-align: justify;
-    border: 1px solid hsl(0deg 0% 59.27%);
+    text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+    border-right: 1px solid #C1C3D1;
+    /* border: 1px solid hsl(0deg 0% 59.27%);
+} */
+transition: all 200ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 
+td:last-child {
+    border-right: 0px;
+  }
 
 
 .jostable tr:nth-child(odd) {
-    background: hsl(44, 50%, 90% , 54%);
     transition: all 150ms ease-in-out;
-
+    background: hsl(29, 78%, 91%, 75%);
+    
 }
 
 .jostable tr:nth-child(even) {
-    background: hsl(44, 90%, 90% , 94%);
     
+    background: hsl(44, 73%, 88% , 74%);
     transition: all 150ms ease-in-out;
     
 }
 
-.jostable td {
+/* .jostable td {
     background: transparent;
     transition: all 150ms ease-in-out;
     
-}
+} */
 
-
+/* 
 .jostable td:hover  {
-    /* border: inset 1px solid orangered; */
+   
     background: hsl(320, 90%, 90% , 74%);
-    /* background: hsl(44, 80%, 90% , 54%); */
+    
     mix-blend-mode: multiply;
     
     
 }
+*/
 
 
-.jostable tr:nth-child(even):hover,
-.jostable tr:nth-child(odd):hover{
-    background: hsl(44, 80%, 90% , 54%);
-    mix-blend-mode: multiply;
-    /* border: 1px solid orangered; */
+.jostable tr:hover td
+{
+    
+    background: hsl(44, 40%, 95% , 94%);
+
+    /* mix-blend-mode: multiply; */
 
 }
 

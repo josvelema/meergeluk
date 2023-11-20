@@ -1,0 +1,162 @@
+[
+  "questions",
+  [
+    {
+      "questionId": 1,
+      "content": "Erkenning is belangrijk voor mij. ",
+      "score": 0,
+      "categoryId": 1
+    },
+    {
+      "questionId": 2,
+      "content": "Ik ben competitief/strijdlustig. ",
+      "score": 0,
+      "categoryId": 1
+    },
+    {
+      "questionId": 3,
+      "content": "Ik ben trots op wie ik ben. ",
+      "score": 0,
+      "categoryId": 1
+    },
+    {
+      "questionId": 4,
+      "content": "Ik vergelijk mijn eigen succes altijd met dat van anderen.",
+      "score": 0,
+      "categoryId": 1
+    },
+    {
+      "questionId": 12,
+      "content": "vraag over betekenis",
+      "score": 0,
+      "categoryId": 1
+    },
+    {
+      "questionId": 13,
+      "content": "vraag over betekenis",
+      "score": 0,
+      "categoryId": 1
+    },
+    {
+      "questionId": 14,
+      "content": "vraag over betekenis",
+      "score": 0,
+      "categoryId": 1
+    },
+    {
+      "questionId": 15,
+      "content": "vraag over bijdrage",
+      "score": 0,
+      "categoryId": 2
+    },
+    {
+      "questionId": 16,
+      "content": "vraag over bijdrage",
+      "score": 0,
+      "categoryId": 2
+    },
+    {
+      "questionId": 27,
+      "content": "vraag over bijdrage",
+      "score": 0,
+      "categoryId": 2
+    },
+    {
+      "questionId": 28,
+      "content": "vraag over bijdrage",
+      "score": 0,
+      "categoryId": 2
+    },
+    {
+      "questionId": 29,
+      "content": "vraag over groei",
+      "score": 0,
+      "categoryId": 3
+    },
+    {
+      "questionId": 30,
+      "content": "vraag over groei",
+      "score": 0,
+      "categoryId": 3
+    }
+  ],
+  "categories",
+  [
+    {
+      "categoryId": 1,
+      "content": "Betekenis",
+      "categoryScore": 0,
+      "top3questionIds": [0, 0, 0],
+      "top3questionScores": [0, 0, 0],
+      "maxScore": 0,
+      "aboutTitle": "Betekenis: Zoek je naar de diepere betekenis van het leven?",
+      "aboutContent": "Jij, voor wie betekenis cruciaal is, streeft naar meer dan de alledaagse dingen. Je wilt begrijpen waarom je hier bent en wat jouw levensdoel is. Diepgang en zingeving zijn voor jou de sleutels tot een vervuld leven."
+    },
+    {
+      "categoryId": 2,
+      "content": "Bijdrage",
+      "categoryScore": 0,
+      "top3questionIds": [0, 0, 0],
+      "top3questionScores": [0, 0, 0],
+      "maxScore": 0,
+      "aboutTitle": "Bijdrage: Vind je geluk door anderen te helpen?",
+      "aboutContent": "Als bijdrage belangrijk voor je is, put je vreugde uit het helpen van anderen. Of het nu vrijwilligerswerk is of eenvoudige vriendelijkheid, jouw geluk komt voort uit de wetenschap dat je een positieve invloed hebt op anderen."
+    },
+    {
+      "categoryId": 3,
+      "content": "Groei",
+      "categoryScore": 0,
+      "top3questionIds": [0, 0, 0],
+      "top3questionScores": [0, 0, 0],
+      "maxScore": 0,
+      "aboutTitle": "Groei: Wil je altijd leren en groeien?",
+      "aboutContent": "Groei is voor jou meer dan alleen fysieke expansie. Je zoekt constant naar manieren om te leren en te verbeteren. Nieuwe uitdagingen omarmen en jezelf ontwikkelen zijn voor jou niet alleen doelen maar essentiële onderdelen van jouw gelukspad."
+    },
+    {
+      "categoryId": 4,
+      "content": "Liefde",
+      "categoryScore": 0,
+      "top3questionIds": [0, 0, 0],
+      "top3questionScores": [0, 0, 0],
+      "maxScore": 0,
+      "aboutTitle": "Liefde: Geniet je van vriendschappen en familiebanden?",
+      "aboutContent": " Voor jou staat liefde centraal en gaat het niet alleen om romantiek. Sterke banden met vrienden en familie zijn jouw fundament. Je voelt je het meest vervuld in hechte relaties en waardevolle vriendschappen."
+    },
+    {
+      "categoryId": 5,
+      "content": "Variatie",
+      "categoryScore": 0,
+      "top3questionIds": [0, 0, 0],
+      "top3questionScores": [0, 0, 0],
+      "maxScore": 0,
+      "aboutTitle": "Variatie: Hou je van avontuur en afwisseling?",
+      "aboutContent": "Jij, die variatie hoog in het vaandel draagt, zoekt naar avontuur en nieuwe ervaringen. Routine voelt voor jou beklemmend, en je gedijt op spontaniteit. Elke dag is een kans om iets nieuws te ontdekken en te leren."
+    },
+    {
+      "categoryId": 6,
+      "content": "Zekerheid",
+      "categoryScore": 0,
+      "top3questionIds": [0, 0, 0],
+      "top3questionScores": [0, 0, 0],
+      "maxScore": 0,
+      "aboutTitle": "Zekerheid: Hou je van rust en zekerheid?",
+      "aboutContent": "Voor jou, die waarde hecht aan zekerheid, draait het om een rustig en veilig leven. Je verlangt naar stabiliteit, zowel financieel als emotioneel. Een vaste basis, met geld op de bank en innerlijke rust, geeft jou een gevoel van geborgenheid."
+      
+    }
+  ],
+  "userinfo",
+  [
+    {
+      "userId": null,
+      "name": "",
+      "email": "",
+      "telephone": "",
+      "wantsPDF": false,
+      "wantsIntake": false,
+      "newsletter": false,
+      "CreatedAt": "",
+      "UpdatedAt": "",
+      "sortedCategories": []
+    }
+  ]
+]
