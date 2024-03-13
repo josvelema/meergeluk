@@ -143,19 +143,11 @@ function template_nav()
 
 echo <<<EOT
             <nav>
-            <div class="nav-container">
-              <a href="/"" class=" btn btn--home" aria-label="Go to homepage" aria-current="page">
-                <i class="fa-solid fa-house"></i>
-                <span>home</span>
-              </a>
-
-
-
               <div class="nav-wrapper">
                 <button class="btn btn--menu" id="menu-btn" aria-expanded="false" aria-controls="menu"
                   aria-label="Open mobile navigation">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.25"
-                    stroke="currentColor" class="w-6 h-6" width="32" height="32">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor" class="w-6 h-6" width="24" height="24">
                     <path stroke-linecap="round" stroke-linejoin="round"
                       d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
                   </svg>
@@ -164,7 +156,7 @@ echo <<<EOT
                   <li role="none" class="dropdown">
                     <button class="dropdown-toggle " role="menuitem" aria-haspopup="true" aria-expanded="false"
                       id="coaching-dropdown">
-                      Coaching;
+                      Coaching
                       <span>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="dropdown-arrow"
                           width="18" height="18">
@@ -210,8 +202,8 @@ echo <<<EOT
                   </li>
 
                   <li role="none">
-                    <a href="{$base_url}/contact" class="nav-link btn btn--accent" role="menuitem">
-                      Contact</a>
+                    <a href="{$base_url}/contact" class="nav-link btn btn-mail" role="menuitem">
+                    <i class="fa-regular fa-envelope"></i></a>
                   </li>
                 </ul>
               </div>
